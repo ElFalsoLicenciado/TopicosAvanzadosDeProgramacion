@@ -1,0 +1,30 @@
+TAREAS REPRODUCTOR MUSICAL.
+
+# Playlist
+- Metodo para eliminar un elemento de la playlist. 								***HECHO
+- Metodo para eliminar todos los elementos	   								***HECHO
+
+# Player
+- Arreglar function de detener la cancion y tenerla desde 0
+
+# PaginaReproductor
+- Metodo para la ejecucion y pausa de la cancion (Validaciones para reproducir la siguiente o la misma o si ya no sigue ninguna detener  el reproductor.)											***HECHO
+- Metodo para detener la reproduccion de la playlist								
+- Metodos para saltar la cancion actual para la siguiente o anterior 						***HECHO
+
+# PaginaPlaylist
+- Metodo para agregar playlist al listado de playlists (Actualizar el ComboBox) 				***HECHO
+- Metodo para remover playlist del listado (Actualizar el ComboBox)						***HECHO
+- Metodo para editar el nombre de la playlist (Actualizar el ComboBox)						***HECHO
+
+- Metodo para agregar archivo a la playlist (Actualizar el ItemList y la PlayList)				***HECHO
+- Metodo para eliminar archivo de la playlist (Actualizar el ItemList y la Playlist)				***HECHO
+- Metodo para subir prioridad (Actualizar el ItemList y la Playlist)						***HECHO
+- Metodo para bajar prioridad (Actualizar el ItemList y la Playlist)						***HECHO
+- Metodo para limpiar la lista (Actualizar el ItemList y la Playlist)						***HECHO 
+
+- Método para guardar playlist (Tanto en Itemlist y Playlist)							***HECHO
+- Método para deshacer todos los cambios de vuelta al original (No cambia nada)					***HECHO
+
+- Método para seleccionar playlist seleccionada									***HECHO
+- Método para no hacer nada (No cambia nada)									***HECHO
