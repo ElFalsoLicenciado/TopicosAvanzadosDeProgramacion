@@ -4,9 +4,11 @@ import java.awt.Color;
 import org.pushingpixels.radiance.theming.api.RadianceThemingCortex;
 import org.pushingpixels.radiance.theming.api.skin.*;
 import proyecto.enums.UserType;
+import proyecto.enums.StateNames;
 import proyecto.models.Session;
 import proyecto.services.UserServices;
 import proyecto.utils.DialogHelper;
+import proyecto.utils.SecurityTools;
 
 public class LogInPanel extends javax.swing.JFrame {
 
@@ -450,17 +452,20 @@ public class LogInPanel extends javax.swing.JFrame {
                 clearFields();
                 return;
             }
+            String password = String.valueOf(fieldPassword.getPassword());
+            password = SecurityTools.hashString(password);
 
             if(Session.logIn(
                     fieldUsername.getText(),
-                    String.valueOf(fieldPassword.getPassword()))
+                    password)
             ) {
                 hideElements();
-                new HomePanel(this).setVisible(true);
+                new HomePanel(this, currentSession).setVisible(true);
                 return;
             }
             return;
         }
+
         UserType type = null;
         if (choiceUser.isSelected()){
             type = UserType.USER;
@@ -475,14 +480,16 @@ public class LogInPanel extends javax.swing.JFrame {
             );
             return;
         }
+        String password = String.valueOf(fieldPassword.getPassword());
+        password = SecurityTools.hashString(password);
 
         if (Session.signUp(
                 type,
                 fieldUsername.getText(),
-                String.valueOf(fieldPassword.getPassword()))
+                password)
         ) {
             hideElements();
-            new HomePanel(this).setVisible(true);
+            new HomePanel(this, currentSession).setVisible(true);
         }
     }//GEN-LAST:event_labelLogInMouseClicked
 
@@ -490,7 +497,7 @@ public class LogInPanel extends javax.swing.JFrame {
         logIn = true;
         hideElements();
         Session.guestMode();
-        new HomePanel(this).setVisible(true);
+        new HomePanel(this, currentSession).setVisible(true);
     }//GEN-LAST:event_labelGuestMouseClicked
 
     private void labelLogInMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelLogInMouseEntered

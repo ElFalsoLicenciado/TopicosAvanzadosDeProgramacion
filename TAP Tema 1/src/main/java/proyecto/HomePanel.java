@@ -1,25 +1,31 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package proyecto;
+
+import proyecto.models.Session;
+import proyecto.models.User;
+import proyecto.subframes.*;
 
 import java.awt.Color;
 
 public class HomePanel extends javax.swing.JFrame {
     
     int xMouse, yMouse;
-    LogInPanel logInPanel;
+    private LogInPanel logInPanel;
+    private Session session;
     private static final java.util.logging.Logger logger = java.util.logging.Logger.
             getLogger(HomePanel.class.getName());
 
     public HomePanel() {
         initComponents();
+        setLocationRelativeTo(null);
+        manageRecordsPanel.setVisible(false);
     }
 
-    public HomePanel(LogInPanel logInPanel) {
-        initComponents();
+    public HomePanel(LogInPanel logInPanel, Session session) {
         this.logInPanel = logInPanel;
+        this.session = session;
+        initComponents();
+        setLocationRelativeTo(null);
+        manageRecordsPanel.setVisible(false);
     }
 
     @SuppressWarnings("unchecked")
@@ -27,9 +33,13 @@ public class HomePanel extends javax.swing.JFrame {
     private void initComponents() {
 
         tabGroup = new javax.swing.JTabbedPane();
-        viewRecordsPane = new javax.swing.JPanel();
-        createRecordsPane = new javax.swing.JPanel();
-        adminPane = new javax.swing.JPanel();
+        readTab = new javax.swing.JPanel();
+        readRecordsPanel = new proyecto.subframes.ReadRecordsPanel();
+        manageTab = new javax.swing.JPanel();
+        manageRecordsPanel = new proyecto.subframes.ManageRecordsPanel();
+        editRecordPanel = new proyecto.subframes.EditRecordPanel();
+        adminTab = new javax.swing.JPanel();
+        adminToolsPanel = new proyecto.subframes.AdminToolsPanel();
         header = new javax.swing.JPanel();
         btnSalir = new javax.swing.JPanel();
         x = new javax.swing.JLabel();
@@ -41,49 +51,45 @@ public class HomePanel extends javax.swing.JFrame {
             public void windowClosed(java.awt.event.WindowEvent evt) {
                 formWindowClosed(evt);
             }
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
         });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         tabGroup.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
 
-        javax.swing.GroupLayout viewRecordsPaneLayout = new javax.swing.GroupLayout(viewRecordsPane);
-        viewRecordsPane.setLayout(viewRecordsPaneLayout);
-        viewRecordsPaneLayout.setHorizontalGroup(
-            viewRecordsPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 754, Short.MAX_VALUE)
+        javax.swing.GroupLayout readTabLayout = new javax.swing.GroupLayout(readTab);
+        readTab.setLayout(readTabLayout);
+        readTabLayout.setHorizontalGroup(
+            readTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(readRecordsPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 762, Short.MAX_VALUE)
         );
-        viewRecordsPaneLayout.setVerticalGroup(
-            viewRecordsPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 525, Short.MAX_VALUE)
-        );
-
-        tabGroup.addTab("Ver registros", viewRecordsPane);
-
-        javax.swing.GroupLayout createRecordsPaneLayout = new javax.swing.GroupLayout(createRecordsPane);
-        createRecordsPane.setLayout(createRecordsPaneLayout);
-        createRecordsPaneLayout.setHorizontalGroup(
-            createRecordsPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 754, Short.MAX_VALUE)
-        );
-        createRecordsPaneLayout.setVerticalGroup(
-            createRecordsPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 525, Short.MAX_VALUE)
+        readTabLayout.setVerticalGroup(
+            readTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(readRecordsPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 525, Short.MAX_VALUE)
         );
 
-        tabGroup.addTab("Crear registro", createRecordsPane);
+        tabGroup.addTab("Ver registros", readTab);
 
-        javax.swing.GroupLayout adminPaneLayout = new javax.swing.GroupLayout(adminPane);
-        adminPane.setLayout(adminPaneLayout);
-        adminPaneLayout.setHorizontalGroup(
-            adminPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 754, Short.MAX_VALUE)
+        manageTab.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        manageTab.add(manageRecordsPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(2, 0, 760, 525));
+        manageTab.add(editRecordPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 760, 530));
+
+        tabGroup.addTab("Administrar registros", manageTab);
+
+        javax.swing.GroupLayout adminTabLayout = new javax.swing.GroupLayout(adminTab);
+        adminTab.setLayout(adminTabLayout);
+        adminTabLayout.setHorizontalGroup(
+            adminTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(adminToolsPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 762, Short.MAX_VALUE)
         );
-        adminPaneLayout.setVerticalGroup(
-            adminPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 525, Short.MAX_VALUE)
+        adminTabLayout.setVerticalGroup(
+            adminTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(adminToolsPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 525, Short.MAX_VALUE)
         );
 
-        tabGroup.addTab("Moderación", adminPane);
+        tabGroup.addTab("Moderación", adminTab);
 
         getContentPane().add(tabGroup, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, -1, 560));
 
@@ -183,18 +189,37 @@ public class HomePanel extends javax.swing.JFrame {
         logInPanel.reopenLogIn();
     }//GEN-LAST:event_formWindowClosed
 
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        try {
+            User currentUser = session.getUser();
+            switch (currentUser.getUserType()) {
+                case USER -> tabGroup.remove(adminTab);
+                case GUEST -> {
+                    tabGroup.remove(manageTab);
+                    tabGroup.remove(adminTab);
+                }
+            }
+        }catch (NullPointerException e) {
+            e.printStackTrace();
+        }
+    }//GEN-LAST:event_formWindowOpened
+
     public static void main(String args[]) {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> new HomePanel().setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel adminPane;
+    private javax.swing.JPanel adminTab;
+    private proyecto.subframes.AdminToolsPanel adminToolsPanel;
     private javax.swing.JPanel btnSalir;
-    private javax.swing.JPanel createRecordsPane;
+    private proyecto.subframes.EditRecordPanel editRecordPanel;
     private javax.swing.JPanel header;
+    private proyecto.subframes.ManageRecordsPanel manageRecordsPanel;
+    private javax.swing.JPanel manageTab;
+    private proyecto.subframes.ReadRecordsPanel readRecordsPanel;
+    private javax.swing.JPanel readTab;
     private javax.swing.JTabbedPane tabGroup;
-    private javax.swing.JPanel viewRecordsPane;
     private javax.swing.JLabel x;
     // End of variables declaration//GEN-END:variables
 }
