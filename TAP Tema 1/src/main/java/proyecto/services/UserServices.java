@@ -1,25 +1,23 @@
 package proyecto.services;
 
 import proyecto.models.User;
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.FileReader;
-import java.io.FileWriter;
+
+import java.io.*;
 import java.util.ArrayList;
 import com.google.gson.Gson;
 import org.json.simple.JSONArray;
 import org.json.simple.parser.JSONParser;
 import proyecto.utils.DialogHelper;
 
-import javax.swing.*;
 
-
-public class LogInServices {
+public class UserServices {
 
     public static final String FILE = "users.json";
 
     public static ArrayList<User> getUsers() {
         ArrayList<User> users = new ArrayList<>();
+
+        createJSON();
 
         try {
             BufferedReader br = new BufferedReader(new FileReader(FILE));
@@ -68,7 +66,7 @@ public class LogInServices {
 
     public static User searchForUser(String username, String password) {
         User user = null;
-
+        boolean found = false;
         ArrayList<User> userList = getUsers();
 
         for (User all : userList) {
@@ -76,19 +74,44 @@ public class LogInServices {
                 if (all.getPassword().equals(password)) {
                     user = all;
                     return user;
+                } else {
+                    DialogHelper.errorMessageDialog(
+                            "La contraseña que introdujiste no es correcta.",
+                            "Contraseña incorrecta."
+                    );
+                    found = true;
                 }
-                DialogHelper.errorMessageDialog(
-                        "La contraseña que introdujiste no es correcta.",
-                        "Contraseña incorrecta."
-                );
             }
+        }
+        if (!found)
             DialogHelper.errorMessageDialog(
                     "No existe cuenta alguna con este nombre de usuario.",
                     "Nombre de usuario inexistente."
             );
-        }
 
         return user;
+    }
+
+    public static int numberOfUsers() {
+        return getUsers().size();
+    }
+
+    public static void createJSON(){
+        File file = new File(FILE);
+
+        // Check if the file already exists
+        if (file.exists()) {
+            System.out.println("File already exists: " + file.getAbsolutePath());
+            return;
+        }
+
+        // If not, create it and write default content
+        try (FileWriter writer = new FileWriter(file)) {
+            writer.write("");
+            System.out.println("File created successfully: " + file.getAbsolutePath());
+        } catch (IOException e) {
+            System.err.println("Error creating JSON file: " + e.getMessage());
+        }
     }
 
     public static boolean checkUsername(String username) {

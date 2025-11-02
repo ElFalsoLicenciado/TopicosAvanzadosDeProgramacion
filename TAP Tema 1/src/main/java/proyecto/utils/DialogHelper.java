@@ -34,7 +34,7 @@ public class DialogHelper {
                 message,
                 title,
                 JOptionPane.INFORMATION_MESSAGE
-                );
+        );
     }
 
     public static void warnMessageDialog(String message, String title) {
