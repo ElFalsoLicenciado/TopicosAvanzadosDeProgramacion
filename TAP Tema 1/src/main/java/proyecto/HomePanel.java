@@ -34,17 +34,18 @@ public class HomePanel extends javax.swing.JFrame {
 
         tabGroup = new javax.swing.JTabbedPane();
         readTab = new javax.swing.JPanel();
-        readRecordsPanel = new proyecto.subframes.ReadRecordsPanel();
+        readRecordsPanel = new proyecto.subframes.RecordSelectorPanel();
         manageTab = new javax.swing.JPanel();
-        manageRecordsPanel = new proyecto.subframes.ManageRecordsPanel();
-        editRecordPanel = new proyecto.subframes.EditRecordPanel();
+        manageRecordsPanel = new proyecto.subframes.RecordManagerPanel();
+        editRecordPanel = new proyecto.subframes.RecordEditorPanel();
         adminTab = new javax.swing.JPanel();
-        adminToolsPanel = new proyecto.subframes.AdminToolsPanel();
+        adminToolsPanel = new proyecto.subframes.AdminPanel();
         header = new javax.swing.JPanel();
         btnSalir = new javax.swing.JPanel();
         x = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setBackground(new java.awt.Color(216, 188, 188));
         setUndecorated(true);
         setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -57,13 +58,17 @@ public class HomePanel extends javax.swing.JFrame {
         });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        tabGroup.setBackground(new java.awt.Color(216, 188, 188));
+        tabGroup.setForeground(new java.awt.Color(114, 114, 114));
         tabGroup.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
+
+        readTab.setBackground(new java.awt.Color(216, 188, 188));
 
         javax.swing.GroupLayout readTabLayout = new javax.swing.GroupLayout(readTab);
         readTab.setLayout(readTabLayout);
         readTabLayout.setHorizontalGroup(
             readTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(readRecordsPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 762, Short.MAX_VALUE)
+            .addComponent(readRecordsPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 812, Short.MAX_VALUE)
         );
         readTabLayout.setVerticalGroup(
             readTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -72,17 +77,20 @@ public class HomePanel extends javax.swing.JFrame {
 
         tabGroup.addTab("Ver registros", readTab);
 
+        manageTab.setBackground(new java.awt.Color(216, 188, 188));
         manageTab.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         manageTab.add(manageRecordsPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(2, 0, 760, 525));
         manageTab.add(editRecordPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 760, 530));
 
         tabGroup.addTab("Administrar registros", manageTab);
 
+        adminTab.setBackground(new java.awt.Color(216, 188, 188));
+
         javax.swing.GroupLayout adminTabLayout = new javax.swing.GroupLayout(adminTab);
         adminTab.setLayout(adminTabLayout);
         adminTabLayout.setHorizontalGroup(
             adminTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(adminToolsPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 762, Short.MAX_VALUE)
+            .addComponent(adminToolsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 812, Short.MAX_VALUE)
         );
         adminTabLayout.setVerticalGroup(
             adminTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -93,8 +101,8 @@ public class HomePanel extends javax.swing.JFrame {
 
         getContentPane().add(tabGroup, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, -1, 560));
 
-        header.setBackground(new java.awt.Color(102, 102, 102));
-        header.setForeground(new java.awt.Color(102, 102, 102));
+        header.setBackground(new java.awt.Color(216, 188, 188));
+        header.setForeground(new java.awt.Color(216, 188, 188));
         header.setOpaque(false);
         header.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
@@ -130,10 +138,7 @@ public class HomePanel extends javax.swing.JFrame {
         btnSalir.setLayout(btnSalirLayout);
         btnSalirLayout.setHorizontalGroup(
             btnSalirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btnSalirLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(x, javax.swing.GroupLayout.DEFAULT_SIZE, 27, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(x, javax.swing.GroupLayout.DEFAULT_SIZE, 39, Short.MAX_VALUE)
         );
         btnSalirLayout.setVerticalGroup(
             btnSalirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -145,8 +150,8 @@ public class HomePanel extends javax.swing.JFrame {
         headerLayout.setHorizontalGroup(
             headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(headerLayout.createSequentialGroup()
-                .addContainerGap(721, Short.MAX_VALUE)
-                .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 721, Short.MAX_VALUE))
         );
         headerLayout.setVerticalGroup(
             headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -211,13 +216,13 @@ public class HomePanel extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel adminTab;
-    private proyecto.subframes.AdminToolsPanel adminToolsPanel;
+    private proyecto.subframes.AdminPanel adminToolsPanel;
     private javax.swing.JPanel btnSalir;
-    private proyecto.subframes.EditRecordPanel editRecordPanel;
+    private proyecto.subframes.RecordEditorPanel editRecordPanel;
     private javax.swing.JPanel header;
-    private proyecto.subframes.ManageRecordsPanel manageRecordsPanel;
+    private proyecto.subframes.RecordManagerPanel manageRecordsPanel;
     private javax.swing.JPanel manageTab;
-    private proyecto.subframes.ReadRecordsPanel readRecordsPanel;
+    private proyecto.subframes.RecordSelectorPanel readRecordsPanel;
     private javax.swing.JPanel readTab;
     private javax.swing.JTabbedPane tabGroup;
     private javax.swing.JLabel x;
