@@ -31,6 +31,7 @@ public class RecordReaderPanel extends javax.swing.JPanel {
         panelImage = new org.edisoncor.gui.panel.PanelImage();
         labelTituloYAutor = new javax.swing.JLabel();
         labelEstadoYCategoria = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
         labelDescripción = new javax.swing.JLabel();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -64,12 +65,19 @@ public class RecordReaderPanel extends javax.swing.JPanel {
         labelEstadoYCategoria.setText("Estado");
         bg.add(labelEstadoYCategoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 150, -1, -1));
 
-        labelDescripción.setBackground(new java.awt.Color(0, 0, 0));
+        jScrollPane1.setBackground(new java.awt.Color(216, 188, 188));
+        jScrollPane1.setBorder(null);
+        jScrollPane1.setForeground(new java.awt.Color(216, 188, 188));
+
+        labelDescripción.setBackground(new java.awt.Color(216, 188, 188));
         labelDescripción.setFont(new java.awt.Font("Roboto", 1, 20)); // NOI18N
         labelDescripción.setForeground(new java.awt.Color(114, 114, 114));
-        labelDescripción.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        labelDescripción.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         labelDescripción.setText("Descripción");
-        bg.add(labelDescripción, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, -1, -1));
+        labelDescripción.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        jScrollPane1.setViewportView(labelDescripción);
+
+        bg.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 260, 700, 370));
 
         add(bg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 720, 660));
     }// </editor-fold>//GEN-END:initComponents
@@ -77,6 +85,7 @@ public class RecordReaderPanel extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel bg;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel labelDescripción;
     private javax.swing.JLabel labelEstadoYCategoria;
     private javax.swing.JLabel labelTitle;

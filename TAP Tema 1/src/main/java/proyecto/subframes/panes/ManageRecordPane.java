@@ -21,8 +21,8 @@ public class ManageRecordPane extends javax.swing.JPanel {
         btnEditar = new javax.swing.JPanel();
         labelEditar = new javax.swing.JLabel();
         labelTitulo = new javax.swing.JLabel();
-        labelEstado = new javax.swing.JLabel();
-        labelCat = new javax.swing.JLabel();
+        labelEstadoYCategoria = new javax.swing.JLabel();
+        labelPublico = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(216, 188, 188));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -113,18 +113,18 @@ public class ManageRecordPane extends javax.swing.JPanel {
         labelTitulo.setText("Titulo");
         add(labelTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 30, -1, -1));
 
-        labelEstado.setBackground(new java.awt.Color(0, 0, 0));
-        labelEstado.setFont(new java.awt.Font("Roboto", 1, 20)); // NOI18N
-        labelEstado.setForeground(new java.awt.Color(114, 114, 114));
-        labelEstado.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        labelEstado.setText("Estado");
-        add(labelEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 80, -1, -1));
+        labelEstadoYCategoria.setBackground(new java.awt.Color(0, 0, 0));
+        labelEstadoYCategoria.setFont(new java.awt.Font("Roboto", 1, 20)); // NOI18N
+        labelEstadoYCategoria.setForeground(new java.awt.Color(114, 114, 114));
+        labelEstadoYCategoria.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        labelEstadoYCategoria.setText("Estado y categoría");
+        add(labelEstadoYCategoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 80, -1, -1));
 
-        labelCat.setFont(new java.awt.Font("Roboto", 1, 20)); // NOI18N
-        labelCat.setForeground(new java.awt.Color(114, 114, 114));
-        labelCat.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        labelCat.setText("Categoría");
-        add(labelCat, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 130, -1, -1));
+        labelPublico.setFont(new java.awt.Font("Roboto", 1, 20)); // NOI18N
+        labelPublico.setForeground(new java.awt.Color(114, 114, 114));
+        labelPublico.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        labelPublico.setText("Público");
+        add(labelPublico, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 130, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void labelEditarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelEditarMouseClicked
@@ -156,9 +156,9 @@ public class ManageRecordPane extends javax.swing.JPanel {
     private javax.swing.JPanel btnBorrar;
     private javax.swing.JPanel btnEditar;
     private javax.swing.JLabel labelBorrar;
-    private javax.swing.JLabel labelCat;
     private javax.swing.JLabel labelEditar;
-    private javax.swing.JLabel labelEstado;
+    private javax.swing.JLabel labelEstadoYCategoria;
+    private javax.swing.JLabel labelPublico;
     private javax.swing.JLabel labelTitulo;
     private org.edisoncor.gui.panel.PanelImage panelImage;
     // End of variables declaration//GEN-END:variables

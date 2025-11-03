@@ -42,7 +42,6 @@ public class RecordEditorPanel extends javax.swing.JPanel {
         jSeparator1 = new javax.swing.JSeparator();
         labelCrit1 = new javax.swing.JLabel();
         labelCrit3 = new javax.swing.JLabel();
-        fieldDescripcion = new javax.swing.JTextField();
         jSeparator3 = new javax.swing.JSeparator();
         comboStates = new javax.swing.JComboBox<>();
         labelCrit2 = new javax.swing.JLabel();
@@ -50,6 +49,8 @@ public class RecordEditorPanel extends javax.swing.JPanel {
         labelTerminar = new javax.swing.JLabel();
         btnCancelar = new javax.swing.JPanel();
         labelCancelar = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        fieldDescripcion = new javax.swing.JTextField();
 
         btnAprove.setIcon(new javax.swing.ImageIcon("C:\\Users\\User\\Documents\\Programming\\JetBrains\\IntelliJ Projects\\Topicos Avanzados de Programacion\\TAP Tema 1\\src\\main\\java\\proyecto\\resources\\aprove.png")); // NOI18N
 
@@ -196,19 +197,6 @@ public class RecordEditorPanel extends javax.swing.JPanel {
         labelCrit3.setText("Categoría");
         bg.add(labelCrit3, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 200, -1, -1));
 
-        fieldDescripcion.setBackground(new java.awt.Color(255, 255, 255));
-        fieldDescripcion.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
-        fieldDescripcion.setForeground(new java.awt.Color(235, 233, 233));
-        fieldDescripcion.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        fieldDescripcion.setText("Escribe la descripción");
-        fieldDescripcion.setBorder(null);
-        fieldDescripcion.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                fieldDescripcionMousePressed(evt);
-            }
-        });
-        bg.add(fieldDescripcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 300, 690, 180));
-
         jSeparator3.setBackground(new java.awt.Color(0, 0, 0));
         jSeparator3.setForeground(new java.awt.Color(0, 0, 0));
         bg.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 490, 690, 20));
@@ -304,6 +292,21 @@ public class RecordEditorPanel extends javax.swing.JPanel {
         );
 
         bg.add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 160, 90, -1));
+
+        fieldDescripcion.setBackground(new java.awt.Color(255, 255, 255));
+        fieldDescripcion.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
+        fieldDescripcion.setForeground(new java.awt.Color(235, 233, 233));
+        fieldDescripcion.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        fieldDescripcion.setText("Escribe la descripción");
+        fieldDescripcion.setBorder(null);
+        fieldDescripcion.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                fieldDescripcionMousePressed(evt);
+            }
+        });
+        jScrollPane1.setViewportView(fieldDescripcion);
+
+        bg.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 290, 690, 190));
 
         add(bg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 720, 500));
     }// </editor-fold>//GEN-END:initComponents
@@ -439,6 +442,7 @@ public class RecordEditorPanel extends javax.swing.JPanel {
     private javax.swing.JTextField fieldDescripcion;
     private javax.swing.JTextField fieldTitulo;
     private javax.swing.JFileChooser jFileChooser1;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JLabel labelCancelar;

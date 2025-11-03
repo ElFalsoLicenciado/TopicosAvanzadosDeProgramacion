@@ -17,7 +17,7 @@ public class HomePanel extends javax.swing.JFrame {
     public HomePanel() {
         initComponents();
         setLocationRelativeTo(null);
-        manageRecordsPanel.setVisible(false);
+        manageRecordsPane.setVisible(false);
     }
 
     public HomePanel(LogInPanel logInPanel, Session session) {
@@ -25,7 +25,8 @@ public class HomePanel extends javax.swing.JFrame {
         this.session = session;
         initComponents();
         setLocationRelativeTo(null);
-        manageRecordsPanel.setVisible(false);
+        
+
     }
 
     @SuppressWarnings("unchecked")
@@ -34,12 +35,16 @@ public class HomePanel extends javax.swing.JFrame {
 
         tabGroup = new javax.swing.JTabbedPane();
         readTab = new javax.swing.JPanel();
-        readRecordsPanel = new proyecto.subframes.RecordSelectorPanel();
-        manageTab = new javax.swing.JPanel();
-        manageRecordsPanel = new proyecto.subframes.RecordManagerPanel();
-        editRecordPanel = new proyecto.subframes.RecordEditorPanel();
+        selectRecordPane = new proyecto.subframes.RecordSelectorPanel();
+        recordReaderPane = new proyecto.subframes.RecordReaderPanel();
+        recordTab = new javax.swing.JPanel();
+        recordGroup = new javax.swing.JTabbedPane();
+        recordPanel = new javax.swing.JPanel();
+        editRecordPane = new proyecto.subframes.RecordEditorPanel();
+        manageRecordsPane = new proyecto.subframes.RecordManagerPanel();
+        requestPanel = new javax.swing.JPanel();
         adminTab = new javax.swing.JPanel();
-        adminToolsPanel = new proyecto.subframes.AdminPanel();
+        adminToolsPane = new proyecto.subframes.AdminPanel();
         header = new javax.swing.JPanel();
         btnSalir = new javax.swing.JPanel();
         x = new javax.swing.JLabel();
@@ -63,39 +68,39 @@ public class HomePanel extends javax.swing.JFrame {
         tabGroup.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
 
         readTab.setBackground(new java.awt.Color(216, 188, 188));
+        readTab.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        readTab.add(selectRecordPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 812, 530));
 
-        javax.swing.GroupLayout readTabLayout = new javax.swing.GroupLayout(readTab);
-        readTab.setLayout(readTabLayout);
-        readTabLayout.setHorizontalGroup(
-            readTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(readRecordsPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 812, Short.MAX_VALUE)
-        );
-        readTabLayout.setVerticalGroup(
-            readTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(readRecordsPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 525, Short.MAX_VALUE)
-        );
+        recordReaderPane.setBackground(new java.awt.Color(216, 188, 188));
+        readTab.add(recordReaderPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 810, 540));
 
         tabGroup.addTab("Ver registros", readTab);
 
-        manageTab.setBackground(new java.awt.Color(216, 188, 188));
-        manageTab.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        manageTab.add(manageRecordsPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(2, 0, 760, 525));
-        manageTab.add(editRecordPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 760, 530));
+        recordTab.setBackground(new java.awt.Color(216, 188, 188));
+        recordTab.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        tabGroup.addTab("Administrar registros", manageTab);
+        recordGroup.setBackground(new java.awt.Color(216, 188, 188));
+        recordGroup.setForeground(new java.awt.Color(114, 114, 114));
+        recordGroup.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
+
+        recordPanel.setBackground(new java.awt.Color(216, 188, 188));
+        recordPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        recordPanel.add(editRecordPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 840, 530));
+        recordPanel.add(manageRecordsPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 840, 530));
+
+        recordGroup.addTab("Registros", recordPanel);
+
+        requestPanel.setBackground(new java.awt.Color(216, 188, 188));
+        requestPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        recordGroup.addTab("Aprobaciones", requestPanel);
+
+        recordTab.add(recordGroup, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 840, 570));
+
+        tabGroup.addTab("Pestaña de creador", recordTab);
 
         adminTab.setBackground(new java.awt.Color(216, 188, 188));
-
-        javax.swing.GroupLayout adminTabLayout = new javax.swing.GroupLayout(adminTab);
-        adminTab.setLayout(adminTabLayout);
-        adminTabLayout.setHorizontalGroup(
-            adminTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(adminToolsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 812, Short.MAX_VALUE)
-        );
-        adminTabLayout.setVerticalGroup(
-            adminTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(adminToolsPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 525, Short.MAX_VALUE)
-        );
+        adminTab.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        adminTab.add(adminToolsPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 812, 530));
 
         tabGroup.addTab("Moderación", adminTab);
 
@@ -200,7 +205,7 @@ public class HomePanel extends javax.swing.JFrame {
             switch (currentUser.getUserType()) {
                 case USER -> tabGroup.remove(adminTab);
                 case GUEST -> {
-                    tabGroup.remove(manageTab);
+                    tabGroup.remove(recordTab);
                     tabGroup.remove(adminTab);
                 }
             }
@@ -216,14 +221,18 @@ public class HomePanel extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel adminTab;
-    private proyecto.subframes.AdminPanel adminToolsPanel;
+    private proyecto.subframes.AdminPanel adminToolsPane;
     private javax.swing.JPanel btnSalir;
-    private proyecto.subframes.RecordEditorPanel editRecordPanel;
+    private proyecto.subframes.RecordEditorPanel editRecordPane;
     private javax.swing.JPanel header;
-    private proyecto.subframes.RecordManagerPanel manageRecordsPanel;
-    private javax.swing.JPanel manageTab;
-    private proyecto.subframes.RecordSelectorPanel readRecordsPanel;
+    private proyecto.subframes.RecordManagerPanel manageRecordsPane;
     private javax.swing.JPanel readTab;
+    private javax.swing.JTabbedPane recordGroup;
+    private javax.swing.JPanel recordPanel;
+    private proyecto.subframes.RecordReaderPanel recordReaderPane;
+    private javax.swing.JPanel recordTab;
+    private javax.swing.JPanel requestPanel;
+    private proyecto.subframes.RecordSelectorPanel selectRecordPane;
     private javax.swing.JTabbedPane tabGroup;
     private javax.swing.JLabel x;
     // End of variables declaration//GEN-END:variables

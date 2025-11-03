@@ -35,7 +35,6 @@ public class RecordAproverPanel extends javax.swing.JPanel {
         fieldEstado = new javax.swing.JTextField();
         labelAprove = new javax.swing.JLabel();
         labelCrit3 = new javax.swing.JLabel();
-        fieldDescripcion = new javax.swing.JTextField();
         labelCrit1 = new javax.swing.JLabel();
         btnCancelar = new javax.swing.JPanel();
         labelCancelar = new javax.swing.JLabel();
@@ -45,6 +44,8 @@ public class RecordAproverPanel extends javax.swing.JPanel {
         labelCrit2 = new javax.swing.JLabel();
         labelUsuario = new javax.swing.JLabel();
         fieldCategoría = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        fieldDescripcion = new javax.swing.JTextField();
 
         setBackground(new java.awt.Color(216, 188, 188));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -85,15 +86,6 @@ public class RecordAproverPanel extends javax.swing.JPanel {
         labelCrit3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         labelCrit3.setText("Categoría");
         bg.add(labelCrit3, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 200, -1, -1));
-
-        fieldDescripcion.setBackground(new java.awt.Color(255, 255, 255));
-        fieldDescripcion.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
-        fieldDescripcion.setForeground(new java.awt.Color(235, 233, 233));
-        fieldDescripcion.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        fieldDescripcion.setText("Descripción");
-        fieldDescripcion.setBorder(null);
-        fieldDescripcion.setEnabled(false);
-        bg.add(fieldDescripcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 300, 690, 180));
 
         labelCrit1.setBackground(new java.awt.Color(0, 0, 0));
         labelCrit1.setFont(new java.awt.Font("Roboto", 1, 20)); // NOI18N
@@ -201,6 +193,17 @@ public class RecordAproverPanel extends javax.swing.JPanel {
         fieldCategoría.setEnabled(false);
         bg.add(fieldCategoría, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 230, 300, -1));
 
+        fieldDescripcion.setBackground(new java.awt.Color(255, 255, 255));
+        fieldDescripcion.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
+        fieldDescripcion.setForeground(new java.awt.Color(235, 233, 233));
+        fieldDescripcion.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        fieldDescripcion.setText("Descripción");
+        fieldDescripcion.setBorder(null);
+        fieldDescripcion.setEnabled(false);
+        jScrollPane1.setViewportView(fieldDescripcion);
+
+        bg.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 300, 700, 210));
+
         add(bg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 720, 500));
     }// </editor-fold>//GEN-END:initComponents
 
@@ -227,6 +230,7 @@ public class RecordAproverPanel extends javax.swing.JPanel {
     private javax.swing.JTextField fieldEstado;
     private javax.swing.JTextField fieldTitulo;
     private javax.swing.ButtonGroup groupCat;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel labelAprove;
     private javax.swing.JLabel labelCancelar;
     private javax.swing.JLabel labelCrit1;
