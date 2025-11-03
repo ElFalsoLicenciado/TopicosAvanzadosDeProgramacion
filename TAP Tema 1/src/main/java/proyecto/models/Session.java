@@ -1,6 +1,9 @@
 package proyecto.models;
 
+import proyecto.enums.RecordType;
+import proyecto.enums.StateNames;
 import proyecto.enums.UserType;
+import proyecto.services.RecordServices;
 import proyecto.services.UserServices;
 import proyecto.utils.DialogHelper;
 
@@ -9,10 +12,12 @@ import java.util.UUID;
 
 public class Session {
     public static ArrayList<User> users = new ArrayList<>();
+    private static ArrayList<Record> records = new ArrayList<>();
     private static User user;
 
     public Session() {
         users = UserServices.getUsers();
+        records = RecordServices.getRecords();
     }
 
     public User getUser() {
@@ -50,15 +55,14 @@ public class Session {
                     "Error"
             );
             users.remove(aux);
-            return false;
 
         }else {
             DialogHelper.errorMessageDialog(
                     "El nombre de usuario ya existe, intenta con otro.",
                     "Error"
             );
-            return false;
         }
+        return false;
     }
 
     public static void guestMode() {
@@ -77,6 +81,35 @@ public class Session {
         user = null;
     }
 
+    public static boolean addRecord(StateNames state, RecordType recordType, String title, String description, String image) {
+        records = RecordServices.getRecords();
+
+        boolean isPublic;
+        isPublic = user.getUserType() != UserType.USER;
+
+        Record record = new Record(user.getUserID(), state, recordType, isPublic, title, description, image);
+        records.add(record);
+
+        if (RecordServices.writeRecords(records)) {
+            String msg, msgTitle;
+
+            if (isPublic) {
+                msg = "Registro guardado exitosamente, ya es público.";
+                msgTitle = "Registro publicado exitosamente.";
+            }else {
+                msg = "Registro guardado exitosamente, espera a que sea aprobado.";
+                msgTitle = "Registro guardado exitosamente.";
+            }
+            DialogHelper.infoMessageDialog(msg, msgTitle);
+            return true;
+        } else {
+            DialogHelper.errorMessageDialog(
+                    "Error al guardar registro, intente de nuevo.",
+                    "Error al guardar registro."
+            );
+            return false;
+        }
+    }
 
 
 }

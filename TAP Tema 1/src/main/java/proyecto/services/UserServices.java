@@ -1,13 +1,14 @@
 package proyecto.services;
 
 import proyecto.models.User;
+import proyecto.utils.Other;
+import proyecto.utils.DialogHelper;
 
 import java.io.*;
 import java.util.ArrayList;
 import com.google.gson.Gson;
 import org.json.simple.JSONArray;
 import org.json.simple.parser.JSONParser;
-import proyecto.utils.DialogHelper;
 
 
 public class UserServices {
@@ -17,7 +18,7 @@ public class UserServices {
     public static ArrayList<User> getUsers() {
         ArrayList<User> users = new ArrayList<>();
 
-        createJSON();
+        Other.createJSON(FILE);
 
         try {
             BufferedReader br = new BufferedReader(new FileReader(FILE));
@@ -94,24 +95,6 @@ public class UserServices {
 
     public static int numberOfUsers() {
         return getUsers().size();
-    }
-
-    public static void createJSON(){
-        File file = new File(FILE);
-
-        // Check if the file already exists
-        if (file.exists()) {
-            System.out.println("File already exists: " + file.getAbsolutePath());
-            return;
-        }
-
-        // If not, create it and write default content
-        try (FileWriter writer = new FileWriter(file)) {
-            writer.write("");
-            System.out.println("File created successfully: " + file.getAbsolutePath());
-        } catch (IOException e) {
-            System.err.println("Error creating JSON file: " + e.getMessage());
-        }
     }
 
     public static boolean checkUsername(String username) {

@@ -7,17 +7,17 @@ import java.util.UUID;
 public class Record implements java.io.Serializable {
     private final String recordId;
     private final String authorId;
-    private StateNames stateNames;
+    private StateNames stateName;
     private RecordType recordType;
     private boolean isPublic = false;
     private String title;
     private String description;
     private String imageUrl;
 
-    public Record(String authorId, StateNames stateNames, RecordType recordType, boolean isPublic, String title, String description, String imageUrl) {
+    public Record(String authorId, StateNames stateName, RecordType recordType, boolean isPublic, String title, String description, String imageUrl) {
         recordId = "R" + UUID.randomUUID().toString().replace("-", "").substring(0, 5);
         this.authorId = authorId;
-        this.stateNames = stateNames;
+        this.stateName = stateName;
         this.recordType = recordType;
         this.isPublic = isPublic;
         this.title = title;
@@ -25,10 +25,10 @@ public class Record implements java.io.Serializable {
         this.imageUrl = imageUrl;
     }
 
-    public Record(String recordId, String authorId, StateNames stateNames, RecordType recordType, boolean isPublic, String title, String description, String imageUrl) {
+    public Record(String recordId, String authorId, StateNames stateName, RecordType recordType, boolean isPublic, String title, String description, String imageUrl) {
         this.recordId = recordId;
         this.authorId = authorId;
-        this.stateNames = stateNames;
+        this.stateName = stateName;
         this.recordType = recordType;
         this.isPublic = isPublic;
         this.title = title;
@@ -45,11 +45,11 @@ public class Record implements java.io.Serializable {
     }
 
     public StateNames getState() {
-        return stateNames;
+        return stateName;
     }
 
     public void setState(StateNames stateNames) {
-        this.stateNames = stateNames;
+        this.stateName = stateNames;
     }
 
     public RecordType getRecordType() {

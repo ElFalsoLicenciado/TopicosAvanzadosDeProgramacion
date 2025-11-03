@@ -3,6 +3,9 @@ package proyecto.utils;
 import proyecto.enums.StateNames;
 
 import javax.swing.*;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -70,6 +73,24 @@ public class Other {
             e.printStackTrace();
             DialogHelper.errorMessageDialog( "Error al mover la imagen", "");
             return false;
+        }
+    }
+
+    public static void createJSON(String FILE){
+        File file = new File(FILE);
+
+        // Check if the file already exists
+        if (file.exists()) {
+            System.out.println("File already exists: " + file.getAbsolutePath());
+            return;
+        }
+
+        // If not, create it and write default content
+        try (FileWriter writer = new FileWriter(file)) {
+            writer.write("");
+            System.out.println("File created successfully: " + file.getAbsolutePath());
+        } catch (IOException e) {
+            System.err.println("Error creating JSON file: " + e.getMessage());
         }
     }
 }
