@@ -135,6 +135,7 @@ public class RecordReaderPanel extends javax.swing.JPanel {
         fieldDescripcion.setLineWrap(true);
         fieldDescripcion.setRows(5);
         fieldDescripcion.setText("Descripción");
+        fieldDescripcion.setWrapStyleWord(true);
         fieldDescripcion.setBorder(null);
         fieldDescripcion.setDisabledTextColor(new java.awt.Color(235, 233, 233));
         fieldDescripcion.setEnabled(false);

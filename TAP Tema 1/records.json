@@ -34,7 +34,7 @@
         "authorId": "Uf197a",
         "stateName": "Baja_California_Sur",
         "recordType": "GASTRONOMIA",
-        "isPublic": false,
+        "isPublic": true,
         "title": "Titulo generico",
         "description": "Un, dos tres.",
         "imageUrl": "src/main/java/proyecto/resources/bacs/494179630_727768506873714_5274207424998901918_n.jpg"

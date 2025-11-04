@@ -11,7 +11,7 @@ import proyecto.models.Request;
 import proyecto.services.RecordServices;
 import proyecto.services.RequestServices;
 import proyecto.services.UserServices;
-import proyecto.utils.DialogHelper;
+import proyecto.subframes.panes.WriteReasonPane;
 import proyecto.utils.Other;
 
 import java.awt.Color;
@@ -20,6 +20,7 @@ public class RecordApproverPanel extends javax.swing.JPanel {
 
     private HomePanel homePanel;
     private Request request;
+
 
 
     public RecordApproverPanel() {
@@ -60,8 +61,9 @@ public class RecordApproverPanel extends javax.swing.JPanel {
                 }
             }
 
-            String author = UserServices.searchForUser(record.getAuthorId());
-            if (author.isEmpty()) author = "Sin autor";
+            String author;
+            if (UserServices.searchForUser(record.getAuthorId()).isEmpty()) author = "Sin autor";
+            else author = "Autor: " + UserServices.searchForUser(record.getAuthorId());
 
             labelUsuario.setText(author);
 
@@ -164,16 +166,16 @@ public class RecordApproverPanel extends javax.swing.JPanel {
         javax.swing.GroupLayout btnCancelarLayout = new javax.swing.GroupLayout(btnCancelar);
         btnCancelar.setLayout(btnCancelarLayout);
         btnCancelarLayout.setHorizontalGroup(
-            btnCancelarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnCancelarLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(labelCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                btnCancelarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnCancelarLayout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(labelCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         btnCancelarLayout.setVerticalGroup(
-            btnCancelarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnCancelarLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(labelCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                btnCancelarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnCancelarLayout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(labelCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         bg.add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 80, 90, -1));
@@ -188,12 +190,12 @@ public class RecordApproverPanel extends javax.swing.JPanel {
         javax.swing.GroupLayout btnApproveLayout = new javax.swing.GroupLayout(btnApprove);
         btnApprove.setLayout(btnApproveLayout);
         btnApproveLayout.setHorizontalGroup(
-            btnApproveLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 30, Short.MAX_VALUE)
+                btnApproveLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(0, 30, Short.MAX_VALUE)
         );
         btnApproveLayout.setVerticalGroup(
-            btnApproveLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 30, Short.MAX_VALUE)
+                btnApproveLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(0, 30, Short.MAX_VALUE)
         );
 
         bg.add(btnApprove, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 220, 30, 30));
@@ -208,12 +210,12 @@ public class RecordApproverPanel extends javax.swing.JPanel {
         javax.swing.GroupLayout btnDenyLayout = new javax.swing.GroupLayout(btnDeny);
         btnDeny.setLayout(btnDenyLayout);
         btnDenyLayout.setHorizontalGroup(
-            btnDenyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 30, Short.MAX_VALUE)
+                btnDenyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(0, 30, Short.MAX_VALUE)
         );
         btnDenyLayout.setVerticalGroup(
-            btnDenyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 30, Short.MAX_VALUE)
+                btnDenyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(0, 30, Short.MAX_VALUE)
         );
 
         bg.add(btnDeny, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 220, 30, 30));
@@ -257,13 +259,13 @@ public class RecordApproverPanel extends javax.swing.JPanel {
         fieldDescripcion.setBackground(new java.awt.Color(255, 255, 255));
         fieldDescripcion.setColumns(20);
         fieldDescripcion.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
-        fieldDescripcion.setForeground(new java.awt.Color(154, 154, 154));
+        fieldDescripcion.setForeground(new java.awt.Color(235, 233, 233));
         fieldDescripcion.setLineWrap(true);
         fieldDescripcion.setRows(5);
         fieldDescripcion.setText("Descripción");
+        fieldDescripcion.setWrapStyleWord(true);
         fieldDescripcion.setBorder(null);
         fieldDescripcion.setDisabledTextColor(new java.awt.Color(235, 233, 233));
-        fieldDescripcion.setEnabled(false);
         jScrollPane2.setViewportView(fieldDescripcion);
 
         bg.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 280, 780, 210));
@@ -288,8 +290,16 @@ public class RecordApproverPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_btnApproveMouseClicked
 
     private void btnDenyMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDenyMouseClicked
-        
+        new WriteReasonPane(this).setVisible(true);
+
+
     }//GEN-LAST:event_btnDenyMouseClicked
+
+    public void getReasonFromForm(String reason){
+        if (! reason.isEmpty()) {
+            if (RequestServices.setRequestStatus(request, RequestStatus.REJECTED, reason)) homePanel.endEditing();
+        }
+    }
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

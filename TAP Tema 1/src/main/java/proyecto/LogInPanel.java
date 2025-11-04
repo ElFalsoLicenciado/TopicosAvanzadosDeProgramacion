@@ -1,6 +1,7 @@
 package proyecto;
 
 import java.awt.Color;
+import java.awt.event.KeyEvent;
 import org.pushingpixels.radiance.theming.api.RadianceThemingCortex;
 import org.pushingpixels.radiance.theming.api.skin.*;
 import proyecto.enums.UserType;
@@ -90,9 +91,17 @@ public class LogInPanel extends javax.swing.JFrame {
         fieldUsername.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         fieldUsername.setText("Ingresa tu usuario");
         fieldUsername.setBorder(null);
-        fieldUsername.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                fieldUsernameMousePressed(evt);
+        fieldUsername.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                fieldUsernameFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                fieldUsernameFocusLost(evt);
+            }
+        });
+        fieldUsername.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                fieldUsernameKeyPressed(evt);
             }
         });
 
@@ -112,9 +121,17 @@ public class LogInPanel extends javax.swing.JFrame {
         fieldPassword.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         fieldPassword.setText("******");
         fieldPassword.setBorder(null);
-        fieldPassword.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                fieldPasswordMousePressed(evt);
+        fieldPassword.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                fieldPasswordFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                fieldPasswordFocusLost(evt);
+            }
+        });
+        fieldPassword.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                fieldPasswordKeyPressed(evt);
             }
         });
 
@@ -141,12 +158,12 @@ public class LogInPanel extends javax.swing.JFrame {
         javax.swing.GroupLayout btnLoginLayout = new javax.swing.GroupLayout(btnLogin);
         btnLogin.setLayout(btnLoginLayout);
         btnLoginLayout.setHorizontalGroup(
-                btnLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(labelLogIn, javax.swing.GroupLayout.DEFAULT_SIZE, 106, Short.MAX_VALUE)
+            btnLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(labelLogIn, javax.swing.GroupLayout.DEFAULT_SIZE, 106, Short.MAX_VALUE)
         );
         btnLoginLayout.setVerticalGroup(
-                btnLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(labelLogIn, javax.swing.GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE)
+            btnLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(labelLogIn, javax.swing.GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE)
         );
 
         btnGuest.setBackground(new java.awt.Color(96, 243, 96));
@@ -172,12 +189,12 @@ public class LogInPanel extends javax.swing.JFrame {
         javax.swing.GroupLayout btnGuestLayout = new javax.swing.GroupLayout(btnGuest);
         btnGuest.setLayout(btnGuestLayout);
         btnGuestLayout.setHorizontalGroup(
-                btnGuestLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(labelGuest, javax.swing.GroupLayout.DEFAULT_SIZE, 117, Short.MAX_VALUE)
+            btnGuestLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(labelGuest, javax.swing.GroupLayout.DEFAULT_SIZE, 117, Short.MAX_VALUE)
         );
         btnGuestLayout.setVerticalGroup(
-                btnGuestLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(labelGuest, javax.swing.GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE)
+            btnGuestLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(labelGuest, javax.swing.GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE)
         );
 
         btnSalir.setBackground(new java.awt.Color(102, 102, 102));
@@ -202,14 +219,14 @@ public class LogInPanel extends javax.swing.JFrame {
         javax.swing.GroupLayout btnSalirLayout = new javax.swing.GroupLayout(btnSalir);
         btnSalir.setLayout(btnSalirLayout);
         btnSalirLayout.setHorizontalGroup(
-                btnSalirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnSalirLayout.createSequentialGroup()
-                                .addComponent(x, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE)
-                                .addContainerGap())
+            btnSalirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnSalirLayout.createSequentialGroup()
+                .addComponent(x, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE)
+                .addContainerGap())
         );
         btnSalirLayout.setVerticalGroup(
-                btnSalirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(x, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)
+            btnSalirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(x, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)
         );
 
         labelLogInSetts.setFont(new java.awt.Font("Roboto", 0, 16)); // NOI18N
@@ -242,71 +259,71 @@ public class LogInPanel extends javax.swing.JFrame {
         javax.swing.GroupLayout loginPanelLayout = new javax.swing.GroupLayout(loginPanel);
         loginPanel.setLayout(loginPanelLayout);
         loginPanelLayout.setHorizontalGroup(
-                loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(loginPanelLayout.createSequentialGroup()
-                                .addGap(26, 26, 26)
-                                .addGroup(loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(loginPanelLayout.createSequentialGroup()
-                                                .addGroup(loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addComponent(fieldPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addComponent(labelCredential2)
-                                                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addComponent(fieldUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addComponent(labelCredential1)
-                                                        .addComponent(labelSubtitle)
-                                                        .addGroup(loginPanelLayout.createSequentialGroup()
-                                                                .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                .addGap(18, 18, 18)
-                                                                .addComponent(btnGuest, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                        .addGroup(loginPanelLayout.createSequentialGroup()
-                                                .addGroup(loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addGroup(loginPanelLayout.createSequentialGroup()
-                                                                .addComponent(choiceUser)
-                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                                .addComponent(choiceAdmin))
-                                                        .addComponent(labelLogInSetts)
-                                                        .addGroup(loginPanelLayout.createSequentialGroup()
-                                                                .addComponent(labelTitle)
-                                                                .addGap(18, 18, 18)
-                                                                .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                                .addGap(0, 0, Short.MAX_VALUE))))
+            loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(loginPanelLayout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addGroup(loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(loginPanelLayout.createSequentialGroup()
+                        .addGroup(loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(fieldPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(labelCredential2)
+                            .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(fieldUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(labelCredential1)
+                            .addComponent(labelSubtitle)
+                            .addGroup(loginPanelLayout.createSequentialGroup()
+                                .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnGuest, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(loginPanelLayout.createSequentialGroup()
+                        .addGroup(loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(loginPanelLayout.createSequentialGroup()
+                                .addComponent(choiceUser)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(choiceAdmin))
+                            .addComponent(labelLogInSetts)
+                            .addGroup(loginPanelLayout.createSequentialGroup()
+                                .addComponent(labelTitle)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         loginPanelLayout.setVerticalGroup(
-                loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(loginPanelLayout.createSequentialGroup()
-                                .addGroup(loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(loginPanelLayout.createSequentialGroup()
-                                                .addGap(26, 26, 26)
-                                                .addComponent(labelTitle))
-                                        .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(29, 29, 29)
-                                .addComponent(labelSubtitle)
-                                .addGap(27, 27, 27)
-                                .addComponent(labelCredential1)
-                                .addGap(18, 18, 18)
-                                .addComponent(fieldUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(labelCredential2)
-                                .addGap(18, 18, 18)
-                                .addComponent(fieldPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(12, 12, 12)
-                                .addGroup(loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(btnLogin, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(btnGuest, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
-                                .addGroup(loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(loginPanelLayout.createSequentialGroup()
-                                                .addComponent(choiceUser)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addComponent(labelLogInSetts))
-                                        .addComponent(choiceAdmin))
-                                .addGap(20, 20, 20))
+            loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(loginPanelLayout.createSequentialGroup()
+                .addGroup(loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(loginPanelLayout.createSequentialGroup()
+                        .addGap(26, 26, 26)
+                        .addComponent(labelTitle))
+                    .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(29, 29, 29)
+                .addComponent(labelSubtitle)
+                .addGap(27, 27, 27)
+                .addComponent(labelCredential1)
+                .addGap(18, 18, 18)
+                .addComponent(fieldUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(labelCredential2)
+                .addGap(18, 18, 18)
+                .addComponent(fieldPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(12, 12, 12)
+                .addGroup(loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnLogin, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnGuest, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
+                .addGroup(loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(loginPanelLayout.createSequentialGroup()
+                        .addComponent(choiceUser)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(labelLogInSetts))
+                    .addComponent(choiceAdmin))
+                .addGap(20, 20, 20))
         );
 
         bg.add(loginPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 0, 300, 460));
@@ -326,12 +343,12 @@ public class LogInPanel extends javax.swing.JFrame {
         javax.swing.GroupLayout headerLayout = new javax.swing.GroupLayout(header);
         header.setLayout(headerLayout);
         headerLayout.setHorizontalGroup(
-                headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGap(0, 720, Short.MAX_VALUE)
+            headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 720, Short.MAX_VALUE)
         );
         headerLayout.setVerticalGroup(
-                headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGap(0, 70, Short.MAX_VALUE)
+            headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 70, Short.MAX_VALUE)
         );
 
         bg.add(header, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 720, 70));
@@ -341,12 +358,12 @@ public class LogInPanel extends javax.swing.JFrame {
         javax.swing.GroupLayout imgPanelLayout = new javax.swing.GroupLayout(imgPanel);
         imgPanel.setLayout(imgPanelLayout);
         imgPanelLayout.setHorizontalGroup(
-                imgPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGap(0, 450, Short.MAX_VALUE)
+            imgPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 450, Short.MAX_VALUE)
         );
         imgPanelLayout.setVerticalGroup(
-                imgPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGap(0, 460, Short.MAX_VALUE)
+            imgPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 460, Short.MAX_VALUE)
         );
 
         bg.add(imgPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 450, 460));
@@ -354,12 +371,12 @@ public class LogInPanel extends javax.swing.JFrame {
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(bg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(bg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(bg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(bg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -400,28 +417,6 @@ public class LogInPanel extends javax.swing.JFrame {
         x.setForeground(new Color(204,204,204));
     }//GEN-LAST:event_xMouseExited
 
-    private void fieldUsernameMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_fieldUsernameMousePressed
-        if (fieldUsername.getText().equals("Ingresa tu usuario")){
-            fieldUsername.setText("");
-            fieldUsername.setForeground(Color.white);
-        }
-        if (String.valueOf(fieldPassword.getPassword()).isEmpty()){
-            fieldPassword.setText("******");
-            fieldPassword.setForeground(new Color(235,233,233));
-        }
-    }//GEN-LAST:event_fieldUsernameMousePressed
-
-    private void fieldPasswordMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_fieldPasswordMousePressed
-        if (String.valueOf(fieldPassword.getPassword()).equals("******")){
-            fieldPassword.setText("");
-            fieldPassword.setForeground(Color.white);
-        }
-        if (fieldUsername.getText().isEmpty()){
-            fieldUsername.setText("Ingresa tu usuario");
-            fieldUsername.setForeground(new Color(235,233,233));
-        }
-    }//GEN-LAST:event_fieldPasswordMousePressed
-
     private void labelLogInSettsMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelLogInSettsMouseEntered
         labelLogInSetts.setForeground(new Color(0, 61, 255));
     }//GEN-LAST:event_labelLogInSettsMouseEntered
@@ -431,6 +426,137 @@ public class LogInPanel extends javax.swing.JFrame {
     }//GEN-LAST:event_labelLogInSettsMouseExited
 
     private void labelLogInMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelLogInMouseClicked
+        logIn();
+    }//GEN-LAST:event_labelLogInMouseClicked
+
+    private void labelGuestMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelGuestMouseClicked
+        logIn = true;
+        hideElements();
+        Session.guestMode();
+        new HomePanel(this, currentSession).setVisible(true);
+    }//GEN-LAST:event_labelGuestMouseClicked
+
+    private void labelLogInMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelLogInMouseEntered
+        btnLogin.setBackground(new Color(146,246,146));
+    }//GEN-LAST:event_labelLogInMouseEntered
+
+    private void labelLogInMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelLogInMouseExited
+        btnLogin.setBackground(new Color(96,243,96));
+    }//GEN-LAST:event_labelLogInMouseExited
+
+    private void labelGuestMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelGuestMouseEntered
+        btnGuest.setBackground(new Color(146,246,146));
+    }//GEN-LAST:event_labelGuestMouseEntered
+
+    private void labelGuestMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelGuestMouseExited
+        btnGuest.setBackground(new Color(96,243,96));
+    }//GEN-LAST:event_labelGuestMouseExited
+
+    private void labelLogInSettsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelLogInSettsMouseClicked
+        if(logIn){
+            labelSubtitle.setText("CREAR CUENTA");
+            labelLogIn.setText("CREAR");
+            labelLogInSetts.setText("¿Ya tienes cuenta?");
+            choiceAdmin.setVisible(true);
+            choiceUser.setVisible(true);
+            logIn = false;
+        }else{
+            labelSubtitle.setText("INICIAR SESIÓN");
+            labelLogIn.setText("ENTRAR");
+            labelLogInSetts.setText("¿Aún no tienes cuenta?");
+            choiceUser.setVisible(false);
+            choiceAdmin.setVisible(false);
+            logIn = true;
+        }
+    }//GEN-LAST:event_labelLogInSettsMouseClicked
+
+    private void fieldUsernameFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_fieldUsernameFocusGained
+        focusOnUsername();
+    }//GEN-LAST:event_fieldUsernameFocusGained
+
+    private void fieldUsernameFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_fieldUsernameFocusLost
+        unfocusOnUsermane();
+    }//GEN-LAST:event_fieldUsernameFocusLost
+
+    private void fieldPasswordFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_fieldPasswordFocusGained
+        focusOnPassword();
+    }//GEN-LAST:event_fieldPasswordFocusGained
+
+    private void fieldPasswordFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_fieldPasswordFocusLost
+        unfocusOnPassword();
+    }//GEN-LAST:event_fieldPasswordFocusLost
+
+    private void fieldUsernameKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fieldUsernameKeyPressed
+        if(evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            logIn();
+        }
+    }//GEN-LAST:event_fieldUsernameKeyPressed
+
+    private void fieldPasswordKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fieldPasswordKeyPressed
+        if(evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            logIn();
+        }
+    }//GEN-LAST:event_fieldPasswordKeyPressed
+
+    private void hideElements(){
+        labelSubtitle.setText("INICIAR SESIÓN");
+        labelLogIn.setText("ENTRAR");
+        labelLogInSetts.setText("¿Aún no tienes cuenta?");
+        choiceUser.setVisible(false);
+        choiceAdmin.setVisible(false);
+        logIn = true;
+        clearFields();
+        this.setVisible(false);
+    }
+
+    private void clearFields(){
+        fieldPassword.setText("******");
+        fieldPassword.setForeground(new Color(235,233,233));
+        fieldUsername.setText("Ingresa tu usuario");
+        fieldUsername.setForeground(new Color(235,233,233));
+    }
+    
+    private void focusOnUsername(){
+        if (fieldUsername.getText().equals("Ingresa tu usuario")){
+            fieldUsername.setText("");
+            fieldUsername.setForeground(Color.white);
+        }
+        if (String.valueOf(fieldPassword.getPassword()).isEmpty()){
+            fieldPassword.setText("******");
+            fieldPassword.setForeground(new Color(235,233,233));
+        }
+    }
+    
+    private void focusOnPassword(){
+        if (String.valueOf(fieldPassword.getPassword()).equals("******")){
+            fieldPassword.setText("");
+            fieldPassword.setForeground(Color.white);
+        }
+        if (fieldUsername.getText().isEmpty()){
+            fieldUsername.setText("Ingresa tu usuario");
+            fieldUsername.setForeground(new Color(235,233,233));
+        }
+    }
+    
+    private void unfocusOnUsermane(){
+        if (fieldUsername.getText().isEmpty()) {
+            fieldUsername.setText("Ingresa tu usuario");
+            fieldUsername.setForeground(new Color(235, 233, 233));
+        }
+    }
+    
+    private void unfocusOnPassword(){
+        if (String.valueOf(fieldPassword.getPassword()).isEmpty()){
+        fieldPassword.setText("******");
+        fieldPassword.setForeground(new Color(235,233,233));
+        }
+    }
+    
+    public void reopenLogIn(){
+        this.setVisible(true);
+    }
+    
+    public void logIn(){
         if (fieldUsername.getText().equals("Ingresa tu usuario") ||
                 String.valueOf(fieldPassword.getPassword()).equals("******") ||
                 fieldUsername.getText().isEmpty() ||
@@ -491,69 +617,6 @@ public class LogInPanel extends javax.swing.JFrame {
             hideElements();
             new HomePanel(this, currentSession).setVisible(true);
         }
-    }//GEN-LAST:event_labelLogInMouseClicked
-
-    private void labelGuestMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelGuestMouseClicked
-        logIn = true;
-        hideElements();
-        Session.guestMode();
-        new HomePanel(this, currentSession).setVisible(true);
-    }//GEN-LAST:event_labelGuestMouseClicked
-
-    private void labelLogInMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelLogInMouseEntered
-        btnLogin.setBackground(new Color(146,246,146));
-    }//GEN-LAST:event_labelLogInMouseEntered
-
-    private void labelLogInMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelLogInMouseExited
-        btnLogin.setBackground(new Color(96,243,96));
-    }//GEN-LAST:event_labelLogInMouseExited
-
-    private void labelGuestMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelGuestMouseEntered
-        btnGuest.setBackground(new Color(146,246,146));
-    }//GEN-LAST:event_labelGuestMouseEntered
-
-    private void labelGuestMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelGuestMouseExited
-        btnGuest.setBackground(new Color(96,243,96));
-    }//GEN-LAST:event_labelGuestMouseExited
-
-    private void labelLogInSettsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelLogInSettsMouseClicked
-        if(logIn){
-            labelSubtitle.setText("CREAR CUENTA");
-            labelLogIn.setText("CREAR");
-            labelLogInSetts.setText("¿Ya tienes cuenta?");
-            choiceAdmin.setVisible(true);
-            choiceUser.setVisible(true);
-            logIn = false;
-        }else{
-            labelSubtitle.setText("INICIAR SESIÓN");
-            labelLogIn.setText("ENTRAR");
-            labelLogInSetts.setText("¿Aún no tienes cuenta?");
-            choiceUser.setVisible(false);
-            choiceAdmin.setVisible(false);
-            logIn = true;
-        }
-    }//GEN-LAST:event_labelLogInSettsMouseClicked
-
-    private void hideElements(){
-        labelSubtitle.setText("INICIAR SESIÓN");
-        labelLogIn.setText("ENTRAR");
-        labelLogInSetts.setText("¿Aún no tienes cuenta?");
-        choiceUser.setVisible(false);
-        choiceAdmin.setVisible(false);
-        logIn = true;
-        clearFields();
-        this.setVisible(false);
-    }
-
-    private void clearFields(){
-        fieldPassword.setText("******");
-        fieldPassword.setForeground(new Color(235,233,233));
-        fieldUsername.setText("Ingresa tu usuario");
-        fieldUsername.setForeground(new Color(235,233,233));
-    }
-
-    public void reopenLogIn(){
-        this.setVisible(true);
     }
 
     public static void main(String args[]) {

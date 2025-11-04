@@ -93,7 +93,7 @@ public class RecordEditorPanel extends javax.swing.JPanel {
         labelCrit1 = new javax.swing.JLabel();
         jSeparator3 = new javax.swing.JSeparator();
         jScrollPane1 = new javax.swing.JScrollPane();
-        fieldDescripcion = new javax.swing.JTextField();
+        fieldDescripcion = new javax.swing.JTextArea();
         labelCrit3 = new javax.swing.JLabel();
         comboStates = new javax.swing.JComboBox<>();
         labelCrit2 = new javax.swing.JLabel();
@@ -197,9 +197,12 @@ public class RecordEditorPanel extends javax.swing.JPanel {
         fieldTitulo.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         fieldTitulo.setText("Escribe el título");
         fieldTitulo.setBorder(null);
-        fieldTitulo.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                fieldTituloMousePressed(evt);
+        fieldTitulo.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                fieldTituloFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                fieldTituloFocusLost(evt);
             }
         });
         bg.add(fieldTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 70, 300, -1));
@@ -220,14 +223,20 @@ public class RecordEditorPanel extends javax.swing.JPanel {
         bg.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 440, 760, 20));
 
         fieldDescripcion.setBackground(new java.awt.Color(255, 255, 255));
+        fieldDescripcion.setColumns(20);
         fieldDescripcion.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
-        fieldDescripcion.setForeground(new java.awt.Color(235, 233, 233));
-        fieldDescripcion.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        fieldDescripcion.setText("Escribe la descripción");
+        fieldDescripcion.setLineWrap(true);
+        fieldDescripcion.setRows(5);
+        fieldDescripcion.setText("Escribe la descripción\n");
+        fieldDescripcion.setWrapStyleWord(true);
         fieldDescripcion.setBorder(null);
-        fieldDescripcion.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                fieldDescripcionMousePressed(evt);
+        fieldDescripcion.setDisabledTextColor(new java.awt.Color(235, 233, 233));
+        fieldDescripcion.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                fieldDescripcionFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                fieldDescripcionFocusLost(evt);
             }
         });
         jScrollPane1.setViewportView(fieldDescripcion);
@@ -386,28 +395,6 @@ public class RecordEditorPanel extends javax.swing.JPanel {
         btnSearchImage.setBackground(new Color(96,243,96));
     }//GEN-LAST:event_labelSearchImageMouseExited
 
-    private void fieldTituloMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_fieldTituloMousePressed
-        if (fieldTitulo.getText().equals("Escribe el título")){
-            fieldTitulo.setText("");
-            fieldTitulo.setForeground(Color.black);
-        }
-        if (fieldDescripcion.getText().isEmpty()){
-            fieldDescripcion.setText("Escribe la descripción");
-            fieldDescripcion.setForeground(new Color(170, 185, 185));
-        }
-    }//GEN-LAST:event_fieldTituloMousePressed
-
-    private void fieldDescripcionMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_fieldDescripcionMousePressed
-        if (fieldDescripcion.getText().equals("Escribe la descripción")){
-            fieldDescripcion.setText("");
-            fieldDescripcion.setForeground(Color.black);
-        }
-        if (fieldTitulo.getText().isEmpty()){
-            fieldTitulo.setText("Escribe el título");
-            fieldTitulo.setForeground(new Color(170, 185, 185));
-        }
-    }//GEN-LAST:event_fieldDescripcionMousePressed
-
     private void labelTerminarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelTerminarMouseClicked
         String mistakes = "";
         if (fieldTitulo.getText().equals("Escribe el título")) mistakes += "No dejes el título en blanco.\n";
@@ -486,6 +473,50 @@ public class RecordEditorPanel extends javax.swing.JPanel {
         btnCancelar.setBackground(new Color(96,243,96));
     }//GEN-LAST:event_labelCancelarMouseExited
 
+    private void fieldTituloFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_fieldTituloFocusGained
+        focusTitulo();
+    }//GEN-LAST:event_fieldTituloFocusGained
+
+    private void fieldTituloFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_fieldTituloFocusLost
+        unfocusTitulo();
+    }//GEN-LAST:event_fieldTituloFocusLost
+
+    private void fieldDescripcionFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_fieldDescripcionFocusGained
+        focusDescripcion();
+    }//GEN-LAST:event_fieldDescripcionFocusGained
+
+    private void fieldDescripcionFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_fieldDescripcionFocusLost
+        unfocusDescripcion();
+    }//GEN-LAST:event_fieldDescripcionFocusLost
+    
+    private void focusTitulo(){
+        if (fieldTitulo.getText().equals("Escribe el título")){
+            fieldTitulo.setText("");
+            fieldTitulo.setForeground(Color.black);
+        }
+    }
+    
+    private void focusDescripcion(){
+        if (fieldDescripcion.getText().equals("Escribe la descripción")){
+            fieldDescripcion.setText("");
+            fieldDescripcion.setForeground(Color.black);
+        }
+    }
+    
+    private void unfocusTitulo(){
+        if (fieldTitulo.getText().isEmpty()){
+            fieldTitulo.setText("Escribe el título");
+            fieldTitulo.setForeground(new Color(204,204,204));
+        }
+    }
+    
+    private void unfocusDescripcion(){
+        if (fieldDescripcion.getText().isEmpty()){
+            fieldDescripcion.setText("Escribe la descripción");
+            fieldDescripcion.setForeground(new Color(204,204,204));
+        }
+    }
+    
 
     public void setComboStates(){
         comboStates.setModel(Other.setComboStates());
@@ -506,10 +537,12 @@ public class RecordEditorPanel extends javax.swing.JPanel {
     private javax.swing.JRadioButton choicePala;
     private javax.swing.JRadioButton choiceTrad;
     private javax.swing.JComboBox<String> comboStates;
-    private javax.swing.JTextField fieldDescripcion;
+    private javax.swing.JTextArea fieldDescripcion;
     private javax.swing.JTextField fieldTitulo;
     private javax.swing.JFileChooser jFileChooser1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JLabel labelCancelar;

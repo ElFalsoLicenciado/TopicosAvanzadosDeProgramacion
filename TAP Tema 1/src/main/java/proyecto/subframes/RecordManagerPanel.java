@@ -37,7 +37,6 @@ public class RecordManagerPanel extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         panelRecordList = new javax.swing.JPanel();
         labelTitle = new javax.swing.JLabel();
-        labelSubtitle = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(216, 188, 188));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -77,7 +76,7 @@ public class RecordManagerPanel extends javax.swing.JPanel {
                 .addComponent(labelCrear, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        add(btnCrear, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 50, 90, -1));
+        add(btnCrear, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 15, 90, -1));
 
         jScrollPane1.setBackground(new java.awt.Color(216, 188, 188));
         jScrollPane1.setBorder(null);
@@ -87,17 +86,12 @@ public class RecordManagerPanel extends javax.swing.JPanel {
         panelRecordList.setForeground(new java.awt.Color(216, 188, 188));
         jScrollPane1.setViewportView(panelRecordList);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 780, 340));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 780, 370));
 
         labelTitle.setFont(new java.awt.Font("Roboto", 1, 24)); // NOI18N
         labelTitle.setForeground(new java.awt.Color(114, 114, 114));
-        labelTitle.setText("Manage Panel");
+        labelTitle.setText("Tus registros:");
         add(labelTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
-
-        labelSubtitle.setFont(new java.awt.Font("Roboto", 1, 22)); // NOI18N
-        labelSubtitle.setForeground(new java.awt.Color(114, 114, 114));
-        labelSubtitle.setText("Tus registros:");
-        add(labelSubtitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void labelCrearMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelCrearMouseClicked
@@ -136,7 +130,6 @@ public class RecordManagerPanel extends javax.swing.JPanel {
     private javax.swing.JPanel btnCrear;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel labelCrear;
-    private javax.swing.JLabel labelSubtitle;
     private javax.swing.JLabel labelTitle;
     private javax.swing.JPanel panelRecordList;
     // End of variables declaration//GEN-END:variables

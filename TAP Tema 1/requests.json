@@ -3,14 +3,14 @@
         "requestId": "Abf0d7",
         "authorId": "Uf197a",
         "recordId": "R0b779",
-        "status": "WAITING",
+        "status": "APPROVED",
         "reason": ""
     },
     {
         "requestId": "Acb59d",
         "authorId": "Uf197a",
         "recordId": "Rf8167",
-        "status": "WAITING",
-        "reason": ""
+        "status": "REJECTED",
+        "reason": "wevos we, no hay nada"
     }
 ]
