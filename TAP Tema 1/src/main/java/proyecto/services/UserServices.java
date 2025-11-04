@@ -93,6 +93,20 @@ public class UserServices {
         return user;
     }
 
+    public static String searchForUser(String userID) {
+        String username = "";
+        ArrayList<User> userList = getUsers();
+
+        for (User all : userList) {
+            if (all.getUserID().equals(userID)) {
+                    username = all.getUsername();
+                    return username;
+            }
+        }
+
+        return username;
+    }
+
     public static int numberOfUsers() {
         return getUsers().size();
     }

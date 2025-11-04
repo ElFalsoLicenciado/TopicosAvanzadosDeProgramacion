@@ -36,6 +36,7 @@ public class AdminRecordPane extends javax.swing.JPanel {
         labelUsuario = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(216, 188, 188));
+        setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         panelImage.setBackground(new java.awt.Color(255, 255, 255));

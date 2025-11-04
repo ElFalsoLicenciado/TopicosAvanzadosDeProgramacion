@@ -1,5 +1,6 @@
 package proyecto.utils;
 
+import proyecto.enums.RecordType;
 import proyecto.enums.StateNames;
 
 import javax.swing.*;
@@ -26,12 +27,30 @@ public class Other {
 
     public static DefaultComboBoxModel<String> setComboStates(){
         DefaultComboBoxModel<String> model = new DefaultComboBoxModel<>();
-
+            model.addElement("Selecciona un estado.");
         for (StateNames state : StateNames.values()) {
             String displayName = state.name().replace("_", " ");
             model.addElement(displayName);
         }
         return model;
+    }
+
+    public static String[] getStateNames() {
+        String[] names = new String[StateNames.values().length];
+
+        for (int i = 0; i < StateNames.values().length; i++) {
+            names[i] = StateNames.values()[i].name().replace("_", " ");
+        }
+        return names;
+    }
+
+    public static String[] getTypes(){
+        String[] types = new String[RecordType.values().length];
+
+        for (int i = 0; i < RecordType.values().length; i++) {
+            types[i] = RecordType.values()[i].name();
+        }
+        return types;
     }
 
     public static boolean copiarArchivo(Path origin, String destiny ,String copy)

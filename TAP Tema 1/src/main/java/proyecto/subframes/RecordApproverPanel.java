@@ -10,12 +10,12 @@ import java.awt.Color;
  *
  * @author User
  */
-public class RecordAproverPanel extends javax.swing.JPanel {
+public class RecordApproverPanel extends javax.swing.JPanel {
 
     /**
      * Creates new form AdminRecordPanel
      */
-    public RecordAproverPanel() {
+    public RecordApproverPanel() {
         initComponents();
     }
 

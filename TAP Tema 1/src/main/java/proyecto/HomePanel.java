@@ -1,13 +1,17 @@
 package proyecto;
 
+import proyecto.models.Record;
 import proyecto.models.Session;
 import proyecto.models.User;
-import proyecto.subframes.*;
+import proyecto.subframes.RecordEditorPanel;
+import proyecto.subframes.RecordManagerPanel;
+import proyecto.subframes.RecordReaderPanel;
+import proyecto.subframes.RecordSelectorPanel;
 
 import java.awt.Color;
 
 public class HomePanel extends javax.swing.JFrame {
-    
+
     int xMouse, yMouse;
     private LogInPanel logInPanel;
     private Session session;
@@ -17,7 +21,6 @@ public class HomePanel extends javax.swing.JFrame {
     public HomePanel() {
         initComponents();
         setLocationRelativeTo(null);
-        manageRecordsPane.setVisible(false);
     }
 
     public HomePanel(LogInPanel logInPanel, Session session) {
@@ -25,8 +28,9 @@ public class HomePanel extends javax.swing.JFrame {
         this.session = session;
         initComponents();
         setLocationRelativeTo(null);
-        
-
+        readRecordPane.setVisible(false);
+        editRecordPane.setVisible(false);
+        approveRecordPane.setVisible(false);
     }
 
     @SuppressWarnings("unchecked")
@@ -35,15 +39,18 @@ public class HomePanel extends javax.swing.JFrame {
 
         tabGroup = new javax.swing.JTabbedPane();
         readTab = new javax.swing.JPanel();
-        selectRecordPane = new proyecto.subframes.RecordSelectorPanel();
-        recordReaderPane = new proyecto.subframes.RecordReaderPanel();
+        readRecordPane = new proyecto.subframes.RecordReaderPanel();
+        selectRecordPane = new proyecto.subframes.RecordSelectorPanel(this)
+        ;
         recordTab = new javax.swing.JPanel();
         recordGroup = new javax.swing.JTabbedPane();
         recordPanel = new javax.swing.JPanel();
+        manageRecordsPane = new proyecto.subframes.RecordManagerPanel(this, session.getUserRecords());
         editRecordPane = new proyecto.subframes.RecordEditorPanel();
-        manageRecordsPane = new proyecto.subframes.RecordManagerPanel();
         requestPanel = new javax.swing.JPanel();
+        userRequestsPanel1 = new proyecto.subframes.UserRequestsPanel();
         adminTab = new javax.swing.JPanel();
+        approveRecordPane = new proyecto.subframes.RecordApproverPanel();
         adminToolsPane = new proyecto.subframes.AdminPanel();
         header = new javax.swing.JPanel();
         btnSalir = new javax.swing.JPanel();
@@ -69,10 +76,10 @@ public class HomePanel extends javax.swing.JFrame {
 
         readTab.setBackground(new java.awt.Color(216, 188, 188));
         readTab.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        readTab.add(selectRecordPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 812, 530));
 
-        recordReaderPane.setBackground(new java.awt.Color(216, 188, 188));
-        readTab.add(recordReaderPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 810, 540));
+        readRecordPane.setBackground(new java.awt.Color(216, 188, 188));
+        readTab.add(readRecordPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 840, 590));
+        readTab.add(selectRecordPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 840, 590));
 
         tabGroup.addTab("Ver registros", readTab);
 
@@ -85,13 +92,15 @@ public class HomePanel extends javax.swing.JFrame {
 
         recordPanel.setBackground(new java.awt.Color(216, 188, 188));
         recordPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        recordPanel.add(editRecordPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 840, 530));
-        recordPanel.add(manageRecordsPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 840, 530));
+        recordPanel.add(manageRecordsPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 830, 550));
+        recordPanel.add(editRecordPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 860, 550));
 
         recordGroup.addTab("Registros", recordPanel);
 
         requestPanel.setBackground(new java.awt.Color(216, 188, 188));
         requestPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        requestPanel.add(userRequestsPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 860, 550));
+
         recordGroup.addTab("Aprobaciones", requestPanel);
 
         recordTab.add(recordGroup, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 840, 570));
@@ -100,7 +109,8 @@ public class HomePanel extends javax.swing.JFrame {
 
         adminTab.setBackground(new java.awt.Color(216, 188, 188));
         adminTab.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        adminTab.add(adminToolsPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 812, 530));
+        adminTab.add(approveRecordPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 840, -1));
+        adminTab.add(adminToolsPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 840, 530));
 
         tabGroup.addTab("Moderación", adminTab);
 
@@ -208,11 +218,109 @@ public class HomePanel extends javax.swing.JFrame {
                     tabGroup.remove(recordTab);
                     tabGroup.remove(adminTab);
                 }
+                case ADMIN -> recordGroup.remove(requestPanel);
             }
         }catch (NullPointerException e) {
             e.printStackTrace();
         }
     }//GEN-LAST:event_formWindowOpened
+
+    public void hideRecordReader(){
+        readRecordPane.setVisible(false);
+        selectRecordPane.setVisible(true);
+    }
+
+
+    public void hideRecordEditor(){
+        editRecordPane.setVisible(false);
+        manageRecordsPane.setVisible(true);
+    }
+    
+    public void hideRecordApprover(){
+        approveRecordPane.setVisible(false);
+        adminToolsPane.setVisible(true);
+    }
+
+    public void showRecordReader(){
+        readRecordPane.setVisible(true);
+        selectRecordPane.setVisible(false);
+    }
+
+    public void showRecordEditor(){
+        editRecordPane.setVisible(true);
+        manageRecordsPane.setVisible(false);
+    }
+
+    public void showRecordApprover(){
+        approveRecordPane.setVisible(true);
+        adminToolsPane.setVisible(false);
+    }
+
+    public void createRecord(){
+        editRecordPane = new RecordEditorPanel(this, session);
+
+        recordPanel.removeAll();
+        recordPanel.add(editRecordPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 860, 550));
+
+        showRecordEditor();
+
+        recordPanel.revalidate();
+        recordPanel.repaint();
+    }
+
+    public void editRecord(Record record){
+        editRecordPane = new RecordEditorPanel(this, session, record);
+
+        recordPanel.removeAll();
+        recordPanel.add(editRecordPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 860, 550));
+        showRecordEditor();
+        recordPanel.revalidate();
+        recordPanel.repaint();
+    }
+
+    public void endEditing(){
+        manageRecordsPane = new RecordManagerPanel(this, session.getUserRecords());
+        editRecordPane = new RecordEditorPanel(this, session);
+
+        recordPanel.removeAll();
+        recordPanel.add(editRecordPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 860, 550));
+        recordPanel.add(manageRecordsPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 860, 550));
+        hideRecordEditor();
+        recordPanel.revalidate();
+        recordPanel.repaint();
+
+        selectRecordPane = new RecordSelectorPanel(this);
+        readRecordPane = new RecordReaderPanel();
+
+        readTab.removeAll();
+        readTab.add(selectRecordPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 860, 550));
+        readTab.add(readRecordPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 860, 550));
+        hideRecordReader();
+        readTab.revalidate();
+        readTab.repaint();
+    }
+
+    public void startLecture(Record record){
+        readRecordPane = new RecordReaderPanel(this, record);
+
+        readTab.removeAll();
+        readTab.add(readRecordPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 860, 550));
+        showRecordReader();
+        readTab.revalidate();
+        readTab.repaint();
+    }
+
+    public void endLecture(){
+        selectRecordPane = new RecordSelectorPanel(this);
+
+        readTab.removeAll();
+        readTab.add(selectRecordPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 860, 550));
+        hideRecordReader();
+        readTab.revalidate();
+        readTab.repaint();
+    }
+
+
 
     public static void main(String args[]) {
         /* Create and display the form */
@@ -222,18 +330,20 @@ public class HomePanel extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel adminTab;
     private proyecto.subframes.AdminPanel adminToolsPane;
+    private proyecto.subframes.RecordApproverPanel approveRecordPane;
     private javax.swing.JPanel btnSalir;
     private proyecto.subframes.RecordEditorPanel editRecordPane;
     private javax.swing.JPanel header;
     private proyecto.subframes.RecordManagerPanel manageRecordsPane;
+    private proyecto.subframes.RecordReaderPanel readRecordPane;
     private javax.swing.JPanel readTab;
     private javax.swing.JTabbedPane recordGroup;
     private javax.swing.JPanel recordPanel;
-    private proyecto.subframes.RecordReaderPanel recordReaderPane;
     private javax.swing.JPanel recordTab;
     private javax.swing.JPanel requestPanel;
     private proyecto.subframes.RecordSelectorPanel selectRecordPane;
     private javax.swing.JTabbedPane tabGroup;
+    private proyecto.subframes.UserRequestsPanel userRequestsPanel1;
     private javax.swing.JLabel x;
     // End of variables declaration//GEN-END:variables
 }

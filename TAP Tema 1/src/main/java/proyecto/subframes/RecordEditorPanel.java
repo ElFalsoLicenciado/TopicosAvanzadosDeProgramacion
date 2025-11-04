@@ -6,6 +6,13 @@ package proyecto.subframes;
 
 import java.awt.Color;
 
+import proyecto.HomePanel;
+import proyecto.enums.RecordType;
+import proyecto.enums.StateNames;
+import proyecto.enums.UserType;
+import proyecto.models.Record;
+import proyecto.models.Session;
+import proyecto.services.RecordServices;
 import proyecto.utils.DialogHelper;
 import proyecto.utils.Other;
 import java.io.File;
@@ -13,24 +20,66 @@ import javax.swing.JFileChooser;
 
 public class RecordEditorPanel extends javax.swing.JPanel {
 
+    private HomePanel homePanel;
+    private Session session;
+    private Record record;
+
     private final String IMG_PATH = "src/main/java/proyecto/resources/";
-    private String image = "";
-    private int oldStateIndex = -1;
+    private File imgFile = null;
 
     public RecordEditorPanel() {
         initComponents();
-        setComboStates();
     }
+
+    public RecordEditorPanel(HomePanel homePanel, Session session) {
+        initComponents();
+        setComboStates();
+
+        this.homePanel = homePanel;
+        this.session = session;
+        record = null;
+        imgFile = new File(IMG_PATH+ "imgnotfound.png");
+    }
+
+    public RecordEditorPanel(HomePanel homePanel, Session session, Record record) {
+        initComponents();
+        setComboStates();
+
+        this.homePanel = homePanel;
+        this.session = session;
+        this.record = record;
+
+        fieldTitulo.setText(record.getTitle());
+        fieldTitulo.setForeground(Color.black);
+
+        fieldDescripcion.setText(record.getDescription());
+        fieldDescripcion.setForeground(Color.black);
+
+        switch (record.getRecordType()) {
+            case LUGAR -> choiceLug.setSelected(true);
+            case TRADICION -> choiceTrad.setSelected(true);
+            case PALABRA -> choicePala.setSelected(true);
+            case GASTRONOMIA -> choiceGast.setSelected(true);
+        }
+
+        comboStates.setSelectedIndex(record.getState().ordinal()+1);
+
+        imgFile = new File(record.getImageUrl());
+        panelImage.setIcon(
+                new javax.swing.ImageIcon(imgFile.getAbsolutePath())
+        );
+        panelImage.updateUI();
+    }
+
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         jFileChooser1 = new javax.swing.JFileChooser("C:\\Users\\User\\Downloads\\Media\\Images");
-        buttonGroup1 = new javax.swing.ButtonGroup();
-        btnAprove = new org.edisoncor.gui.panel.PanelImage();
-        panelImage1 = new org.edisoncor.gui.panel.PanelImage();
+        catGroup = new javax.swing.ButtonGroup();
         bg = new javax.swing.JPanel();
-        choicdeGast = new javax.swing.JRadioButton();
+        choiceGast = new javax.swing.JRadioButton();
         choicePala = new javax.swing.JRadioButton();
         choiceTrad = new javax.swing.JRadioButton();
         choiceLug = new javax.swing.JRadioButton();
@@ -52,32 +101,6 @@ public class RecordEditorPanel extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         fieldDescripcion = new javax.swing.JTextField();
 
-        btnAprove.setIcon(new javax.swing.ImageIcon("C:\\Users\\User\\Documents\\Programming\\JetBrains\\IntelliJ Projects\\Topicos Avanzados de Programacion\\TAP Tema 1\\src\\main\\java\\proyecto\\resources\\aprove.png")); // NOI18N
-
-        javax.swing.GroupLayout btnAproveLayout = new javax.swing.GroupLayout(btnAprove);
-        btnAprove.setLayout(btnAproveLayout);
-        btnAproveLayout.setHorizontalGroup(
-            btnAproveLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 30, Short.MAX_VALUE)
-        );
-        btnAproveLayout.setVerticalGroup(
-            btnAproveLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 30, Short.MAX_VALUE)
-        );
-
-        panelImage1.setIcon(new javax.swing.ImageIcon("C:\\Users\\User\\Documents\\Programming\\JetBrains\\IntelliJ Projects\\Topicos Avanzados de Programacion\\TAP Tema 1\\src\\main\\java\\proyecto\\resources\\cancel.png")); // NOI18N
-
-        javax.swing.GroupLayout panelImage1Layout = new javax.swing.GroupLayout(panelImage1);
-        panelImage1.setLayout(panelImage1Layout);
-        panelImage1Layout.setHorizontalGroup(
-            panelImage1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 30, Short.MAX_VALUE)
-        );
-        panelImage1Layout.setVerticalGroup(
-            panelImage1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 30, Short.MAX_VALUE)
-        );
-
         setBackground(new java.awt.Color(216, 188, 188));
         setMinimumSize(new java.awt.Dimension(690, 75));
         setPreferredSize(new java.awt.Dimension(690, 75));
@@ -88,16 +111,16 @@ public class RecordEditorPanel extends javax.swing.JPanel {
         bg.setPreferredSize(new java.awt.Dimension(762, 600));
         bg.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        choicdeGast.setBackground(new java.awt.Color(216, 188, 188));
-        buttonGroup1.add(choicdeGast);
-        choicdeGast.setFont(new java.awt.Font("Roboto", 0, 16)); // NOI18N
-        choicdeGast.setForeground(new java.awt.Color(235, 233, 233));
-        choicdeGast.setText("Gastronomía");
-        choicdeGast.setBorder(null);
-        bg.add(choicdeGast, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 230, -1, -1));
+        choiceGast.setBackground(new java.awt.Color(216, 188, 188));
+        catGroup.add(choiceGast);
+        choiceGast.setFont(new java.awt.Font("Roboto", 0, 16)); // NOI18N
+        choiceGast.setForeground(new java.awt.Color(235, 233, 233));
+        choiceGast.setText("Gastronomía");
+        choiceGast.setBorder(null);
+        bg.add(choiceGast, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 230, -1, -1));
 
         choicePala.setBackground(new java.awt.Color(216, 188, 188));
-        buttonGroup1.add(choicePala);
+        catGroup.add(choicePala);
         choicePala.setFont(new java.awt.Font("Roboto", 0, 16)); // NOI18N
         choicePala.setForeground(new java.awt.Color(235, 233, 233));
         choicePala.setText("Palabra");
@@ -105,7 +128,7 @@ public class RecordEditorPanel extends javax.swing.JPanel {
         bg.add(choicePala, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 260, -1, -1));
 
         choiceTrad.setBackground(new java.awt.Color(216, 188, 188));
-        buttonGroup1.add(choiceTrad);
+        catGroup.add(choiceTrad);
         choiceTrad.setFont(new java.awt.Font("Roboto", 0, 16)); // NOI18N
         choiceTrad.setForeground(new java.awt.Color(235, 233, 233));
         choiceTrad.setText("Tradición");
@@ -113,7 +136,7 @@ public class RecordEditorPanel extends javax.swing.JPanel {
         bg.add(choiceTrad, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 230, -1, -1));
 
         choiceLug.setBackground(new java.awt.Color(216, 188, 188));
-        buttonGroup1.add(choiceLug);
+        catGroup.add(choiceLug);
         choiceLug.setFont(new java.awt.Font("Roboto", 0, 16)); // NOI18N
         choiceLug.setForeground(new java.awt.Color(235, 233, 233));
         choiceLug.setText("Lugar");
@@ -205,11 +228,6 @@ public class RecordEditorPanel extends javax.swing.JPanel {
         comboStates.setFont(new java.awt.Font("Roboto", 0, 17)); // NOI18N
         comboStates.setForeground(new java.awt.Color(235, 233, 233));
         comboStates.setBorder(null);
-        comboStates.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                comboStatesActionPerformed(evt);
-            }
-        });
         bg.add(comboStates, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 160, 300, -1));
 
         labelCrit2.setBackground(new java.awt.Color(0, 0, 0));
@@ -321,23 +339,12 @@ public class RecordEditorPanel extends javax.swing.JPanel {
             System.out.println(fileName);
 
             if(fileName.endsWith(".png") || fileName.endsWith(".jpg")) {
-                String folder = Other.folders[comboStates.getSelectedIndex()];
-                if(! Other.copiarArchivo(file.toPath(), IMG_PATH + folder ,fileName)) {
-                    panelImage.setIcon(
-                            new javax.swing.ImageIcon(IMG_PATH + "imgnotfound.png")
-                    );
-                    panelImage.setBackground(Color.white);
-                    image = "imgnotfound.png";
-                }
-
-                System.out.println("Colocando imagen de: " + IMG_PATH + folder + fileName);
                 panelImage.setIcon(
-                        new javax.swing.ImageIcon(IMG_PATH + folder + fileName)
+                        new javax.swing.ImageIcon(file.getPath())
                 );
+                imgFile = new File(file.getPath());
                 panelImage.setBackground(Color.white);
                 panelImage.updateUI();
-
-                image = fileName;
             } else {
                 DialogHelper.errorMessageDialog(
                         "Debe seleccionar una imagen png o jpg.",
@@ -346,6 +353,29 @@ public class RecordEditorPanel extends javax.swing.JPanel {
             }
         }
     }//GEN-LAST:event_labelSearchImageMouseClicked
+
+    private String copyImage(File file, String fileName) {
+        String img;
+        String folder = Other.folders[comboStates.getSelectedIndex()-1];
+        if(! Other.copiarArchivo(file.toPath(), IMG_PATH + folder ,fileName)) {
+            panelImage.setIcon(
+                    new javax.swing.ImageIcon(IMG_PATH + "imgnotfound.png")
+            );
+            panelImage.setBackground(Color.white);
+            img = IMG_PATH + "imgnotfound.png";
+        }
+
+        System.out.println("Colocando imagen de: " + IMG_PATH + folder + fileName);
+        panelImage.setIcon(
+                new javax.swing.ImageIcon(IMG_PATH + folder + fileName)
+        );
+        panelImage.setBackground(Color.white);
+        panelImage.updateUI();
+
+        img = IMG_PATH + folder + fileName;
+
+        return img;
+    }
 
     private void labelSearchImageMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelSearchImageMouseEntered
         btnSearchImage.setBackground(new Color(146,246,146));
@@ -377,25 +407,61 @@ public class RecordEditorPanel extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_fieldDescripcionMousePressed
 
-    private void comboStatesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboStatesActionPerformed
-        int newStateIndex = comboStates.getSelectedIndex();
-
-    if (image != null && !image.isEmpty() && oldStateIndex != -1 && newStateIndex != oldStateIndex) {
-        String oldFolder = Other.folders[oldStateIndex];
-        String newFolder = Other.folders[newStateIndex];
-
-        boolean movido = Other.moveImage(image, oldFolder, newFolder);
-
-        if (movido) {
-            System.out.println("La imagen se movió correctamente.");
-        }
-    }
-
-    oldStateIndex = newStateIndex;
-    }//GEN-LAST:event_comboStatesActionPerformed
-
     private void labelTerminarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelTerminarMouseClicked
-        
+        String mistakes = "";
+        if (fieldTitulo.getText().equals("Escribe el título")) mistakes += "No dejes el título en blanco.\n";
+
+        if (fieldDescripcion.getText().equals("Escribe la descripción"))
+            mistakes += "No dejes el descripción en blanco.\n";
+
+        if (comboStates.getSelectedIndex() == 0) mistakes += "Por favor, selecciona un estado.\n";
+
+        if (catGroup.getSelection() == null) mistakes += "Por favor, seleccionar una categoría.\n";
+
+        if (mistakes.isEmpty()) {
+            String userId = session.getUser().getUserID();
+            StateNames state = StateNames.values()[comboStates.getSelectedIndex()-1];
+            RecordType type = null;
+            boolean isPublic = false;
+            String image = copyImage(imgFile, imgFile.getName());
+
+            if (choiceGast.isSelected()) type = RecordType.GASTRONOMIA;
+            if (choiceTrad.isSelected()) type = RecordType.TRADICION;
+            if (choiceLug.isSelected()) type = RecordType.LUGAR;
+            if (choicePala.isSelected()) type = RecordType.PALABRA;
+
+            if (session.getUser().getUserType() == UserType.ADMIN)
+                isPublic = true;
+            if (record == null) {
+                record = new Record(
+                        userId,
+                        state,
+                        type,
+                        isPublic,
+                        fieldTitulo.getText(),
+                        fieldDescripcion.getText(),
+                        image
+                );
+            }else{
+                String recordId = record.getRecordId();
+                record = new Record(
+                        recordId,
+                        userId,
+                        state,
+                        type,
+                        isPublic,
+                        fieldTitulo.getText(),
+                        fieldDescripcion.getText(),
+                        image
+                );
+            }
+            if(RecordServices.saveRecord(record)) {
+                homePanel.endEditing();
+                return;
+            }
+        }
+        DialogHelper.errorMessageDialog(mistakes, "Tienes errores.");
+
     }//GEN-LAST:event_labelTerminarMouseClicked
 
     private void labelTerminarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelTerminarMouseEntered
@@ -407,7 +473,7 @@ public class RecordEditorPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_labelTerminarMouseExited
 
     private void labelCancelarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelCancelarMouseClicked
-        // TODO add your handling code here:
+        homePanel.endEditing();
     }//GEN-LAST:event_labelCancelarMouseClicked
 
     private void labelCancelarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelCancelarMouseEntered
@@ -417,8 +483,8 @@ public class RecordEditorPanel extends javax.swing.JPanel {
     private void labelCancelarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelCancelarMouseExited
         btnCancelar.setBackground(new Color(96,243,96));
     }//GEN-LAST:event_labelCancelarMouseExited
-    
-    
+
+
     public void setComboStates(){
         comboStates.setModel(Other.setComboStates());
     }
@@ -429,12 +495,11 @@ public class RecordEditorPanel extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel bg;
-    private org.edisoncor.gui.panel.PanelImage btnAprove;
     private javax.swing.JPanel btnCancelar;
     private javax.swing.JPanel btnSearchImage;
     private javax.swing.JPanel btnTerminar;
-    private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JRadioButton choicdeGast;
+    private javax.swing.ButtonGroup catGroup;
+    private javax.swing.JRadioButton choiceGast;
     private javax.swing.JRadioButton choiceLug;
     private javax.swing.JRadioButton choicePala;
     private javax.swing.JRadioButton choiceTrad;
@@ -453,6 +518,5 @@ public class RecordEditorPanel extends javax.swing.JPanel {
     private javax.swing.JLabel labelTerminar;
     private javax.swing.JLabel labelTitle;
     private org.edisoncor.gui.panel.PanelImage panelImage;
-    private org.edisoncor.gui.panel.PanelImage panelImage1;
     // End of variables declaration//GEN-END:variables
 }

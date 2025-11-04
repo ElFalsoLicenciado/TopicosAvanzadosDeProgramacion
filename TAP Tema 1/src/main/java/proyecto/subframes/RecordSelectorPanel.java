@@ -1,14 +1,39 @@
 package proyecto.subframes;
 
-import java.awt.Color;
+import java.awt.*;
+import java.util.ArrayList;
+
+import proyecto.HomePanel;
+import proyecto.enums.RecordType;
+import proyecto.enums.StateNames;
+import proyecto.models.Record;
+import proyecto.services.RecordServices;
+import proyecto.subframes.panes.SelectRecordPane;
 import proyecto.utils.Other;
 
 
 public class RecordSelectorPanel extends javax.swing.JPanel {
-    
+
+    private HomePanel homePanel;
+    private GridLayout gridLayout = new GridLayout(1,1);
+    private ArrayList<Record> records;
+    private boolean catIsSelected;
+
     public RecordSelectorPanel() {
         initComponents();
+    }
+
+    public RecordSelectorPanel(HomePanel homePanel) {
+        initComponents();
         setComboStates();
+
+        this.homePanel = homePanel;
+
+        panelRecordList.setLayout(gridLayout);
+        records = RecordServices.getApprovedRecords();
+        catIsSelected = false;
+
+        showReadableRecords();
     }
 
     @SuppressWarnings("unchecked")
@@ -18,7 +43,7 @@ public class RecordSelectorPanel extends javax.swing.JPanel {
         recordTypeGroup = new javax.swing.ButtonGroup();
         comboStates = new javax.swing.JComboBox<>();
         choiceTrad = new javax.swing.JRadioButton();
-        choicdeGast = new javax.swing.JRadioButton();
+        choiceGast = new javax.swing.JRadioButton();
         choiceLug = new javax.swing.JRadioButton();
         choicePala = new javax.swing.JRadioButton();
         labelCrit1 = new javax.swing.JLabel();
@@ -36,6 +61,11 @@ public class RecordSelectorPanel extends javax.swing.JPanel {
         comboStates.setFont(new java.awt.Font("Roboto", 0, 17)); // NOI18N
         comboStates.setForeground(new java.awt.Color(235, 233, 233));
         comboStates.setBorder(null);
+        comboStates.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboStatesActionPerformed(evt);
+            }
+        });
         add(comboStates, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 210, 40));
 
         choiceTrad.setBackground(new java.awt.Color(216, 188, 188));
@@ -43,20 +73,35 @@ public class RecordSelectorPanel extends javax.swing.JPanel {
         choiceTrad.setFont(new java.awt.Font("Roboto", 0, 16)); // NOI18N
         choiceTrad.setForeground(new java.awt.Color(235, 233, 233));
         choiceTrad.setText("Tradición");
+        choiceTrad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                choiceTradActionPerformed(evt);
+            }
+        });
         add(choiceTrad, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 80, -1, 30));
 
-        choicdeGast.setBackground(new java.awt.Color(216, 188, 188));
-        recordTypeGroup.add(choicdeGast);
-        choicdeGast.setFont(new java.awt.Font("Roboto", 0, 16)); // NOI18N
-        choicdeGast.setForeground(new java.awt.Color(235, 233, 233));
-        choicdeGast.setText("Gastronomía");
-        add(choicdeGast, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 80, -1, 30));
+        choiceGast.setBackground(new java.awt.Color(216, 188, 188));
+        recordTypeGroup.add(choiceGast);
+        choiceGast.setFont(new java.awt.Font("Roboto", 0, 16)); // NOI18N
+        choiceGast.setForeground(new java.awt.Color(235, 233, 233));
+        choiceGast.setText("Gastronomía");
+        choiceGast.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                choiceGastActionPerformed(evt);
+            }
+        });
+        add(choiceGast, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 80, -1, 30));
 
         choiceLug.setBackground(new java.awt.Color(216, 188, 188));
         recordTypeGroup.add(choiceLug);
         choiceLug.setFont(new java.awt.Font("Roboto", 0, 16)); // NOI18N
         choiceLug.setForeground(new java.awt.Color(235, 233, 233));
         choiceLug.setText("Lugar");
+        choiceLug.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                choiceLugActionPerformed(evt);
+            }
+        });
         add(choiceLug, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 80, -1, 30));
 
         choicePala.setBackground(new java.awt.Color(216, 188, 188));
@@ -64,6 +109,11 @@ public class RecordSelectorPanel extends javax.swing.JPanel {
         choicePala.setFont(new java.awt.Font("Roboto", 0, 16)); // NOI18N
         choicePala.setForeground(new java.awt.Color(235, 233, 233));
         choicePala.setText("Palabra");
+        choicePala.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                choicePalaActionPerformed(evt);
+            }
+        });
         add(choicePala, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 80, -1, 30));
 
         labelCrit1.setBackground(new java.awt.Color(0, 0, 0));
@@ -133,7 +183,7 @@ public class RecordSelectorPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void labelResetMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelResetMouseClicked
-
+        resetRecords();
     }//GEN-LAST:event_labelResetMouseClicked
 
     private void labelResetMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelResetMouseEntered
@@ -144,6 +194,92 @@ public class RecordSelectorPanel extends javax.swing.JPanel {
         btnReset.setBackground(new Color(96,243,96));
     }//GEN-LAST:event_labelResetMouseExited
 
+    private void comboStatesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboStatesActionPerformed
+        catIsSelected = false;
+        choiceGast.setSelected(false);
+        choiceLug.setSelected(false);
+        choicePala.setSelected(false);
+        choiceTrad.setSelected(false);
+        applyFilters();
+    }//GEN-LAST:event_comboStatesActionPerformed
+
+    private void choiceTradActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_choiceTradActionPerformed
+        catIsSelected =  true;
+        applyFilters();
+    }//GEN-LAST:event_choiceTradActionPerformed
+
+    private void choiceGastActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_choiceGastActionPerformed
+        catIsSelected =  true;
+        applyFilters();
+    }//GEN-LAST:event_choiceGastActionPerformed
+
+    private void choiceLugActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_choiceLugActionPerformed
+        catIsSelected =  true;
+        applyFilters();
+    }//GEN-LAST:event_choiceLugActionPerformed
+
+    private void choicePalaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_choicePalaActionPerformed
+        catIsSelected =  true;
+
+        applyFilters();
+    }//GEN-LAST:event_choicePalaActionPerformed
+
+    public void applyFilters() {
+
+        if (comboStates.getSelectedIndex() == 0 && ! catIsSelected) {
+            resetRecords();
+            return;
+        }
+        RecordType type = null;
+        StateNames state = null;
+
+        if (choiceGast.isSelected()) type = RecordType.GASTRONOMIA;
+        if (choiceTrad.isSelected()) type = RecordType.TRADICION;
+        if (choiceLug.isSelected()) type = RecordType.LUGAR;
+        if (choicePala.isSelected()) type = RecordType.PALABRA;
+
+        if (comboStates.getSelectedIndex() == 0 && catIsSelected) {
+            records = RecordServices.getSpecificTypeRecords(type);
+        }
+
+        if (comboStates.getSelectedIndex() != 0) state = StateNames.values()[comboStates.getSelectedIndex() - 1];
+
+        if (comboStates.getSelectedIndex() != 0 && catIsSelected) {
+            records = RecordServices.getVerySpecificRecords(state, type);
+        }
+
+        if (comboStates.getSelectedIndex() != 0 && ! catIsSelected) {
+            records = RecordServices.getSpecificStateRecords(state);
+        }
+        showReadableRecords();
+    }
+
+    public void startLecture(Record record) {
+        homePanel.startLecture(record);
+    }
+
+    public void resetRecords(){
+        comboStates.setSelectedIndex(0);
+        choiceGast.setSelected(false);
+        choiceLug.setSelected(false);
+        choicePala.setSelected(false);
+        choiceTrad.setSelected(false);
+        catIsSelected = false;
+        records = RecordServices.getApprovedRecords();
+        showReadableRecords();
+    }
+
+    private void showReadableRecords(){
+        panelRecordList.removeAll();
+        gridLayout.setRows(records.size());
+
+        for (Record record : records){
+            SelectRecordPane srp = new SelectRecordPane(this, record);
+            panelRecordList.add(srp);
+        }
+
+        panelRecordList.updateUI();
+    }
 
     public void setComboStates(){
         comboStates.setModel(Other.setComboStates());
@@ -151,7 +287,7 @@ public class RecordSelectorPanel extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel btnReset;
-    private javax.swing.JRadioButton choicdeGast;
+    private javax.swing.JRadioButton choiceGast;
     private javax.swing.JRadioButton choiceLug;
     private javax.swing.JRadioButton choicePala;
     private javax.swing.JRadioButton choiceTrad;

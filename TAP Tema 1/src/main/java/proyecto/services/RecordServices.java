@@ -3,7 +3,10 @@ package proyecto.services;
 import com.google.gson.Gson;
 import org.json.simple.JSONArray;
 import org.json.simple.parser.JSONParser;
+import proyecto.enums.RecordType;
+import proyecto.enums.StateNames;
 import proyecto.models.Record;
+import proyecto.utils.DialogHelper;
 import proyecto.utils.Other;
 
 import java.io.BufferedReader;
@@ -14,7 +17,7 @@ import java.util.ArrayList;
 
 public class RecordServices {
 
-    public static final String FILE = "request.json";
+    public static final String FILE = "record.json";
 
     public static ArrayList<Record> getRecords() {
         ArrayList<Record> records = new ArrayList<>();
@@ -66,6 +69,62 @@ public class RecordServices {
         }
     }
 
+    public static boolean saveRecord(Record record) {
+        ArrayList<Record> records = getRecords();
+        String msg = "";
+        if (! checkForRecord(record)) {
+            records.add(record);
+            msg = "Tu registro ha sido creado exitosamente.";
+        }
+        else {
+            for (Record all : records) {
+                if (record.getRecordId().equalsIgnoreCase(all.getRecordId())) {
+                    records.set(records.indexOf(all), record);
+                    break;
+                }
+            }
+            msg = "Tu registro ha sido actualizado exitosamente.";
+        }
+        if(writeRecords(records)){
+            DialogHelper.infoMessageDialog(msg, "Guardado exitoso.");
+            return true;
+        }
+        DialogHelper.infoMessageDialog("Error al guardar, intente de nuevo.", "Error de guardado.");
+        return false;
+    }
+
+    public static void deleteRecord(Record record) {
+        ArrayList<Record> records = getRecords();
+        String msg = "";
+        if (! checkForRecord(record)) {
+            msg = "Tu registro no existe.";
+        }
+        else {
+            for (Record all : records) {
+                if (record.getRecordId().equalsIgnoreCase(all.getRecordId())) {
+                    records.remove(all);
+                    msg = "Tu registro ha sido eliminado.";
+                    break;
+                }
+            }
+            if (! writeRecords(records)) {
+                msg = "Error al eliminar el registro.";
+            }
+        }
+        DialogHelper.warnMessageDialog(msg, "Advertencia.");
+    }
+
+    public static boolean checkForRecord(Record record) {
+        ArrayList<Record> records = getRecords();
+
+        for (Record all : records) {
+            if (record.getRecordId().equalsIgnoreCase(all.getRecordId())) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     public static ArrayList<Record> getUserRecords(String userID) {
         ArrayList<Record> records = getRecords();
         ArrayList<Record> userRecords = new ArrayList<>();
@@ -100,6 +159,36 @@ public class RecordServices {
             }
         }
         return approvedRecords;
+    }
+
+    public static ArrayList<Record> getSpecificStateRecords(StateNames state){
+        ArrayList<Record> records = getApprovedRecords();
+
+        System.out.println("STATE");
+
+        records.removeIf(record -> ! record.getState().equals(state));
+
+        return records;
+    }
+
+    public static ArrayList<Record> getSpecificTypeRecords(RecordType type){
+        ArrayList<Record> records = getApprovedRecords();
+
+        System.out.println("TYPE");
+
+        records.removeIf(record -> ! record.getRecordType().equals(type));
+
+        return records;
+    }
+
+    public static ArrayList<Record> getVerySpecificRecords(StateNames state, RecordType type){
+        ArrayList<Record> records = getApprovedRecords();
+
+        System.out.println("SPECIFIC");
+
+        records.removeIf(record -> ! record.getState().equals(state));
+        records.removeIf(record -> ! record.getRecordType().equals(type));
+        return records;
     }
 
 }

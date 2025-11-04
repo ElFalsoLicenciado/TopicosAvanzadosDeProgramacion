@@ -1,16 +1,52 @@
 package proyecto.subframes.panes;
 
+import proyecto.HomePanel;
+import proyecto.models.Record;
+import proyecto.services.RecordServices;
+import proyecto.subframes.RecordManagerPanel;
+import proyecto.utils.DialogHelper;
+import proyecto.utils.Other;
+
 import java.awt.Color;
+import java.util.ArrayList;
 
 public class ManageRecordPane extends javax.swing.JPanel {
 
-    /**
-     * Creates new form UserRecordsManage
-     */
+
+    private Record record;
+    private RecordManagerPanel recordManagerPanel;
+
     public ManageRecordPane() {
         initComponents();
     }
-    
+
+    public ManageRecordPane(RecordManagerPanel recordManagerPanel, Record record) {
+        initComponents();
+
+        this.recordManagerPanel = recordManagerPanel;
+        this.record = record;
+
+        labelTitulo.setText(record.getTitle());
+
+        String state = Other.getStateNames()[record.getState().ordinal()];
+        String type = Other.getTypes()[record.getRecordType().ordinal()];
+
+        labelEstadoYCategoria.setText(
+                String.format("Estado: %s. Categoría: %s.", state, type)
+        );
+        String isPublic;
+        if (record.isPublic()) isPublic = "Si";
+
+        else isPublic = "No";
+
+        labelPublico.setText(
+                String.format("Público: %s.", isPublic)
+        );
+
+        panelImage.setIcon( new javax.swing.ImageIcon(record.getImageUrl()));
+        updateUI();
+    }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -25,6 +61,7 @@ public class ManageRecordPane extends javax.swing.JPanel {
         labelPublico = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(216, 188, 188));
+        setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         panelImage.setBackground(new java.awt.Color(255, 255, 255));
@@ -104,7 +141,7 @@ public class ManageRecordPane extends javax.swing.JPanel {
                 .addComponent(labelEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        add(btnEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 30, 90, -1));
+        add(btnEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 120, 90, -1));
 
         labelTitulo.setBackground(new java.awt.Color(0, 0, 0));
         labelTitulo.setFont(new java.awt.Font("Roboto", 1, 20)); // NOI18N
@@ -128,7 +165,7 @@ public class ManageRecordPane extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void labelEditarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelEditarMouseClicked
-        // TODO add your handling code here:
+        recordManagerPanel.editRecord(record);
     }//GEN-LAST:event_labelEditarMouseClicked
 
     private void labelEditarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelEditarMouseEntered
@@ -140,7 +177,10 @@ public class ManageRecordPane extends javax.swing.JPanel {
     }//GEN-LAST:event_labelEditarMouseExited
 
     private void labelBorrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelBorrarMouseClicked
-        // TODO add your handling code here:
+        if (DialogHelper.warnConfirmDialog("¿Estás seguro?", "Advertencia") == 0) {
+            RecordServices.deleteRecord(record);
+            recordManagerPanel.change();
+        }
     }//GEN-LAST:event_labelBorrarMouseClicked
 
     private void labelBorrarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelBorrarMouseEntered

@@ -63,4 +63,24 @@ public class DialogHelper {
                 JOptionPane.PLAIN_MESSAGE
         );
     }
+
+    public static int questConfirmDialog(String message, String title) {
+        return (JOptionPane.showConfirmDialog(
+                null,
+                message,
+                title,
+                JOptionPane.YES_NO_CANCEL_OPTION,
+                JOptionPane.QUESTION_MESSAGE)
+        );
+    }
+
+    public static int warnConfirmDialog(String message, String title) {
+        return (JOptionPane.showConfirmDialog(
+                null,
+                message,
+                title,
+                JOptionPane.YES_NO_CANCEL_OPTION,
+                JOptionPane.WARNING_MESSAGE)
+        );
+    }
 }
