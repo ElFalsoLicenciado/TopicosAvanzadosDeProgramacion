@@ -13,6 +13,7 @@ import proyecto.enums.UserType;
 import proyecto.models.Record;
 import proyecto.models.Session;
 import proyecto.services.RecordServices;
+import proyecto.services.RequestServices;
 import proyecto.utils.DialogHelper;
 import proyecto.utils.Other;
 import java.io.File;
@@ -326,7 +327,7 @@ public class RecordEditorPanel extends javax.swing.JPanel {
 
         bg.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 290, 690, 190));
 
-        add(bg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 720, 500));
+        add(bg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 500));
     }// </editor-fold>//GEN-END:initComponents
 
     private void labelSearchImageMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelSearchImageMouseClicked
@@ -456,6 +457,7 @@ public class RecordEditorPanel extends javax.swing.JPanel {
                 );
             }
             if(RecordServices.saveRecord(record)) {
+                if (! isPublic ) RequestServices.saveRequest(record);
                 homePanel.endEditing();
                 return;
             }

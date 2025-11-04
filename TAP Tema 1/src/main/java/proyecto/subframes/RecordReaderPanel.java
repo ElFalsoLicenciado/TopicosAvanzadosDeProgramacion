@@ -104,7 +104,7 @@ public class RecordReaderPanel extends javax.swing.JPanel {
         labelDescripción.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jScrollPane1.setViewportView(labelDescripción);
 
-        bg.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 260, 700, 370));
+        bg.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 260, 780, 230));
 
         btnSalir.setBackground(new java.awt.Color(102, 102, 102));
         btnSalir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -136,9 +136,9 @@ public class RecordReaderPanel extends javax.swing.JPanel {
             .addComponent(x, javax.swing.GroupLayout.DEFAULT_SIZE, 27, Short.MAX_VALUE)
         );
 
-        bg.add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 0, -1, -1));
+        bg.add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 0, -1, -1));
 
-        add(bg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 720, 660));
+        add(bg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 500));
     }// </editor-fold>//GEN-END:initComponents
 
     private void xMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_xMouseClicked

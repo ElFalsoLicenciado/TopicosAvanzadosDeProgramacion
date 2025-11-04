@@ -182,7 +182,7 @@ public class RecordApproverPanel extends javax.swing.JPanel {
         labelUsuario.setForeground(new java.awt.Color(114, 114, 114));
         labelUsuario.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         labelUsuario.setText("Usuario");
-        bg.add(labelUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, -1, -1));
+        bg.add(labelUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 250, -1, -1));
 
         fieldCategoría.setBackground(new java.awt.Color(255, 255, 255));
         fieldCategoría.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
@@ -202,9 +202,9 @@ public class RecordApproverPanel extends javax.swing.JPanel {
         fieldDescripcion.setEnabled(false);
         jScrollPane1.setViewportView(fieldDescripcion);
 
-        bg.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 300, 700, 210));
+        bg.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 280, 700, 210));
 
-        add(bg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 720, 500));
+        add(bg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 500));
     }// </editor-fold>//GEN-END:initComponents
 
     private void labelCancelarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelCancelarMouseExited

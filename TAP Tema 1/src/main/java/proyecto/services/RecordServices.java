@@ -17,7 +17,7 @@ import java.util.ArrayList;
 
 public class RecordServices {
 
-    public static final String FILE = "record.json";
+    public static final String FILE = "records.json";
 
     public static ArrayList<Record> getRecords() {
         ArrayList<Record> records = new ArrayList<>();
@@ -27,7 +27,7 @@ public class RecordServices {
         try {
             BufferedReader br = new BufferedReader(new FileReader(FILE));
             String result = "";
-            String line = null;
+            String line;
 
             while ((line = br.readLine()) != null) {
                 result += line;
@@ -71,7 +71,7 @@ public class RecordServices {
 
     public static boolean saveRecord(Record record) {
         ArrayList<Record> records = getRecords();
-        String msg = "";
+        String msg;
         if (! checkForRecord(record)) {
             records.add(record);
             msg = "Tu registro ha sido creado exitosamente.";
@@ -89,7 +89,7 @@ public class RecordServices {
             DialogHelper.infoMessageDialog(msg, "Guardado exitoso.");
             return true;
         }
-        DialogHelper.infoMessageDialog("Error al guardar, intente de nuevo.", "Error de guardado.");
+        DialogHelper.errorMessageDialog("Error al guardar, intente de nuevo.", "Error de guardado.");
         return false;
     }
 
@@ -125,6 +125,16 @@ public class RecordServices {
         return false;
     }
 
+    public static Record getRecord(String recordId) {
+        ArrayList<Record> records = getRecords();
+        for (Record all : records) {
+            if (recordId.equalsIgnoreCase(all.getRecordId())) {
+                return all;
+            }
+        }
+        return null;
+    }
+
     public static ArrayList<Record> getUserRecords(String userID) {
         ArrayList<Record> records = getRecords();
         ArrayList<Record> userRecords = new ArrayList<>();
@@ -135,18 +145,6 @@ public class RecordServices {
             }
         }
         return userRecords;
-    }
-
-    public static ArrayList<Record> getUnapprovedRecords() {
-        ArrayList<Record> records = getRecords();
-        ArrayList<Record> unapprovedRecords = new ArrayList<>();
-
-        for (Record record : records) {
-            if (! record.isPublic()) {
-                unapprovedRecords.add(record);
-            }
-        }
-        return unapprovedRecords;
     }
 
     public static ArrayList<Record> getApprovedRecords() {

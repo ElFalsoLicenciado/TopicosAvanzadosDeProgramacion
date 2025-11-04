@@ -4,6 +4,7 @@ import proyecto.enums.RecordType;
 import proyecto.enums.StateNames;
 import proyecto.enums.UserType;
 import proyecto.services.RecordServices;
+import proyecto.services.RequestServices;
 import proyecto.services.UserServices;
 import proyecto.utils.DialogHelper;
 
@@ -12,12 +13,10 @@ import java.util.UUID;
 
 public class Session {
     public static ArrayList<User> users = new ArrayList<>();
-    private static ArrayList<Record> records = new ArrayList<>();
     private static User user;
 
     public Session() {
         users = UserServices.getUsers();
-        records = RecordServices.getRecords();
     }
 
     public User getUser() {
@@ -83,6 +82,10 @@ public class Session {
 
     public ArrayList<Record> getUserRecords() {
         return RecordServices.getUserRecords(user.getUserID());
+    }
+
+    public ArrayList<Request> getUserRequests() {
+        return RequestServices.getUserRequests(user.getUserID());
     }
 
 

@@ -23,7 +23,7 @@ public class UserServices {
         try {
             BufferedReader br = new BufferedReader(new FileReader(FILE));
             String result = "";
-            String line = null;
+            String line;
 
             while ((line = br.readLine()) != null) {
                 result += line;

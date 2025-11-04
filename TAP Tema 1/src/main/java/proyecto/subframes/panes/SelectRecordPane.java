@@ -16,7 +16,6 @@ public class SelectRecordPane extends javax.swing.JPanel {
     private Record record;
     private RecordSelectorPanel recordSelectorPanel;
 
-
     public SelectRecordPane() {
         initComponents();
     }

@@ -48,7 +48,7 @@ public class HomePanel extends javax.swing.JFrame {
         manageRecordsPane = new proyecto.subframes.RecordManagerPanel(this, session.getUserRecords());
         editRecordPane = new proyecto.subframes.RecordEditorPanel();
         requestPanel = new javax.swing.JPanel();
-        userRequestsPanel1 = new proyecto.subframes.UserRequestsPanel();
+        userRequestsPanel = new proyecto.subframes.UserRequestsPanel(session.getUserRequests());
         adminTab = new javax.swing.JPanel();
         approveRecordPane = new proyecto.subframes.RecordApproverPanel();
         adminToolsPane = new proyecto.subframes.AdminPanel();
@@ -76,8 +76,6 @@ public class HomePanel extends javax.swing.JFrame {
 
         readTab.setBackground(new java.awt.Color(216, 188, 188));
         readTab.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        readRecordPane.setBackground(new java.awt.Color(216, 188, 188));
         readTab.add(readRecordPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 840, 590));
         readTab.add(selectRecordPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 840, 590));
 
@@ -99,7 +97,7 @@ public class HomePanel extends javax.swing.JFrame {
 
         requestPanel.setBackground(new java.awt.Color(216, 188, 188));
         requestPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        requestPanel.add(userRequestsPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 860, 550));
+        requestPanel.add(userRequestsPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 860, 550));
 
         recordGroup.addTab("Aprobaciones", requestPanel);
 
@@ -343,7 +341,7 @@ public class HomePanel extends javax.swing.JFrame {
     private javax.swing.JPanel requestPanel;
     private proyecto.subframes.RecordSelectorPanel selectRecordPane;
     private javax.swing.JTabbedPane tabGroup;
-    private proyecto.subframes.UserRequestsPanel userRequestsPanel1;
+    private proyecto.subframes.UserRequestsPanel userRequestsPanel;
     private javax.swing.JLabel x;
     // End of variables declaration//GEN-END:variables
 }

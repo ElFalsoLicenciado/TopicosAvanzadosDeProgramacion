@@ -87,7 +87,7 @@ public class RecordManagerPanel extends javax.swing.JPanel {
         panelRecordList.setForeground(new java.awt.Color(216, 188, 188));
         jScrollPane1.setViewportView(panelRecordList);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 780, 410));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 770, 370));
 
         labelTitle.setFont(new java.awt.Font("Roboto", 1, 24)); // NOI18N
         labelTitle.setForeground(new java.awt.Color(114, 114, 114));
