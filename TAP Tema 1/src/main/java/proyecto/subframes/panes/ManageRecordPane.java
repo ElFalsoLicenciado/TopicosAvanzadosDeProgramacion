@@ -1,6 +1,5 @@
 package proyecto.subframes.panes;
 
-import proyecto.HomePanel;
 import proyecto.models.Record;
 import proyecto.services.RecordServices;
 import proyecto.subframes.RecordManagerPanel;
@@ -8,7 +7,6 @@ import proyecto.utils.DialogHelper;
 import proyecto.utils.Other;
 
 import java.awt.Color;
-import java.util.ArrayList;
 
 public class ManageRecordPane extends javax.swing.JPanel {
 
@@ -104,7 +102,7 @@ public class ManageRecordPane extends javax.swing.JPanel {
                 .addComponent(labelBorrar, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        add(btnBorrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 120, 90, -1));
+        add(btnBorrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 128, 90, -1));
 
         btnEditar.setBackground(new java.awt.Color(96, 243, 96));
         btnEditar.setPreferredSize(new java.awt.Dimension(106, 31));
@@ -141,27 +139,27 @@ public class ManageRecordPane extends javax.swing.JPanel {
                 .addComponent(labelEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        add(btnEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 120, 90, -1));
+        add(btnEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 128, 90, -1));
 
         labelTitulo.setBackground(new java.awt.Color(0, 0, 0));
         labelTitulo.setFont(new java.awt.Font("Roboto", 1, 20)); // NOI18N
         labelTitulo.setForeground(new java.awt.Color(114, 114, 114));
         labelTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         labelTitulo.setText("Titulo");
-        add(labelTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 30, -1, -1));
+        add(labelTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 20, -1, -1));
 
         labelEstadoYCategoria.setBackground(new java.awt.Color(0, 0, 0));
         labelEstadoYCategoria.setFont(new java.awt.Font("Roboto", 1, 20)); // NOI18N
         labelEstadoYCategoria.setForeground(new java.awt.Color(114, 114, 114));
         labelEstadoYCategoria.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         labelEstadoYCategoria.setText("Estado y categoría");
-        add(labelEstadoYCategoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 80, -1, -1));
+        add(labelEstadoYCategoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 75, -1, -1));
 
         labelPublico.setFont(new java.awt.Font("Roboto", 1, 20)); // NOI18N
         labelPublico.setForeground(new java.awt.Color(114, 114, 114));
         labelPublico.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         labelPublico.setText("Público");
-        add(labelPublico, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 130, -1, -1));
+        add(labelPublico, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 135, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void labelEditarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelEditarMouseClicked
@@ -179,7 +177,7 @@ public class ManageRecordPane extends javax.swing.JPanel {
     private void labelBorrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelBorrarMouseClicked
         if (DialogHelper.warnConfirmDialog("¿Estás seguro?", "Advertencia") == 0) {
             RecordServices.deleteRecord(record);
-            recordManagerPanel.change();
+            recordManagerPanel.deleteRecord();
         }
     }//GEN-LAST:event_labelBorrarMouseClicked
 

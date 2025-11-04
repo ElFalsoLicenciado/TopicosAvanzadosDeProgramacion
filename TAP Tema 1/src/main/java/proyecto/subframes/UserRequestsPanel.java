@@ -48,7 +48,7 @@ public class UserRequestsPanel extends javax.swing.JPanel {
         labelTitle.setFont(new java.awt.Font("Roboto", 1, 24)); // NOI18N
         labelTitle.setForeground(new java.awt.Color(114, 114, 114));
         labelTitle.setText("User Requests Panel");
-        add(labelTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
+        add(labelTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
         jScrollPane1.setBackground(new java.awt.Color(216, 188, 188));
         jScrollPane1.setBorder(null);
@@ -58,7 +58,7 @@ public class UserRequestsPanel extends javax.swing.JPanel {
         panelRequestList.setForeground(new java.awt.Color(216, 188, 188));
         jScrollPane1.setViewportView(panelRequestList);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 760, 370));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 760, 380));
     }// </editor-fold>//GEN-END:initComponents
 
     private void showUserRequests(){

@@ -91,16 +91,16 @@ public class RecordEditorPanel extends javax.swing.JPanel {
         fieldTitulo = new javax.swing.JTextField();
         jSeparator1 = new javax.swing.JSeparator();
         labelCrit1 = new javax.swing.JLabel();
-        labelCrit3 = new javax.swing.JLabel();
         jSeparator3 = new javax.swing.JSeparator();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        fieldDescripcion = new javax.swing.JTextField();
+        labelCrit3 = new javax.swing.JLabel();
         comboStates = new javax.swing.JComboBox<>();
         labelCrit2 = new javax.swing.JLabel();
         btnTerminar = new javax.swing.JPanel();
         labelTerminar = new javax.swing.JLabel();
         btnCancelar = new javax.swing.JPanel();
         labelCancelar = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        fieldDescripcion = new javax.swing.JTextField();
 
         setBackground(new java.awt.Color(216, 188, 188));
         setMinimumSize(new java.awt.Dimension(690, 75));
@@ -118,7 +118,7 @@ public class RecordEditorPanel extends javax.swing.JPanel {
         choiceGast.setForeground(new java.awt.Color(235, 233, 233));
         choiceGast.setText("Gastronomía");
         choiceGast.setBorder(null);
-        bg.add(choiceGast, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 230, -1, -1));
+        bg.add(choiceGast, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 220, -1, -1));
 
         choicePala.setBackground(new java.awt.Color(216, 188, 188));
         catGroup.add(choicePala);
@@ -126,7 +126,7 @@ public class RecordEditorPanel extends javax.swing.JPanel {
         choicePala.setForeground(new java.awt.Color(235, 233, 233));
         choicePala.setText("Palabra");
         choicePala.setBorder(null);
-        bg.add(choicePala, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 260, -1, -1));
+        bg.add(choicePala, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 250, -1, -1));
 
         choiceTrad.setBackground(new java.awt.Color(216, 188, 188));
         catGroup.add(choiceTrad);
@@ -134,7 +134,7 @@ public class RecordEditorPanel extends javax.swing.JPanel {
         choiceTrad.setForeground(new java.awt.Color(235, 233, 233));
         choiceTrad.setText("Tradición");
         choiceTrad.setBorder(null);
-        bg.add(choiceTrad, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 230, -1, -1));
+        bg.add(choiceTrad, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 220, -1, -1));
 
         choiceLug.setBackground(new java.awt.Color(216, 188, 188));
         catGroup.add(choiceLug);
@@ -142,17 +142,17 @@ public class RecordEditorPanel extends javax.swing.JPanel {
         choiceLug.setForeground(new java.awt.Color(235, 233, 233));
         choiceLug.setText("Lugar");
         choiceLug.setBorder(null);
-        bg.add(choiceLug, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 260, -1, -1));
+        bg.add(choiceLug, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 250, -1, -1));
 
         labelTitle.setFont(new java.awt.Font("Roboto", 1, 24)); // NOI18N
         labelTitle.setForeground(new java.awt.Color(114, 114, 114));
         labelTitle.setText("Record Panel");
-        bg.add(labelTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
+        bg.add(labelTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
         panelImage.setBackground(new java.awt.Color(255, 255, 255));
         panelImage.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
         panelImage.setIcon(new javax.swing.ImageIcon("C:\\Users\\User\\Documents\\Programming\\JetBrains\\IntelliJ Projects\\Topicos Avanzados de Programacion\\TAP Tema 1\\src\\main\\java\\proyecto\\resources\\imgnotfound.png")); // NOI18N
-        bg.add(panelImage, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 180, 180));
+        bg.add(panelImage, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 190, 170));
 
         btnSearchImage.setBackground(new java.awt.Color(96, 243, 96));
         btnSearchImage.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -189,7 +189,7 @@ public class RecordEditorPanel extends javax.swing.JPanel {
                 .addComponent(labelSearchImage, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        bg.add(btnSearchImage, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 250, -1, -1));
+        bg.add(btnSearchImage, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 230, -1, -1));
 
         fieldTitulo.setBackground(new java.awt.Color(255, 255, 255));
         fieldTitulo.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
@@ -202,41 +202,56 @@ public class RecordEditorPanel extends javax.swing.JPanel {
                 fieldTituloMousePressed(evt);
             }
         });
-        bg.add(fieldTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 80, 300, -1));
+        bg.add(fieldTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 70, 300, -1));
 
         jSeparator1.setBackground(new java.awt.Color(0, 0, 0));
         jSeparator1.setForeground(new java.awt.Color(0, 0, 0));
-        bg.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 110, 300, 20));
+        bg.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 100, 300, 20));
 
         labelCrit1.setBackground(new java.awt.Color(0, 0, 0));
         labelCrit1.setFont(new java.awt.Font("Roboto", 1, 20)); // NOI18N
         labelCrit1.setForeground(new java.awt.Color(114, 114, 114));
         labelCrit1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         labelCrit1.setText("Estado");
-        bg.add(labelCrit1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 130, -1, -1));
+        bg.add(labelCrit1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 120, -1, -1));
+
+        jSeparator3.setBackground(new java.awt.Color(0, 0, 0));
+        jSeparator3.setForeground(new java.awt.Color(0, 0, 0));
+        bg.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 440, 760, 20));
+
+        fieldDescripcion.setBackground(new java.awt.Color(255, 255, 255));
+        fieldDescripcion.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
+        fieldDescripcion.setForeground(new java.awt.Color(235, 233, 233));
+        fieldDescripcion.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        fieldDescripcion.setText("Escribe la descripción");
+        fieldDescripcion.setBorder(null);
+        fieldDescripcion.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                fieldDescripcionMousePressed(evt);
+            }
+        });
+        jScrollPane1.setViewportView(fieldDescripcion);
+
+        bg.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 280, 760, 150));
 
         labelCrit3.setFont(new java.awt.Font("Roboto", 1, 20)); // NOI18N
         labelCrit3.setForeground(new java.awt.Color(114, 114, 114));
         labelCrit3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         labelCrit3.setText("Categoría");
-        bg.add(labelCrit3, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 200, -1, -1));
-
-        jSeparator3.setBackground(new java.awt.Color(0, 0, 0));
-        jSeparator3.setForeground(new java.awt.Color(0, 0, 0));
-        bg.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 490, 690, 20));
+        bg.add(labelCrit3, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 190, -1, -1));
 
         comboStates.setBackground(new java.awt.Color(255, 255, 255));
         comboStates.setFont(new java.awt.Font("Roboto", 0, 17)); // NOI18N
         comboStates.setForeground(new java.awt.Color(235, 233, 233));
         comboStates.setBorder(null);
-        bg.add(comboStates, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 160, 300, -1));
+        bg.add(comboStates, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 150, 300, -1));
 
         labelCrit2.setBackground(new java.awt.Color(0, 0, 0));
         labelCrit2.setFont(new java.awt.Font("Roboto", 1, 20)); // NOI18N
         labelCrit2.setForeground(new java.awt.Color(114, 114, 114));
         labelCrit2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         labelCrit2.setText("Titulo");
-        bg.add(labelCrit2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 50, -1, -1));
+        bg.add(labelCrit2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 40, -1, -1));
 
         btnTerminar.setBackground(new java.awt.Color(96, 243, 96));
         btnTerminar.setPreferredSize(new java.awt.Dimension(106, 31));
@@ -273,7 +288,7 @@ public class RecordEditorPanel extends javax.swing.JPanel {
                 .addComponent(labelTerminar, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        bg.add(btnTerminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 80, 90, -1));
+        bg.add(btnTerminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 70, 90, -1));
 
         btnCancelar.setBackground(new java.awt.Color(96, 243, 96));
         btnCancelar.setPreferredSize(new java.awt.Dimension(106, 31));
@@ -310,24 +325,9 @@ public class RecordEditorPanel extends javax.swing.JPanel {
                 .addComponent(labelCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        bg.add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 160, 90, -1));
+        bg.add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 150, 90, -1));
 
-        fieldDescripcion.setBackground(new java.awt.Color(255, 255, 255));
-        fieldDescripcion.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
-        fieldDescripcion.setForeground(new java.awt.Color(235, 233, 233));
-        fieldDescripcion.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        fieldDescripcion.setText("Escribe la descripción");
-        fieldDescripcion.setBorder(null);
-        fieldDescripcion.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                fieldDescripcionMousePressed(evt);
-            }
-        });
-        jScrollPane1.setViewportView(fieldDescripcion);
-
-        bg.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 290, 690, 190));
-
-        add(bg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 500));
+        add(bg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 450));
     }// </editor-fold>//GEN-END:initComponents
 
     private void labelSearchImageMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelSearchImageMouseClicked
@@ -457,7 +457,7 @@ public class RecordEditorPanel extends javax.swing.JPanel {
                 );
             }
             if(RecordServices.saveRecord(record)) {
-                if (! isPublic ) RequestServices.saveRequest(record);
+                if (! isPublic ) RequestServices.createRequest(record);
                 homePanel.endEditing();
                 return;
             }

@@ -33,11 +33,15 @@ public class RecordReaderPanel extends javax.swing.JPanel {
         String state = Other.getStateNames()[record.getState().ordinal()];
         String type = Other.getTypes()[record.getRecordType().ordinal()];
 
-        labelEstadoYCategoria.setText(
-                String.format("Estado: %s. Categoría: %s.", state, type)
+        labelEstado.setText(
+                "Estado: "  + state
+        );
+        
+        labelCategoria.setText(
+                "Categoría: " + type
         );
 
-        labelDescripción.setText(record.getDescription());
+        fieldDescripcion.setText(record.getDescription());
 
         panelImage.setIcon( new javax.swing.ImageIcon(record.getImageUrl()));
         updateUI();
@@ -52,11 +56,12 @@ public class RecordReaderPanel extends javax.swing.JPanel {
         labelTitle = new javax.swing.JLabel();
         panelImage = new org.edisoncor.gui.panel.PanelImage();
         labelTituloYAutor = new javax.swing.JLabel();
-        labelEstadoYCategoria = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        labelDescripción = new javax.swing.JLabel();
+        labelEstado = new javax.swing.JLabel();
         btnSalir = new javax.swing.JPanel();
         x = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        fieldDescripcion = new javax.swing.JTextArea();
+        labelCategoria = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(216, 188, 188));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -69,42 +74,26 @@ public class RecordReaderPanel extends javax.swing.JPanel {
         labelTitle.setFont(new java.awt.Font("Roboto", 1, 24)); // NOI18N
         labelTitle.setForeground(new java.awt.Color(114, 114, 114));
         labelTitle.setText("Record Lecture Panel");
-        bg.add(labelTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
+        bg.add(labelTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
         panelImage.setBackground(new java.awt.Color(255, 255, 255));
         panelImage.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
         panelImage.setIcon(new javax.swing.ImageIcon("C:\\Users\\User\\Documents\\Programming\\JetBrains\\IntelliJ Projects\\Topicos Avanzados de Programacion\\TAP Tema 1\\src\\main\\java\\proyecto\\resources\\imgnotfound.png")); // NOI18N
-        bg.add(panelImage, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 180, 180));
+        bg.add(panelImage, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 190, 180));
 
         labelTituloYAutor.setBackground(new java.awt.Color(0, 0, 0));
         labelTituloYAutor.setFont(new java.awt.Font("Roboto", 1, 20)); // NOI18N
-        labelTituloYAutor.setForeground(new java.awt.Color(114, 114, 114));
+        labelTituloYAutor.setForeground(new java.awt.Color(235, 233, 233));
         labelTituloYAutor.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         labelTituloYAutor.setText("Titulo");
-        bg.add(labelTituloYAutor, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 70, -1, -1));
+        bg.add(labelTituloYAutor, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 70, -1, -1));
 
-        labelEstadoYCategoria.setBackground(new java.awt.Color(0, 0, 0));
-        labelEstadoYCategoria.setFont(new java.awt.Font("Roboto", 1, 20)); // NOI18N
-        labelEstadoYCategoria.setForeground(new java.awt.Color(114, 114, 114));
-        labelEstadoYCategoria.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        labelEstadoYCategoria.setText("Estado");
-        bg.add(labelEstadoYCategoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 150, -1, -1));
-
-        jScrollPane1.setBackground(new java.awt.Color(216, 188, 188));
-        jScrollPane1.setBorder(null);
-        jScrollPane1.setForeground(new java.awt.Color(216, 188, 188));
-
-        labelDescripción.setBackground(new java.awt.Color(216, 188, 188));
-        labelDescripción.setFont(new java.awt.Font("Roboto", 1, 20)); // NOI18N
-        labelDescripción.setForeground(new java.awt.Color(114, 114, 114));
-        labelDescripción.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        labelDescripción.setText("Descripción");
-        labelDescripción.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-        labelDescripción.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
-        labelDescripción.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jScrollPane1.setViewportView(labelDescripción);
-
-        bg.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 260, 780, 230));
+        labelEstado.setBackground(new java.awt.Color(0, 0, 0));
+        labelEstado.setFont(new java.awt.Font("Roboto", 1, 20)); // NOI18N
+        labelEstado.setForeground(new java.awt.Color(235, 233, 233));
+        labelEstado.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        labelEstado.setText("Estado");
+        bg.add(labelEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 140, -1, -1));
 
         btnSalir.setBackground(new java.awt.Color(102, 102, 102));
         btnSalir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -138,6 +127,28 @@ public class RecordReaderPanel extends javax.swing.JPanel {
 
         bg.add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 0, -1, -1));
 
+        fieldDescripcion.setEditable(false);
+        fieldDescripcion.setBackground(new java.awt.Color(216, 188, 188));
+        fieldDescripcion.setColumns(20);
+        fieldDescripcion.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
+        fieldDescripcion.setForeground(new java.awt.Color(235, 233, 233));
+        fieldDescripcion.setLineWrap(true);
+        fieldDescripcion.setRows(5);
+        fieldDescripcion.setText("Descripción");
+        fieldDescripcion.setBorder(null);
+        fieldDescripcion.setDisabledTextColor(new java.awt.Color(235, 233, 233));
+        fieldDescripcion.setEnabled(false);
+        jScrollPane2.setViewportView(fieldDescripcion);
+
+        bg.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 260, 760, 220));
+
+        labelCategoria.setBackground(new java.awt.Color(0, 0, 0));
+        labelCategoria.setFont(new java.awt.Font("Roboto", 1, 20)); // NOI18N
+        labelCategoria.setForeground(new java.awt.Color(235, 233, 233));
+        labelCategoria.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        labelCategoria.setText("Categoría");
+        bg.add(labelCategoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 210, -1, -1));
+
         add(bg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 500));
     }// </editor-fold>//GEN-END:initComponents
 
@@ -159,9 +170,10 @@ public class RecordReaderPanel extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel bg;
     private javax.swing.JPanel btnSalir;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel labelDescripción;
-    private javax.swing.JLabel labelEstadoYCategoria;
+    private javax.swing.JTextArea fieldDescripcion;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JLabel labelCategoria;
+    private javax.swing.JLabel labelEstado;
     private javax.swing.JLabel labelTitle;
     private javax.swing.JLabel labelTituloYAutor;
     private org.edisoncor.gui.panel.PanelImage panelImage;

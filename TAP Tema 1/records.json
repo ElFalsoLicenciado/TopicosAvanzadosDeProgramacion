@@ -1,1 +1,52 @@
-[{"recordId":"R23387","authorId":"Udd529","stateName":"Baja_California","recordType":"TRADICION","isPublic":true,"title":"asdsada","description":"adsadasdasd","imageUrl":"src/main/java/proyecto/resources/baca/download.jpg"},{"recordId":"Re2704","authorId":"Udd529","stateName":"Campeche","recordType":"TRADICION","isPublic":true,"title":"rrruuu","description":"adsasdasdasd","imageUrl":"src/main/java/proyecto/resources/camp/460517427_1926744817802502_6764676756989845370_n.jpg"},{"recordId":"Rc35d7","authorId":"Udd529","stateName":"Baja_California","recordType":"LUGAR","isPublic":true,"title":"adasd","description":"dsadasda","imageUrl":"src/main/java/proyecto/resources/baca/imgnotfound.png"},{"recordId":"R6a72b","authorId":"Uf197a","stateName":"Baja_California_Sur","recordType":"TRADICION","isPublic":false,"title":"Buenasadsad","description":"dsadasdasddasdasdasdasdNo hay nadaadsadasdasddasasdasd","imageUrl":"src/main/java/proyecto/resources/bacs/474921981_927529119567042_1843877378970278987_n.jpg"}]
+[
+    {
+        "recordId": "R23387",
+        "authorId": "Udd529",
+        "stateName": "Baja_California",
+        "recordType": "TRADICION",
+        "isPublic": true,
+        "title": "asdsada",
+        "description": "adsadasdasdadsadasdasdadsadasdasdadsadasdasdadsadasdasdadsadasdasdadsadasdasdadsadasdasdadsadasdasdadsadasdasdadsadasdasdadsadasdasdadsadasdasdadsadasdasdadsadasdasdadsadasdasdadsadasdasdadsadasdasdadsadasdasdadsadasdasdadsadasdasdadsadasdasdadsadasdasdadsadasdasdadsadasdasdadsadasdasdadsadasdasdadsadasdasdadsadasdasdadsadasdasdadsadasdasdadsadasdasdadsadasdasdadsadasdasdadsadasdasdadsadasdasdadsadasdasdadsadasdasdadsadasdasdadsadasdasdadsadasdasdadsadasdasdadsadasdasdadsadasdasdadsadasdasdadsadasdasdadsadasdasdadsadasdasdadsadasdasdadsadasdasdadsadasdasdadsadasdasdadsadasdasdadsadasdasdadsadasdasdadsadasdasdadsadasdasdadsadasdasdadsadasdasdadsadasdasdadsadasdasdadsadasdasdadsadasdasdadsadasdasdadsadasdasdadsadasdasdadsadasdasdadsadasdasdadsadasdasdadsadasdasdadsadasdasdadsadasdasdadsadasdasdadsadasdasdadsadasdasdadsadasdasdadsadasdasdadsadasdasdadsadasdasdadsadasdasdadsadasdasdadsadasdasdadsadasdasdadsadasdasdadsadasdasdadsadasdasdadsadasdasd",
+        "imageUrl": "src/main/java/proyecto/resources/baca/download.jpg"
+    },
+    {
+        "recordId": "Re2704",
+        "authorId": "Udd529",
+        "stateName": "Campeche",
+        "recordType": "TRADICION",
+        "isPublic": true,
+        "title": "rrruuu",
+        "description": "adsasdasdasd",
+        "imageUrl": "src/main/java/proyecto/resources/camp/460517427_1926744817802502_6764676756989845370_n.jpg"
+    },
+    {
+        "recordId": "Rc35d7",
+        "authorId": "Udd529",
+        "stateName": "Baja_California",
+        "recordType": "LUGAR",
+        "isPublic": true,
+        "title": "adasd",
+        "description": "dsadasda",
+        "imageUrl": "src/main/java/proyecto/resources/baca/imgnotfound.png"
+    },
+    {
+        "recordId": "R0b779",
+        "authorId": "Uf197a",
+        "stateName": "Baja_California_Sur",
+        "recordType": "GASTRONOMIA",
+        "isPublic": false,
+        "title": "Titulo generico",
+        "description": "Un, dos tres.",
+        "imageUrl": "src/main/java/proyecto/resources/bacs/494179630_727768506873714_5274207424998901918_n.jpg"
+    },
+    {
+        "recordId": "Rf8167",
+        "authorId": "Uf197a",
+        "stateName": "Tlaxcala",
+        "recordType": "LUGAR",
+        "isPublic": false,
+        "title": "Titulo generico 2",
+        "description": "Cuatro, cinco y seis.Cuatro, cinco y seis.Cuatro, cinco y seis.Cuatro, cinco y seis.Cuatro, cinco y seis.Cuatro, cinco y seis.Cuatro, cinco y seis.Cuatro, cinco y seis.Cuatro, cinco y seis.Cuatro, cinco y seis.Cuatro, cinco y seis.Cuatro, cinco y seis.Cuatro, cinco y seis.Cuatro, cinco y seis.Cuatro, cinco y seis.Cuatro, cinco y seis.Cuatro, cinco y seis.Cuatro, cinco y seis.Cuatro, cinco y seis.Cuatro, cinco y seis.Cuatro, cinco y seis.Cuatro, cinco y seis.Cuatro, cinco y seis.",
+        "imageUrl": "src/main/java/proyecto/resources/tlax/Dosh.jpg"
+    }
+]

@@ -66,7 +66,7 @@ public class RecordSelectorPanel extends javax.swing.JPanel {
                 comboStatesActionPerformed(evt);
             }
         });
-        add(comboStates, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 210, 40));
+        add(comboStates, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 210, 30));
 
         choiceTrad.setBackground(new java.awt.Color(216, 188, 188));
         recordTypeGroup.add(choiceTrad);
@@ -78,7 +78,7 @@ public class RecordSelectorPanel extends javax.swing.JPanel {
                 choiceTradActionPerformed(evt);
             }
         });
-        add(choiceTrad, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 80, -1, 30));
+        add(choiceTrad, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 80, -1, 30));
 
         choiceGast.setBackground(new java.awt.Color(216, 188, 188));
         recordTypeGroup.add(choiceGast);
@@ -90,7 +90,7 @@ public class RecordSelectorPanel extends javax.swing.JPanel {
                 choiceGastActionPerformed(evt);
             }
         });
-        add(choiceGast, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 80, -1, 30));
+        add(choiceGast, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 80, -1, 30));
 
         choiceLug.setBackground(new java.awt.Color(216, 188, 188));
         recordTypeGroup.add(choiceLug);
@@ -102,7 +102,7 @@ public class RecordSelectorPanel extends javax.swing.JPanel {
                 choiceLugActionPerformed(evt);
             }
         });
-        add(choiceLug, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 80, -1, 30));
+        add(choiceLug, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 80, -1, 30));
 
         choicePala.setBackground(new java.awt.Color(216, 188, 188));
         recordTypeGroup.add(choicePala);
@@ -114,20 +114,20 @@ public class RecordSelectorPanel extends javax.swing.JPanel {
                 choicePalaActionPerformed(evt);
             }
         });
-        add(choicePala, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 80, -1, 30));
+        add(choicePala, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 80, -1, 30));
 
         labelCrit1.setBackground(new java.awt.Color(0, 0, 0));
         labelCrit1.setFont(new java.awt.Font("Roboto", 1, 20)); // NOI18N
         labelCrit1.setForeground(new java.awt.Color(114, 114, 114));
         labelCrit1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         labelCrit1.setText("Estado");
-        add(labelCrit1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, -1, -1));
+        add(labelCrit1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, -1, -1));
 
         labelCrit3.setFont(new java.awt.Font("Roboto", 1, 20)); // NOI18N
         labelCrit3.setForeground(new java.awt.Color(114, 114, 114));
         labelCrit3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         labelCrit3.setText("Categoría");
-        add(labelCrit3, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 50, -1, -1));
+        add(labelCrit3, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 50, -1, -1));
 
         btnReset.setBackground(new java.awt.Color(96, 243, 96));
         btnReset.setPreferredSize(new java.awt.Dimension(106, 31));
@@ -164,12 +164,12 @@ public class RecordSelectorPanel extends javax.swing.JPanel {
                 .addGap(0, 1, Short.MAX_VALUE))
         );
 
-        add(btnReset, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 80, 60, -1));
+        add(btnReset, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 80, 60, -1));
 
         labelTitle.setFont(new java.awt.Font("Roboto", 1, 24)); // NOI18N
         labelTitle.setForeground(new java.awt.Color(114, 114, 114));
         labelTitle.setText("Record Selector Panel");
-        add(labelTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
+        add(labelTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
         jScrollPane1.setBackground(new java.awt.Color(216, 188, 188));
         jScrollPane1.setBorder(null);
@@ -179,7 +179,7 @@ public class RecordSelectorPanel extends javax.swing.JPanel {
         panelRecordList.setForeground(new java.awt.Color(216, 188, 188));
         jScrollPane1.setViewportView(panelRecordList);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 760, 340));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, 760, 340));
     }// </editor-fold>//GEN-END:initComponents
 
     private void labelResetMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelResetMouseClicked

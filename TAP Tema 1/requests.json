@@ -1,1 +1,16 @@
-[{"requestId":"A8967d","authorId":"Uf197a","recordId":"R6a72b","reason":""}]
+[
+    {
+        "requestId": "Abf0d7",
+        "authorId": "Uf197a",
+        "recordId": "R0b779",
+        "status": "WAITING",
+        "reason": ""
+    },
+    {
+        "requestId": "Acb59d",
+        "authorId": "Uf197a",
+        "recordId": "Rf8167",
+        "status": "WAITING",
+        "reason": ""
+    }
+]

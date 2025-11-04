@@ -77,7 +77,7 @@ public class RecordManagerPanel extends javax.swing.JPanel {
                 .addComponent(labelCrear, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        add(btnCrear, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 70, 90, -1));
+        add(btnCrear, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 50, 90, -1));
 
         jScrollPane1.setBackground(new java.awt.Color(216, 188, 188));
         jScrollPane1.setBorder(null);
@@ -87,17 +87,17 @@ public class RecordManagerPanel extends javax.swing.JPanel {
         panelRecordList.setForeground(new java.awt.Color(216, 188, 188));
         jScrollPane1.setViewportView(panelRecordList);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 770, 370));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 780, 340));
 
         labelTitle.setFont(new java.awt.Font("Roboto", 1, 24)); // NOI18N
         labelTitle.setForeground(new java.awt.Color(114, 114, 114));
         labelTitle.setText("Manage Panel");
-        add(labelTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
+        add(labelTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
-        labelSubtitle.setFont(new java.awt.Font("Roboto", 1, 24)); // NOI18N
+        labelSubtitle.setFont(new java.awt.Font("Roboto", 1, 22)); // NOI18N
         labelSubtitle.setForeground(new java.awt.Color(114, 114, 114));
         labelSubtitle.setText("Tus registros:");
-        add(labelSubtitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, -1, -1));
+        add(labelSubtitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void labelCrearMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelCrearMouseClicked
@@ -128,7 +128,7 @@ public class RecordManagerPanel extends javax.swing.JPanel {
         homePanel.editRecord(record);
     }
 
-    public void change() {
+    public void deleteRecord() {
         homePanel.endEditing();
     }
 
