@@ -42,21 +42,23 @@ public class AdminPanel extends javax.swing.JPanel {
         panelRequestList = new javax.swing.JPanel();
         labelTitle = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(216, 188, 188));
+        setBackground(new java.awt.Color(255, 255, 255));
+        setForeground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jScrollPane1.setBackground(new java.awt.Color(216, 188, 188));
         jScrollPane1.setBorder(null);
         jScrollPane1.setForeground(new java.awt.Color(216, 188, 188));
 
-        panelRequestList.setBackground(new java.awt.Color(216, 188, 188));
-        panelRequestList.setForeground(new java.awt.Color(216, 188, 188));
+        panelRequestList.setBackground(new java.awt.Color(255, 255, 255));
+        panelRequestList.setForeground(new java.awt.Color(255, 255, 255));
         jScrollPane1.setViewportView(panelRequestList);
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 770, 420));
 
+        labelTitle.setBackground(new java.awt.Color(255, 255, 255));
         labelTitle.setFont(new java.awt.Font("Roboto", 1, 24)); // NOI18N
-        labelTitle.setForeground(new java.awt.Color(114, 114, 114));
+        labelTitle.setForeground(new java.awt.Color(0, 0, 0));
         labelTitle.setText("Registros a aprobar:");
         add(labelTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
     }// </editor-fold>//GEN-END:initComponents

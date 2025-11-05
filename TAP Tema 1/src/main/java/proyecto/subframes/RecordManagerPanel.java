@@ -38,14 +38,16 @@ public class RecordManagerPanel extends javax.swing.JPanel {
         panelRecordList = new javax.swing.JPanel();
         labelTitle = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(216, 188, 188));
+        setBackground(new java.awt.Color(255, 255, 255));
+        setForeground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnCrear.setBackground(new java.awt.Color(96, 243, 96));
+        btnCrear.setBackground(new java.awt.Color(154, 136, 216));
+        btnCrear.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnCrear.setPreferredSize(new java.awt.Dimension(106, 31));
 
         labelCrear.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
-        labelCrear.setForeground(new java.awt.Color(255, 255, 255));
+        labelCrear.setForeground(new java.awt.Color(0, 0, 0));
         labelCrear.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         labelCrear.setText("CREAR");
         labelCrear.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -82,14 +84,15 @@ public class RecordManagerPanel extends javax.swing.JPanel {
         jScrollPane1.setBorder(null);
         jScrollPane1.setForeground(new java.awt.Color(216, 188, 188));
 
-        panelRecordList.setBackground(new java.awt.Color(216, 188, 188));
-        panelRecordList.setForeground(new java.awt.Color(216, 188, 188));
+        panelRecordList.setBackground(new java.awt.Color(255, 255, 255));
+        panelRecordList.setForeground(new java.awt.Color(255, 255, 255));
         jScrollPane1.setViewportView(panelRecordList);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 780, 370));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 780, 380));
 
+        labelTitle.setBackground(new java.awt.Color(255, 255, 255));
         labelTitle.setFont(new java.awt.Font("Roboto", 1, 24)); // NOI18N
-        labelTitle.setForeground(new java.awt.Color(114, 114, 114));
+        labelTitle.setForeground(new java.awt.Color(0, 0, 0));
         labelTitle.setText("Tus registros:");
         add(labelTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
@@ -99,11 +102,11 @@ public class RecordManagerPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_labelCrearMouseClicked
 
     private void labelCrearMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelCrearMouseEntered
-        btnCrear.setBackground(new Color(146,246,146));
+        btnCrear.setBackground(new Color(221,211,255));
     }//GEN-LAST:event_labelCrearMouseEntered
 
     private void labelCrearMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelCrearMouseExited
-        btnCrear.setBackground(new Color(96,243,96));
+        btnCrear.setBackground(new Color(154, 136, 216));
     }//GEN-LAST:event_labelCrearMouseExited
 
     private void showUserRecords(){

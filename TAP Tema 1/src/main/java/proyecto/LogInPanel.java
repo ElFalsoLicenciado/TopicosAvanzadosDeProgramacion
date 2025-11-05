@@ -2,6 +2,7 @@ package proyecto;
 
 import java.awt.Color;
 import java.awt.event.KeyEvent;
+import javax.swing.UIManager;
 import org.pushingpixels.radiance.theming.api.RadianceThemingCortex;
 import org.pushingpixels.radiance.theming.api.skin.*;
 import proyecto.enums.UserType;
@@ -45,7 +46,7 @@ public class LogInPanel extends javax.swing.JFrame {
         labelCredential2 = new javax.swing.JLabel();
         jSeparator2 = new javax.swing.JSeparator();
         fieldPassword = new javax.swing.JPasswordField();
-        btnLogin = new javax.swing.JPanel();
+        btnLogIn = new javax.swing.JPanel();
         labelLogIn = new javax.swing.JLabel();
         btnGuest = new javax.swing.JPanel();
         labelGuest = new javax.swing.JLabel();
@@ -70,24 +71,28 @@ public class LogInPanel extends javax.swing.JFrame {
         bg.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         loginPanel.setBackground(new java.awt.Color(102, 102, 102));
+        loginPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         labelSubtitle.setFont(new java.awt.Font("Roboto", 1, 22)); // NOI18N
-        labelSubtitle.setForeground(new java.awt.Color(209, 197, 197));
+        labelSubtitle.setForeground(new java.awt.Color(0, 0, 0));
         labelSubtitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         labelSubtitle.setText("INICIAR SESIÓN");
+        loginPanel.add(labelSubtitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(26, 84, -1, -1));
 
         labelTitle.setFont(new java.awt.Font("Roboto", 1, 24)); // NOI18N
-        labelTitle.setForeground(new java.awt.Color(209, 197, 197));
+        labelTitle.setForeground(new java.awt.Color(0, 0, 0));
         labelTitle.setText("CONOCE A MÉXICO");
+        loginPanel.add(labelTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(26, 26, -1, -1));
 
         labelCredential1.setFont(new java.awt.Font("Roboto", 0, 20)); // NOI18N
-        labelCredential1.setForeground(new java.awt.Color(209, 197, 197));
+        labelCredential1.setForeground(new java.awt.Color(0, 0, 0));
         labelCredential1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         labelCredential1.setText("Usuario");
+        loginPanel.add(labelCredential1, new org.netbeans.lib.awtextra.AbsoluteConstraints(26, 138, -1, -1));
 
         fieldUsername.setBackground(new java.awt.Color(255, 255, 255));
         fieldUsername.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
-        fieldUsername.setForeground(new java.awt.Color(235, 233, 233));
+        fieldUsername.setForeground(new java.awt.Color(102, 102, 102));
         fieldUsername.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         fieldUsername.setText("Ingresa tu usuario");
         fieldUsername.setBorder(null);
@@ -104,20 +109,24 @@ public class LogInPanel extends javax.swing.JFrame {
                 fieldUsernameKeyPressed(evt);
             }
         });
+        loginPanel.add(fieldUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(26, 180, 241, -1));
 
         jSeparator1.setBackground(new java.awt.Color(0, 0, 0));
         jSeparator1.setForeground(new java.awt.Color(0, 0, 0));
+        loginPanel.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(26, 210, 241, 10));
 
         labelCredential2.setFont(new java.awt.Font("Roboto", 0, 20)); // NOI18N
-        labelCredential2.setForeground(new java.awt.Color(209, 197, 197));
+        labelCredential2.setForeground(new java.awt.Color(0, 0, 0));
         labelCredential2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         labelCredential2.setText("Contraseña");
+        loginPanel.add(labelCredential2, new org.netbeans.lib.awtextra.AbsoluteConstraints(26, 236, -1, -1));
 
         jSeparator2.setForeground(new java.awt.Color(0, 0, 0));
+        loginPanel.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(26, 310, 241, 10));
 
         fieldPassword.setBackground(new java.awt.Color(255, 255, 255));
         fieldPassword.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
-        fieldPassword.setForeground(new java.awt.Color(235, 233, 233));
+        fieldPassword.setForeground(new java.awt.Color(102, 102, 102));
         fieldPassword.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         fieldPassword.setText("******");
         fieldPassword.setBorder(null);
@@ -134,13 +143,14 @@ public class LogInPanel extends javax.swing.JFrame {
                 fieldPasswordKeyPressed(evt);
             }
         });
+        loginPanel.add(fieldPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(26, 278, 241, -1));
 
-        btnLogin.setBackground(new java.awt.Color(96, 243, 96));
-        btnLogin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnLogIn.setBackground(new java.awt.Color(255, 255, 255));
+        btnLogIn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        labelLogIn.setBackground(new java.awt.Color(51, 51, 51));
+        labelLogIn.setBackground(new java.awt.Color(255, 255, 255));
         labelLogIn.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
-        labelLogIn.setForeground(new java.awt.Color(255, 255, 255));
+        labelLogIn.setForeground(new java.awt.Color(0, 0, 0));
         labelLogIn.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         labelLogIn.setText("ENTRAR");
         labelLogIn.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -155,23 +165,25 @@ public class LogInPanel extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout btnLoginLayout = new javax.swing.GroupLayout(btnLogin);
-        btnLogin.setLayout(btnLoginLayout);
-        btnLoginLayout.setHorizontalGroup(
-            btnLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout btnLogInLayout = new javax.swing.GroupLayout(btnLogIn);
+        btnLogIn.setLayout(btnLogInLayout);
+        btnLogInLayout.setHorizontalGroup(
+            btnLogInLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(labelLogIn, javax.swing.GroupLayout.DEFAULT_SIZE, 106, Short.MAX_VALUE)
         );
-        btnLoginLayout.setVerticalGroup(
-            btnLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        btnLogInLayout.setVerticalGroup(
+            btnLogInLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(labelLogIn, javax.swing.GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE)
         );
 
-        btnGuest.setBackground(new java.awt.Color(96, 243, 96));
+        loginPanel.add(btnLogIn, new org.netbeans.lib.awtextra.AbsoluteConstraints(26, 328, -1, -1));
+
+        btnGuest.setBackground(new java.awt.Color(255, 255, 255));
         btnGuest.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        labelGuest.setBackground(new java.awt.Color(51, 51, 51));
+        labelGuest.setBackground(new java.awt.Color(255, 255, 255));
         labelGuest.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
-        labelGuest.setForeground(new java.awt.Color(255, 255, 255));
+        labelGuest.setForeground(new java.awt.Color(0, 0, 0));
         labelGuest.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         labelGuest.setText("INVITADO");
         labelGuest.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -197,10 +209,14 @@ public class LogInPanel extends javax.swing.JFrame {
             .addComponent(labelGuest, javax.swing.GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE)
         );
 
+        loginPanel.add(btnGuest, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 328, -1, -1));
+
         btnSalir.setBackground(new java.awt.Color(102, 102, 102));
         btnSalir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
+        x.setBackground(new java.awt.Color(0, 0, 0));
         x.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        x.setForeground(new java.awt.Color(0, 0, 0));
         x.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         x.setText("X");
         x.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -229,7 +245,10 @@ public class LogInPanel extends javax.swing.JFrame {
             .addComponent(x, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)
         );
 
+        loginPanel.add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(269, 0, -1, -1));
+
         labelLogInSetts.setFont(new java.awt.Font("Roboto", 0, 16)); // NOI18N
+        labelLogInSetts.setForeground(new java.awt.Color(0, 0, 0));
         labelLogInSetts.setText("¿Aún no tienes cuenta?");
         labelLogInSetts.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         labelLogInSetts.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -243,88 +262,23 @@ public class LogInPanel extends javax.swing.JFrame {
                 labelLogInSettsMouseExited(evt);
             }
         });
+        loginPanel.add(labelLogInSetts, new org.netbeans.lib.awtextra.AbsoluteConstraints(26, 421, -1, -1));
 
+        choiceUser.setBackground(new java.awt.Color(102, 102, 102));
         radioUserType.add(choiceUser);
         choiceUser.setFont(new java.awt.Font("Roboto", 0, 16)); // NOI18N
         choiceUser.setText("Usuario");
         choiceUser.setBorder(null);
         choiceUser.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        loginPanel.add(choiceUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(26, 386, -1, -1));
 
+        choiceAdmin.setBackground(new java.awt.Color(102, 102, 102));
         radioUserType.add(choiceAdmin);
         choiceAdmin.setFont(new java.awt.Font("Roboto", 0, 16)); // NOI18N
         choiceAdmin.setText("Administrador");
         choiceAdmin.setBorder(null);
         choiceAdmin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-
-        javax.swing.GroupLayout loginPanelLayout = new javax.swing.GroupLayout(loginPanel);
-        loginPanel.setLayout(loginPanelLayout);
-        loginPanelLayout.setHorizontalGroup(
-            loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(loginPanelLayout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addGroup(loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(loginPanelLayout.createSequentialGroup()
-                        .addGroup(loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(fieldPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(labelCredential2)
-                            .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(fieldUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(labelCredential1)
-                            .addComponent(labelSubtitle)
-                            .addGroup(loginPanelLayout.createSequentialGroup()
-                                .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(btnGuest, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(loginPanelLayout.createSequentialGroup()
-                        .addGroup(loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(loginPanelLayout.createSequentialGroup()
-                                .addComponent(choiceUser)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(choiceAdmin))
-                            .addComponent(labelLogInSetts)
-                            .addGroup(loginPanelLayout.createSequentialGroup()
-                                .addComponent(labelTitle)
-                                .addGap(18, 18, 18)
-                                .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, Short.MAX_VALUE))))
-        );
-        loginPanelLayout.setVerticalGroup(
-            loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(loginPanelLayout.createSequentialGroup()
-                .addGroup(loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(loginPanelLayout.createSequentialGroup()
-                        .addGap(26, 26, 26)
-                        .addComponent(labelTitle))
-                    .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(29, 29, 29)
-                .addComponent(labelSubtitle)
-                .addGap(27, 27, 27)
-                .addComponent(labelCredential1)
-                .addGap(18, 18, 18)
-                .addComponent(fieldUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(labelCredential2)
-                .addGap(18, 18, 18)
-                .addComponent(fieldPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(12, 12, 12)
-                .addGroup(loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnLogin, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnGuest, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
-                .addGroup(loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(loginPanelLayout.createSequentialGroup()
-                        .addComponent(choiceUser)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(labelLogInSetts))
-                    .addComponent(choiceAdmin))
-                .addGap(20, 20, 20))
-        );
+        loginPanel.add(choiceAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(117, 386, -1, -1));
 
         bg.add(loginPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 0, 300, 460));
 
@@ -384,7 +338,10 @@ public class LogInPanel extends javax.swing.JFrame {
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         try{
-            RadianceThemingCortex.GlobalScope.setSkin(new GraphiteGoldSkin());
+            UIManager.setLookAndFeel(new RadianceModerateLookAndFeel());
+            RadianceThemingCortex.GlobalScope.setSkin(new ModerateSkin());
+            btnLogIn.setBackground(new Color(154, 136, 216));
+            btnGuest.setBackground(new Color(154, 136, 216));
         }catch(Exception e){
             e.printStackTrace();
         }
@@ -414,7 +371,7 @@ public class LogInPanel extends javax.swing.JFrame {
 
     private void xMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_xMouseExited
         btnSalir.setBackground(new Color(102,102,102));
-        x.setForeground(new Color(204,204,204));
+        x.setForeground(Color.black);
     }//GEN-LAST:event_xMouseExited
 
     private void labelLogInSettsMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelLogInSettsMouseEntered
@@ -422,35 +379,8 @@ public class LogInPanel extends javax.swing.JFrame {
     }//GEN-LAST:event_labelLogInSettsMouseEntered
 
     private void labelLogInSettsMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelLogInSettsMouseExited
-        labelLogInSetts.setForeground(new Color(235,233,233));
+        labelLogInSetts.setForeground(new Color(0,0,0));
     }//GEN-LAST:event_labelLogInSettsMouseExited
-
-    private void labelLogInMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelLogInMouseClicked
-        logIn();
-    }//GEN-LAST:event_labelLogInMouseClicked
-
-    private void labelGuestMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelGuestMouseClicked
-        logIn = true;
-        hideElements();
-        Session.guestMode();
-        new HomePanel(this, currentSession).setVisible(true);
-    }//GEN-LAST:event_labelGuestMouseClicked
-
-    private void labelLogInMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelLogInMouseEntered
-        btnLogin.setBackground(new Color(146,246,146));
-    }//GEN-LAST:event_labelLogInMouseEntered
-
-    private void labelLogInMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelLogInMouseExited
-        btnLogin.setBackground(new Color(96,243,96));
-    }//GEN-LAST:event_labelLogInMouseExited
-
-    private void labelGuestMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelGuestMouseEntered
-        btnGuest.setBackground(new Color(146,246,146));
-    }//GEN-LAST:event_labelGuestMouseEntered
-
-    private void labelGuestMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelGuestMouseExited
-        btnGuest.setBackground(new Color(96,243,96));
-    }//GEN-LAST:event_labelGuestMouseExited
 
     private void labelLogInSettsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelLogInSettsMouseClicked
         if(logIn){
@@ -498,6 +428,33 @@ public class LogInPanel extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_fieldPasswordKeyPressed
 
+    private void labelLogInMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelLogInMouseExited
+        btnLogIn.setBackground(new Color(154, 136, 216));
+    }//GEN-LAST:event_labelLogInMouseExited
+
+    private void labelLogInMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelLogInMouseEntered
+        btnLogIn.setBackground(new Color(221,211,255));
+    }//GEN-LAST:event_labelLogInMouseEntered
+
+    private void labelLogInMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelLogInMouseClicked
+        logIn();
+    }//GEN-LAST:event_labelLogInMouseClicked
+
+    private void labelGuestMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelGuestMouseExited
+        btnGuest.setBackground(new Color(154, 136, 216));
+    }//GEN-LAST:event_labelGuestMouseExited
+
+    private void labelGuestMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelGuestMouseEntered
+        btnGuest.setBackground(new Color(221,211,255));
+    }//GEN-LAST:event_labelGuestMouseEntered
+
+    private void labelGuestMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelGuestMouseClicked
+        logIn = true;
+        hideElements();
+        Session.guestMode();
+        new HomePanel(this, currentSession).setVisible(true);
+    }//GEN-LAST:event_labelGuestMouseClicked
+
     private void hideElements(){
         labelSubtitle.setText("INICIAR SESIÓN");
         labelLogIn.setText("ENTRAR");
@@ -511,44 +468,36 @@ public class LogInPanel extends javax.swing.JFrame {
 
     private void clearFields(){
         fieldPassword.setText("******");
-        fieldPassword.setForeground(new Color(235,233,233));
+        fieldPassword.setForeground(new Color(102,102,102));
         fieldUsername.setText("Ingresa tu usuario");
-        fieldUsername.setForeground(new Color(235,233,233));
+        fieldUsername.setForeground(new Color(102,102,102));
     }
     
     private void focusOnUsername(){
         if (fieldUsername.getText().equals("Ingresa tu usuario")){
             fieldUsername.setText("");
-            fieldUsername.setForeground(Color.white);
-        }
-        if (String.valueOf(fieldPassword.getPassword()).isEmpty()){
-            fieldPassword.setText("******");
-            fieldPassword.setForeground(new Color(235,233,233));
+            fieldUsername.setForeground(Color.black);
         }
     }
     
     private void focusOnPassword(){
         if (String.valueOf(fieldPassword.getPassword()).equals("******")){
             fieldPassword.setText("");
-            fieldPassword.setForeground(Color.white);
-        }
-        if (fieldUsername.getText().isEmpty()){
-            fieldUsername.setText("Ingresa tu usuario");
-            fieldUsername.setForeground(new Color(235,233,233));
+            fieldPassword.setForeground(Color.black);
         }
     }
     
     private void unfocusOnUsermane(){
         if (fieldUsername.getText().isEmpty()) {
             fieldUsername.setText("Ingresa tu usuario");
-            fieldUsername.setForeground(new Color(235, 233, 233));
+            fieldUsername.setForeground(new Color(102,102,102));
         }
     }
     
     private void unfocusOnPassword(){
         if (String.valueOf(fieldPassword.getPassword()).isEmpty()){
         fieldPassword.setText("******");
-        fieldPassword.setForeground(new Color(235,233,233));
+        fieldPassword.setForeground(new Color(102,102,102));
         }
     }
     
@@ -626,7 +575,7 @@ public class LogInPanel extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel bg;
     private javax.swing.JPanel btnGuest;
-    private javax.swing.JPanel btnLogin;
+    private javax.swing.JPanel btnLogIn;
     private javax.swing.JPanel btnSalir;
     private javax.swing.JRadioButton choiceAdmin;
     private javax.swing.JRadioButton choiceUser;

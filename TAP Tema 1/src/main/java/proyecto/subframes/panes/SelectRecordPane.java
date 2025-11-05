@@ -54,8 +54,8 @@ public class SelectRecordPane extends javax.swing.JPanel {
         labelEstadoYCategoria = new javax.swing.JLabel();
         labelUsuario = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(216, 188, 188));
-        setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        setBackground(new java.awt.Color(255, 255, 255));
+        setForeground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         panelImage.setBackground(new java.awt.Color(255, 255, 255));
@@ -65,7 +65,7 @@ public class SelectRecordPane extends javax.swing.JPanel {
 
         labelTitulo.setBackground(new java.awt.Color(0, 0, 0));
         labelTitulo.setFont(new java.awt.Font("Roboto", 1, 20)); // NOI18N
-        labelTitulo.setForeground(new java.awt.Color(114, 114, 114));
+        labelTitulo.setForeground(new java.awt.Color(0, 0, 0));
         labelTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         labelTitulo.setText("Titulo");
         labelTitulo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -84,13 +84,13 @@ public class SelectRecordPane extends javax.swing.JPanel {
 
         labelEstadoYCategoria.setBackground(new java.awt.Color(0, 0, 0));
         labelEstadoYCategoria.setFont(new java.awt.Font("Roboto", 1, 20)); // NOI18N
-        labelEstadoYCategoria.setForeground(new java.awt.Color(114, 114, 114));
+        labelEstadoYCategoria.setForeground(new java.awt.Color(0, 0, 0));
         labelEstadoYCategoria.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         labelEstadoYCategoria.setText("Estado y categoría");
         add(labelEstadoYCategoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 75, -1, -1));
 
         labelUsuario.setFont(new java.awt.Font("Roboto", 1, 20)); // NOI18N
-        labelUsuario.setForeground(new java.awt.Color(114, 114, 114));
+        labelUsuario.setForeground(new java.awt.Color(0, 0, 0));
         labelUsuario.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         labelUsuario.setText("Usuario");
         add(labelUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 135, -1, -1));
@@ -101,7 +101,7 @@ public class SelectRecordPane extends javax.swing.JPanel {
     }//GEN-LAST:event_labelTituloMouseEntered
 
     private void labelTituloMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelTituloMouseExited
-        labelTitulo.setForeground(new Color(114,114,114));
+        labelTitulo.setForeground(Color.BLACK);
     }//GEN-LAST:event_labelTituloMouseExited
 
     private void labelTituloMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelTituloMouseClicked

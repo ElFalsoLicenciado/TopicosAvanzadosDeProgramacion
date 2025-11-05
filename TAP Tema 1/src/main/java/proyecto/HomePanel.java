@@ -55,7 +55,7 @@ public class HomePanel extends javax.swing.JFrame {
         x = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setBackground(new java.awt.Color(216, 188, 188));
+        setBackground(new java.awt.Color(214, 232, 255));
         setUndecorated(true);
         setPreferredSize(new java.awt.Dimension(870, 580));
         setResizable(false);
@@ -69,34 +69,44 @@ public class HomePanel extends javax.swing.JFrame {
         });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        tabGroup.setBackground(new java.awt.Color(216, 188, 188));
-        tabGroup.setForeground(new java.awt.Color(235, 233, 233));
+        tabGroup.setBackground(new java.awt.Color(255, 255, 255));
+        tabGroup.setForeground(new java.awt.Color(0, 0, 0));
         tabGroup.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
 
-        readTab.setBackground(new java.awt.Color(216, 188, 188));
+        readTab.setBackground(new java.awt.Color(255, 255, 255));
+        readTab.setForeground(new java.awt.Color(255, 255, 255));
         readTab.setPreferredSize(new java.awt.Dimension(870, 500));
         readTab.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         readTab.add(selectRecordPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 500));
+
+        readRecordPane.setBackground(new java.awt.Color(255, 255, 255));
+        readRecordPane.setForeground(new java.awt.Color(255, 255, 255));
         readTab.add(readRecordPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 500));
 
         tabGroup.addTab("Ver registros", readTab);
 
-        recordTab.setBackground(new java.awt.Color(216, 188, 188));
+        recordTab.setBackground(new java.awt.Color(255, 255, 255));
+        recordTab.setForeground(new java.awt.Color(255, 255, 255));
         recordTab.setPreferredSize(new java.awt.Dimension(860, 550));
         recordTab.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        recordGroup.setBackground(new java.awt.Color(216, 188, 188));
-        recordGroup.setForeground(new java.awt.Color(114, 114, 114));
+        recordGroup.setBackground(new java.awt.Color(255, 255, 255));
+        recordGroup.setForeground(new java.awt.Color(0, 0, 0));
         recordGroup.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
 
-        recordPanel.setBackground(new java.awt.Color(216, 188, 188));
+        recordPanel.setBackground(new java.awt.Color(255, 255, 255));
+        recordPanel.setForeground(new java.awt.Color(255, 255, 255));
         recordPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         recordPanel.add(manageRecordsPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 510));
+
+        editRecordPane.setBackground(new java.awt.Color(255, 255, 255));
+        editRecordPane.setForeground(new java.awt.Color(255, 255, 255));
         recordPanel.add(editRecordPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 510));
 
         recordGroup.addTab("Registros", recordPanel);
 
-        requestPanel.setBackground(new java.awt.Color(216, 188, 188));
+        requestPanel.setBackground(new java.awt.Color(255, 255, 255));
+        requestPanel.setForeground(new java.awt.Color(255, 255, 255));
         requestPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         requestPanel.add(userRequestsPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 790, 510));
 
@@ -106,18 +116,21 @@ public class HomePanel extends javax.swing.JFrame {
 
         tabGroup.addTab("Pestaña de creador", recordTab);
 
-        adminTab.setBackground(new java.awt.Color(216, 188, 188));
+        adminTab.setBackground(new java.awt.Color(255, 255, 255));
+        adminTab.setForeground(new java.awt.Color(255, 255, 255));
         adminTab.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         adminTab.add(adminToolsPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 870, 610));
+
+        approveRecordPane.setBackground(new java.awt.Color(255, 255, 255));
+        approveRecordPane.setForeground(new java.awt.Color(255, 255, 255));
         adminTab.add(approveRecordPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 870, 600));
 
         tabGroup.addTab("Moderación", adminTab);
 
         getContentPane().add(tabGroup, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 890, 590));
 
-        header.setBackground(new java.awt.Color(216, 188, 188));
+        header.setBackground(new java.awt.Color(214, 232, 255));
         header.setForeground(new java.awt.Color(216, 188, 188));
-        header.setOpaque(false);
         header.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
                 headerMouseDragged(evt);
@@ -129,10 +142,11 @@ public class HomePanel extends javax.swing.JFrame {
             }
         });
 
-        btnSalir.setBackground(new java.awt.Color(102, 102, 102));
+        btnSalir.setBackground(new java.awt.Color(214, 232, 255));
         btnSalir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         x.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        x.setForeground(new java.awt.Color(0, 0, 0));
         x.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         x.setText("X");
         x.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -165,16 +179,16 @@ public class HomePanel extends javax.swing.JFrame {
             headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(headerLayout.createSequentialGroup()
                 .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 721, Short.MAX_VALUE))
+                .addGap(0, 851, Short.MAX_VALUE))
         );
         headerLayout.setVerticalGroup(
             headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(headerLayout.createSequentialGroup()
                 .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 43, Short.MAX_VALUE))
+                .addGap(0, 53, Short.MAX_VALUE))
         );
 
-        getContentPane().add(header, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 760, 70));
+        getContentPane().add(header, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 890, 80));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -201,7 +215,7 @@ public class HomePanel extends javax.swing.JFrame {
 
     private void xMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_xMouseExited
         btnSalir.setBackground(new Color(102,102,102));
-        x.setForeground(new Color(204,204,204));
+        x.setForeground(Color.black);
     }//GEN-LAST:event_xMouseExited
 
     private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed

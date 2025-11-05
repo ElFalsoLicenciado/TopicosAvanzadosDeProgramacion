@@ -41,17 +41,19 @@ public class WriteReasonPane extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setBackground(new java.awt.Color(216, 188, 188));
 
-        bg.setBackground(new java.awt.Color(216, 188, 188));
+        bg.setBackground(new java.awt.Color(255, 255, 255));
+        bg.setForeground(new java.awt.Color(255, 255, 255));
         bg.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         labelTitle.setFont(new java.awt.Font("Roboto", 1, 24)); // NOI18N
-        labelTitle.setForeground(new java.awt.Color(114, 114, 114));
+        labelTitle.setForeground(new java.awt.Color(0, 0, 0));
         labelTitle.setText("Escribe el motivo:");
         bg.add(labelTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
-        fieldMotivo.setBackground(new java.awt.Color(255, 255, 255));
+        fieldMotivo.setBackground(new java.awt.Color(221, 211, 255));
         fieldMotivo.setColumns(20);
         fieldMotivo.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
+        fieldMotivo.setForeground(new java.awt.Color(0, 0, 0));
         fieldMotivo.setLineWrap(true);
         fieldMotivo.setRows(5);
         fieldMotivo.setText("Motivo");
@@ -73,11 +75,11 @@ public class WriteReasonPane extends javax.swing.JFrame {
 
         bg.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 53, 400, 221));
 
-        btnTerminar.setBackground(new java.awt.Color(96, 243, 96));
+        btnTerminar.setBackground(new java.awt.Color(154, 136, 216));
         btnTerminar.setPreferredSize(new java.awt.Dimension(106, 31));
 
         labelTerminar.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
-        labelTerminar.setForeground(new java.awt.Color(255, 255, 255));
+        labelTerminar.setForeground(new java.awt.Color(0, 0, 0));
         labelTerminar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         labelTerminar.setText("TERMINAR");
         labelTerminar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -110,11 +112,11 @@ public class WriteReasonPane extends javax.swing.JFrame {
 
         bg.add(btnTerminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 290, 90, -1));
 
-        btnCancelar.setBackground(new java.awt.Color(96, 243, 96));
+        btnCancelar.setBackground(new java.awt.Color(154, 136, 216));
         btnCancelar.setPreferredSize(new java.awt.Dimension(106, 31));
 
         labelCancelar.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
-        labelCancelar.setForeground(new java.awt.Color(255, 255, 255));
+        labelCancelar.setForeground(new java.awt.Color(0, 0, 0));
         labelCancelar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         labelCancelar.setText("CANCELAR");
         labelCancelar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -166,11 +168,11 @@ public class WriteReasonPane extends javax.swing.JFrame {
     }//GEN-LAST:event_labelTerminarMouseClicked
 
     private void labelTerminarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelTerminarMouseEntered
-        btnTerminar.setBackground(new Color(146,246,146));
+        btnTerminar.setBackground(new Color(221,211,255));
     }//GEN-LAST:event_labelTerminarMouseEntered
 
     private void labelTerminarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelTerminarMouseExited
-        btnTerminar.setBackground(new Color(96,243,96));
+        btnTerminar.setBackground(new Color(154, 136, 216));
     }//GEN-LAST:event_labelTerminarMouseExited
 
     private void labelCancelarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelCancelarMouseClicked
@@ -179,11 +181,11 @@ public class WriteReasonPane extends javax.swing.JFrame {
     }//GEN-LAST:event_labelCancelarMouseClicked
 
     private void labelCancelarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelCancelarMouseEntered
-        btnCancelar.setBackground(new Color(146,246,146));
+        btnCancelar.setBackground(new Color(221,211,255));
     }//GEN-LAST:event_labelCancelarMouseEntered
 
     private void labelCancelarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelCancelarMouseExited
-        btnCancelar.setBackground(new Color(96,243,96));
+        btnCancelar.setBackground(new Color(154, 136, 216));
     }//GEN-LAST:event_labelCancelarMouseExited
 
     private void fieldMotivoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_fieldMotivoFocusGained

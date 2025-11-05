@@ -54,12 +54,13 @@ public class RecordSelectorPanel extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         panelRecordList = new javax.swing.JPanel();
 
-        setBackground(new java.awt.Color(216, 188, 188));
+        setBackground(new java.awt.Color(255, 255, 255));
+        setForeground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        comboStates.setBackground(new java.awt.Color(255, 255, 255));
+        comboStates.setBackground(new java.awt.Color(221, 211, 255));
         comboStates.setFont(new java.awt.Font("Roboto", 0, 17)); // NOI18N
-        comboStates.setForeground(new java.awt.Color(235, 233, 233));
+        comboStates.setForeground(new java.awt.Color(0, 0, 0));
         comboStates.setBorder(null);
         comboStates.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -68,10 +69,10 @@ public class RecordSelectorPanel extends javax.swing.JPanel {
         });
         add(comboStates, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 210, 30));
 
-        choiceTrad.setBackground(new java.awt.Color(216, 188, 188));
+        choiceTrad.setBackground(new java.awt.Color(255, 255, 255));
         recordTypeGroup.add(choiceTrad);
         choiceTrad.setFont(new java.awt.Font("Roboto", 0, 16)); // NOI18N
-        choiceTrad.setForeground(new java.awt.Color(235, 233, 233));
+        choiceTrad.setForeground(new java.awt.Color(0, 0, 0));
         choiceTrad.setText("Tradición");
         choiceTrad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -80,10 +81,10 @@ public class RecordSelectorPanel extends javax.swing.JPanel {
         });
         add(choiceTrad, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 80, -1, 30));
 
-        choiceGast.setBackground(new java.awt.Color(216, 188, 188));
+        choiceGast.setBackground(new java.awt.Color(255, 255, 255));
         recordTypeGroup.add(choiceGast);
         choiceGast.setFont(new java.awt.Font("Roboto", 0, 16)); // NOI18N
-        choiceGast.setForeground(new java.awt.Color(235, 233, 233));
+        choiceGast.setForeground(new java.awt.Color(0, 0, 0));
         choiceGast.setText("Gastronomía");
         choiceGast.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -92,10 +93,10 @@ public class RecordSelectorPanel extends javax.swing.JPanel {
         });
         add(choiceGast, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 80, -1, 30));
 
-        choiceLug.setBackground(new java.awt.Color(216, 188, 188));
+        choiceLug.setBackground(new java.awt.Color(255, 255, 255));
         recordTypeGroup.add(choiceLug);
         choiceLug.setFont(new java.awt.Font("Roboto", 0, 16)); // NOI18N
-        choiceLug.setForeground(new java.awt.Color(235, 233, 233));
+        choiceLug.setForeground(new java.awt.Color(0, 0, 0));
         choiceLug.setText("Lugar");
         choiceLug.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -104,10 +105,10 @@ public class RecordSelectorPanel extends javax.swing.JPanel {
         });
         add(choiceLug, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 80, -1, 30));
 
-        choicePala.setBackground(new java.awt.Color(216, 188, 188));
+        choicePala.setBackground(new java.awt.Color(255, 255, 255));
         recordTypeGroup.add(choicePala);
         choicePala.setFont(new java.awt.Font("Roboto", 0, 16)); // NOI18N
-        choicePala.setForeground(new java.awt.Color(235, 233, 233));
+        choicePala.setForeground(new java.awt.Color(0, 0, 0));
         choicePala.setText("Palabra");
         choicePala.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -116,24 +117,25 @@ public class RecordSelectorPanel extends javax.swing.JPanel {
         });
         add(choicePala, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 80, -1, 30));
 
-        labelCrit1.setBackground(new java.awt.Color(0, 0, 0));
+        labelCrit1.setBackground(new java.awt.Color(255, 255, 255));
         labelCrit1.setFont(new java.awt.Font("Roboto", 1, 20)); // NOI18N
-        labelCrit1.setForeground(new java.awt.Color(114, 114, 114));
+        labelCrit1.setForeground(new java.awt.Color(0, 0, 0));
         labelCrit1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         labelCrit1.setText("Estado");
         add(labelCrit1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, -1, -1));
 
+        labelCrit3.setBackground(new java.awt.Color(255, 255, 255));
         labelCrit3.setFont(new java.awt.Font("Roboto", 1, 20)); // NOI18N
-        labelCrit3.setForeground(new java.awt.Color(114, 114, 114));
+        labelCrit3.setForeground(new java.awt.Color(0, 0, 0));
         labelCrit3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         labelCrit3.setText("Categoría");
         add(labelCrit3, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 50, -1, -1));
 
-        btnReset.setBackground(new java.awt.Color(96, 243, 96));
+        btnReset.setBackground(new java.awt.Color(154, 136, 216));
         btnReset.setPreferredSize(new java.awt.Dimension(106, 31));
 
         labelReset.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
-        labelReset.setForeground(new java.awt.Color(255, 255, 255));
+        labelReset.setForeground(new java.awt.Color(0, 0, 0));
         labelReset.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         labelReset.setText("RESET");
         labelReset.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -166,8 +168,9 @@ public class RecordSelectorPanel extends javax.swing.JPanel {
 
         add(btnReset, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 80, 60, -1));
 
+        labelTitle.setBackground(new java.awt.Color(255, 255, 255));
         labelTitle.setFont(new java.awt.Font("Roboto", 1, 24)); // NOI18N
-        labelTitle.setForeground(new java.awt.Color(114, 114, 114));
+        labelTitle.setForeground(new java.awt.Color(0, 0, 0));
         labelTitle.setText("Record Selector Panel");
         add(labelTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
@@ -175,8 +178,8 @@ public class RecordSelectorPanel extends javax.swing.JPanel {
         jScrollPane1.setBorder(null);
         jScrollPane1.setForeground(new java.awt.Color(216, 188, 188));
 
-        panelRecordList.setBackground(new java.awt.Color(216, 188, 188));
-        panelRecordList.setForeground(new java.awt.Color(216, 188, 188));
+        panelRecordList.setBackground(new java.awt.Color(255, 255, 255));
+        panelRecordList.setForeground(new java.awt.Color(255, 255, 255));
         jScrollPane1.setViewportView(panelRecordList);
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, 760, 340));

@@ -98,13 +98,15 @@ public class RecordApproverPanel extends javax.swing.JPanel {
         setBackground(new java.awt.Color(216, 188, 188));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        bg.setBackground(new java.awt.Color(216, 188, 188));
+        bg.setBackground(new java.awt.Color(255, 255, 255));
+        bg.setForeground(new java.awt.Color(255, 255, 255));
         bg.setMinimumSize(new java.awt.Dimension(762, 600));
         bg.setPreferredSize(new java.awt.Dimension(762, 600));
         bg.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        labelTitle.setBackground(new java.awt.Color(255, 255, 255));
         labelTitle.setFont(new java.awt.Font("Roboto", 1, 24)); // NOI18N
-        labelTitle.setForeground(new java.awt.Color(114, 114, 114));
+        labelTitle.setForeground(new java.awt.Color(0, 0, 0));
         labelTitle.setText("Admin Record Panel");
         bg.add(labelTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
@@ -113,41 +115,43 @@ public class RecordApproverPanel extends javax.swing.JPanel {
         panelImage.setIcon(new javax.swing.ImageIcon("C:\\Users\\User\\Documents\\Programming\\JetBrains\\IntelliJ Projects\\Topicos Avanzados de Programacion\\TAP Tema 1\\src\\main\\java\\proyecto\\resources\\imgnotfound.png")); // NOI18N
         bg.add(panelImage, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 190, 180));
 
-        fieldEstado.setBackground(new java.awt.Color(255, 255, 255));
+        fieldEstado.setBackground(new java.awt.Color(221, 211, 255));
         fieldEstado.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
-        fieldEstado.setForeground(new java.awt.Color(235, 233, 233));
+        fieldEstado.setForeground(new java.awt.Color(102, 102, 102));
         fieldEstado.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         fieldEstado.setText("Estado");
         fieldEstado.setBorder(null);
-        fieldEstado.setDisabledTextColor(new java.awt.Color(235, 233, 233));
+        fieldEstado.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         fieldEstado.setEnabled(false);
         bg.add(fieldEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 160, 300, -1));
 
-        labelAprove.setBackground(new java.awt.Color(0, 0, 0));
+        labelAprove.setBackground(new java.awt.Color(255, 255, 255));
         labelAprove.setFont(new java.awt.Font("Roboto", 1, 20)); // NOI18N
-        labelAprove.setForeground(new java.awt.Color(114, 114, 114));
+        labelAprove.setForeground(new java.awt.Color(0, 0, 0));
         labelAprove.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         labelAprove.setText("¿Aprobar?");
         bg.add(labelAprove, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 130, 190, 80));
 
+        labelCrit3.setBackground(new java.awt.Color(255, 255, 255));
         labelCrit3.setFont(new java.awt.Font("Roboto", 1, 20)); // NOI18N
-        labelCrit3.setForeground(new java.awt.Color(114, 114, 114));
+        labelCrit3.setForeground(new java.awt.Color(0, 0, 0));
         labelCrit3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         labelCrit3.setText("Categoría");
         bg.add(labelCrit3, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 200, -1, -1));
 
-        labelCrit1.setBackground(new java.awt.Color(0, 0, 0));
+        labelCrit1.setBackground(new java.awt.Color(255, 255, 255));
         labelCrit1.setFont(new java.awt.Font("Roboto", 1, 20)); // NOI18N
-        labelCrit1.setForeground(new java.awt.Color(114, 114, 114));
+        labelCrit1.setForeground(new java.awt.Color(0, 0, 0));
         labelCrit1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         labelCrit1.setText("Titulo");
         bg.add(labelCrit1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 60, -1, -1));
 
-        btnCancelar.setBackground(new java.awt.Color(96, 243, 96));
+        btnCancelar.setBackground(new java.awt.Color(154, 136, 216));
+        btnCancelar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnCancelar.setPreferredSize(new java.awt.Dimension(106, 31));
 
         labelCancelar.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
-        labelCancelar.setForeground(new java.awt.Color(255, 255, 255));
+        labelCancelar.setForeground(new java.awt.Color(0, 0, 0));
         labelCancelar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         labelCancelar.setText("CANCELAR");
         labelCancelar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -166,16 +170,16 @@ public class RecordApproverPanel extends javax.swing.JPanel {
         javax.swing.GroupLayout btnCancelarLayout = new javax.swing.GroupLayout(btnCancelar);
         btnCancelar.setLayout(btnCancelarLayout);
         btnCancelarLayout.setHorizontalGroup(
-                btnCancelarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnCancelarLayout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(labelCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+            btnCancelarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnCancelarLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(labelCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         btnCancelarLayout.setVerticalGroup(
-                btnCancelarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnCancelarLayout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(labelCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+            btnCancelarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnCancelarLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(labelCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         bg.add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 80, 90, -1));
@@ -190,12 +194,12 @@ public class RecordApproverPanel extends javax.swing.JPanel {
         javax.swing.GroupLayout btnApproveLayout = new javax.swing.GroupLayout(btnApprove);
         btnApprove.setLayout(btnApproveLayout);
         btnApproveLayout.setHorizontalGroup(
-                btnApproveLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGap(0, 30, Short.MAX_VALUE)
+            btnApproveLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 30, Short.MAX_VALUE)
         );
         btnApproveLayout.setVerticalGroup(
-                btnApproveLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGap(0, 30, Short.MAX_VALUE)
+            btnApproveLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 30, Short.MAX_VALUE)
         );
 
         bg.add(btnApprove, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 220, 30, 30));
@@ -210,53 +214,54 @@ public class RecordApproverPanel extends javax.swing.JPanel {
         javax.swing.GroupLayout btnDenyLayout = new javax.swing.GroupLayout(btnDeny);
         btnDeny.setLayout(btnDenyLayout);
         btnDenyLayout.setHorizontalGroup(
-                btnDenyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGap(0, 30, Short.MAX_VALUE)
+            btnDenyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 30, Short.MAX_VALUE)
         );
         btnDenyLayout.setVerticalGroup(
-                btnDenyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGap(0, 30, Short.MAX_VALUE)
+            btnDenyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 30, Short.MAX_VALUE)
         );
 
         bg.add(btnDeny, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 220, 30, 30));
 
-        fieldTitulo.setBackground(new java.awt.Color(255, 255, 255));
+        fieldTitulo.setBackground(new java.awt.Color(221, 211, 255));
         fieldTitulo.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
-        fieldTitulo.setForeground(new java.awt.Color(235, 233, 233));
+        fieldTitulo.setForeground(new java.awt.Color(102, 102, 102));
         fieldTitulo.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         fieldTitulo.setText("Título");
         fieldTitulo.setBorder(null);
-        fieldTitulo.setDisabledTextColor(new java.awt.Color(235, 233, 233));
+        fieldTitulo.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         fieldTitulo.setEnabled(false);
         bg.add(fieldTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 90, 300, -1));
 
-        labelCrit2.setBackground(new java.awt.Color(0, 0, 0));
+        labelCrit2.setBackground(new java.awt.Color(255, 255, 255));
         labelCrit2.setFont(new java.awt.Font("Roboto", 1, 20)); // NOI18N
-        labelCrit2.setForeground(new java.awt.Color(114, 114, 114));
+        labelCrit2.setForeground(new java.awt.Color(0, 0, 0));
         labelCrit2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         labelCrit2.setText("Estado");
         bg.add(labelCrit2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 130, -1, -1));
 
-        labelUsuario.setBackground(new java.awt.Color(0, 0, 0));
+        labelUsuario.setBackground(new java.awt.Color(255, 255, 255));
         labelUsuario.setFont(new java.awt.Font("Roboto", 1, 20)); // NOI18N
-        labelUsuario.setForeground(new java.awt.Color(114, 114, 114));
+        labelUsuario.setForeground(new java.awt.Color(0, 0, 0));
         labelUsuario.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         labelUsuario.setText("Usuario");
         bg.add(labelUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 250, -1, -1));
 
-        fieldCategoria.setBackground(new java.awt.Color(255, 255, 255));
+        fieldCategoria.setBackground(new java.awt.Color(221, 211, 255));
         fieldCategoria.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
-        fieldCategoria.setForeground(new java.awt.Color(235, 233, 233));
+        fieldCategoria.setForeground(new java.awt.Color(0, 0, 0));
         fieldCategoria.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         fieldCategoria.setText("Categoría");
         fieldCategoria.setBorder(null);
-        fieldCategoria.setDisabledTextColor(new java.awt.Color(235, 233, 233));
+        fieldCategoria.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         fieldCategoria.setEnabled(false);
         bg.add(fieldCategoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 230, 300, -1));
 
         jScrollPane2.setBorder(null);
 
-        fieldDescripcion.setBackground(new java.awt.Color(255, 255, 255));
+        fieldDescripcion.setEditable(false);
+        fieldDescripcion.setBackground(new java.awt.Color(221, 211, 255));
         fieldDescripcion.setColumns(20);
         fieldDescripcion.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
         fieldDescripcion.setForeground(new java.awt.Color(235, 233, 233));
@@ -265,7 +270,8 @@ public class RecordApproverPanel extends javax.swing.JPanel {
         fieldDescripcion.setText("Descripción");
         fieldDescripcion.setWrapStyleWord(true);
         fieldDescripcion.setBorder(null);
-        fieldDescripcion.setDisabledTextColor(new java.awt.Color(235, 233, 233));
+        fieldDescripcion.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        fieldDescripcion.setEnabled(false);
         jScrollPane2.setViewportView(fieldDescripcion);
 
         bg.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 280, 780, 210));
@@ -274,11 +280,11 @@ public class RecordApproverPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void labelCancelarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelCancelarMouseExited
-        btnCancelar.setBackground(new Color(96,243,96));
+        btnCancelar.setBackground(new Color(221,211,255));
     }//GEN-LAST:event_labelCancelarMouseExited
 
     private void labelCancelarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelCancelarMouseEntered
-        btnCancelar.setBackground(new Color(146,246,146));
+        btnCancelar.setBackground(new Color(154, 136, 216));
     }//GEN-LAST:event_labelCancelarMouseEntered
 
     private void labelCancelarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelCancelarMouseClicked

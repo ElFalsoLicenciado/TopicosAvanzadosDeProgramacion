@@ -70,8 +70,8 @@ public class AdminRecordPane extends javax.swing.JPanel {
         labelUsuario = new javax.swing.JLabel();
         labelStatus = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(216, 188, 188));
-        setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        setBackground(new java.awt.Color(255, 255, 255));
+        setForeground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         panelImage.setBackground(new java.awt.Color(255, 255, 255));
@@ -83,7 +83,7 @@ public class AdminRecordPane extends javax.swing.JPanel {
         btnAdmin.setPreferredSize(new java.awt.Dimension(106, 31));
 
         labelAdmin.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
-        labelAdmin.setForeground(new java.awt.Color(255, 255, 255));
+        labelAdmin.setForeground(new java.awt.Color(0, 0, 0));
         labelAdmin.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         labelAdmin.setText("CHECK");
         labelAdmin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -118,27 +118,27 @@ public class AdminRecordPane extends javax.swing.JPanel {
 
         labelTitulo.setBackground(new java.awt.Color(0, 0, 0));
         labelTitulo.setFont(new java.awt.Font("Roboto", 1, 20)); // NOI18N
-        labelTitulo.setForeground(new java.awt.Color(114, 114, 114));
+        labelTitulo.setForeground(new java.awt.Color(0, 0, 0));
         labelTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         labelTitulo.setText("Titulo");
         add(labelTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 20, -1, -1));
 
         labelEstadoYCategoria.setBackground(new java.awt.Color(0, 0, 0));
         labelEstadoYCategoria.setFont(new java.awt.Font("Roboto", 1, 20)); // NOI18N
-        labelEstadoYCategoria.setForeground(new java.awt.Color(114, 114, 114));
+        labelEstadoYCategoria.setForeground(new java.awt.Color(0, 0, 0));
         labelEstadoYCategoria.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         labelEstadoYCategoria.setText("Estado y categoría");
         labelEstadoYCategoria.setVerticalAlignment(javax.swing.SwingConstants.TOP);
         add(labelEstadoYCategoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 75, 390, -1));
 
         labelUsuario.setFont(new java.awt.Font("Roboto", 1, 20)); // NOI18N
-        labelUsuario.setForeground(new java.awt.Color(114, 114, 114));
+        labelUsuario.setForeground(new java.awt.Color(0, 0, 0));
         labelUsuario.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         labelUsuario.setText("Usuario");
         add(labelUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 135, -1, -1));
 
         labelStatus.setFont(new java.awt.Font("Roboto", 1, 20)); // NOI18N
-        labelStatus.setForeground(new java.awt.Color(114, 114, 114));
+        labelStatus.setForeground(new java.awt.Color(0, 0, 0));
         labelStatus.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         labelStatus.setText("Status: xD");
         add(labelStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 135, -1, -1));
@@ -149,11 +149,11 @@ public class AdminRecordPane extends javax.swing.JPanel {
     }//GEN-LAST:event_labelAdminMouseClicked
 
     private void labelAdminMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelAdminMouseEntered
-        btnAdmin.setBackground(new Color(146,246,146));
+        btnAdmin.setBackground(new Color(221,211,255));
     }//GEN-LAST:event_labelAdminMouseEntered
 
     private void labelAdminMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelAdminMouseExited
-        btnAdmin.setBackground(new Color(96,243,96));
+        btnAdmin.setBackground(new Color(154, 136, 216));
     }//GEN-LAST:event_labelAdminMouseExited
 
 

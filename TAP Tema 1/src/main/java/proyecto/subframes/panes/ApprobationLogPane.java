@@ -57,8 +57,8 @@ public class ApprobationLogPane extends javax.swing.JPanel {
         labelEstadoYCategoria = new javax.swing.JLabel();
         labelStatus = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(216, 188, 188));
-        setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        setBackground(new java.awt.Color(255, 255, 255));
+        setForeground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         panelImage.setBackground(new java.awt.Color(255, 255, 255));
@@ -68,20 +68,20 @@ public class ApprobationLogPane extends javax.swing.JPanel {
 
         labelTitulo.setBackground(new java.awt.Color(0, 0, 0));
         labelTitulo.setFont(new java.awt.Font("Roboto", 1, 20)); // NOI18N
-        labelTitulo.setForeground(new java.awt.Color(114, 114, 114));
+        labelTitulo.setForeground(new java.awt.Color(0, 0, 0));
         labelTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         labelTitulo.setText("Titulo");
         add(labelTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 20, -1, -1));
 
         labelEstadoYCategoria.setBackground(new java.awt.Color(0, 0, 0));
         labelEstadoYCategoria.setFont(new java.awt.Font("Roboto", 1, 20)); // NOI18N
-        labelEstadoYCategoria.setForeground(new java.awt.Color(114, 114, 114));
+        labelEstadoYCategoria.setForeground(new java.awt.Color(0, 0, 0));
         labelEstadoYCategoria.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         labelEstadoYCategoria.setText("Estado y categoría");
         add(labelEstadoYCategoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 80, -1, -1));
 
         labelStatus.setFont(new java.awt.Font("Roboto", 1, 20)); // NOI18N
-        labelStatus.setForeground(new java.awt.Color(114, 114, 114));
+        labelStatus.setForeground(new java.awt.Color(0, 0, 0));
         labelStatus.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         labelStatus.setText("Status");
         add(labelStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 135, -1, -1));
