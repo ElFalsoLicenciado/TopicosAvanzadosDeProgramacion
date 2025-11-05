@@ -79,7 +79,7 @@ public class AdminRecordPane extends javax.swing.JPanel {
         panelImage.setIcon(new javax.swing.ImageIcon("C:\\Users\\User\\Documents\\Programming\\JetBrains\\IntelliJ Projects\\Topicos Avanzados de Programacion\\TAP Tema 1\\src\\main\\java\\proyecto\\resources\\imgnotfound.png")); // NOI18N
         add(panelImage, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 160, 140));
 
-        btnAdmin.setBackground(new java.awt.Color(96, 243, 96));
+        btnAdmin.setBackground(new java.awt.Color(154, 136, 216));
         btnAdmin.setPreferredSize(new java.awt.Dimension(106, 31));
 
         labelAdmin.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
