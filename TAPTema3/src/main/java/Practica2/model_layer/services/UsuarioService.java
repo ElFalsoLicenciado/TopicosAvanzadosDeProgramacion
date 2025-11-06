@@ -31,7 +31,7 @@ public class UsuarioService {
                 rs.getString("contrasenia"),
                 rs.getString("nombre_completo"),
                 rs.getObject("es_admin", Boolean.class),
-                null
+                rs.getBytes("foto")
             );
         }
         rs.close();
@@ -51,6 +51,33 @@ public class UsuarioService {
         ps.setString(2, usuario.getContrasenia());
         ps.setString(3, usuario.getNombre_completo());
         ps.setObject(4, usuario.getEs_admin());
+        
+        int rowsAffected = ps.executeUpdate();
+        
+        ps.close();
+        con.close();
+        
+        return rowsAffected > 0;
+    }
+    
+    public boolean editUsr(Usuario usuario, boolean esCambioPass) throws Exception {
+        String sql = "UPDATE usuarios SET nombre_completo=? ";
+        if(esCambioPass) {
+            sql += ", contrasenia=SHA2(?,256) ";
+        }
+        sql += ", foto=? WHERE id_usuario=" + usuario.getId_usuario();
+        
+        Connection con = conexion.open();
+        PreparedStatement ps = con.prepareStatement(sql);
+        ps.setString(1, usuario.getNombre_completo());
+        if(esCambioPass) {
+            ps.setString(2, usuario.getContrasenia());
+            ps.setBytes(3, usuario.getFoto());
+        } else {
+            ps.setBytes(2, usuario.getFoto());
+        }
+        
+        System.out.println(sql);
         
         int rowsAffected = ps.executeUpdate();
         

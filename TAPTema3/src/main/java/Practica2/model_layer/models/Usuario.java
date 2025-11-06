@@ -1,5 +1,7 @@
 package Practica2.model_layer.models;
 
+import java.io.Serializable;
+
 public class Usuario implements Serializable {
     private int id_usuario;
     private String correo;
