@@ -48,16 +48,26 @@ public class RecordApproverPanel extends javax.swing.JPanel {
 
             switch (request.getStatus()){
                 case APPROVED -> {
-                    labelAprove.setText("Aprobado.");
+                    labelReason.setText("Aprobado.");
+                    labelAprove.setVisible(false);
                     btnApprove.setVisible(false);
                     btnDeny.setVisible(false);
-                    labelCancelar.setText("Regresar");
                 }
                 case REJECTED -> {
-                    labelAprove.setText("Denegado, razón: " + request.getReason());
+                    labelReason.setText("Denegado, razón: " + request.getReason());
+                    labelAprove.setVisible(false);
                     btnApprove.setVisible(false);
                     btnDeny.setVisible(false);
-                    labelCancelar.setText("Regresar");
+                }
+                case CANCELED -> {
+                    labelReason.setText("Registro eliminado." + request.getReason());
+                    labelAprove.setVisible(false);
+                    btnApprove.setVisible(false);
+                    btnDeny.setVisible(false);
+                }
+
+                case WAITING -> {
+                    labelReason.setVisible(false);
                 }
             }
 
@@ -69,6 +79,8 @@ public class RecordApproverPanel extends javax.swing.JPanel {
 
             panelImage.setIcon( new javax.swing.ImageIcon(record.getImageUrl()));
             updateUI();
+            labelTitle.setText("Inspeccionar aprobación");
+
         }
     }
 
@@ -84,8 +96,6 @@ public class RecordApproverPanel extends javax.swing.JPanel {
         labelAprove = new javax.swing.JLabel();
         labelCrit3 = new javax.swing.JLabel();
         labelCrit1 = new javax.swing.JLabel();
-        btnCancelar = new javax.swing.JPanel();
-        labelCancelar = new javax.swing.JLabel();
         btnApprove = new org.edisoncor.gui.panel.PanelImage();
         btnDeny = new org.edisoncor.gui.panel.PanelImage();
         fieldTitulo = new javax.swing.JTextField();
@@ -94,8 +104,13 @@ public class RecordApproverPanel extends javax.swing.JPanel {
         fieldCategoria = new javax.swing.JTextField();
         jScrollPane2 = new javax.swing.JScrollPane();
         fieldDescripcion = new javax.swing.JTextArea();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        labelReason = new javax.swing.JTextArea();
+        btnSalir = new javax.swing.JPanel();
+        x = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(216, 188, 188));
+        setBackground(new java.awt.Color(255, 255, 255));
+        setForeground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         bg.setBackground(new java.awt.Color(255, 255, 255));
@@ -126,11 +141,11 @@ public class RecordApproverPanel extends javax.swing.JPanel {
         bg.add(fieldEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 160, 300, -1));
 
         labelAprove.setBackground(new java.awt.Color(255, 255, 255));
-        labelAprove.setFont(new java.awt.Font("Roboto", 1, 20)); // NOI18N
+        labelAprove.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
         labelAprove.setForeground(new java.awt.Color(0, 0, 0));
         labelAprove.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         labelAprove.setText("¿Aprobar?");
-        bg.add(labelAprove, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 130, 190, 80));
+        bg.add(labelAprove, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 80, 250, 150));
 
         labelCrit3.setBackground(new java.awt.Color(255, 255, 255));
         labelCrit3.setFont(new java.awt.Font("Roboto", 1, 20)); // NOI18N
@@ -145,44 +160,6 @@ public class RecordApproverPanel extends javax.swing.JPanel {
         labelCrit1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         labelCrit1.setText("Titulo");
         bg.add(labelCrit1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 60, -1, -1));
-
-        btnCancelar.setBackground(new java.awt.Color(154, 136, 216));
-        btnCancelar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnCancelar.setPreferredSize(new java.awt.Dimension(106, 31));
-
-        labelCancelar.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
-        labelCancelar.setForeground(new java.awt.Color(0, 0, 0));
-        labelCancelar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        labelCancelar.setText("CANCELAR");
-        labelCancelar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        labelCancelar.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                labelCancelarMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                labelCancelarMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                labelCancelarMouseExited(evt);
-            }
-        });
-
-        javax.swing.GroupLayout btnCancelarLayout = new javax.swing.GroupLayout(btnCancelar);
-        btnCancelar.setLayout(btnCancelarLayout);
-        btnCancelarLayout.setHorizontalGroup(
-            btnCancelarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnCancelarLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(labelCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-        btnCancelarLayout.setVerticalGroup(
-            btnCancelarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnCancelarLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(labelCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-
-        bg.add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 80, 90, -1));
 
         btnApprove.setIcon(new javax.swing.ImageIcon("C:\\Users\\User\\Documents\\Programming\\JetBrains\\IntelliJ Projects\\Topicos Avanzados de Programacion\\TAP Tema 1\\src\\main\\java\\proyecto\\resources\\aprove.png")); // NOI18N
         btnApprove.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -202,7 +179,7 @@ public class RecordApproverPanel extends javax.swing.JPanel {
             .addGap(0, 30, Short.MAX_VALUE)
         );
 
-        bg.add(btnApprove, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 220, 30, 30));
+        bg.add(btnApprove, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 240, 30, 30));
 
         btnDeny.setIcon(new javax.swing.ImageIcon("C:\\Users\\User\\Documents\\Programming\\JetBrains\\IntelliJ Projects\\Topicos Avanzados de Programacion\\TAP Tema 1\\src\\main\\java\\proyecto\\resources\\cancel.png")); // NOI18N
         btnDeny.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -222,7 +199,7 @@ public class RecordApproverPanel extends javax.swing.JPanel {
             .addGap(0, 30, Short.MAX_VALUE)
         );
 
-        bg.add(btnDeny, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 220, 30, 30));
+        bg.add(btnDeny, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 240, 30, 30));
 
         fieldTitulo.setBackground(new java.awt.Color(221, 211, 255));
         fieldTitulo.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
@@ -276,20 +253,54 @@ public class RecordApproverPanel extends javax.swing.JPanel {
 
         bg.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 280, 780, 210));
 
+        labelReason.setEditable(false);
+        labelReason.setBackground(new java.awt.Color(255, 255, 255));
+        labelReason.setColumns(20);
+        labelReason.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
+        labelReason.setLineWrap(true);
+        labelReason.setRows(5);
+        labelReason.setWrapStyleWord(true);
+        labelReason.setBorder(null);
+        jScrollPane1.setViewportView(labelReason);
+
+        bg.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 100, 200, 130));
+
+        btnSalir.setBackground(new java.awt.Color(102, 102, 102));
+        btnSalir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        x.setBackground(new java.awt.Color(0, 0, 0));
+        x.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        x.setForeground(new java.awt.Color(0, 0, 0));
+        x.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        x.setText("<--");
+        x.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        x.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                xMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                xMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                xMouseExited(evt);
+            }
+        });
+
+        javax.swing.GroupLayout btnSalirLayout = new javax.swing.GroupLayout(btnSalir);
+        btnSalir.setLayout(btnSalirLayout);
+        btnSalirLayout.setHorizontalGroup(
+            btnSalirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(x, javax.swing.GroupLayout.DEFAULT_SIZE, 39, Short.MAX_VALUE)
+        );
+        btnSalirLayout.setVerticalGroup(
+            btnSalirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(x, javax.swing.GroupLayout.DEFAULT_SIZE, 27, Short.MAX_VALUE)
+        );
+
+        bg.add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 0, -1, -1));
+
         add(bg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 500));
     }// </editor-fold>//GEN-END:initComponents
-
-    private void labelCancelarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelCancelarMouseExited
-        btnCancelar.setBackground(new Color(221,211,255));
-    }//GEN-LAST:event_labelCancelarMouseExited
-
-    private void labelCancelarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelCancelarMouseEntered
-        btnCancelar.setBackground(new Color(154, 136, 216));
-    }//GEN-LAST:event_labelCancelarMouseEntered
-
-    private void labelCancelarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelCancelarMouseClicked
-        homePanel.endEditing();
-    }//GEN-LAST:event_labelCancelarMouseClicked
 
     private void btnApproveMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnApproveMouseClicked
         if(RequestServices.setRequestStatus(request, RequestStatus.APPROVED, "")) homePanel.endEditing();
@@ -297,9 +308,21 @@ public class RecordApproverPanel extends javax.swing.JPanel {
 
     private void btnDenyMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDenyMouseClicked
         new WriteReasonPane(this).setVisible(true);
-
-
     }//GEN-LAST:event_btnDenyMouseClicked
+
+    private void xMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_xMouseClicked
+        homePanel.endEditing();
+    }//GEN-LAST:event_xMouseClicked
+
+    private void xMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_xMouseEntered
+        btnSalir.setBackground(Color.red);
+        x.setForeground(Color.white);
+    }//GEN-LAST:event_xMouseEntered
+
+    private void xMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_xMouseExited
+        btnSalir.setBackground(new Color(102,102,102));
+        x.setForeground(Color.black);
+    }//GEN-LAST:event_xMouseExited
 
     public void getReasonFromForm(String reason){
         if (! reason.isEmpty()) {
@@ -311,21 +334,23 @@ public class RecordApproverPanel extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel bg;
     private org.edisoncor.gui.panel.PanelImage btnApprove;
-    private javax.swing.JPanel btnCancelar;
     private org.edisoncor.gui.panel.PanelImage btnDeny;
+    private javax.swing.JPanel btnSalir;
     private javax.swing.JTextField fieldCategoria;
     private javax.swing.JTextArea fieldDescripcion;
     private javax.swing.JTextField fieldEstado;
     private javax.swing.JTextField fieldTitulo;
     private javax.swing.ButtonGroup groupCat;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel labelAprove;
-    private javax.swing.JLabel labelCancelar;
     private javax.swing.JLabel labelCrit1;
     private javax.swing.JLabel labelCrit2;
     private javax.swing.JLabel labelCrit3;
+    private javax.swing.JTextArea labelReason;
     private javax.swing.JLabel labelTitle;
     private javax.swing.JLabel labelUsuario;
     private org.edisoncor.gui.panel.PanelImage panelImage;
+    private javax.swing.JLabel x;
     // End of variables declaration//GEN-END:variables
 }

@@ -102,14 +102,13 @@ public class RecordServices {
         else {
             for (Record all : records) {
                 if (record.getRecordId().equalsIgnoreCase(all.getRecordId())) {
-                    records.remove(all);
+                    records.set(records.indexOf(all), record);
                     msg = "Tu registro ha sido eliminado.";
                     break;
                 }
             }
-            if (! writeRecords(records)) {
-                msg = "Error al eliminar el registro.";
-            }
+            if (! writeRecords(records)) msg = "Error al eliminar el registro.";
+            else RequestServices.recordDeleted(record);
         }
         DialogHelper.warnMessageDialog(msg, "Advertencia.");
     }
@@ -140,7 +139,7 @@ public class RecordServices {
         ArrayList<Record> userRecords = new ArrayList<>();
 
         for (Record record : records) {
-            if (record.getAuthorId().equals(userID)) {
+            if (record.getAuthorId().equals(userID) && ! record.isDeleted()) {
                 userRecords.add(record);
             }
         }
@@ -152,7 +151,7 @@ public class RecordServices {
         ArrayList<Record> approvedRecords = new ArrayList<>();
 
         for (Record record : records) {
-            if (record.isPublic()) {
+            if (record.isPublic() && ! record.isDeleted()) {
                 approvedRecords.add(record);
             }
         }

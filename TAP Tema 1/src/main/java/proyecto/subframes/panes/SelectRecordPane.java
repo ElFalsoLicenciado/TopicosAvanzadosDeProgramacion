@@ -56,6 +56,12 @@ public class SelectRecordPane extends javax.swing.JPanel {
 
         setBackground(new java.awt.Color(255, 255, 255));
         setForeground(new java.awt.Color(255, 255, 255));
+        setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                formMouseClicked(evt);
+            }
+        });
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         panelImage.setBackground(new java.awt.Color(255, 255, 255));
@@ -69,17 +75,6 @@ public class SelectRecordPane extends javax.swing.JPanel {
         labelTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         labelTitulo.setText("Titulo");
         labelTitulo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        labelTitulo.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                labelTituloMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                labelTituloMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                labelTituloMouseExited(evt);
-            }
-        });
         add(labelTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 20, -1, -1));
 
         labelEstadoYCategoria.setBackground(new java.awt.Color(0, 0, 0));
@@ -96,17 +91,9 @@ public class SelectRecordPane extends javax.swing.JPanel {
         add(labelUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 135, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
-    private void labelTituloMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelTituloMouseEntered
-        labelTitulo.setForeground(new Color(0, 61, 255));
-    }//GEN-LAST:event_labelTituloMouseEntered
-
-    private void labelTituloMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelTituloMouseExited
-        labelTitulo.setForeground(Color.BLACK);
-    }//GEN-LAST:event_labelTituloMouseExited
-
-    private void labelTituloMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelTituloMouseClicked
+    private void formMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseClicked
         recordSelectorPanel.startLecture(record);
-    }//GEN-LAST:event_labelTituloMouseClicked
+    }//GEN-LAST:event_formMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

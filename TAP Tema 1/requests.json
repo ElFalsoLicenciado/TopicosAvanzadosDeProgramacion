@@ -12,5 +12,19 @@
         "recordId": "Rf8167",
         "status": "REJECTED",
         "reason": "wevos we, no hay nada"
+    },
+    {
+        "requestId": "A140b8",
+        "authorId": "Uf197a",
+        "recordId": "R0b779",
+        "status": "CANCELED",
+        "reason": ""
+    },
+    {
+        "requestId": "A6e042",
+        "authorId": "Uf197a",
+        "recordId": "Rc0158",
+        "status": "CANCELED",
+        "reason": ""
     }
 ]

@@ -190,11 +190,11 @@ public class RecordSelectorPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_labelResetMouseClicked
 
     private void labelResetMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelResetMouseEntered
-        btnReset.setBackground(new Color(146,246,146));
+        btnReset.setBackground(new Color(221,211,255));
     }//GEN-LAST:event_labelResetMouseEntered
 
     private void labelResetMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelResetMouseExited
-        btnReset.setBackground(new Color(96,243,96));
+        btnReset.setBackground(new Color(154, 136, 216));
     }//GEN-LAST:event_labelResetMouseExited
 
     private void comboStatesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboStatesActionPerformed

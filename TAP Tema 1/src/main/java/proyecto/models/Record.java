@@ -9,10 +9,11 @@ public class Record implements java.io.Serializable {
     private final String authorId;
     private StateNames stateName;
     private RecordType recordType;
-    private boolean isPublic = false;
+    private boolean isPublic;
     private String title;
     private String description;
     private String imageUrl;
+    private boolean deleted;
 
     public Record(String authorId, StateNames stateName, RecordType recordType, boolean isPublic, String title, String description, String imageUrl) {
         recordId = "R" + UUID.randomUUID().toString().replace("-", "").substring(0, 5);
@@ -23,9 +24,10 @@ public class Record implements java.io.Serializable {
         this.title = title;
         this.description = description;
         this.imageUrl = imageUrl;
+        this.deleted = false;
     }
 
-    public Record(String recordId, String authorId, StateNames stateName, RecordType recordType, boolean isPublic, String title, String description, String imageUrl) {
+    public Record(String recordId, String authorId, StateNames stateName, RecordType recordType, boolean isPublic, String title, String description, String imageUrl, boolean deleted) {
         this.recordId = recordId;
         this.authorId = authorId;
         this.stateName = stateName;
@@ -34,6 +36,7 @@ public class Record implements java.io.Serializable {
         this.title = title;
         this.description = description;
         this.imageUrl = imageUrl;
+        this.deleted = deleted;
     }
 
     public String getAuthorId() {
@@ -48,16 +51,8 @@ public class Record implements java.io.Serializable {
         return stateName;
     }
 
-    public void setState(StateNames stateNames) {
-        this.stateName = stateNames;
-    }
-
     public RecordType getRecordType() {
         return recordType;
-    }
-
-    public void setRecordType(RecordType recordType) {
-        this.recordType = recordType;
     }
 
     public boolean isPublic() {
@@ -72,23 +67,19 @@ public class Record implements java.io.Serializable {
         return title;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
     public String getDescription() {
         return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
     }
 
     public String getImageUrl() {
         return imageUrl;
     }
 
-    public void setImageUrl(String imageUrl) {
-        this.imageUrl = imageUrl;
+    public boolean isDeleted() {
+        return deleted;
+    }
+
+    public void setDeleted() {
+        deleted = true;
     }
 }

@@ -1,5 +1,5 @@
 package proyecto.enums;
 
 public enum RequestStatus {
-    WAITING, APPROVED, REJECTED
+    WAITING, APPROVED, REJECTED, CANCELED
 }

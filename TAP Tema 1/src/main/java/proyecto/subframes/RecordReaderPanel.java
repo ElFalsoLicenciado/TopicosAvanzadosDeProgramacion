@@ -24,11 +24,14 @@ public class RecordReaderPanel extends javax.swing.JPanel {
         initComponents();
 
         this.homePanel = homePanel;
-
+        
+        labelTitulo.setText(record.getTitle());
+        
         String author = UserServices.searchForUser(record.getAuthorId());
         if (author.isEmpty()) author = "Sin autor";
-
-        labelTituloYAutor.setText(String.format("%s de: %s.", record.getTitle(), author));
+        else author = "Autor: " + author;
+        
+        labelAutor.setText(author);
 
         String state = Other.getStateNames()[record.getState().ordinal()];
         String type = Other.getTypes()[record.getRecordType().ordinal()];
@@ -53,9 +56,9 @@ public class RecordReaderPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         bg = new javax.swing.JPanel();
-        labelTitle = new javax.swing.JLabel();
+        labelTitulo = new javax.swing.JLabel();
         panelImage = new org.edisoncor.gui.panel.PanelImage();
-        labelTituloYAutor = new javax.swing.JLabel();
+        labelAutor = new javax.swing.JLabel();
         labelEstado = new javax.swing.JLabel();
         btnSalir = new javax.swing.JPanel();
         x = new javax.swing.JLabel();
@@ -73,23 +76,23 @@ public class RecordReaderPanel extends javax.swing.JPanel {
         bg.setPreferredSize(new java.awt.Dimension(762, 600));
         bg.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        labelTitle.setBackground(new java.awt.Color(255, 255, 255));
-        labelTitle.setFont(new java.awt.Font("Roboto", 1, 24)); // NOI18N
-        labelTitle.setForeground(new java.awt.Color(0, 0, 0));
-        labelTitle.setText("Record Lecture Panel");
-        bg.add(labelTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
+        labelTitulo.setBackground(new java.awt.Color(255, 255, 255));
+        labelTitulo.setFont(new java.awt.Font("Roboto", 1, 24)); // NOI18N
+        labelTitulo.setForeground(new java.awt.Color(0, 0, 0));
+        labelTitulo.setText("Record Lecture Panel");
+        bg.add(labelTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
         panelImage.setBackground(new java.awt.Color(255, 255, 255));
         panelImage.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
         panelImage.setIcon(new javax.swing.ImageIcon("C:\\Users\\User\\Documents\\Programming\\JetBrains\\IntelliJ Projects\\Topicos Avanzados de Programacion\\TAP Tema 1\\src\\main\\java\\proyecto\\resources\\imgnotfound.png")); // NOI18N
         bg.add(panelImage, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 190, 180));
 
-        labelTituloYAutor.setBackground(new java.awt.Color(255, 255, 255));
-        labelTituloYAutor.setFont(new java.awt.Font("Roboto", 1, 20)); // NOI18N
-        labelTituloYAutor.setForeground(new java.awt.Color(0, 0, 0));
-        labelTituloYAutor.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        labelTituloYAutor.setText("Titulo");
-        bg.add(labelTituloYAutor, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 70, -1, -1));
+        labelAutor.setBackground(new java.awt.Color(255, 255, 255));
+        labelAutor.setFont(new java.awt.Font("Roboto", 1, 20)); // NOI18N
+        labelAutor.setForeground(new java.awt.Color(0, 0, 0));
+        labelAutor.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        labelAutor.setText("Usuario");
+        bg.add(labelAutor, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 70, -1, -1));
 
         labelEstado.setBackground(new java.awt.Color(255, 255, 255));
         labelEstado.setFont(new java.awt.Font("Roboto", 1, 20)); // NOI18N
@@ -179,10 +182,10 @@ public class RecordReaderPanel extends javax.swing.JPanel {
     private javax.swing.JPanel btnSalir;
     private javax.swing.JTextArea fieldDescripcion;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JLabel labelAutor;
     private javax.swing.JLabel labelCategoria;
     private javax.swing.JLabel labelEstado;
-    private javax.swing.JLabel labelTitle;
-    private javax.swing.JLabel labelTituloYAutor;
+    private javax.swing.JLabel labelTitulo;
     private org.edisoncor.gui.panel.PanelImage panelImage;
     private javax.swing.JLabel x;
     // End of variables declaration//GEN-END:variables

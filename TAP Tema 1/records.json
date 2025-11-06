@@ -7,7 +7,8 @@
         "isPublic": true,
         "title": "asdsada",
         "description": "adsadasdasdadsadasdasdadsadasdasdadsadasdasdadsadasdasdadsadasdasdadsadasdasdadsadasdasdadsadasdasdadsadasdasdadsadasdasdadsadasdasdadsadasdasdadsadasdasdadsadasdasdadsadasdasdadsadasdasdadsadasdasdadsadasdasdadsadasdasdadsadasdasdadsadasdasdadsadasdasdadsadasdasdadsadasdasdadsadasdasdadsadasdasdadsadasdasdadsadasdasdadsadasdasdadsadasdasdadsadasdasdadsadasdasdadsadasdasdadsadasdasdadsadasdasdadsadasdasdadsadasdasdadsadasdasdadsadasdasdadsadasdasdadsadasdasdadsadasdasdadsadasdasdadsadasdasdadsadasdasdadsadasdasdadsadasdasdadsadasdasdadsadasdasdadsadasdasdadsadasdasdadsadasdasdadsadasdasdadsadasdasdadsadasdasdadsadasdasdadsadasdasdadsadasdasdadsadasdasdadsadasdasdadsadasdasdadsadasdasdadsadasdasdadsadasdasdadsadasdasdadsadasdasdadsadasdasdadsadasdasdadsadasdasdadsadasdasdadsadasdasdadsadasdasdadsadasdasdadsadasdasdadsadasdasdadsadasdasdadsadasdasdadsadasdasdadsadasdasdadsadasdasdadsadasdasdadsadasdasdadsadasdasdadsadasdasdadsadasdasdadsadasdasd",
-        "imageUrl": "src/main/java/proyecto/resources/baca/download.jpg"
+        "imageUrl": "src/main/java/proyecto/resources/baca/download.jpg",
+        "deleted": false
     },
     {
         "recordId": "Re2704",
@@ -17,7 +18,8 @@
         "isPublic": true,
         "title": "rrruuu",
         "description": "adsasdasdasd",
-        "imageUrl": "src/main/java/proyecto/resources/camp/460517427_1926744817802502_6764676756989845370_n.jpg"
+        "imageUrl": "src/main/java/proyecto/resources/camp/460517427_1926744817802502_6764676756989845370_n.jpg",
+        "deleted": false
     },
     {
         "recordId": "Rc35d7",
@@ -27,17 +29,19 @@
         "isPublic": true,
         "title": "adasd",
         "description": "dsadasda",
-        "imageUrl": "src/main/java/proyecto/resources/baca/imgnotfound.png"
+        "imageUrl": "src/main/java/proyecto/resources/baca/imgnotfound.png",
+        "deleted": false
     },
     {
         "recordId": "R0b779",
         "authorId": "Uf197a",
-        "stateName": "Baja_California_Sur",
-        "recordType": "GASTRONOMIA",
-        "isPublic": true,
+        "stateName": "Chiapas",
+        "recordType": "TRADICION",
+        "isPublic": false,
         "title": "Titulo generico",
         "description": "Un, dos tres.",
-        "imageUrl": "src/main/java/proyecto/resources/bacs/494179630_727768506873714_5274207424998901918_n.jpg"
+        "imageUrl": "src/main/java/proyecto/resources/cdmx/494179630_727768506873714_5274207424998901918_n.jpg",
+        "deleted": true
     },
     {
         "recordId": "Rf8167",
@@ -47,6 +51,29 @@
         "isPublic": false,
         "title": "Titulo generico 2",
         "description": "Cuatro, cinco y seis.Cuatro, cinco y seis.Cuatro, cinco y seis.Cuatro, cinco y seis.Cuatro, cinco y seis.Cuatro, cinco y seis.Cuatro, cinco y seis.Cuatro, cinco y seis.Cuatro, cinco y seis.Cuatro, cinco y seis.Cuatro, cinco y seis.Cuatro, cinco y seis.Cuatro, cinco y seis.Cuatro, cinco y seis.Cuatro, cinco y seis.Cuatro, cinco y seis.Cuatro, cinco y seis.Cuatro, cinco y seis.Cuatro, cinco y seis.Cuatro, cinco y seis.Cuatro, cinco y seis.Cuatro, cinco y seis.Cuatro, cinco y seis.",
-        "imageUrl": "src/main/java/proyecto/resources/tlax/Dosh.jpg"
+        "imageUrl": "src/main/java/proyecto/resources/tlax/Dosh.jpg",
+        "deleted": false
+    },
+    {
+        "recordId": "Rc032a",
+        "authorId": "Udd529",
+        "stateName": "Baja_California_Sur",
+        "recordType": "TRADICION",
+        "isPublic": true,
+        "title": "Prueba de eliminado",
+        "description": "Awas we, la puerta.",
+        "imageUrl": "src/main/java/proyecto/resources/bacs/568935508_1289842496274166_5848272087945292821_n.jpg",
+        "deleted": true
+    },
+    {
+        "recordId": "Rc0158",
+        "authorId": "Uf197a",
+        "stateName": "Baja_California",
+        "recordType": "TRADICION",
+        "isPublic": false,
+        "title": "Prueba de cancelacion",
+        "description": "asdasdasdasd",
+        "imageUrl": "src/main/java/proyecto/resources/baca/20241206_133952.jpg",
+        "deleted": true
     }
 ]

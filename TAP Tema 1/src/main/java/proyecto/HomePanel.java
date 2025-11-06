@@ -57,8 +57,9 @@ public class HomePanel extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setBackground(new java.awt.Color(214, 232, 255));
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(870, 580));
+        setPreferredSize(new java.awt.Dimension(800, 625));
         setResizable(false);
+        setSize(new java.awt.Dimension(804, 625));
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosed(java.awt.event.WindowEvent evt) {
                 formWindowClosed(evt);
@@ -78,9 +79,6 @@ public class HomePanel extends javax.swing.JFrame {
         readTab.setPreferredSize(new java.awt.Dimension(870, 500));
         readTab.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         readTab.add(selectRecordPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 500));
-
-        readRecordPane.setBackground(new java.awt.Color(255, 255, 255));
-        readRecordPane.setForeground(new java.awt.Color(255, 255, 255));
         readTab.add(readRecordPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 500));
 
         tabGroup.addTab("Ver registros", readTab);
@@ -99,7 +97,6 @@ public class HomePanel extends javax.swing.JFrame {
         recordPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         recordPanel.add(manageRecordsPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 510));
 
-        editRecordPane.setBackground(new java.awt.Color(255, 255, 255));
         editRecordPane.setForeground(new java.awt.Color(255, 255, 255));
         recordPanel.add(editRecordPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 510));
 
@@ -112,7 +109,7 @@ public class HomePanel extends javax.swing.JFrame {
 
         recordGroup.addTab("Aprobaciones", requestPanel);
 
-        recordTab.add(recordGroup, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 890, 550));
+        recordTab.add(recordGroup, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 550));
 
         tabGroup.addTab("Pestaña de creador", recordTab);
 
@@ -127,7 +124,7 @@ public class HomePanel extends javax.swing.JFrame {
 
         tabGroup.addTab("Moderación", adminTab);
 
-        getContentPane().add(tabGroup, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 890, 590));
+        getContentPane().add(tabGroup, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 800, 590));
 
         header.setBackground(new java.awt.Color(214, 232, 255));
         header.setForeground(new java.awt.Color(216, 188, 188));
@@ -179,7 +176,7 @@ public class HomePanel extends javax.swing.JFrame {
             headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(headerLayout.createSequentialGroup()
                 .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 851, Short.MAX_VALUE))
+                .addGap(0, 761, Short.MAX_VALUE))
         );
         headerLayout.setVerticalGroup(
             headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -188,7 +185,7 @@ public class HomePanel extends javax.swing.JFrame {
                 .addGap(0, 53, Short.MAX_VALUE))
         );
 
-        getContentPane().add(header, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 890, 80));
+        getContentPane().add(header, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 80));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

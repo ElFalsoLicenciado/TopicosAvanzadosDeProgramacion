@@ -40,6 +40,7 @@ public class RecordEditorPanel extends javax.swing.JPanel {
         this.session = session;
         record = null;
         imgFile = new File(IMG_PATH+ "imgnotfound.png");
+        labelTitle.setText("Crea tu registro.");
     }
 
     public RecordEditorPanel(HomePanel homePanel, Session session, Record record) {
@@ -70,6 +71,7 @@ public class RecordEditorPanel extends javax.swing.JPanel {
                 new javax.swing.ImageIcon(imgFile.getAbsolutePath())
         );
         panelImage.updateUI();
+        labelTitle.setText("Edita tu registro");
     }
 
 
@@ -99,8 +101,8 @@ public class RecordEditorPanel extends javax.swing.JPanel {
         labelCrit2 = new javax.swing.JLabel();
         btnTerminar = new javax.swing.JPanel();
         labelTerminar = new javax.swing.JLabel();
-        btnCancelar = new javax.swing.JPanel();
-        labelCancelar = new javax.swing.JLabel();
+        btnSalir = new javax.swing.JPanel();
+        x = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setMinimumSize(new java.awt.Dimension(690, 75));
@@ -220,7 +222,7 @@ public class RecordEditorPanel extends javax.swing.JPanel {
 
         jSeparator3.setBackground(new java.awt.Color(0, 0, 0));
         jSeparator3.setForeground(new java.awt.Color(0, 0, 0));
-        bg.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 440, 760, 20));
+        bg.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 440, 780, 20));
 
         fieldDescripcion.setBackground(new java.awt.Color(221, 211, 255));
         fieldDescripcion.setColumns(20);
@@ -242,7 +244,7 @@ public class RecordEditorPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(fieldDescripcion);
 
-        bg.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 280, 760, 150));
+        bg.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 280, 780, 150));
 
         labelCrit3.setBackground(new java.awt.Color(255, 255, 255));
         labelCrit3.setFont(new java.awt.Font("Roboto", 1, 20)); // NOI18N
@@ -299,44 +301,41 @@ public class RecordEditorPanel extends javax.swing.JPanel {
                 .addComponent(labelTerminar, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        bg.add(btnTerminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 70, 90, -1));
+        bg.add(btnTerminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 150, 90, -1));
 
-        btnCancelar.setBackground(new java.awt.Color(154, 136, 216));
-        btnCancelar.setPreferredSize(new java.awt.Dimension(106, 31));
+        btnSalir.setBackground(new java.awt.Color(102, 102, 102));
+        btnSalir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        labelCancelar.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
-        labelCancelar.setForeground(new java.awt.Color(0, 0, 0));
-        labelCancelar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        labelCancelar.setText("CANCELAR");
-        labelCancelar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        labelCancelar.addMouseListener(new java.awt.event.MouseAdapter() {
+        x.setBackground(new java.awt.Color(0, 0, 0));
+        x.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        x.setForeground(new java.awt.Color(0, 0, 0));
+        x.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        x.setText("<--");
+        x.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        x.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                labelCancelarMouseClicked(evt);
+                xMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                labelCancelarMouseEntered(evt);
+                xMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                labelCancelarMouseExited(evt);
+                xMouseExited(evt);
             }
         });
 
-        javax.swing.GroupLayout btnCancelarLayout = new javax.swing.GroupLayout(btnCancelar);
-        btnCancelar.setLayout(btnCancelarLayout);
-        btnCancelarLayout.setHorizontalGroup(
-            btnCancelarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnCancelarLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(labelCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+        javax.swing.GroupLayout btnSalirLayout = new javax.swing.GroupLayout(btnSalir);
+        btnSalir.setLayout(btnSalirLayout);
+        btnSalirLayout.setHorizontalGroup(
+            btnSalirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(x, javax.swing.GroupLayout.DEFAULT_SIZE, 39, Short.MAX_VALUE)
         );
-        btnCancelarLayout.setVerticalGroup(
-            btnCancelarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnCancelarLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(labelCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+        btnSalirLayout.setVerticalGroup(
+            btnSalirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(x, javax.swing.GroupLayout.DEFAULT_SIZE, 27, Short.MAX_VALUE)
         );
 
-        bg.add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 150, 90, -1));
+        bg.add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 0, -1, -1));
 
         add(bg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 450));
     }// </editor-fold>//GEN-END:initComponents
@@ -442,7 +441,8 @@ public class RecordEditorPanel extends javax.swing.JPanel {
                         isPublic,
                         fieldTitulo.getText(),
                         fieldDescripcion.getText(),
-                        image
+                        image,
+                        false
                 );
             }
             if(RecordServices.saveRecord(record)) {
@@ -463,18 +463,6 @@ public class RecordEditorPanel extends javax.swing.JPanel {
         btnTerminar.setBackground(new Color(154, 136, 216));
     }//GEN-LAST:event_labelTerminarMouseExited
 
-    private void labelCancelarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelCancelarMouseClicked
-        homePanel.endEditing();
-    }//GEN-LAST:event_labelCancelarMouseClicked
-
-    private void labelCancelarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelCancelarMouseEntered
-        btnCancelar.setBackground(new Color(221,211,255));
-    }//GEN-LAST:event_labelCancelarMouseEntered
-
-    private void labelCancelarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelCancelarMouseExited
-        btnCancelar.setBackground(new Color(154, 136, 216));
-    }//GEN-LAST:event_labelCancelarMouseExited
-
     private void fieldTituloFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_fieldTituloFocusGained
         focusTitulo();
     }//GEN-LAST:event_fieldTituloFocusGained
@@ -490,6 +478,20 @@ public class RecordEditorPanel extends javax.swing.JPanel {
     private void fieldDescripcionFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_fieldDescripcionFocusLost
         unfocusDescripcion();
     }//GEN-LAST:event_fieldDescripcionFocusLost
+
+    private void xMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_xMouseClicked
+        homePanel.endEditing();
+    }//GEN-LAST:event_xMouseClicked
+
+    private void xMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_xMouseEntered
+        btnSalir.setBackground(Color.red);
+        x.setForeground(Color.white);
+    }//GEN-LAST:event_xMouseEntered
+
+    private void xMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_xMouseExited
+        btnSalir.setBackground(new Color(102,102,102));
+        x.setForeground(Color.black);
+    }//GEN-LAST:event_xMouseExited
     
     private void focusTitulo(){
         if (fieldTitulo.getText().equals("Escribe el título")){
@@ -530,7 +532,7 @@ public class RecordEditorPanel extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel bg;
-    private javax.swing.JPanel btnCancelar;
+    private javax.swing.JPanel btnSalir;
     private javax.swing.JPanel btnSearchImage;
     private javax.swing.JPanel btnTerminar;
     private javax.swing.ButtonGroup catGroup;
@@ -545,7 +547,6 @@ public class RecordEditorPanel extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator3;
-    private javax.swing.JLabel labelCancelar;
     private javax.swing.JLabel labelCrit1;
     private javax.swing.JLabel labelCrit2;
     private javax.swing.JLabel labelCrit3;
@@ -553,5 +554,6 @@ public class RecordEditorPanel extends javax.swing.JPanel {
     private javax.swing.JLabel labelTerminar;
     private javax.swing.JLabel labelTitle;
     private org.edisoncor.gui.panel.PanelImage panelImage;
+    private javax.swing.JLabel x;
     // End of variables declaration//GEN-END:variables
 }

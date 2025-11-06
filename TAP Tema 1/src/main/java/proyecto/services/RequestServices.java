@@ -127,6 +127,22 @@ public class RequestServices {
         return false;
     }
 
+    public static void recordDeleted(Record record){
+        ArrayList<Request> requests = getRequests();
+
+        for (Request all : requests) {
+            if (record.getRecordId().equals(all.getRecordId())
+                    && record.getAuthorId().equals(all.getAuthorId())
+                    && all.getStatus().equals(RequestStatus.WAITING)
+            ) {
+                all.setStatus(RequestStatus.CANCELED);
+                requests.set(requests.indexOf(all), all);
+                break;
+            }
+        }
+        writeRequests(requests);
+    }
+
     private static boolean checkForRequest(Record record) {
         ArrayList<Request> requests = getRequests();
 

@@ -176,6 +176,7 @@ public class ManageRecordPane extends javax.swing.JPanel {
 
     private void labelBorrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelBorrarMouseClicked
         if (DialogHelper.warnConfirmDialog("¿Estás seguro?", "Advertencia") == 0) {
+            record.setDeleted();
             RecordServices.deleteRecord(record);
             recordManagerPanel.deleteRecord();
         }

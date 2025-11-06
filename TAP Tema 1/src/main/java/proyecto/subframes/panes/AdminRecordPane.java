@@ -45,6 +45,7 @@ public class AdminRecordPane extends javax.swing.JPanel {
                 case WAITING -> labelStatus.setText("Esperando aprobación.");
                 case APPROVED -> labelStatus.setText("Aprobado.");
                 case REJECTED -> labelStatus.setText("Denegado.");
+                case CANCELED -> labelStatus.setText("Cancelado.");
             }
 
             String author = UserServices.searchForUser(record.getAuthorId());
@@ -63,8 +64,6 @@ public class AdminRecordPane extends javax.swing.JPanel {
     private void initComponents() {
 
         panelImage = new org.edisoncor.gui.panel.PanelImage();
-        btnAdmin = new javax.swing.JPanel();
-        labelAdmin = new javax.swing.JLabel();
         labelTitulo = new javax.swing.JLabel();
         labelEstadoYCategoria = new javax.swing.JLabel();
         labelUsuario = new javax.swing.JLabel();
@@ -72,49 +71,18 @@ public class AdminRecordPane extends javax.swing.JPanel {
 
         setBackground(new java.awt.Color(255, 255, 255));
         setForeground(new java.awt.Color(255, 255, 255));
+        setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                formMouseClicked(evt);
+            }
+        });
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         panelImage.setBackground(new java.awt.Color(255, 255, 255));
         panelImage.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
         panelImage.setIcon(new javax.swing.ImageIcon("C:\\Users\\User\\Documents\\Programming\\JetBrains\\IntelliJ Projects\\Topicos Avanzados de Programacion\\TAP Tema 1\\src\\main\\java\\proyecto\\resources\\imgnotfound.png")); // NOI18N
         add(panelImage, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 160, 140));
-
-        btnAdmin.setBackground(new java.awt.Color(154, 136, 216));
-        btnAdmin.setPreferredSize(new java.awt.Dimension(106, 31));
-
-        labelAdmin.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
-        labelAdmin.setForeground(new java.awt.Color(0, 0, 0));
-        labelAdmin.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        labelAdmin.setText("CHECK");
-        labelAdmin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        labelAdmin.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                labelAdminMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                labelAdminMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                labelAdminMouseExited(evt);
-            }
-        });
-
-        javax.swing.GroupLayout btnAdminLayout = new javax.swing.GroupLayout(btnAdmin);
-        btnAdmin.setLayout(btnAdminLayout);
-        btnAdminLayout.setHorizontalGroup(
-            btnAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnAdminLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(labelAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-        btnAdminLayout.setVerticalGroup(
-            btnAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnAdminLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(labelAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-
-        add(btnAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 128, 80, -1));
 
         labelTitulo.setBackground(new java.awt.Color(0, 0, 0));
         labelTitulo.setFont(new java.awt.Font("Roboto", 1, 20)); // NOI18N
@@ -129,6 +97,7 @@ public class AdminRecordPane extends javax.swing.JPanel {
         labelEstadoYCategoria.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         labelEstadoYCategoria.setText("Estado y categoría");
         labelEstadoYCategoria.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        labelEstadoYCategoria.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         add(labelEstadoYCategoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 75, 390, -1));
 
         labelUsuario.setFont(new java.awt.Font("Roboto", 1, 20)); // NOI18N
@@ -144,22 +113,12 @@ public class AdminRecordPane extends javax.swing.JPanel {
         add(labelStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 135, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
-    private void labelAdminMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelAdminMouseClicked
+    private void formMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseClicked
         adminPanel.inspectRequest(request);
-    }//GEN-LAST:event_labelAdminMouseClicked
-
-    private void labelAdminMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelAdminMouseEntered
-        btnAdmin.setBackground(new Color(221,211,255));
-    }//GEN-LAST:event_labelAdminMouseEntered
-
-    private void labelAdminMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelAdminMouseExited
-        btnAdmin.setBackground(new Color(154, 136, 216));
-    }//GEN-LAST:event_labelAdminMouseExited
+    }//GEN-LAST:event_formMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel btnAdmin;
-    private javax.swing.JLabel labelAdmin;
     private javax.swing.JLabel labelEstadoYCategoria;
     private javax.swing.JLabel labelStatus;
     private javax.swing.JLabel labelTitulo;

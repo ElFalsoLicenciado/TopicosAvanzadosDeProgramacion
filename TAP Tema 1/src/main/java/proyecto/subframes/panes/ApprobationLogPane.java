@@ -41,6 +41,7 @@ public class ApprobationLogPane extends javax.swing.JPanel {
                 case WAITING -> labelStatus.setText("Esperando aprobación.");
                 case APPROVED -> labelStatus.setText("Aprobado.");
                 case REJECTED -> labelStatus.setText("Denegado, razón: " + request.getReason());
+                case CANCELED -> labelStatus.setText("Registro eliminado.");
             }
 
             panelImage.setIcon( new javax.swing.ImageIcon(record.getImageUrl()));
