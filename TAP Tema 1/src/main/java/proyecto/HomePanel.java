@@ -117,9 +117,6 @@ public class HomePanel extends javax.swing.JFrame {
         adminTab.setForeground(new java.awt.Color(255, 255, 255));
         adminTab.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         adminTab.add(adminToolsPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 870, 610));
-
-        approveRecordPane.setBackground(new java.awt.Color(255, 255, 255));
-        approveRecordPane.setForeground(new java.awt.Color(255, 255, 255));
         adminTab.add(approveRecordPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 870, 600));
 
         tabGroup.addTab("Moderación", adminTab);
@@ -174,9 +171,9 @@ public class HomePanel extends javax.swing.JFrame {
         header.setLayout(headerLayout);
         headerLayout.setHorizontalGroup(
             headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(headerLayout.createSequentialGroup()
-                .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 761, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, headerLayout.createSequentialGroup()
+                .addGap(0, 761, Short.MAX_VALUE)
+                .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         headerLayout.setVerticalGroup(
             headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

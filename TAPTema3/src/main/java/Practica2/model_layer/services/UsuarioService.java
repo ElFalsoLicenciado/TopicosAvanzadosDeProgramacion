@@ -30,7 +30,8 @@ public class UsuarioService {
                 rs.getString("correo"),
                 rs.getString("contrasenia"),
                 rs.getString("nombre_completo"),
-                rs.getObject("es_admin", Boolean.class)
+                rs.getObject("es_admin", Boolean.class),
+                null
             );
         }
         rs.close();
@@ -38,6 +39,25 @@ public class UsuarioService {
         con.close();
         
         return user;
+    }
+    
+    public boolean addUsr(Usuario usuario) throws Exception {
+        String sql = "INSERT INTO usuarios VALUES";
+        sql += "(NULL,?,SHA2(?,256),?,?,NULL)";
+        
+        Connection con = conexion.open();
+        PreparedStatement ps = con.prepareStatement(sql);
+        ps.setString(1, usuario.getCorreo());
+        ps.setString(2, usuario.getContrasenia());
+        ps.setString(3, usuario.getNombre_completo());
+        ps.setObject(4, usuario.getEs_admin());
+        
+        int rowsAffected = ps.executeUpdate();
+        
+        ps.close();
+        con.close();
+        
+        return rowsAffected > 0;
     }
     
 }

@@ -1,27 +1,23 @@
 package Practica2.model_layer.models;
 
-import java.io.Serializable;
-
-/**
- *
- * @author Link
- */
 public class Usuario implements Serializable {
     private int id_usuario;
     private String correo;
     private String contrasenia;
     private String nombre_completo;
     private Boolean es_admin;
+    private byte[] foto;
 
     public Usuario() {
     }
 
-    public Usuario(int id_usuario, String correo, String contrasenia, String nombre_completo, Boolean es_admin) {
+    public Usuario(int id_usuario, String correo, String contrasenia, String nombre_completo, Boolean es_admin, byte[] foto) {
         this.id_usuario = id_usuario;
         this.correo = correo;
         this.contrasenia = contrasenia;
         this.nombre_completo = nombre_completo;
         this.es_admin = es_admin;
+        this.foto = foto;
     }
 
     public Boolean getEs_admin() {
@@ -64,9 +60,16 @@ public class Usuario implements Serializable {
         this.nombre_completo = nombre_completo;
     }
 
+    public byte[] getFoto() {
+        return foto;
+    }
+
+    public void setFoto(byte[] foto) {
+        this.foto = foto;
+    }
+
     @Override
     public String toString() {
-        return "Usuario{" + "id_usuario=" + id_usuario + ", correo=" + correo + ", contrasenia=" + contrasenia + ", nombre_completo=" + nombre_completo + ", es_admin=" + es_admin + '}';
+        return "Usuario{" + "id_usuario=" + id_usuario + ", correo=" + correo + ", contrasenia=" + contrasenia + ", nombre_completo=" + nombre_completo + ", es_admin=" + es_admin + ", foto=" + foto + '}';
     }
-    
 }
