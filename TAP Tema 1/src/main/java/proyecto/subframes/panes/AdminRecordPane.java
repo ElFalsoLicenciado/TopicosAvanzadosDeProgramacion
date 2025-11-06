@@ -29,7 +29,7 @@ public class AdminRecordPane extends javax.swing.JPanel {
 
         this.request = request;
         this.adminPanel = adminPanel;
-        Record record = RecordServices.getRecord(request.getRecordId());
+        Record record = request.getRecord();
 
         if (record != null) {
             labelTitulo.setText(record.getTitle());

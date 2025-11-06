@@ -74,14 +74,14 @@ public class RequestServices {
         ArrayList<Request> requests = getRequests();
         String msg;
 
-        Request request = new Request(record.getAuthorId(), record.getRecordId(), RequestStatus.WAITING);
+        Request request = new Request(record.getAuthorId(), record, RequestStatus.WAITING);
 
         if (! checkForRequest(record)) {
             requests.add(request);
         }
         else {
             for (Request all : requests) {
-                if (record.getRecordId().equals(all.getRecordId())
+                if (record.getRecordId().equals(all.getRecord().getAuthorId())
                         && record.getAuthorId().equals(all.getAuthorId())
                         && all.getStatus().equals(RequestStatus.WAITING)
                 ) {
@@ -114,7 +114,7 @@ public class RequestServices {
         }
         if (writeRequests(requests)) {
             if (status == RequestStatus.APPROVED) {
-                Record record = RecordServices.getRecord(request.getRecordId());
+                Record record = RecordServices.getRecord(request.getRecord().getRecordId());
                 if (record != null) {
                     record.setPublic(true);
                     RecordServices.saveRecord(record);
@@ -131,7 +131,7 @@ public class RequestServices {
         ArrayList<Request> requests = getRequests();
 
         for (Request all : requests) {
-            if (record.getRecordId().equals(all.getRecordId())
+            if (record.getRecordId().equals(all.getRecord().getRecordId())
                     && record.getAuthorId().equals(all.getAuthorId())
                     && all.getStatus().equals(RequestStatus.WAITING)
             ) {
@@ -147,7 +147,7 @@ public class RequestServices {
         ArrayList<Request> requests = getRequests();
 
         for (Request all : requests) {
-            if (record.getRecordId().equals(all.getRecordId())
+            if (record.getRecordId().equals(all.getRecord().getRecordId())
                     && record.getAuthorId().equals(all.getAuthorId())
                     && all.getStatus().equals(RequestStatus.WAITING)
             ) {

@@ -1,30 +1,70 @@
 [
     {
-        "requestId": "Abf0d7",
+        "requestId": "A8c767",
         "authorId": "Uf197a",
-        "recordId": "R0b779",
+        "record": {
+            "recordId": "R4e977",
+            "authorId": "Uf197a",
+            "stateName": "Baja_California_Sur",
+            "recordType": "GASTRONOMIA",
+            "isPublic": false,
+            "title": "Prueba de con backup",
+            "description": "Proporcion",
+            "imageUrl": "src/main/java/proyecto/resources/bacs/498991695_24050475264550121_9118097741879075023_n.jpg",
+            "deleted": false
+        },
         "status": "APPROVED",
         "reason": ""
     },
     {
-        "requestId": "Acb59d",
+        "requestId": "Ac4f8a",
         "authorId": "Uf197a",
-        "recordId": "Rf8167",
+        "record": {
+            "recordId": "R4e977",
+            "authorId": "Uf197a",
+            "stateName": "Campeche",
+            "recordType": "LUGAR",
+            "isPublic": false,
+            "title": "Prueba de con backup #2",
+            "description": "Desproporcion",
+            "imageUrl": "src/main/java/proyecto/resources/camp/483065467_10237970398099334_6612370661461858019_n.jpg",
+            "deleted": false
+        },
+        "status": "APPROVED",
+        "reason": ""
+    },
+    {
+        "requestId": "A483cc",
+        "authorId": "Uf197a",
+        "record": {
+            "recordId": "R52ec2",
+            "authorId": "Uf197a",
+            "stateName": "Puebla",
+            "recordType": "GASTRONOMIA",
+            "isPublic": false,
+            "title": "Prueba de eliminacion ",
+            "description": "adasdsad",
+            "imageUrl": "src/main/java/proyecto/resources/pueb/474921981_927529119567042_1843877378970278987_n.jpg",
+            "deleted": false
+        },
+        "status": "CANCELED",
+        "reason": ""
+    },
+    {
+        "requestId": "A01fd3",
+        "authorId": "Uf197a",
+        "record": {
+            "recordId": "R95be5",
+            "authorId": "Uf197a",
+            "stateName": "Campeche",
+            "recordType": "PALABRA",
+            "isPublic": false,
+            "title": "Prueba sin eliminacion",
+            "description": "dasjhdiahdkjsa",
+            "imageUrl": "src/main/java/proyecto/resources/camp/555472471_776962455177966_3128049131977084705_n.jpg",
+            "deleted": false
+        },
         "status": "REJECTED",
-        "reason": "wevos we, no hay nada"
-    },
-    {
-        "requestId": "A140b8",
-        "authorId": "Uf197a",
-        "recordId": "R0b779",
-        "status": "CANCELED",
-        "reason": ""
-    },
-    {
-        "requestId": "A6e042",
-        "authorId": "Uf197a",
-        "recordId": "Rc0158",
-        "status": "CANCELED",
-        "reason": ""
+        "reason": "Texto insuficiente"
     }
 ]

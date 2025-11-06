@@ -191,14 +191,14 @@ public class WriteReasonPane extends javax.swing.JFrame {
     private void fieldMotivoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_fieldMotivoFocusGained
         if (fieldMotivo.getText().equals("Motivo")){
             fieldMotivo.setText("");
-            fieldMotivo.setForeground(Color.white);
+            fieldMotivo.setForeground(Color.black);
         }
     }//GEN-LAST:event_fieldMotivoFocusGained
 
     private void fieldMotivoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_fieldMotivoFocusLost
         if (fieldMotivo.getText().isEmpty()){
             fieldMotivo.setText("Motivo");
-            fieldMotivo.setForeground(new Color(235,233,233));
+            fieldMotivo.setForeground(new Color(102,102,102));
         }
     }//GEN-LAST:event_fieldMotivoFocusLost
 

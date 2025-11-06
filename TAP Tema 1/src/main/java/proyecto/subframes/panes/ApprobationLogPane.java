@@ -26,7 +26,7 @@ public class ApprobationLogPane extends javax.swing.JPanel {
 
         this.userRequestsPanel = userRequestsPanel;
         this.request = request;
-        Record record = RecordServices.getRecord(request.getRecordId());
+        Record record = request.getRecord();
         if (record != null) {
             labelTitulo.setText(record.getTitle());
 

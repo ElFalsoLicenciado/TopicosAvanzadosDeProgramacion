@@ -33,47 +33,36 @@
         "deleted": false
     },
     {
-        "recordId": "R0b779",
+        "recordId": "R4e977",
         "authorId": "Uf197a",
-        "stateName": "Chiapas",
-        "recordType": "TRADICION",
-        "isPublic": false,
-        "title": "Titulo generico",
-        "description": "Un, dos tres.",
-        "imageUrl": "src/main/java/proyecto/resources/cdmx/494179630_727768506873714_5274207424998901918_n.jpg",
-        "deleted": true
-    },
-    {
-        "recordId": "Rf8167",
-        "authorId": "Uf197a",
-        "stateName": "Tlaxcala",
+        "stateName": "Campeche",
         "recordType": "LUGAR",
-        "isPublic": false,
-        "title": "Titulo generico 2",
-        "description": "Cuatro, cinco y seis.Cuatro, cinco y seis.Cuatro, cinco y seis.Cuatro, cinco y seis.Cuatro, cinco y seis.Cuatro, cinco y seis.Cuatro, cinco y seis.Cuatro, cinco y seis.Cuatro, cinco y seis.Cuatro, cinco y seis.Cuatro, cinco y seis.Cuatro, cinco y seis.Cuatro, cinco y seis.Cuatro, cinco y seis.Cuatro, cinco y seis.Cuatro, cinco y seis.Cuatro, cinco y seis.Cuatro, cinco y seis.Cuatro, cinco y seis.Cuatro, cinco y seis.Cuatro, cinco y seis.Cuatro, cinco y seis.Cuatro, cinco y seis.",
-        "imageUrl": "src/main/java/proyecto/resources/tlax/Dosh.jpg",
+        "isPublic": true,
+        "title": "Prueba de con backup #2",
+        "description": "Desproporcion",
+        "imageUrl": "src/main/java/proyecto/resources/camp/483065467_10237970398099334_6612370661461858019_n.jpg",
         "deleted": false
     },
     {
-        "recordId": "Rc032a",
-        "authorId": "Udd529",
-        "stateName": "Baja_California_Sur",
-        "recordType": "TRADICION",
-        "isPublic": true,
-        "title": "Prueba de eliminado",
-        "description": "Awas we, la puerta.",
-        "imageUrl": "src/main/java/proyecto/resources/bacs/568935508_1289842496274166_5848272087945292821_n.jpg",
+        "recordId": "R52ec2",
+        "authorId": "Uf197a",
+        "stateName": "Puebla",
+        "recordType": "GASTRONOMIA",
+        "isPublic": false,
+        "title": "Prueba de eliminacion ",
+        "description": "adasdsad",
+        "imageUrl": "src/main/java/proyecto/resources/pueb/474921981_927529119567042_1843877378970278987_n.jpg",
         "deleted": true
     },
     {
-        "recordId": "Rc0158",
+        "recordId": "R95be5",
         "authorId": "Uf197a",
-        "stateName": "Baja_California",
-        "recordType": "TRADICION",
+        "stateName": "Campeche",
+        "recordType": "PALABRA",
         "isPublic": false,
-        "title": "Prueba de cancelacion",
-        "description": "asdasdasdasd",
-        "imageUrl": "src/main/java/proyecto/resources/baca/20241206_133952.jpg",
-        "deleted": true
+        "title": "Prueba sin eliminacion",
+        "description": "dasjhdiahdkjsa",
+        "imageUrl": "src/main/java/proyecto/resources/camp/555472471_776962455177966_3128049131977084705_n.jpg",
+        "deleted": false
     }
 ]

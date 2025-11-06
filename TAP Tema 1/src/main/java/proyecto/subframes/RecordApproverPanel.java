@@ -33,7 +33,7 @@ public class RecordApproverPanel extends javax.swing.JPanel {
         this.homePanel = homePanel;
         this.request = request;
 
-        Record record = RecordServices.getRecord(request.getRecordId());
+        Record record = request.getRecord();
 
         if (record != null) {
 

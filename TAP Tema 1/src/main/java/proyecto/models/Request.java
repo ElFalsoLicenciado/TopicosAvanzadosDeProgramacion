@@ -7,14 +7,14 @@ import java.util.UUID;
 public class Request implements java.io.Serializable {
     private final String  requestId;
     private final String authorId;
-    private final String recordId;
+    private final Record record;
     private RequestStatus status;
     private String reason = "";
 
-    public Request(String authorId, String recordId, RequestStatus status) {
+    public Request(String authorId, Record record, RequestStatus status) {
         this.requestId = "A" + UUID.randomUUID().toString().replace("-", "").substring(0, 5);;
         this.authorId = authorId;
-        this.recordId = recordId;
+        this.record = record;
         this.status = status;
     }
 
@@ -34,8 +34,8 @@ public class Request implements java.io.Serializable {
         return authorId;
     }
 
-    public String getRecordId() {
-        return recordId;
+    public Record getRecord() {
+        return record;
     }
 
     public RequestStatus getStatus() {
