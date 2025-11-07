@@ -208,7 +208,7 @@ public class HomePanel extends javax.swing.JFrame {
     }//GEN-LAST:event_xMouseEntered
 
     private void xMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_xMouseExited
-        btnSalir.setBackground(new Color(102,102,102));
+        btnSalir.setBackground(new Color(214,232,255));
         x.setForeground(Color.black);
     }//GEN-LAST:event_xMouseExited
 
