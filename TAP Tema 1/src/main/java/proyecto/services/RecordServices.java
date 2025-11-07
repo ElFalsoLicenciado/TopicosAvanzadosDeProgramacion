@@ -1,6 +1,9 @@
 package proyecto.services;
 
 import com.google.gson.Gson;
+import com.itextpdf.text.*;
+import com.itextpdf.text.pdf.PdfDocument;
+import com.itextpdf.text.pdf.PdfWriter;
 import org.json.simple.JSONArray;
 import org.json.simple.parser.JSONParser;
 import proyecto.enums.RecordType;
@@ -9,10 +12,7 @@ import proyecto.models.Record;
 import proyecto.utils.DialogHelper;
 import proyecto.utils.Other;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.FileReader;
-import java.io.FileWriter;
+import java.io.*;
 import java.util.ArrayList;
 
 public class RecordServices {
@@ -113,7 +113,7 @@ public class RecordServices {
         DialogHelper.warnMessageDialog(msg, "Advertencia.");
     }
 
-    public static boolean checkForRecord(Record record) {
+    private static boolean checkForRecord(Record record) {
         ArrayList<Record> records = getRecords();
 
         for (Record all : records) {
@@ -188,4 +188,65 @@ public class RecordServices {
         return records;
     }
 
+    public static void getPDF(StateNames state){
+        ArrayList<Record> records = getSpecificStateRecords(state);
+        if (records.isEmpty()) {
+            return;
+        }
+
+        try {
+            Document document = new Document(PageSize.A4, 40, 40, 20, 20);
+            PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream("results/" + Other.getStateNames()[state.ordinal()] + ".pdf") );
+            PdfDocument pdfDocument = new PdfDocument();
+            Font title = new Font(Font.FontFamily.HELVETICA, 18, Font.BOLD);
+            Font body = new Font(Font.FontFamily.HELVETICA, 15, Font.NORMAL);
+
+
+            pdfDocument.addWriter(writer);
+
+            document.open();
+
+            for (Record record : records) {
+                String titleAndAuthor ="ID del registro: " + record.getRecordId()+ "\nTítulo: " + record.getTitle();
+                String aux = UserServices.searchForUser(record.getAuthorId());
+                if (aux.isEmpty()) titleAndAuthor += " - sin autor";
+                else titleAndAuthor += " - " + aux;
+
+                String stateAndType = "Estado: " + record.getState().toString().replace("_", " ");
+                stateAndType+= "\nTipo de registro cultural: " + Other.getTypes()[record.getRecordType().ordinal()];
+
+                String isPublic;
+                if (record.isPublic()) isPublic = "Es público: si";
+                else isPublic = "Es público: no";
+
+                String description = "Descripción:\n" + record.getDescription();
+                Image image = Image.getInstance(record.getImageUrl());
+                image.scaleAbsolute(150,150);
+                image.setAlignment(Element.ALIGN_CENTER);
+                
+                Paragraph p1 = new Paragraph(titleAndAuthor, title);
+                Paragraph p2 = new Paragraph(stateAndType, title);
+                Paragraph p3 = new Paragraph(isPublic, title);
+                Paragraph p4 = new Paragraph(description, body);
+
+                p1.setAlignment(Element.ALIGN_JUSTIFIED);
+                p2.setAlignment(Element.ALIGN_JUSTIFIED);
+                p3.setAlignment(Element.ALIGN_JUSTIFIED);
+                p4.setAlignment(Element.ALIGN_JUSTIFIED);
+
+                document.add(p1);
+                document.add(p2);
+                document.add(p3);
+                document.add(p4);
+
+                document.add(image);
+                document.newPage();
+            }
+
+            document.close();
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
 }

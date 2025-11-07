@@ -45,12 +45,7 @@ public class Other {
     }
 
     public static String[] getTypes(){
-        String[] types = new String[RecordType.values().length];
-
-        for (int i = 0; i < RecordType.values().length; i++) {
-            types[i] = RecordType.values()[i].name();
-        }
-        return types;
+        return new String[]{"Tradición","Gastronomía","Lugar","Regionalismo o localismo"};
     }
 
     public static boolean copiarArchivo(Path origin, String destiny ,String copy)
@@ -68,31 +63,6 @@ public class Other {
             DialogHelper.errorMessageDialog("Error", "");
         }
         return result;
-    }
-
-    public static boolean moveImage(String name, String oldFolder, String newFolder) {
-        try {
-            Path origin = Paths.get("src/main/java/proyecto/resources/" + oldFolder + name);
-            Path destiny = Paths.get("src/main/java/proyecto/resources/" + newFolder + name);
-
-            if (Files.exists(origin)) {
-                Files.createDirectories(destiny.getParent());
-
-                Files.copy(origin, destiny, StandardCopyOption.REPLACE_EXISTING);
-
-                Files.delete(origin);
-
-                System.out.println("Imagen movida de " + oldFolder + " a " + newFolder);
-                return true;
-            } else {
-                System.out.println("No se encontró el archivo original: " + origin);
-                return false;
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-            DialogHelper.errorMessageDialog( "Error al mover la imagen", "");
-            return false;
-        }
     }
 
     public static void createJSON(String FILE){
