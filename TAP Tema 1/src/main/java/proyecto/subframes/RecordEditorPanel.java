@@ -1,10 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
- */
 package proyecto.subframes;
-
-import java.awt.Color;
 
 import proyecto.HomePanel;
 import proyecto.enums.RecordType;
@@ -16,8 +10,10 @@ import proyecto.services.RecordServices;
 import proyecto.services.RequestServices;
 import proyecto.utils.DialogHelper;
 import proyecto.utils.Other;
+
 import java.io.File;
 import javax.swing.JFileChooser;
+import java.awt.Color;
 
 public class RecordEditorPanel extends javax.swing.JPanel {
 
@@ -179,16 +175,16 @@ public class RecordEditorPanel extends javax.swing.JPanel {
         javax.swing.GroupLayout btnSearchImageLayout = new javax.swing.GroupLayout(btnSearchImage);
         btnSearchImage.setLayout(btnSearchImageLayout);
         btnSearchImageLayout.setHorizontalGroup(
-            btnSearchImageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnSearchImageLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(labelSearchImage, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))
+                btnSearchImageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnSearchImageLayout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(labelSearchImage, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         btnSearchImageLayout.setVerticalGroup(
-            btnSearchImageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnSearchImageLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(labelSearchImage, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                btnSearchImageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnSearchImageLayout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(labelSearchImage, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         bg.add(btnSearchImage, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 230, -1, -1));
@@ -289,16 +285,16 @@ public class RecordEditorPanel extends javax.swing.JPanel {
         javax.swing.GroupLayout btnTerminarLayout = new javax.swing.GroupLayout(btnTerminar);
         btnTerminar.setLayout(btnTerminarLayout);
         btnTerminarLayout.setHorizontalGroup(
-            btnTerminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnTerminarLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(labelTerminar, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                btnTerminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnTerminarLayout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(labelTerminar, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         btnTerminarLayout.setVerticalGroup(
-            btnTerminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnTerminarLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(labelTerminar, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                btnTerminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnTerminarLayout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(labelTerminar, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         bg.add(btnTerminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 150, 90, -1));
@@ -327,12 +323,12 @@ public class RecordEditorPanel extends javax.swing.JPanel {
         javax.swing.GroupLayout btnSalirLayout = new javax.swing.GroupLayout(btnSalir);
         btnSalir.setLayout(btnSalirLayout);
         btnSalirLayout.setHorizontalGroup(
-            btnSalirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(x, javax.swing.GroupLayout.DEFAULT_SIZE, 39, Short.MAX_VALUE)
+                btnSalirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(x, javax.swing.GroupLayout.DEFAULT_SIZE, 39, Short.MAX_VALUE)
         );
         btnSalirLayout.setVerticalGroup(
-            btnSalirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(x, javax.swing.GroupLayout.DEFAULT_SIZE, 27, Short.MAX_VALUE)
+                btnSalirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(x, javax.swing.GroupLayout.DEFAULT_SIZE, 27, Short.MAX_VALUE)
         );
 
         bg.add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 0, -1, -1));
@@ -492,42 +488,39 @@ public class RecordEditorPanel extends javax.swing.JPanel {
         btnSalir.setBackground(new Color(102,102,102));
         x.setForeground(Color.black);
     }//GEN-LAST:event_xMouseExited
-    
+
     private void focusTitulo(){
         if (fieldTitulo.getText().equals("Escribe el título")){
             fieldTitulo.setText("");
             fieldTitulo.setForeground(Color.black);
         }
     }
-    
+
     private void focusDescripcion(){
         if (fieldDescripcion.getText().equals("Escribe la descripción")){
             fieldDescripcion.setText("");
             fieldDescripcion.setForeground(Color.black);
         }
     }
-    
+
     private void unfocusTitulo(){
         if (fieldTitulo.getText().isEmpty()){
             fieldTitulo.setText("Escribe el título");
             fieldTitulo.setForeground(new Color(102,102,102));
         }
     }
-    
+
     private void unfocusDescripcion(){
         if (fieldDescripcion.getText().isEmpty()){
             fieldDescripcion.setText("Escribe la descripción");
             fieldDescripcion.setForeground(new Color(102,102,102));
         }
     }
-    
+
 
     public void setComboStates(){
         comboStates.setModel(Other.setComboStates());
     }
-
-
-
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -1,16 +1,7 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
- */
 package proyecto.subframes;
 
-
-import proyecto.HomePanel;
-import proyecto.models.Record;
 import proyecto.models.Request;
-import proyecto.services.RequestServices;
 import proyecto.subframes.panes.ApprobationLogPane;
-import proyecto.subframes.panes.ManageRecordPane;
 
 import java.awt.*;
 import java.util.ArrayList;

@@ -27,7 +27,7 @@ public class Other {
 
     public static DefaultComboBoxModel<String> setComboStates(){
         DefaultComboBoxModel<String> model = new DefaultComboBoxModel<>();
-            model.addElement("Selecciona un estado.");
+        model.addElement("Selecciona un estado.");
         for (StateNames state : StateNames.values()) {
             String displayName = state.name().replace("_", " ");
             model.addElement(displayName);

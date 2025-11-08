@@ -92,7 +92,7 @@ public class EditorDeCompositores extends javax.swing.JFrame {
     private void initComponents() {
 
         groupAlive = new javax.swing.ButtonGroup();
-        jFileChooser1 = new javax.swing.JFileChooser("C:\\Users\\User\\Downloads\\Media\\Images");
+        jFileChooser1 = new javax.swing.JFileChooser();
         contenido = new javax.swing.JPanel();
         labelTitle = new javax.swing.JLabel();
         btnTerminar = new javax.swing.JPanel();
@@ -112,6 +112,8 @@ public class EditorDeCompositores extends javax.swing.JFrame {
         header = new javax.swing.JPanel();
         btnSalir = new javax.swing.JPanel();
         x = new javax.swing.JLabel();
+
+        jFileChooser1.setCurrentDirectory(new java.io.File("C:\\Users\\User\\Documents\\Programming\\JetBrains\\IntelliJ Projects\\Topicos Avanzados de Programacion\\TAPTema3\\src\\main\\java\\Tarea1\\resources"));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setUndecorated(true);

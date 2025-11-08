@@ -1,15 +1,15 @@
 package proyecto.subframes.panes;
 
-import java.awt.Color;
-import java.awt.event.KeyEvent;
 import proyecto.subframes.RecordApproverPanel;
 import proyecto.utils.DialogHelper;
 
+import java.awt.Color;
+import java.awt.event.KeyEvent;
 
 public class WriteReasonPane extends javax.swing.JFrame {
-    
+
     RecordApproverPanel recordApproverPanel;
-    
+
     private static final java.util.logging.Logger logger = java.util.logging.Logger.
             getLogger(WriteReasonPane.class.getName());
 
@@ -17,11 +17,11 @@ public class WriteReasonPane extends javax.swing.JFrame {
     public WriteReasonPane() {
         initComponents();
     }
-    
+
     public WriteReasonPane(RecordApproverPanel recordApproverPanel){
         initComponents();
         setLocationRelativeTo(null);
-        
+
         this.recordApproverPanel = recordApproverPanel;
     }
 
@@ -98,16 +98,16 @@ public class WriteReasonPane extends javax.swing.JFrame {
         javax.swing.GroupLayout btnTerminarLayout = new javax.swing.GroupLayout(btnTerminar);
         btnTerminar.setLayout(btnTerminarLayout);
         btnTerminarLayout.setHorizontalGroup(
-            btnTerminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnTerminarLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(labelTerminar, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                btnTerminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnTerminarLayout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(labelTerminar, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         btnTerminarLayout.setVerticalGroup(
-            btnTerminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnTerminarLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(labelTerminar, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                btnTerminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnTerminarLayout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(labelTerminar, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         bg.add(btnTerminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 290, 90, -1));
@@ -135,16 +135,16 @@ public class WriteReasonPane extends javax.swing.JFrame {
         javax.swing.GroupLayout btnCancelarLayout = new javax.swing.GroupLayout(btnCancelar);
         btnCancelar.setLayout(btnCancelarLayout);
         btnCancelarLayout.setHorizontalGroup(
-            btnCancelarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnCancelarLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(labelCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                btnCancelarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnCancelarLayout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(labelCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         btnCancelarLayout.setVerticalGroup(
-            btnCancelarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnCancelarLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(labelCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                btnCancelarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnCancelarLayout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(labelCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         bg.add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 290, 90, -1));
@@ -152,12 +152,12 @@ public class WriteReasonPane extends javax.swing.JFrame {
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(bg, javax.swing.GroupLayout.DEFAULT_SIZE, 411, Short.MAX_VALUE)
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(bg, javax.swing.GroupLayout.DEFAULT_SIZE, 411, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(bg, javax.swing.GroupLayout.DEFAULT_SIZE, 337, Short.MAX_VALUE)
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(bg, javax.swing.GroupLayout.DEFAULT_SIZE, 337, Short.MAX_VALUE)
         );
 
         pack();
@@ -207,7 +207,7 @@ public class WriteReasonPane extends javax.swing.JFrame {
             getTextFromMotivo();
         }
     }//GEN-LAST:event_fieldMotivoKeyPressed
-    
+
     private void getTextFromMotivo(){
         if (! fieldMotivo.getText().isEmpty()) {
             recordApproverPanel.getReasonFromForm(fieldMotivo.getText());
@@ -216,25 +216,8 @@ public class WriteReasonPane extends javax.swing.JFrame {
         }
         DialogHelper.errorMessageDialog("El motivo esta vacío, escribe uno.", "Campo vacío.");
     }
-    
+
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.
-                    getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ReflectiveOperationException | javax.swing.UnsupportedLookAndFeelException ex) {
-            logger.log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> new WriteReasonPane().setVisible(

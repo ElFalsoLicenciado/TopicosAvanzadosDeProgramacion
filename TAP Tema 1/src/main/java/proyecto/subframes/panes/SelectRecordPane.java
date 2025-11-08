@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
- */
 package proyecto.subframes.panes;
 
 import proyecto.services.UserServices;
@@ -9,16 +5,10 @@ import proyecto.subframes.RecordSelectorPanel;
 import proyecto.utils.Other;
 import proyecto.models.Record;
 
-import java.awt.Color;
-
 public class SelectRecordPane extends javax.swing.JPanel {
 
     private Record record;
     private RecordSelectorPanel recordSelectorPanel;
-
-    public SelectRecordPane() {
-        initComponents();
-    }
 
     public SelectRecordPane(RecordSelectorPanel recordSelectorPanel, Record record) {
         initComponents();

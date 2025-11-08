@@ -1,16 +1,17 @@
 package proyecto;
 
-import java.awt.Color;
-import java.awt.event.KeyEvent;
-import javax.swing.UIManager;
-import org.pushingpixels.radiance.theming.api.RadianceThemingCortex;
-import org.pushingpixels.radiance.theming.api.skin.*;
 import proyecto.enums.UserType;
-import proyecto.enums.StateNames;
 import proyecto.models.Session;
 import proyecto.services.UserServices;
 import proyecto.utils.DialogHelper;
 import proyecto.utils.SecurityTools;
+
+import org.pushingpixels.radiance.theming.api.RadianceThemingCortex;
+import org.pushingpixels.radiance.theming.api.skin.*;
+
+import java.awt.Color;
+import java.awt.event.KeyEvent;
+import javax.swing.UIManager;
 
 public class LogInPanel extends javax.swing.JFrame {
 
@@ -168,12 +169,12 @@ public class LogInPanel extends javax.swing.JFrame {
         javax.swing.GroupLayout btnLogInLayout = new javax.swing.GroupLayout(btnLogIn);
         btnLogIn.setLayout(btnLogInLayout);
         btnLogInLayout.setHorizontalGroup(
-            btnLogInLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(labelLogIn, javax.swing.GroupLayout.DEFAULT_SIZE, 106, Short.MAX_VALUE)
+                btnLogInLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(labelLogIn, javax.swing.GroupLayout.DEFAULT_SIZE, 106, Short.MAX_VALUE)
         );
         btnLogInLayout.setVerticalGroup(
-            btnLogInLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(labelLogIn, javax.swing.GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE)
+                btnLogInLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(labelLogIn, javax.swing.GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE)
         );
 
         loginPanel.add(btnLogIn, new org.netbeans.lib.awtextra.AbsoluteConstraints(26, 328, -1, -1));
@@ -201,12 +202,12 @@ public class LogInPanel extends javax.swing.JFrame {
         javax.swing.GroupLayout btnGuestLayout = new javax.swing.GroupLayout(btnGuest);
         btnGuest.setLayout(btnGuestLayout);
         btnGuestLayout.setHorizontalGroup(
-            btnGuestLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(labelGuest, javax.swing.GroupLayout.DEFAULT_SIZE, 117, Short.MAX_VALUE)
+                btnGuestLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(labelGuest, javax.swing.GroupLayout.DEFAULT_SIZE, 117, Short.MAX_VALUE)
         );
         btnGuestLayout.setVerticalGroup(
-            btnGuestLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(labelGuest, javax.swing.GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE)
+                btnGuestLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(labelGuest, javax.swing.GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE)
         );
 
         loginPanel.add(btnGuest, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 328, -1, -1));
@@ -235,14 +236,14 @@ public class LogInPanel extends javax.swing.JFrame {
         javax.swing.GroupLayout btnSalirLayout = new javax.swing.GroupLayout(btnSalir);
         btnSalir.setLayout(btnSalirLayout);
         btnSalirLayout.setHorizontalGroup(
-            btnSalirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnSalirLayout.createSequentialGroup()
-                .addComponent(x, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE)
-                .addContainerGap())
+                btnSalirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnSalirLayout.createSequentialGroup()
+                                .addComponent(x, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE)
+                                .addContainerGap())
         );
         btnSalirLayout.setVerticalGroup(
-            btnSalirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(x, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)
+                btnSalirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(x, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)
         );
 
         loginPanel.add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(269, 0, -1, -1));
@@ -297,12 +298,12 @@ public class LogInPanel extends javax.swing.JFrame {
         javax.swing.GroupLayout headerLayout = new javax.swing.GroupLayout(header);
         header.setLayout(headerLayout);
         headerLayout.setHorizontalGroup(
-            headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 720, Short.MAX_VALUE)
+                headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(0, 720, Short.MAX_VALUE)
         );
         headerLayout.setVerticalGroup(
-            headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 70, Short.MAX_VALUE)
+                headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(0, 70, Short.MAX_VALUE)
         );
 
         bg.add(header, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 720, 70));
@@ -312,12 +313,12 @@ public class LogInPanel extends javax.swing.JFrame {
         javax.swing.GroupLayout imgPanelLayout = new javax.swing.GroupLayout(imgPanel);
         imgPanel.setLayout(imgPanelLayout);
         imgPanelLayout.setHorizontalGroup(
-            imgPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 450, Short.MAX_VALUE)
+                imgPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(0, 450, Short.MAX_VALUE)
         );
         imgPanelLayout.setVerticalGroup(
-            imgPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 460, Short.MAX_VALUE)
+                imgPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(0, 460, Short.MAX_VALUE)
         );
 
         bg.add(imgPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 450, 460));
@@ -325,12 +326,12 @@ public class LogInPanel extends javax.swing.JFrame {
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(bg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(bg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(bg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(bg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -472,39 +473,39 @@ public class LogInPanel extends javax.swing.JFrame {
         fieldUsername.setText("Ingresa tu usuario");
         fieldUsername.setForeground(new Color(102,102,102));
     }
-    
+
     private void focusOnUsername(){
         if (fieldUsername.getText().equals("Ingresa tu usuario")){
             fieldUsername.setText("");
             fieldUsername.setForeground(Color.black);
         }
     }
-    
+
     private void focusOnPassword(){
         if (String.valueOf(fieldPassword.getPassword()).equals("******")){
             fieldPassword.setText("");
             fieldPassword.setForeground(Color.black);
         }
     }
-    
+
     private void unfocusOnUsermane(){
         if (fieldUsername.getText().isEmpty()) {
             fieldUsername.setText("Ingresa tu usuario");
             fieldUsername.setForeground(new Color(102,102,102));
         }
     }
-    
+
     private void unfocusOnPassword(){
         if (String.valueOf(fieldPassword.getPassword()).isEmpty()){
-        fieldPassword.setText("******");
-        fieldPassword.setForeground(new Color(102,102,102));
+            fieldPassword.setText("******");
+            fieldPassword.setForeground(new Color(102,102,102));
         }
     }
-    
+
     public void reopenLogIn(){
         this.setVisible(true);
     }
-    
+
     public void logIn(){
         if (fieldUsername.getText().equals("Ingresa tu usuario") ||
                 String.valueOf(fieldPassword.getPassword()).equals("******") ||

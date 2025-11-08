@@ -65,4 +65,18 @@ public class ProductoService {
         return rowsAffected > 0;
     }
     
+    public static boolean delete (int id_producto) throws Exception {
+        String sql = "DELETE FROM productos WHERE id_producto = " + id_producto;
+
+        Connection con = DBConnection.open();
+        Statement stm = con.createStatement();
+
+        int rowsAffected = stm.executeUpdate(sql);
+
+        stm.close();
+        con.close();
+
+        return rowsAffected > 0;
+    }
+    
 }

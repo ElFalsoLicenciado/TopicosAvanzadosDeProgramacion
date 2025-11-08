@@ -1,7 +1,5 @@
 package proyecto.models;
 
-import proyecto.enums.RecordType;
-import proyecto.enums.StateNames;
 import proyecto.enums.UserType;
 import proyecto.services.RecordServices;
 import proyecto.services.RequestServices;

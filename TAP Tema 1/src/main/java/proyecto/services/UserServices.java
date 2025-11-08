@@ -4,11 +4,11 @@ import proyecto.models.User;
 import proyecto.utils.Other;
 import proyecto.utils.DialogHelper;
 
-import java.io.*;
-import java.util.ArrayList;
 import com.google.gson.Gson;
 import org.json.simple.JSONArray;
 import org.json.simple.parser.JSONParser;
+import java.io.*;
+import java.util.ArrayList;
 
 
 public class UserServices {
@@ -99,8 +99,8 @@ public class UserServices {
 
         for (User all : userList) {
             if (all.getUserID().equals(userID)) {
-                    username = all.getUsername();
-                    return username;
+                username = all.getUsername();
+                return username;
             }
         }
 

@@ -1,28 +1,16 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
- */
 package proyecto.subframes.panes;
 
-import proyecto.HomePanel;
 import proyecto.models.Record;
 import proyecto.models.Request;
-import proyecto.services.RecordServices;
 import proyecto.services.UserServices;
 import proyecto.subframes.AdminPanel;
 import proyecto.utils.Other;
 
-import java.awt.*;
-
 
 public class AdminRecordPane extends javax.swing.JPanel {
 
-    private AdminPanel adminPanel;
+    private final AdminPanel adminPanel;
     Request request;
-
-    public AdminRecordPane() {
-        initComponents();
-    }
 
     public AdminRecordPane(AdminPanel adminPanel, Request request) {
         initComponents();

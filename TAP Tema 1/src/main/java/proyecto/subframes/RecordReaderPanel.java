@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
- */
 package proyecto.subframes;
 
 import proyecto.HomePanel;
@@ -24,13 +20,13 @@ public class RecordReaderPanel extends javax.swing.JPanel {
         initComponents();
 
         this.homePanel = homePanel;
-        
+
         labelTitulo.setText(record.getTitle());
-        
+
         String author = UserServices.searchForUser(record.getAuthorId());
         if (author.isEmpty()) author = "Sin autor";
         else author = "Autor: " + author;
-        
+
         labelAutor.setText(author);
 
         String state = Other.getStateNames()[record.getState().ordinal()];
@@ -39,7 +35,7 @@ public class RecordReaderPanel extends javax.swing.JPanel {
         labelEstado.setText(
                 "Estado: "  + state
         );
-        
+
         labelCategoria.setText(
                 "Categoría: " + type
         );
@@ -125,12 +121,12 @@ public class RecordReaderPanel extends javax.swing.JPanel {
         javax.swing.GroupLayout btnSalirLayout = new javax.swing.GroupLayout(btnSalir);
         btnSalir.setLayout(btnSalirLayout);
         btnSalirLayout.setHorizontalGroup(
-            btnSalirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(x, javax.swing.GroupLayout.DEFAULT_SIZE, 39, Short.MAX_VALUE)
+                btnSalirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(x, javax.swing.GroupLayout.DEFAULT_SIZE, 39, Short.MAX_VALUE)
         );
         btnSalirLayout.setVerticalGroup(
-            btnSalirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(x, javax.swing.GroupLayout.DEFAULT_SIZE, 27, Short.MAX_VALUE)
+                btnSalirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(x, javax.swing.GroupLayout.DEFAULT_SIZE, 27, Short.MAX_VALUE)
         );
 
         bg.add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 0, -1, -1));

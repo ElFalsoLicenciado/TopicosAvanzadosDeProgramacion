@@ -1,14 +1,9 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
- */
 package proyecto.subframes;
 
 import proyecto.HomePanel;
 import proyecto.enums.RequestStatus;
 import proyecto.models.Record;
 import proyecto.models.Request;
-import proyecto.services.RecordServices;
 import proyecto.services.RequestServices;
 import proyecto.services.UserServices;
 import proyecto.subframes.panes.WriteReasonPane;
@@ -20,8 +15,6 @@ public class RecordApproverPanel extends javax.swing.JPanel {
 
     private HomePanel homePanel;
     private Request request;
-
-
 
     public RecordApproverPanel() {
         initComponents();
@@ -171,12 +164,12 @@ public class RecordApproverPanel extends javax.swing.JPanel {
         javax.swing.GroupLayout btnApproveLayout = new javax.swing.GroupLayout(btnApprove);
         btnApprove.setLayout(btnApproveLayout);
         btnApproveLayout.setHorizontalGroup(
-            btnApproveLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 30, Short.MAX_VALUE)
+                btnApproveLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(0, 30, Short.MAX_VALUE)
         );
         btnApproveLayout.setVerticalGroup(
-            btnApproveLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 30, Short.MAX_VALUE)
+                btnApproveLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(0, 30, Short.MAX_VALUE)
         );
 
         bg.add(btnApprove, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 240, 30, 30));
@@ -191,12 +184,12 @@ public class RecordApproverPanel extends javax.swing.JPanel {
         javax.swing.GroupLayout btnDenyLayout = new javax.swing.GroupLayout(btnDeny);
         btnDeny.setLayout(btnDenyLayout);
         btnDenyLayout.setHorizontalGroup(
-            btnDenyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 30, Short.MAX_VALUE)
+                btnDenyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(0, 30, Short.MAX_VALUE)
         );
         btnDenyLayout.setVerticalGroup(
-            btnDenyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 30, Short.MAX_VALUE)
+                btnDenyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(0, 30, Short.MAX_VALUE)
         );
 
         bg.add(btnDeny, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 240, 30, 30));
@@ -289,12 +282,12 @@ public class RecordApproverPanel extends javax.swing.JPanel {
         javax.swing.GroupLayout btnSalirLayout = new javax.swing.GroupLayout(btnSalir);
         btnSalir.setLayout(btnSalirLayout);
         btnSalirLayout.setHorizontalGroup(
-            btnSalirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(x, javax.swing.GroupLayout.DEFAULT_SIZE, 39, Short.MAX_VALUE)
+                btnSalirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(x, javax.swing.GroupLayout.DEFAULT_SIZE, 39, Short.MAX_VALUE)
         );
         btnSalirLayout.setVerticalGroup(
-            btnSalirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(x, javax.swing.GroupLayout.DEFAULT_SIZE, 27, Short.MAX_VALUE)
+                btnSalirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(x, javax.swing.GroupLayout.DEFAULT_SIZE, 27, Short.MAX_VALUE)
         );
 
         bg.add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 0, -1, -1));

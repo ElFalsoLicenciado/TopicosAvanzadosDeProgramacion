@@ -1,8 +1,5 @@
 package proyecto.subframes;
 
-import java.awt.*;
-import java.util.ArrayList;
-
 import proyecto.HomePanel;
 import proyecto.enums.RecordType;
 import proyecto.enums.StateNames;
@@ -10,6 +7,9 @@ import proyecto.models.Record;
 import proyecto.services.RecordServices;
 import proyecto.subframes.panes.SelectRecordPane;
 import proyecto.utils.Other;
+
+import java.awt.*;
+import java.util.ArrayList;
 
 
 public class RecordSelectorPanel extends javax.swing.JPanel {

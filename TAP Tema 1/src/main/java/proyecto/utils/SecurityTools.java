@@ -9,13 +9,10 @@ public class SecurityTools {
 
     public static String hashString(String input) {
         try {
-            // Create MessageDigest instance for SHA-256
             MessageDigest md = MessageDigest.getInstance("SHA-256");
 
-            // Calculate the SHA-256 hash value
             byte[] hash = md.digest(input.getBytes());
 
-            // Convert byte array to hexadecimal string
             StringBuilder hexString = new StringBuilder();
             for (byte b : hash) {
                 String hex = Integer.toHexString(0xff & b);

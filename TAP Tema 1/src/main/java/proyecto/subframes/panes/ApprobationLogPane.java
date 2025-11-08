@@ -1,13 +1,7 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
- */
 package proyecto.subframes.panes;
 
-import proyecto.enums.RequestStatus;
 import proyecto.models.Request;
 import proyecto.models.Record;
-import proyecto.services.RecordServices;
 import proyecto.subframes.UserRequestsPanel;
 import proyecto.utils.Other;
 
@@ -16,10 +10,6 @@ public class ApprobationLogPane extends javax.swing.JPanel {
 
     Request request;
     UserRequestsPanel userRequestsPanel;
-
-    public ApprobationLogPane() {
-        initComponents();
-    }
 
     public ApprobationLogPane(UserRequestsPanel userRequestsPanel, Request request) {
         initComponents();

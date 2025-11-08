@@ -83,6 +83,11 @@ public class ProductosFrame extends javax.swing.JFrame {
         btnBorrar.setForeground(new java.awt.Color(255, 0, 0));
         btnBorrar.setText("Borrar");
         btnBorrar.setEnabled(false);
+        btnBorrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBorrarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -173,6 +178,18 @@ public class ProductosFrame extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null,"Error al editar");
         }
     }//GEN-LAST:event_btnEditarActionPerformed
+
+    private void btnBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBorrarActionPerformed
+        int id = productos.get(
+            jList1.getSelectedIndex()
+        ).getId_producto();
+        try {
+            ProductoService.delete(id);
+            getProductos();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }//GEN-LAST:event_btnBorrarActionPerformed
 
     private void getProductos() {
         DefaultListModel model = new DefaultListModel();
