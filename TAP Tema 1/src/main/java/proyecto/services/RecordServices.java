@@ -1,10 +1,5 @@
 package proyecto.services;
 
-import org.apache.poi.ss.usermodel.CreationHelper;
-import org.apache.poi.ss.usermodel.Row;
-import org.apache.poi.ss.usermodel.Sheet;
-import org.apache.poi.ss.usermodel.Workbook;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import proyecto.enums.RecordType;
 import proyecto.enums.StateNames;
 import proyecto.models.Record;
@@ -17,6 +12,12 @@ import com.itextpdf.text.pdf.PdfDocument;
 import com.itextpdf.text.pdf.PdfWriter;
 import org.json.simple.JSONArray;
 import org.json.simple.parser.JSONParser;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+
+
 import java.io.*;
 import java.util.ArrayList;
 
