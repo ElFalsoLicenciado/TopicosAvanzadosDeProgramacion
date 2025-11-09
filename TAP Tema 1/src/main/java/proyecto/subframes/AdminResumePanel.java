@@ -1,15 +1,17 @@
 package proyecto.subframes;
 
+import proyecto.enums.StateNames;
+import proyecto.services.RecordServices;
 import proyecto.utils.DialogHelper;
+import proyecto.utils.Other;
 
 import java.awt.Color;
-import proyecto.utils.Other;
 
 public class AdminResumePanel extends javax.swing.JPanel {
 
     public AdminResumePanel() {
         initComponents();
-        
+
         comboStates.setModel(Other.setComboStates());
     }
 
@@ -55,12 +57,12 @@ public class AdminResumePanel extends javax.swing.JPanel {
         javax.swing.GroupLayout panelImage1Layout = new javax.swing.GroupLayout(panelImage1);
         panelImage1.setLayout(panelImage1Layout);
         panelImage1Layout.setHorizontalGroup(
-            panelImage1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 160, Short.MAX_VALUE)
+                panelImage1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(0, 160, Short.MAX_VALUE)
         );
         panelImage1Layout.setVerticalGroup(
-            panelImage1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 170, Short.MAX_VALUE)
+                panelImage1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(0, 170, Short.MAX_VALUE)
         );
 
         add(panelImage1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 70, 160, 170));
@@ -70,12 +72,12 @@ public class AdminResumePanel extends javax.swing.JPanel {
         javax.swing.GroupLayout panelImage2Layout = new javax.swing.GroupLayout(panelImage2);
         panelImage2.setLayout(panelImage2Layout);
         panelImage2Layout.setHorizontalGroup(
-            panelImage2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 160, Short.MAX_VALUE)
+                panelImage2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(0, 160, Short.MAX_VALUE)
         );
         panelImage2Layout.setVerticalGroup(
-            panelImage2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 170, Short.MAX_VALUE)
+                panelImage2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(0, 170, Short.MAX_VALUE)
         );
 
         add(panelImage2, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 70, -1, -1));
@@ -103,16 +105,16 @@ public class AdminResumePanel extends javax.swing.JPanel {
         javax.swing.GroupLayout btnPDFLayout = new javax.swing.GroupLayout(btnPDF);
         btnPDF.setLayout(btnPDFLayout);
         btnPDFLayout.setHorizontalGroup(
-            btnPDFLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnPDFLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(labelPDF, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                btnPDFLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnPDFLayout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(labelPDF, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         btnPDFLayout.setVerticalGroup(
-            btnPDFLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnPDFLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(labelPDF, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                btnPDFLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnPDFLayout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(labelPDF, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         add(btnPDF, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 350, 90, -1));
@@ -140,26 +142,28 @@ public class AdminResumePanel extends javax.swing.JPanel {
         javax.swing.GroupLayout btnExcelLayout = new javax.swing.GroupLayout(btnExcel);
         btnExcel.setLayout(btnExcelLayout);
         btnExcelLayout.setHorizontalGroup(
-            btnExcelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnExcelLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(labelExcel, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                btnExcelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnExcelLayout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(labelExcel, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         btnExcelLayout.setVerticalGroup(
-            btnExcelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnExcelLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(labelExcel, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                btnExcelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnExcelLayout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(labelExcel, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         add(btnExcel, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 350, 90, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void labelPDFMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelPDFMouseClicked
-        String mistakes = "";
-        
-        
-        DialogHelper.errorMessageDialog(mistakes, "Error al guardar.");
+        if (comboStates.getSelectedIndex() == 0)  {
+            DialogHelper.errorMessageDialog("Por favor, selecciona un estado.", "Error.");
+            return;
+        }
+        RecordServices.getPDF(StateNames.values()[comboStates.getSelectedIndex()-1]);
+
     }//GEN-LAST:event_labelPDFMouseClicked
 
     private void labelPDFMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelPDFMouseEntered
@@ -171,7 +175,7 @@ public class AdminResumePanel extends javax.swing.JPanel {
     }//GEN-LAST:event_labelPDFMouseExited
 
     private void labelExcelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelExcelMouseClicked
-        // TODO add your handling code here:
+        RecordServices.getExcel();
     }//GEN-LAST:event_labelExcelMouseClicked
 
     private void labelExcelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelExcelMouseEntered

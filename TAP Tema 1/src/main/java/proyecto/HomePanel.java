@@ -48,8 +48,12 @@ public class HomePanel extends javax.swing.JFrame {
         requestPanel = new javax.swing.JPanel();
         userRequestsPane = new proyecto.subframes.UserRequestsPanel(session.getUserRequests());
         adminTab = new javax.swing.JPanel();
+        adminGroup = new javax.swing.JTabbedPane();
+        approvalPanel = new javax.swing.JPanel();
         adminToolsPane = new proyecto.subframes.AdminApprovalPanel(this);
         approveRecordPane = new proyecto.subframes.RecordApproverPanel();
+        resumePanel = new javax.swing.JPanel();
+        adminResumePane = new proyecto.subframes.AdminResumePanel();
         header = new javax.swing.JPanel();
         btnSalir = new javax.swing.JPanel();
         x = new javax.swing.JLabel();
@@ -115,8 +119,27 @@ public class HomePanel extends javax.swing.JFrame {
         adminTab.setBackground(new java.awt.Color(255, 255, 255));
         adminTab.setForeground(new java.awt.Color(255, 255, 255));
         adminTab.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        adminTab.add(adminToolsPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 870, 610));
-        adminTab.add(approveRecordPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 870, 600));
+
+        adminGroup.setBackground(new java.awt.Color(255, 255, 255));
+        adminGroup.setForeground(new java.awt.Color(0, 0, 0));
+        adminGroup.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
+
+        approvalPanel.setBackground(new java.awt.Color(255, 255, 255));
+        approvalPanel.setForeground(new java.awt.Color(255, 255, 255));
+        approvalPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        approvalPanel.add(adminToolsPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 520));
+        approvalPanel.add(approveRecordPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 520));
+
+        adminGroup.addTab("Aprobaciones", approvalPanel);
+
+        resumePanel.setBackground(new java.awt.Color(255, 255, 255));
+        resumePanel.setForeground(new java.awt.Color(255, 255, 255));
+        resumePanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        resumePanel.add(adminResumePane, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 520));
+
+        adminGroup.addTab("Resumen", resumePanel);
+
+        adminTab.add(adminGroup, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 550));
 
         tabGroup.addTab("Moderación", adminTab);
 
@@ -307,11 +330,11 @@ public class HomePanel extends javax.swing.JFrame {
     public void inspectRequest(Request request){
         approveRecordPane = new RecordApproverPanel(this, request);
 
-        adminTab.removeAll();
-        adminTab.add(approveRecordPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 860, 550));
+        approvalPanel.removeAll();
+        approvalPanel.add(approveRecordPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 860, 550));
         showRecordApprover();
-        adminTab.revalidate();
-        adminTab.repaint();
+        approvalPanel.revalidate();
+        approvalPanel.repaint();
 
     }
 
@@ -346,12 +369,12 @@ public class HomePanel extends javax.swing.JFrame {
         adminToolsPane = new AdminApprovalPanel(this);
         approveRecordPane = new RecordApproverPanel();
 
-        adminTab.removeAll();
-        adminTab.add(adminToolsPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 860, 550));
-        adminTab.add(approveRecordPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 860, 550));
+        approvalPanel.removeAll();
+        approvalPanel.add(adminToolsPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 860, 550));
+        approvalPanel.add(approveRecordPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 860, 550));
         hideRecordApprover();
-        adminTab.revalidate();
-        adminTab.repaint();
+        approvalPanel.revalidate();
+        approvalPanel.repaint();
     }
 
     public static void main(String args[]) {
@@ -360,8 +383,11 @@ public class HomePanel extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTabbedPane adminGroup;
+    private proyecto.subframes.AdminResumePanel adminResumePane;
     private javax.swing.JPanel adminTab;
     private proyecto.subframes.AdminApprovalPanel adminToolsPane;
+    private javax.swing.JPanel approvalPanel;
     private proyecto.subframes.RecordApproverPanel approveRecordPane;
     private javax.swing.JPanel btnSalir;
     private proyecto.subframes.RecordEditorPanel editRecordPane;
@@ -373,6 +399,7 @@ public class HomePanel extends javax.swing.JFrame {
     private javax.swing.JPanel recordPanel;
     private javax.swing.JPanel recordTab;
     private javax.swing.JPanel requestPanel;
+    private javax.swing.JPanel resumePanel;
     private proyecto.subframes.RecordSelectorPanel selectRecordPane;
     private javax.swing.JTabbedPane tabGroup;
     private proyecto.subframes.UserRequestsPanel userRequestsPane;
