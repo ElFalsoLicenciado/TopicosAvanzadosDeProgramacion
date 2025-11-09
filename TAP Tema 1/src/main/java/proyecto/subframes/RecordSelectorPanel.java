@@ -32,7 +32,12 @@ public class RecordSelectorPanel extends javax.swing.JPanel {
         panelRecordList.setLayout(gridLayout);
         records = RecordServices.getApprovedRecords();
         catIsSelected = false;
-
+        
+        if(records.isEmpty()) {
+            labelWarn.setVisible(true);
+            return;
+        }
+        
         showReadableRecords();
     }
 
@@ -53,6 +58,7 @@ public class RecordSelectorPanel extends javax.swing.JPanel {
         labelTitle = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         panelRecordList = new javax.swing.JPanel();
+        labelWarn = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setForeground(new java.awt.Color(255, 255, 255));
@@ -171,7 +177,7 @@ public class RecordSelectorPanel extends javax.swing.JPanel {
         labelTitle.setBackground(new java.awt.Color(255, 255, 255));
         labelTitle.setFont(new java.awt.Font("Roboto", 1, 24)); // NOI18N
         labelTitle.setForeground(new java.awt.Color(0, 0, 0));
-        labelTitle.setText("Record Selector Panel");
+        labelTitle.setText("Lectura de registros:");
         add(labelTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
         jScrollPane1.setBackground(new java.awt.Color(216, 188, 188));
@@ -180,6 +186,13 @@ public class RecordSelectorPanel extends javax.swing.JPanel {
 
         panelRecordList.setBackground(new java.awt.Color(255, 255, 255));
         panelRecordList.setForeground(new java.awt.Color(255, 255, 255));
+
+        labelWarn.setBackground(new java.awt.Color(255, 255, 255));
+        labelWarn.setFont(new java.awt.Font("Roboto", 1, 24)); // NOI18N
+        labelWarn.setForeground(new java.awt.Color(0, 0, 0));
+        labelWarn.setText("NO HAY NINGÚN REGISTRO DISPONIBLE PARA LEER");
+        panelRecordList.add(labelWarn);
+
         jScrollPane1.setViewportView(panelRecordList);
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, 760, 340));
@@ -300,6 +313,7 @@ public class RecordSelectorPanel extends javax.swing.JPanel {
     private javax.swing.JLabel labelCrit3;
     private javax.swing.JLabel labelReset;
     private javax.swing.JLabel labelTitle;
+    private javax.swing.JLabel labelWarn;
     private javax.swing.JPanel panelRecordList;
     private javax.swing.ButtonGroup recordTypeGroup;
     // End of variables declaration//GEN-END:variables

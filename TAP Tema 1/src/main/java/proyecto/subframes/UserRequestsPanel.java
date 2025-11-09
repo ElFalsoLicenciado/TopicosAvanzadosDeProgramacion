@@ -20,6 +20,11 @@ public class UserRequestsPanel extends javax.swing.JPanel {
 
         panelRequestList.setLayout(gridLayout);
         this.userRequests = userRequests;
+        
+        if(userRequests.isEmpty()) {
+            labelWarn.setVisible(true);
+            return;
+        }
 
         showUserRequests();
     }
@@ -32,6 +37,7 @@ public class UserRequestsPanel extends javax.swing.JPanel {
         labelTitle = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         panelRequestList = new javax.swing.JPanel();
+        labelWarn = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setForeground(new java.awt.Color(255, 255, 255));
@@ -40,7 +46,7 @@ public class UserRequestsPanel extends javax.swing.JPanel {
         labelTitle.setBackground(new java.awt.Color(255, 255, 255));
         labelTitle.setFont(new java.awt.Font("Roboto", 1, 24)); // NOI18N
         labelTitle.setForeground(new java.awt.Color(0, 0, 0));
-        labelTitle.setText("User Requests Panel");
+        labelTitle.setText("Tus aprobaciones:");
         add(labelTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
         jScrollPane1.setBackground(new java.awt.Color(216, 188, 188));
@@ -49,6 +55,13 @@ public class UserRequestsPanel extends javax.swing.JPanel {
 
         panelRequestList.setBackground(new java.awt.Color(255, 255, 255));
         panelRequestList.setForeground(new java.awt.Color(255, 255, 255));
+
+        labelWarn.setBackground(new java.awt.Color(255, 255, 255));
+        labelWarn.setFont(new java.awt.Font("Roboto", 1, 24)); // NOI18N
+        labelWarn.setForeground(new java.awt.Color(0, 0, 0));
+        labelWarn.setText("NO TIENES NINGUNA APROBACIÓN.");
+        panelRequestList.add(labelWarn);
+
         jScrollPane1.setViewportView(panelRequestList);
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 780, 380));
@@ -68,6 +81,7 @@ public class UserRequestsPanel extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel labelTitle;
+    private javax.swing.JLabel labelWarn;
     private javax.swing.JPanel panelRequestList;
     // End of variables declaration//GEN-END:variables
 }

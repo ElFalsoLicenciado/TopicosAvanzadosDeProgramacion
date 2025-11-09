@@ -8,24 +8,29 @@ import proyecto.subframes.panes.AdminRecordPane;
 import java.awt.*;
 import java.util.ArrayList;
 
-public class AdminPanel extends javax.swing.JPanel {
+public class AdminApprovalPanel extends javax.swing.JPanel {
 
     private HomePanel homePanel;
     private GridLayout gridLayout = new GridLayout(1,1);
     private ArrayList<Request> requests;
 
-    public AdminPanel() {
+    public AdminApprovalPanel() {
         initComponents();
     }
 
-    public AdminPanel(HomePanel homePanel) {
+    public AdminApprovalPanel(HomePanel homePanel) {
         initComponents();
 
         this.homePanel = homePanel;
 
         panelRequestList.setLayout(gridLayout);
         requests = RequestServices.getRequests();
-
+        
+        if(requests.isEmpty()) {
+            labelTitle1.setVisible(true);
+            return;
+        }
+        
         showRequests();
     }
 
@@ -36,6 +41,7 @@ public class AdminPanel extends javax.swing.JPanel {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         panelRequestList = new javax.swing.JPanel();
+        labelTitle1 = new javax.swing.JLabel();
         labelTitle = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
@@ -48,9 +54,16 @@ public class AdminPanel extends javax.swing.JPanel {
 
         panelRequestList.setBackground(new java.awt.Color(255, 255, 255));
         panelRequestList.setForeground(new java.awt.Color(255, 255, 255));
+
+        labelTitle1.setBackground(new java.awt.Color(255, 255, 255));
+        labelTitle1.setFont(new java.awt.Font("Roboto", 1, 24)); // NOI18N
+        labelTitle1.setForeground(new java.awt.Color(0, 0, 0));
+        labelTitle1.setText("NO SE HA CREADO NINGUNA APROBACIÓN.");
+        panelRequestList.add(labelTitle1);
+
         jScrollPane1.setViewportView(panelRequestList);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 770, 420));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 770, 380));
 
         labelTitle.setBackground(new java.awt.Color(255, 255, 255));
         labelTitle.setFont(new java.awt.Font("Roboto", 1, 24)); // NOI18N
@@ -79,6 +92,7 @@ public class AdminPanel extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel labelTitle;
+    private javax.swing.JLabel labelTitle1;
     private javax.swing.JPanel panelRequestList;
     // End of variables declaration//GEN-END:variables
 }

@@ -3,16 +3,16 @@ package proyecto.subframes.panes;
 import proyecto.models.Record;
 import proyecto.models.Request;
 import proyecto.services.UserServices;
-import proyecto.subframes.AdminPanel;
+import proyecto.subframes.AdminApprovalPanel;
 import proyecto.utils.Other;
 
 
 public class AdminRecordPane extends javax.swing.JPanel {
 
-    private final AdminPanel adminPanel;
+    private final AdminApprovalPanel adminPanel;
     Request request;
 
-    public AdminRecordPane(AdminPanel adminPanel, Request request) {
+    public AdminRecordPane(AdminApprovalPanel adminPanel, Request request) {
         initComponents();
 
         this.request = request;

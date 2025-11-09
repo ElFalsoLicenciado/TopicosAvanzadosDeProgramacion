@@ -24,7 +24,12 @@ public class RecordManagerPanel extends javax.swing.JPanel {
 
         panelRecordList.setLayout(gridLayout);
         this.userRecords = userRecords;
-
+        
+        if(userRecords.isEmpty()) {
+            labelWarn.setVisible(true);
+            return;
+        }
+        
         showUserRecords();
     }
 
@@ -36,6 +41,7 @@ public class RecordManagerPanel extends javax.swing.JPanel {
         labelCrear = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         panelRecordList = new javax.swing.JPanel();
+        labelWarn = new javax.swing.JLabel();
         labelTitle = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
@@ -66,16 +72,16 @@ public class RecordManagerPanel extends javax.swing.JPanel {
         javax.swing.GroupLayout btnCrearLayout = new javax.swing.GroupLayout(btnCrear);
         btnCrear.setLayout(btnCrearLayout);
         btnCrearLayout.setHorizontalGroup(
-                btnCrearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnCrearLayout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(labelCrear, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+            btnCrearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnCrearLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(labelCrear, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         btnCrearLayout.setVerticalGroup(
-                btnCrearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnCrearLayout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(labelCrear, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+            btnCrearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnCrearLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(labelCrear, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         add(btnCrear, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 15, 90, -1));
@@ -86,6 +92,13 @@ public class RecordManagerPanel extends javax.swing.JPanel {
 
         panelRecordList.setBackground(new java.awt.Color(255, 255, 255));
         panelRecordList.setForeground(new java.awt.Color(255, 255, 255));
+
+        labelWarn.setBackground(new java.awt.Color(255, 255, 255));
+        labelWarn.setFont(new java.awt.Font("Roboto", 1, 24)); // NOI18N
+        labelWarn.setForeground(new java.awt.Color(0, 0, 0));
+        labelWarn.setText("NO HAS CREADO UN REGISTRO AÚN.");
+        panelRecordList.add(labelWarn);
+
         jScrollPane1.setViewportView(panelRecordList);
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 780, 380));
@@ -134,6 +147,7 @@ public class RecordManagerPanel extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel labelCrear;
     private javax.swing.JLabel labelTitle;
+    private javax.swing.JLabel labelWarn;
     private javax.swing.JPanel panelRecordList;
     // End of variables declaration//GEN-END:variables
 }

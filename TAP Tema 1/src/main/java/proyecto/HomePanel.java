@@ -48,7 +48,7 @@ public class HomePanel extends javax.swing.JFrame {
         requestPanel = new javax.swing.JPanel();
         userRequestsPane = new proyecto.subframes.UserRequestsPanel(session.getUserRequests());
         adminTab = new javax.swing.JPanel();
-        adminToolsPane = new proyecto.subframes.AdminPanel(this);
+        adminToolsPane = new proyecto.subframes.AdminApprovalPanel(this);
         approveRecordPane = new proyecto.subframes.RecordApproverPanel();
         header = new javax.swing.JPanel();
         btnSalir = new javax.swing.JPanel();
@@ -57,7 +57,6 @@ public class HomePanel extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setBackground(new java.awt.Color(214, 232, 255));
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(800, 625));
         setResizable(false);
         setSize(new java.awt.Dimension(804, 625));
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -159,27 +158,27 @@ public class HomePanel extends javax.swing.JFrame {
         javax.swing.GroupLayout btnSalirLayout = new javax.swing.GroupLayout(btnSalir);
         btnSalir.setLayout(btnSalirLayout);
         btnSalirLayout.setHorizontalGroup(
-                btnSalirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(x, javax.swing.GroupLayout.DEFAULT_SIZE, 39, Short.MAX_VALUE)
+            btnSalirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(x, javax.swing.GroupLayout.DEFAULT_SIZE, 39, Short.MAX_VALUE)
         );
         btnSalirLayout.setVerticalGroup(
-                btnSalirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(x, javax.swing.GroupLayout.DEFAULT_SIZE, 27, Short.MAX_VALUE)
+            btnSalirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(x, javax.swing.GroupLayout.DEFAULT_SIZE, 27, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout headerLayout = new javax.swing.GroupLayout(header);
         header.setLayout(headerLayout);
         headerLayout.setHorizontalGroup(
-                headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, headerLayout.createSequentialGroup()
-                                .addGap(0, 761, Short.MAX_VALUE)
-                                .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, headerLayout.createSequentialGroup()
+                .addGap(0, 761, Short.MAX_VALUE)
+                .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         headerLayout.setVerticalGroup(
-                headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(headerLayout.createSequentialGroup()
-                                .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 53, Short.MAX_VALUE))
+            headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(headerLayout.createSequentialGroup()
+                .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 53, Short.MAX_VALUE))
         );
 
         getContentPane().add(header, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 80));
@@ -344,7 +343,7 @@ public class HomePanel extends javax.swing.JFrame {
         readTab.revalidate();
         readTab.repaint();
 
-        adminToolsPane = new AdminPanel(this);
+        adminToolsPane = new AdminApprovalPanel(this);
         approveRecordPane = new RecordApproverPanel();
 
         adminTab.removeAll();
@@ -362,7 +361,7 @@ public class HomePanel extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel adminTab;
-    private proyecto.subframes.AdminPanel adminToolsPane;
+    private proyecto.subframes.AdminApprovalPanel adminToolsPane;
     private proyecto.subframes.RecordApproverPanel approveRecordPane;
     private javax.swing.JPanel btnSalir;
     private proyecto.subframes.RecordEditorPanel editRecordPane;
