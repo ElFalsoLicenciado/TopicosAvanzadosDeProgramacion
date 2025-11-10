@@ -2,8 +2,9 @@ package Practica2;
 
 import Practica2.model_layer.models.Usuario;
 import Practica2.model_layer.services.UsuarioService;
-import java.awt.Color;
-import javax.swing.JOptionPane;
+
+import javax.swing.*;
+import java.awt.*;
 
 /**
  *

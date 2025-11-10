@@ -55,8 +55,6 @@ public class Other {
             Path path = Paths.get( destiny + copy);
             Files.copy(origin, path, StandardCopyOption.REPLACE_EXISTING);
 
-            System.out.println("Se copio correctamente: " + path.toString());
-
             result = true;
         } catch (Exception e) {
             e.printStackTrace();
@@ -69,15 +67,11 @@ public class Other {
         File file = new File(FILE);
 
         // Check if the file already exists
-        if (file.exists()) {
-            System.out.println("File already exists: " + file.getAbsolutePath());
-            return;
-        }
+        if (file.exists()) return;
 
         // If not, create it and write default content
         try (FileWriter writer = new FileWriter(file)) {
             writer.write("");
-            System.out.println("File created successfully: " + file.getAbsolutePath());
         } catch (IOException e) {
             System.err.println("Error creating JSON file: " + e.getMessage());
         }

@@ -3,7 +3,8 @@ package Practica2;
 
 import Practica2.model_layer.models.Usuario;
 import Practica2.model_layer.services.UsuarioService;
-import javax.swing.JOptionPane;
+
+import javax.swing.*;
 
 /**
  *

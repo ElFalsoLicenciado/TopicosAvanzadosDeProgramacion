@@ -1,6 +1,12 @@
 package Practica2;
 
+import Practica2.model_layer.models.Contacto;
 import Practica2.model_layer.models.Usuario;
+import Practica2.model_layer.services.ContactoService;
+
+import javax.swing.*;
+import java.awt.*;
+import java.util.ArrayList;
 
 /**
  *
@@ -8,9 +14,18 @@ import Practica2.model_layer.models.Usuario;
  */
 public class PrincipalFrame extends javax.swing.JFrame {
     
+    // Para entregar:
+    // 1. Poder buscar, crear, editar y borrar contactos
+    // 2. El admin podrá visualizar toda la lista de usuarios, no solo los suyos
+    
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(PrincipalFrame.class.getName());
     
     private Usuario usuario;
+    private GridLayout gridLayout = new GridLayout(1, 1);
+    
+    private ArrayList<Contacto> contactos = new ArrayList<>();
+    
+    private ContactoService contactoService = new ContactoService();
 
     /**
      * Creates new form PrincipalFrame
@@ -30,6 +45,8 @@ public class PrincipalFrame extends javax.swing.JFrame {
             "Bienvenido(a) " + usuario.getNombre_completo()
         );
         
+        jPanel1.setLayout(gridLayout);
+        
         setLocationRelativeTo(null);
     }
 
@@ -43,6 +60,10 @@ public class PrincipalFrame extends javax.swing.JFrame {
     private void initComponents() {
 
         labelBienvenida = new javax.swing.JLabel();
+        fieldBuscar = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jPanel1 = new javax.swing.JPanel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -50,8 +71,29 @@ public class PrincipalFrame extends javax.swing.JFrame {
         jMenuItem2 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Agenda de contactos");
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
         labelBienvenida.setText("Bienvenido(a)");
+
+        jButton1.setText("Buscar");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 386, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 212, Short.MAX_VALUE)
+        );
+
+        jScrollPane1.setViewportView(jPanel1);
 
         jMenu1.setText("Menú");
 
@@ -82,7 +124,13 @@ public class PrincipalFrame extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(labelBienvenida, javax.swing.GroupLayout.DEFAULT_SIZE, 388, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1)
+                    .addComponent(labelBienvenida, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(fieldBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -90,7 +138,13 @@ public class PrincipalFrame extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(labelBienvenida)
-                .addContainerGap(255, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton1)
+                    .addComponent(fieldBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1)
+                .addContainerGap())
         );
 
         pack();
@@ -104,6 +158,28 @@ public class PrincipalFrame extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        try {
+            contactos = contactoService.showAll(
+                usuario.getId_usuario(), null
+            );
+            mostrarContactos();
+        } catch (Exception e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(null,"Error al leer contactos");
+        }
+    }//GEN-LAST:event_formWindowOpened
+
+    private void mostrarContactos() {
+        jPanel1.removeAll();
+        gridLayout.setRows(contactos.size());
+        for(Contacto c : contactos) {
+            ContactoPanel cp = new ContactoPanel(c);
+            jPanel1.add(cp);
+        }
+        jPanel1.updateUI();
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -130,10 +206,14 @@ public class PrincipalFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField fieldBuscar;
+    private javax.swing.JButton jButton1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JLabel labelBienvenida;
     // End of variables declaration//GEN-END:variables
