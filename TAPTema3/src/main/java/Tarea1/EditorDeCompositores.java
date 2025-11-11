@@ -384,7 +384,7 @@ public class EditorDeCompositores extends javax.swing.JFrame {
     }//GEN-LAST:event_labelTerminarMouseEntered
 
     private void labelTerminarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelTerminarMouseExited
-        btnTerminar.setBackground(COLOR2);
+        btnTerminar.setBackground(COLOR1);
     }//GEN-LAST:event_labelTerminarMouseExited
 
     private void xMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_xMouseClicked

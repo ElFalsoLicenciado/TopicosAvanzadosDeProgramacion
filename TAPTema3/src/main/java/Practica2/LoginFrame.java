@@ -41,7 +41,7 @@ public class LoginFrame extends javax.swing.JFrame {
         btnAcceder = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel1.setText("Correo:");
 
@@ -109,7 +109,8 @@ public class LoginFrame extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(
                     null, "Acceso correcto"
                 );
-                new PrincipalFrame(user).setVisible(true);
+                new PrincipalFrame(this, user).setVisible(true);
+                this.setVisible(false);
             } else {
                 JOptionPane.showMessageDialog(
                     null, "Usuario incorrecto, revise el correo y/o contraseña"
@@ -126,10 +127,11 @@ public class LoginFrame extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         new RegisterFrame().setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
+    
+    public  void showBack(){
+        this.setVisible(true);
+    }
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
