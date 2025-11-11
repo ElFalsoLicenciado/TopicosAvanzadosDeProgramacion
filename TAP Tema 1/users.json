@@ -1,14 +1,1 @@
-[
-    {
-        "userID": "Udd529",
-        "userType": "ADMIN",
-        "username": "asbesto",
-        "password": "0f6d7e8a66b6a5411bacbba96e06bc843620116c72630108a3f88a2d5631050a"
-    },
-    {
-        "userID": "Uf197a",
-        "userType": "USER",
-        "username": "memo",
-        "password": "a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3"
-    }
-]
+[{"userID":"Udd529","userType":"ADMIN","username":"asbesto","password":"0f6d7e8a66b6a5411bacbba96e06bc843620116c72630108a3f88a2d5631050a"},{"userID":"Uf197a","userType":"USER","username":"memo","password":"a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3"},{"userID":"U75f34","userType":"USER","username":"cande","password":"cc3cf6baf4f724be58d69993145bb5270ce4f5dea4228b7c21c28676fd180446"}]

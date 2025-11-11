@@ -121,6 +121,7 @@ public class RecordServices {
     public static void getPDF(StateNames state){
         ArrayList<Record> records = getSpecificStateRecords(state);
         if (records.isEmpty()) {
+            DialogHelper.errorMessageDialog("No se encontró ningún registro de: " + state.toString(), "Error de guardado.");
             return;
         }
 
@@ -181,6 +182,7 @@ public class RecordServices {
             }
 
             document.close();
+            DialogHelper.infoMessageDialog("Archivo guardado en directorio results, con nombre: " + state+ ".pdf", "Archivo guardado.");
         }catch (Exception e) {
             e.printStackTrace();
         }
@@ -219,6 +221,7 @@ public class RecordServices {
             }
 
             OutputStream fileOut = new FileOutputStream("results/resumen.xlsx");
+            DialogHelper.infoMessageDialog("Archivo guardado en directorio results, con nombre: resumen.xlsx", "Archivo guardado.");
             wb.write(fileOut);
         }catch (Exception e){
             e.printStackTrace();
