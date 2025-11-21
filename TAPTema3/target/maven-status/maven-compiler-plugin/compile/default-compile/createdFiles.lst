@@ -1,7 +1,6 @@
 Tarea1\Formulario$1.class
 Practica1\model_layer\ProductoService.class
 Tarea1\EditorDeCompositores$5.class
-com\mycompany\tap_u3p3\model_layer\Producto.class
 Practica2\ContactoFrame$1.class
 Practica2\ContactoPanel$1.class
 Practica2\PrincipalFrame$6.class
@@ -10,9 +9,9 @@ Tarea1\model_layer\models\CompositorService.class
 Tarea1\EditorDeCompositores$2.class
 Tarea1\Formulario$4.class
 Practica2\model_layer\services\ContactoService.class
+Practica3\admin_views\ProductoFrame.class
 Practica1\ProductosFrame$3.class
 Practica1\model_layer\DBConnection.class
-com\mycompany\tap_u3p3\services\UsuarioService.class
 Practica2\PrincipalFrame$7.class
 Practica2\model_layer\models\Contacto.class
 Tarea1\Formulario$2.class
@@ -23,7 +22,6 @@ Tarea1\model_layer\models\DBConnection.class
 Practica2\RegisterFrame$1.class
 Tarea1\EditorDeCompositores$3.class
 Tarea1\Formulario$5.class
-com\mycompany\tap_u3p3\model_layer\Usuario.class
 Practica2\ProfileFrame$2.class
 Practica2\model_layer\Conexion.class
 Practica2\ContactoPanel.class
@@ -32,10 +30,7 @@ Practica2\RegisterFrame.class
 Practica2\TAP_U3P2.class
 Practica2\PrincipalFrame$1.class
 Tarea1\model_layer\models\Epoca.class
-Practica3\LoginFrame.class
 Practica1\ProductosFrame$2.class
-com\mycompany\tap_u3p3\core_views\LoginFrame.class
-Practica3\LoginFrame$1.class
 Tarea1\model_layer\models\Compositor.class
 Tarea1\Formulario$6.class
 Practica2\ContactoFrame$2.class
@@ -43,18 +38,14 @@ Practica2\PrincipalFrame$4.class
 Practica2\LoginFrame.class
 Practica1\ProductosFrame$5.class
 Tarea1\Formulario.class
-com\mycompany\tap_u3p3\model_layer\Proveedor.class
 Practica2\ContactoFrame.class
 Tarea1\EditorDeCompositores$4.class
 Tarea1\Formulario$7.class
 Practica2\ProfileFrame$1.class
-Practica3\LoginFrame$2.class
 Practica1\ProductosFrame$1.class
 Practica2\PrincipalFrame$2.class
-com\mycompany\tap_u3p3\DBConnection.class
 Practica2\PrincipalFrame.class
 Tarea1\ItemCompositor.class
-com\mycompany\tap_u3p3\model_layer\Categoria.class
 Practica1\TAP_U3P1.class
 Tarea1\EditorDeCompositores$1.class
 Practica2\LoginFrame$2.class

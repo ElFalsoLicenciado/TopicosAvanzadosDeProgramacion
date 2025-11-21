@@ -5,40 +5,46 @@ import proyecto.enums.StateNames;
 
 public class Record implements java.io.Serializable {
     private String id_record;
+    private int record_number;
     private String id_author;
     private StateNames state_name;
     private RecordType record_type;
     private String title;
     private String description;
-    private byte[] image;
-    private boolean is_deleted;
-    private boolean is_public;
+    private String image;
+    private String image_name;
+    private int is_hidden;
+    private int is_public;
     private User author;
 
     public Record() {
     }
 
-    public Record(String id_record, String id_author, StateNames state_name, RecordType record_type, String title, String description, byte[] image, boolean is_deleted, boolean is_public) {
+    public Record(String id_record, int record_number, String id_author, StateNames state_name, RecordType record_type, String title, String description, String image, String image_name, int is_hidden, int is_public) {
         this.id_record = id_record;
+        this.record_number = record_number;
         this.id_author = id_author;
         this.state_name = state_name;
         this.record_type = record_type;
         this.title = title;
         this.description = description;
         this.image = image;
-        this.is_deleted = is_deleted;
+        this.image_name = image_name;
+        this.is_hidden = is_hidden;
         this.is_public = is_public;
     }
 
-    public Record(String id_record, String id_author, StateNames state_name, RecordType record_type, String title, String description, byte[] image, boolean is_deleted, boolean is_public, User author) {
+    public Record(String id_record, int record_number, String id_author, StateNames state_name, RecordType record_type, String title, String description, String image, String image_name, int is_hidden, int is_public, User author) {
         this.id_record = id_record;
+        this.record_number = record_number;
         this.id_author = id_author;
         this.state_name = state_name;
         this.record_type = record_type;
         this.title = title;
         this.description = description;
         this.image = image;
-        this.is_deleted = is_deleted;
+        this.image_name = image_name;
+        this.is_hidden = is_hidden;
         this.is_public = is_public;
         this.author = author;
     }
@@ -49,6 +55,14 @@ public class Record implements java.io.Serializable {
 
     public void setId_record(String id_record) {
         this.id_record = id_record;
+    }
+
+    public int getRecord_number() {
+        return record_number;
+    }
+
+    public void setRecord_number(int record_number) {
+        this.record_number = record_number;
     }
 
     public String getId_author() {
@@ -91,27 +105,35 @@ public class Record implements java.io.Serializable {
         this.description = description;
     }
 
-    public byte[] getImage() {
+    public String getImage() {
         return image;
     }
 
-    public void setImage(byte[] image) {
+    public void setImage(String image) {
         this.image = image;
     }
 
-    public boolean isIs_deleted() {
-        return is_deleted;
+    public String getImage_name() {
+        return image_name;
     }
 
-    public void setIs_deleted(boolean is_deleted) {
-        this.is_deleted = is_deleted;
+    public void setImage_name(String image_name) {
+        this.image_name = image_name;
     }
 
-    public boolean isIs_public() {
+    public int is_hidden() {
+        return is_hidden;
+    }
+
+    public void setIs_hidden(int is_hidden) {
+        this.is_hidden = is_hidden;
+    }
+
+    public int is_public() {
         return is_public;
     }
 
-    public void setIs_public(boolean is_public) {
+    public void setIs_public(int is_public) {
         this.is_public = is_public;
     }
 

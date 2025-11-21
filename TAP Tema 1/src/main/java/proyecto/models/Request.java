@@ -6,32 +6,33 @@ import proyecto.enums.RequestStatus;
 public class Request implements java.io.Serializable {
     private String id_request;
     private String id_record;
+    private int record_number;
     private String id_author;
     private RequestStatus status;
     private String reason = "";
     private Record record;
-    private User author;
 
 
     public Request() {
     }
 
-    public Request(String id_request, String id_author, String id_record, RequestStatus status, String reason) {
+    public Request(String id_request, int record_number, String id_author, String id_record, RequestStatus status, String reason) {
         this.id_request = id_request;
-        this.id_author = id_author;
         this.id_record = id_record;
+        this.record_number = record_number;
+        this.id_author = id_author;
         this.status = status;
         this.reason = reason;
     }
 
-    public Request(String id_request, String id_author, String id_record, RequestStatus status, String reason, Record record, User author) {
+    public Request(String id_request, int record_number, String id_author, String id_record, RequestStatus status, String reason, Record record) {
         this.id_request = id_request;
-        this.id_author = id_author;
         this.id_record = id_record;
+        this.record_number = record_number;
+        this.id_author = id_author;
         this.status = status;
         this.reason = reason;
         this.record = record;
-        this.author = author;
     }
 
     public String getId_request() {
@@ -48,6 +49,14 @@ public class Request implements java.io.Serializable {
 
     public void setId_record(String id_record) {
         this.id_record = id_record;
+    }
+
+    public int getRecord_number() {
+        return record_number;
+    }
+
+    public void setRecord_number(int record_number) {
+        this.record_number = record_number;
     }
 
     public String getId_author() {
@@ -80,13 +89,5 @@ public class Request implements java.io.Serializable {
 
     public void setRecord(Record record) {
         this.record = record;
-    }
-
-    public User getAuthor() {
-        return author;
-    }
-
-    public void setAuthor(User author) {
-        this.author = author;
     }
 }

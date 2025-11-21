@@ -5,6 +5,7 @@ import Practica3.model_layer.Categoria;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 
 /**
  *
@@ -34,5 +35,28 @@ public class CategoriaService {
         con.close();
         
         return categoria;
+    }
+    
+    public ArrayList<Categoria> showCategorias() throws Exception {
+        ArrayList<Categoria> categorias = null;
+        
+        String sql = "SELECT * FROM categorias;";
+        
+        Connection con = db.open();
+        PreparedStatement ps = con.prepareCall(sql);
+        
+        ResultSet rs = ps.executeQuery();
+        if(rs.next()) {
+            Categoria c = new Categoria(
+                rs.getString("id_categoria"),
+                rs.getString("nombre_categoria")
+            );
+            categorias.add(c);
+        }
+        rs.close();
+        ps.close();
+        con.close();
+        
+        return categorias;
     }
 }

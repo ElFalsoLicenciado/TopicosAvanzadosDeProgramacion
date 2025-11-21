@@ -19,6 +19,7 @@ CREATE TABLE users (
 
 CREATE TABLE records (
     id_record VARCHAR(36) not null primary key,
+    record_number INT not null,
     id_author VARCHAR(36) not null,
     state_name ENUM('Aguascalientes', 'Baja_California', 'Baja_California_Sur', 'Campeche',
     'Chiapas', 'Chihuahua', 'Ciudad_de_Mexico', 'Coahuila', 
@@ -31,14 +32,16 @@ CREATE TABLE records (
     record_type ENUM( 'TRADICION', 'GASTRONOMIA', 'LUGAR', 'PALABRA') not null,
     title VARCHAR(120) not null,
     description VARCHAR(1200) not null,
-    image LONGBLOB,
-    is_deleted BOOLEAN NOT NULL,
+    image LONGTEXT,
+    image_name VARCHAR(120),
+    is_hidden BOOLEAN NOT NULL,
     is_public BOOLEAN NOT NULL
 );
 
 CREATE TABLE requests (
     id_request VARCHAR(36) not null primary key,
     id_record VARCHAR(36) not null,
+    record_number INT not null,
     id_author VARCHAR(36) not null,
     request_status ENUM( 'WAITING', 'APPROVED', 'REJECTED', 'CANCELED') not null,
     reason VARCHAR(360) not null

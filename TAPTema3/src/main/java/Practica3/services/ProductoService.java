@@ -61,4 +61,27 @@ public class ProductoService {
         return productos;
     }
     
+    public boolean addProducto(Producto p) throws Exception {
+        String sql = "INSERT INTO produtos VALUES";
+        sql += "(UUID(),?,?,?,? ?,?,?)";
+        
+        Connection con = db.open();
+        PreparedStatement ps = con.prepareStatement(sql);
+        ps.setString(1, p.getId_categoria());
+        ps.setString(2, p.getId_proveedor());
+        ps.setString(3, p.getNombre_producto());
+        ps.setDouble(4, p.getPrecio());
+        ps.setInt(5, p.getCantidad());
+        ps.setString(6, p.getFoto_producto());
+        ps.setString(7, p.getNombre_foto_producto());
+        
+        int rowsAffected = ps.executeUpdate();
+        
+        ps.close();
+        con.close();
+        
+        return rowsAffected > 0;
+                
+    }
+    
 }

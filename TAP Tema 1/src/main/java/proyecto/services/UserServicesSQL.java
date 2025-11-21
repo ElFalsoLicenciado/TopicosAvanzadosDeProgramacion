@@ -13,14 +13,14 @@ import java.util.ArrayList;
 public class UserServicesSQL {
 
 
-    public static boolean addUser(UserType userType, String username, String password) throws Exception {
+    public static boolean addUser(User u) throws Exception {
         String sql = "INSERT INTO users VALUES (UUID(), ?, ?, ?)";
 
         Connection con = DBConnection.open();
         PreparedStatement ps = con.prepareStatement(sql);
-        ps.setString(1, userType.toString());
-        ps.setString(2, username);
-        ps.setString(3, password);
+        ps.setString(1, u.getUser_type().toString());
+        ps.setString(2, u.getUsername());
+        ps.setString(3, u.getPassword());
 
         int rowsAffected = ps.executeUpdate();
 

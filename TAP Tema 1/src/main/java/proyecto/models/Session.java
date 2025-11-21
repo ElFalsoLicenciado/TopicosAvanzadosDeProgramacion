@@ -1,9 +1,6 @@
 package proyecto.models;
 
 import proyecto.enums.UserType;
-import proyecto.services.RecordServices;
-import proyecto.services.RequestServices;
-import proyecto.services.UserServices;
 import proyecto.services.UserServicesSQL;
 import proyecto.utils.DialogHelper;
 
@@ -21,6 +18,7 @@ public class Session {
     }
 
     public static boolean logIn(String username, String password) {
+        boolean result = false;
         try {
             User search = UserServicesSQL.getUser(username, password);
             if (search != null) {
@@ -29,40 +27,40 @@ public class Session {
                         "Iniciado sesión correctamente."
                 );
                 user = search;
-                return true;
+                result = true;
             }
-            return false;
         } catch (Exception e) {
             e.printStackTrace();
         }
+        return result;
     }
 
     public static boolean signUp(UserType type, String username, String password) {
+        boolean result = false;
         try {
             if (UserServicesSQL.checkUsername(username)) {
-                if (UserServicesSQL.addUser(type, username, password)) {
-                    user = UserServicesSQL.getUser(username, password);
+                user.setUser_type(type);
+                user.setUsername(username);
+                user.setPassword(password);
+                if (UserServicesSQL.addUser(user)) {
                     DialogHelper.infoMessageDialog(
                             "Cuenta creada exitosamente.",
                             "Cuenta creada"
                     );
-                    return true;
+                    result = true;
                 }
-                DialogHelper.errorMessageDialog(
+                else DialogHelper.errorMessageDialog(
                         "Error al crear la cuenta, vuelva a intentarlo.",
                         "Error"
                 );
-
-            } else {
-                DialogHelper.errorMessageDialog(
-                        "El nombre de usuario ya existe, intenta con otro.",
-                        "Error"
-                );
-            }
-            return false;
+            } else DialogHelper.errorMessageDialog(
+                    "El nombre de usuario ya existe, intenta con otro.",
+                    "Error"
+            );
         } catch (Exception e) {
             e.printStackTrace();
         }
+        return result;
     }
 
     public static void guestMode() {
@@ -79,13 +77,13 @@ public class Session {
         user = null;
     }
 
-    public ArrayList<Record> getUserRecords() {
-        return RecordServices.getUserRecords(user.getId_user());
-    }
+//    public ArrayList<Record> getUserRecords() {
+//        return RecordServices.getUserRecords(user.getId_user());
+//    }
 
-    public ArrayList<Request> getUserRequests() {
-        return RequestServices.getUserRequests(user.getId_user());
-    }
+//    public ArrayList<Request> getUserRequests() {
+//        return RequestServices.getUserRequests(user.getId_user());
+//    }
 
 
 }

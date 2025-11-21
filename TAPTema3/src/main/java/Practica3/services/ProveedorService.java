@@ -5,6 +5,7 @@ import Practica3.model_layer.Proveedor;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 
 /**
  *
@@ -35,5 +36,29 @@ public class ProveedorService {
         con.close();
         
         return proveedor;
+    }
+    
+    public ArrayList<Proveedor> showProveedores() throws Exception {
+        ArrayList<Proveedor> proveedores = null;
+        
+        String sql = "SELECT * FROM proveedores;";
+        
+        Connection con = db.open();
+        PreparedStatement ps = con.prepareStatement(sql);
+        
+        ResultSet rs = ps.executeQuery();
+        if(rs.next()) {
+            Proveedor p = new Proveedor(
+                rs.getString("id_proveedor"),
+                rs.getString("nombre_proveedor"),
+                rs.getString("fecha_surte")
+            );
+            proveedores.add(p);
+        }
+        rs.close();
+        ps.close();
+        con.close();
+        
+        return proveedores;
     }
 }
