@@ -2,7 +2,9 @@ package proyecto;
 
 import proyecto.enums.UserType;
 import proyecto.models.Session;
-import proyecto.services.UserServices;
+//import proyecto.services.UserServices;
+import proyecto.models.User;
+import proyecto.services.UserServicesSQL;
 import proyecto.utils.DialogHelper;
 import proyecto.utils.SecurityTools;
 
@@ -520,26 +522,31 @@ public class LogInFrame extends javax.swing.JFrame {
 
 
         if (logIn) {
-            if(UserServices.numberOfUsers() == 0) {
-                DialogHelper.errorMessageDialog(
-                        "No hay ningún usuario registrado aún",
-                        "Sin usuarios registrados."
-                );
-                clearFields();
-                return;
-            }
-            String password = String.valueOf(fieldPassword.getPassword());
-            password = SecurityTools.hashString(password);
+            try {
+                if (UserServicesSQL.numberOfUsers() == 0) {
+                    DialogHelper.errorMessageDialog(
+                            "No hay ningún usuario registrado aún",
+                            "Sin usuarios registrados."
+                    );
+                    clearFields();
+                    return;
+                }
+                String password = String.valueOf(fieldPassword.getPassword());
+                password = SecurityTools.hashString(password);
 
-            if(Session.logIn(
-                    fieldUsername.getText(),
-                    password)
-            ) {
-                hideElements();
-                new HomeFrame(this, currentSession).setVisible(true);
+                if (Session.logIn(
+                        fieldUsername.getText(),
+                        password)
+                ) {
+                    hideElements();
+                    new HomeFrame(this, currentSession).setVisible(true);
+                    return;
+                }
                 return;
+            }catch (Exception e){
+                e.printStackTrace();
+                DialogHelper.errorMessageDialog("Error","");
             }
-            return;
         }
 
         UserType type = null;
