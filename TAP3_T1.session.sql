@@ -18,9 +18,9 @@ CREATE TABLE users (
 );
 
 CREATE TABLE records (
-    id_record VARCHAR(36) not null primary key,
-    record_number INT not null,
-    id_author VARCHAR(36) not null,
+    id_record VARCHAR(36) not null primary key,                                             
+    record_number INT not null,                                                             -- 1
+    id_author VARCHAR(36) not null,                                                         -- 2
     state_name ENUM('Aguascalientes', 'Baja_California', 'Baja_California_Sur', 'Campeche',
     'Chiapas', 'Chihuahua', 'Ciudad_de_Mexico', 'Coahuila', 
     'Colima', 'Durango', 'Estado_de_Mexico', 'Guanajuato', 
@@ -28,14 +28,14 @@ CREATE TABLE records (
     'Morelos', 'Nayarit', 'Nuevo_Leon', 'Oaxaca',
     'Puebla', 'Queretaro', 'Quintana_Roo', 'San_Luis_Potosi',
     'Sinaloa', 'Sonora', 'Tabasco', 'Tamaulipas',
-    'Tlaxcala', 'Veracruz', 'Yucatan', 'Zacatecas') not  null,
-    record_type ENUM( 'TRADICION', 'GASTRONOMIA', 'LUGAR', 'PALABRA') not null,
-    title VARCHAR(120) not null,
-    description VARCHAR(1200) not null,
-    image LONGTEXT,
-    image_name VARCHAR(120),
-    is_hidden BOOLEAN NOT NULL,
-    is_public BOOLEAN NOT NULL
+    'Tlaxcala', 'Veracruz', 'Yucatan', 'Zacatecas') not  null,                              -- 3
+    record_type ENUM( 'TRADICION', 'GASTRONOMIA', 'LUGAR', 'PALABRA') not null,             -- 4
+    title VARCHAR(120) not null,                                                            -- 5
+    description VARCHAR(1200) not null,                                                     -- 6
+    image LONGTEXT,                                                                         -- 7
+    image_name VARCHAR(120),                                                                -- 8
+    is_hidden BOOLEAN NOT NULL,                                                             -- 9
+    is_public BOOLEAN NOT NULL                                                              -- 10
 );
 
 CREATE TABLE requests (
@@ -56,6 +56,12 @@ ALTER TABLE requests ADD FOREIGN KEY (id_author) references users(id_user);
 INSERT INTO users VALUES (
     UUID(),'USER', 'memo', 'a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3'
 );
+
+INSERT INTO records VALUES 
+    -- (UUID(), 1, '5e042d16-c6a9-11f0-a9fd-e88088c48b50', 'Aguascalientes', 'PALABRA', 'Prueba1', 'Wevos',null, null ,'0', '1'),
+    -- (UUID(), 1, '5e042d16-c6a9-11f0-a9fd-e88088c48b50', 'Coahuila', 'GASTRONOMIA', 'Prueba2', 'Wevos',null, null ,'0', '1'),
+    -- (UUID(), 1, '5e042d16-c6a9-11f0-a9fd-e88088c48b50', 'Campeche', 'LUGAR', 'Prueba3', 'Wevos',null, null ,'0', '1');
+    ();
 
 
 -- USE tema3_tarea1;

@@ -4,10 +4,7 @@ import proyecto.enums.UserType;
 import proyecto.models.User;
 import proyecto.utils.DBConnection;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 
 public class UserServicesSQL {
@@ -53,7 +50,6 @@ public class UserServicesSQL {
     }
 
     public static User getUser(String id_user) throws Exception {
-        User user = null;
 
         String sql = "SELECT * FROM users WHERE id_user = '" + id_user + "';";
 
@@ -61,25 +57,17 @@ public class UserServicesSQL {
         Statement stm = con.createStatement();
 
         ResultSet rs = stm.executeQuery(sql);
-        if (rs.next()) {
-            user = new User(
-                    rs.getString("id_user"),
-                    Enum.valueOf(UserType.class,rs.getString("user_type")),
-                    rs.getString("username"),
-                    rs.getString("password")
-            );
-        }
 
         rs.close();
         stm.close();
         con.close();
 
-        return user;
+        return getQueryResult(rs);
     }
 
-    public static User getUser(String username, String password) throws Exception {
-        User user = null;
 
+
+    public static User getUser(String username, String password) throws Exception {
         String sql = "SELECT * FROM users";
         sql += " WHERE username=? AND password=?";
 
@@ -89,20 +77,13 @@ public class UserServicesSQL {
         ps.setString(2, password);
 
         ResultSet rs = ps.executeQuery();
-        if (rs.next()) {
-            user = new User(
-                    rs.getString("id_user"),
-                    Enum.valueOf(UserType.class,rs.getString("user_type")),
-                    rs.getString("username"),
-                    rs.getString("password")
-            );
-        }
 
         rs.close();
         ps.close();
         con.close();
 
-        return user;
+
+        return getQueryResult(rs);
     }
 
     public static boolean checkUsername(String username) throws Exception {
@@ -145,5 +126,18 @@ public class UserServicesSQL {
         System.out.println(numberOfUsers);
 
         return numberOfUsers;
+    }
+
+    private static User getQueryResult(ResultSet rs) throws SQLException {
+        User u = null;
+        if (rs.next()) {
+            u = new User(
+                    rs.getString("id_user"),
+                    Enum.valueOf(UserType.class,rs.getString("user_type")),
+                    rs.getString("username"),
+                    rs.getString("password")
+            );
+        }
+        return u;
     }
 }
