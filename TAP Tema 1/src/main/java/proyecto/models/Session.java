@@ -64,9 +64,7 @@ public class Session {
 
     public static void guestMode() {
         user = new User(
-                UserType.GUEST,
-                "Guest" + UUID.randomUUID().toString().replace("-", "").substring(0,5),
-                ""
+                "Guest"
         );
         DialogHelper.infoMessageDialog(
                 "Entraste a modo invitado",
@@ -79,11 +77,11 @@ public class Session {
     }
 
     public ArrayList<Record> getUserRecords() {
-        return RecordServices.getUserRecords(user.getUserID());
+        return RecordServices.getUserRecords(user.getId_user());
     }
 
     public ArrayList<Request> getUserRequests() {
-        return RequestServices.getUserRequests(user.getUserID());
+        return RequestServices.getUserRequests(user.getId_user());
     }
 
 

@@ -2,84 +2,124 @@ package proyecto.models;
 
 import proyecto.enums.RecordType;
 import proyecto.enums.StateNames;
-import java.util.UUID;
 
 public class Record implements java.io.Serializable {
-    private final String recordId;
-    private final String authorId;
-    private StateNames stateName;
-    private RecordType recordType;
-    private boolean isPublic;
+    private String id_record;
+    private String id_author;
+    private StateNames state_name;
+    private RecordType record_type;
     private String title;
     private String description;
-    private String imageUrl;
-    private boolean deleted;
+    private byte[] image;
+    private boolean is_deleted;
+    private boolean is_public;
+    private User author;
 
-    public Record(String authorId, StateNames stateName, RecordType recordType, boolean isPublic, String title, String description, String imageUrl) {
-        recordId = "R" + UUID.randomUUID().toString().replace("-", "").substring(0, 5);
-        this.authorId = authorId;
-        this.stateName = stateName;
-        this.recordType = recordType;
-        this.isPublic = isPublic;
+    public Record() {
+    }
+
+    public Record(String id_record, String id_author, StateNames state_name, RecordType record_type, String title, String description, byte[] image, boolean is_deleted, boolean is_public) {
+        this.id_record = id_record;
+        this.id_author = id_author;
+        this.state_name = state_name;
+        this.record_type = record_type;
         this.title = title;
         this.description = description;
-        this.imageUrl = imageUrl;
-        this.deleted = false;
+        this.image = image;
+        this.is_deleted = is_deleted;
+        this.is_public = is_public;
     }
 
-    public Record(String recordId, String authorId, StateNames stateName, RecordType recordType, boolean isPublic, String title, String description, String imageUrl, boolean deleted) {
-        this.recordId = recordId;
-        this.authorId = authorId;
-        this.stateName = stateName;
-        this.recordType = recordType;
-        this.isPublic = isPublic;
+    public Record(String id_record, String id_author, StateNames state_name, RecordType record_type, String title, String description, byte[] image, boolean is_deleted, boolean is_public, User author) {
+        this.id_record = id_record;
+        this.id_author = id_author;
+        this.state_name = state_name;
+        this.record_type = record_type;
         this.title = title;
         this.description = description;
-        this.imageUrl = imageUrl;
-        this.deleted = deleted;
+        this.image = image;
+        this.is_deleted = is_deleted;
+        this.is_public = is_public;
+        this.author = author;
     }
 
-    public String getAuthorId() {
-        return authorId;
+    public String getId_record() {
+        return id_record;
     }
 
-    public String getRecordId() {
-        return recordId;
+    public void setId_record(String id_record) {
+        this.id_record = id_record;
     }
 
-    public StateNames getState() {
-        return stateName;
+    public String getId_author() {
+        return id_author;
     }
 
-    public RecordType getRecordType() {
-        return recordType;
+    public void setId_author(String id_author) {
+        this.id_author = id_author;
     }
 
-    public boolean isPublic() {
-        return isPublic;
+    public StateNames getState_name() {
+        return state_name;
     }
 
-    public void setPublic(boolean aPublic) {
-        this.isPublic = aPublic;
+    public void setState_name(StateNames state_name) {
+        this.state_name = state_name;
+    }
+
+    public RecordType getRecord_type() {
+        return record_type;
+    }
+
+    public void setRecord_type(RecordType record_type) {
+        this.record_type = record_type;
     }
 
     public String getTitle() {
         return title;
     }
 
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
     public String getDescription() {
         return description;
     }
 
-    public String getImageUrl() {
-        return imageUrl;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
-    public boolean isDeleted() {
-        return deleted;
+    public byte[] getImage() {
+        return image;
     }
 
-    public void setDeleted() {
-        deleted = true;
+    public void setImage(byte[] image) {
+        this.image = image;
+    }
+
+    public boolean isIs_deleted() {
+        return is_deleted;
+    }
+
+    public void setIs_deleted(boolean is_deleted) {
+        this.is_deleted = is_deleted;
+    }
+
+    public boolean isIs_public() {
+        return is_public;
+    }
+
+    public void setIs_public(boolean is_public) {
+        this.is_public = is_public;
+    }
+
+    public User getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(User author) {
+        this.author = author;
     }
 }

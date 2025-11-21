@@ -32,7 +32,7 @@ public class RecordApproverSubFrame extends javax.swing.JPanel {
             fieldTitulo.setText(record.getTitle());
 
             String state = Other.getStateNames()[record.getState().ordinal()];
-            String type = Other.getTypes()[record.getRecordType().ordinal()];
+            String type = Other.getTypes()[record.getRecord_type().ordinal()];
 
             fieldEstado.setText(state);
             fieldCategoria.setText(type);
@@ -64,12 +64,12 @@ public class RecordApproverSubFrame extends javax.swing.JPanel {
             }
 
             String author;
-            if (UserServices.searchForUser(record.getAuthorId()).isEmpty()) author = "Sin autor";
-            else author = "Autor: " + UserServices.searchForUser(record.getAuthorId());
+            if (UserServices.searchForUser(record.getId_author()).isEmpty()) author = "Sin autor";
+            else author = "Autor: " + UserServices.searchForUser(record.getId_author());
 
             labelUsuario.setText(author);
 
-            panelImage.setIcon( new javax.swing.ImageIcon(record.getImageUrl()));
+            panelImage.setIcon( new javax.swing.ImageIcon(record.getImage()));
             updateUI();
             labelTitle.setText("Inspeccionar aprobación");
 

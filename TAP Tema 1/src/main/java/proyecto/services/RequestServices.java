@@ -74,15 +74,15 @@ public class RequestServices {
         ArrayList<Request> requests = getRequests();
         String msg;
 
-        Request request = new Request(record.getAuthorId(), record, RequestStatus.WAITING);
+        Request request = new Request(record.getId_author(), record, RequestStatus.WAITING);
 
         if (! checkForRequest(record)) {
             requests.add(request);
         }
         else {
             for (Request all : requests) {
-                if (record.getRecordId().equals(all.getRecord().getAuthorId())
-                        && record.getAuthorId().equals(all.getAuthorId())
+                if (record.getId_record().equals(all.getRecord().getId_author())
+                        && record.getId_author().equals(all.getId_author())
                         && all.getStatus().equals(RequestStatus.WAITING)
                 ) {
                     requests.set(requests.indexOf(all), request);
@@ -107,16 +107,16 @@ public class RequestServices {
         request.setReason(reason);
 
         for (Request all : requests) {
-            if (request.getRequestId().equals(all.getRequestId())) {
+            if (request.getId_request().equals(all.getId_request())) {
                 requests.set(requests.indexOf(all), request);
                 break;
             }
         }
         if (writeRequests(requests)) {
             if (status == RequestStatus.APPROVED) {
-                Record record = RecordServices.getRecord(request.getRecord().getRecordId());
+                Record record = RecordServices.getRecord(request.getRecord().getId_record());
                 if (record != null) {
-                    record.setPublic(true);
+                    record.setIs_public(true);
                     RecordServices.saveRecord(record);
                 }
             }
@@ -131,8 +131,8 @@ public class RequestServices {
         ArrayList<Request> requests = getRequests();
 
         for (Request all : requests) {
-            if (record.getRecordId().equals(all.getRecord().getRecordId())
-                    && record.getAuthorId().equals(all.getAuthorId())
+            if (record.getId_record().equals(all.getRecord().getId_record())
+                    && record.getId_author().equals(all.getId_author())
                     && all.getStatus().equals(RequestStatus.WAITING)
             ) {
                 all.setStatus(RequestStatus.CANCELED);
@@ -147,8 +147,8 @@ public class RequestServices {
         ArrayList<Request> requests = getRequests();
 
         for (Request all : requests) {
-            if (record.getRecordId().equals(all.getRecord().getRecordId())
-                    && record.getAuthorId().equals(all.getAuthorId())
+            if (record.getId_record().equals(all.getRecord().getId_record())
+                    && record.getId_author().equals(all.getId_author())
                     && all.getStatus().equals(RequestStatus.WAITING)
             ) {
                 return true;
@@ -162,7 +162,7 @@ public class RequestServices {
         ArrayList<Request> userRequests = new ArrayList<>();
 
         for (Request request : requests) {
-            if (request.getAuthorId().equals(userID)) {
+            if (request.getId_author().equals(userID)) {
                 userRequests.add(request);
             }
         }

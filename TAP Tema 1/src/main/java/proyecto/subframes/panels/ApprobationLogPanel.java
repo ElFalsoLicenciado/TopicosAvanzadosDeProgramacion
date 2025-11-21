@@ -21,7 +21,7 @@ public class ApprobationLogPanel extends javax.swing.JPanel {
             labelTitulo.setText(record.getTitle());
 
             String state = Other.getStateNames()[record.getState().ordinal()];
-            String type = Other.getTypes()[record.getRecordType().ordinal()];
+            String type = Other.getTypes()[record.getRecord_type().ordinal()];
 
             labelEstadoYCategoria.setText(
                     String.format("Estado: %s. Categoría: %s.", state, type)
@@ -34,7 +34,7 @@ public class ApprobationLogPanel extends javax.swing.JPanel {
                 case CANCELED -> labelStatus.setText("Registro eliminado.");
             }
 
-            panelImage.setIcon( new javax.swing.ImageIcon(record.getImageUrl()));
+            panelImage.setIcon( new javax.swing.ImageIcon(record.getImage()));
             updateUI();
         }
     }

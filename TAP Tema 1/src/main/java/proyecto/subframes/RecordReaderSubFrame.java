@@ -23,14 +23,14 @@ public class RecordReaderSubFrame extends javax.swing.JPanel {
 
         labelTitulo.setText(record.getTitle());
 
-        String author = UserServices.searchForUser(record.getAuthorId());
+        String author = UserServices.searchForUser(record.getId_author());
         if (author.isEmpty()) author = "Sin autor";
         else author = "Autor: " + author;
 
         labelAutor.setText(author);
 
         String state = Other.getStateNames()[record.getState().ordinal()];
-        String type = Other.getTypes()[record.getRecordType().ordinal()];
+        String type = Other.getTypes()[record.getRecord_type().ordinal()];
 
         labelEstado.setText(
                 "Estado: "  + state
@@ -42,7 +42,7 @@ public class RecordReaderSubFrame extends javax.swing.JPanel {
 
         fieldDescripcion.setText(record.getDescription());
 
-        panelImage.setIcon( new javax.swing.ImageIcon(record.getImageUrl()));
+        panelImage.setIcon( new javax.swing.ImageIcon(record.getImage()));
         updateUI();
     }
 

@@ -53,7 +53,7 @@ public class RecordEditorSubFrame extends javax.swing.JPanel {
         fieldDescripcion.setText(record.getDescription());
         fieldDescripcion.setForeground(Color.black);
 
-        switch (record.getRecordType()) {
+        switch (record.getRecord_type()) {
             case LUGAR -> choiceLug.setSelected(true);
             case TRADICION -> choiceTrad.setSelected(true);
             case PALABRA -> choicePala.setSelected(true);
@@ -62,7 +62,7 @@ public class RecordEditorSubFrame extends javax.swing.JPanel {
 
         comboStates.setSelectedIndex(record.getState().ordinal()+1);
 
-        imgFile = new File(record.getImageUrl());
+        imgFile = new File(record.getImage());
         panelImage.setIcon(
                 new javax.swing.ImageIcon(imgFile.getAbsolutePath())
         );
@@ -404,7 +404,7 @@ public class RecordEditorSubFrame extends javax.swing.JPanel {
         if (catGroup.getSelection() == null) mistakes += "Por favor, seleccionar una categoría.\n";
 
         if (mistakes.isEmpty()) {
-            String userId = session.getUser().getUserID();
+            String userId = session.getUser().getId_user();
             StateNames state = StateNames.values()[comboStates.getSelectedIndex()-1];
             RecordType type = null;
             boolean isPublic = false;
@@ -415,7 +415,7 @@ public class RecordEditorSubFrame extends javax.swing.JPanel {
             if (choiceLug.isSelected()) type = RecordType.LUGAR;
             if (choicePala.isSelected()) type = RecordType.PALABRA;
 
-            if (session.getUser().getUserType() == UserType.ADMIN)
+            if (session.getUser().getUser_type() == UserType.ADMIN)
                 isPublic = true;
             if (record == null) {
                 record = new Record(
@@ -428,7 +428,7 @@ public class RecordEditorSubFrame extends javax.swing.JPanel {
                         image
                 );
             }else{
-                String recordId = record.getRecordId();
+                String recordId = record.getId_record();
                 record = new Record(
                         recordId,
                         userId,

@@ -19,19 +19,19 @@ public class SelectRecordPanel extends javax.swing.JPanel {
         labelTitulo.setText(record.getTitle());
 
         String state = Other.getStateNames()[record.getState().ordinal()];
-        String type = Other.getTypes()[record.getRecordType().ordinal()];
+        String type = Other.getTypes()[record.getRecord_type().ordinal()];
 
         labelEstadoYCategoria.setText(
                 String.format("Estado: %s. Categoría: %s.", state, type)
         );
-        String author = UserServices.searchForUser(record.getAuthorId());
+        String author = UserServices.searchForUser(record.getId_author());
         if (author.isEmpty()) author = "Sin autor";
 
         labelUsuario.setText(
                 String.format("Creador: %s.", author)
         );
 
-        panelImage.setIcon( new javax.swing.ImageIcon(record.getImageUrl()));
+        panelImage.setIcon( new javax.swing.ImageIcon(record.getImage()));
         updateUI();
     }
 

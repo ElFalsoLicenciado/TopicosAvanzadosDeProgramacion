@@ -83,7 +83,7 @@ public class RecordServices {
         }
         else {
             for (Record all : records) {
-                if (record.getRecordId().equalsIgnoreCase(all.getRecordId())) {
+                if (record.getId_record().equalsIgnoreCase(all.getId_record())) {
                     records.set(records.indexOf(all), record);
                     break;
                 }
@@ -106,7 +106,7 @@ public class RecordServices {
         }
         else {
             for (Record all : records) {
-                if (record.getRecordId().equalsIgnoreCase(all.getRecordId())) {
+                if (record.getId_record().equalsIgnoreCase(all.getId_record())) {
                     records.set(records.indexOf(all), record);
                     msg = "Tu registro ha sido eliminado.";
                     break;
@@ -144,7 +144,7 @@ public class RecordServices {
 
                 Paragraph info = new Paragraph();
                 info.add(new Chunk("ID del registro: ", labelFont));
-                info.add(new Chunk(record.getRecordId() + "\n", valueFont));
+                info.add(new Chunk(record.getId_record() + "\n", valueFont));
                 info.setSpacingAfter(5f);
                 document.add(info);
 
@@ -156,13 +156,13 @@ public class RecordServices {
 
                 info = new Paragraph();
                 info.add(new Chunk("Tipo de registro cultural: ", labelFont));
-                info.add(new Chunk(Other.getTypes()[record.getRecordType().ordinal()] + "\n", valueFont));
+                info.add(new Chunk(Other.getTypes()[record.getRecord_type().ordinal()] + "\n", valueFont));
                 info.setSpacingAfter(5f);
                 document.add(info);
 
                 info = new Paragraph();
                 info.add(new Chunk("Es público: ", labelFont));
-                info.add(new Chunk(record.isPublic() ? "sí\n\n" : "no\n\n", valueFont));
+                info.add(new Chunk(record.Is_public() ? "sí\n\n" : "no\n\n", valueFont));
                 document.add(info);
 
                 Paragraph desc = new Paragraph("Descripción:\n" + record.getDescription(), body);
@@ -171,7 +171,7 @@ public class RecordServices {
                 desc.setSpacingAfter(10f);
                 document.add(desc);
 
-                Image image = Image.getInstance(record.getImageUrl());
+                Image image = Image.getInstance(record.getImage());
                 image.scaleAbsolute(150, 150);
                 image.setAlignment(Element.ALIGN_CENTER);
                 image.setSpacingBefore(10f);
@@ -233,7 +233,7 @@ public class RecordServices {
         ArrayList<Record> records = getRecords();
 
         for (Record all : records) {
-            if (record.getRecordId().equalsIgnoreCase(all.getRecordId())) {
+            if (record.getId_record().equalsIgnoreCase(all.getId_record())) {
                 return true;
             }
         }
@@ -243,7 +243,7 @@ public class RecordServices {
     public static Record getRecord(String recordId) {
         ArrayList<Record> records = getRecords();
         for (Record all : records) {
-            if (recordId.equalsIgnoreCase(all.getRecordId())) {
+            if (recordId.equalsIgnoreCase(all.getId_record())) {
                 return all;
             }
         }
@@ -255,7 +255,7 @@ public class RecordServices {
         ArrayList<Record> userRecords = new ArrayList<>();
 
         for (Record record : records) {
-            if (record.getAuthorId().equals(userID) && ! record.isDeleted()) {
+            if (record.getId_author().equals(userID) && ! record.Is_deleted()) {
                 userRecords.add(record);
             }
         }
@@ -267,7 +267,7 @@ public class RecordServices {
         ArrayList<Record> approvedRecords = new ArrayList<>();
 
         for (Record record : records) {
-            if (record.isPublic() && ! record.isDeleted()) {
+            if (record.Is_public() && ! record.Is_deleted()) {
                 approvedRecords.add(record);
             }
         }
@@ -285,21 +285,21 @@ public class RecordServices {
     public static ArrayList<Record> getSpecificTypeRecords(RecordType type){
         ArrayList<Record> records = getApprovedRecords();
 
-        records.removeIf(record -> ! record.getRecordType().equals(type));
+        records.removeIf(record -> ! record.getRecord_type().equals(type));
 
         return records;
     }
 
     public static ArrayList<Record> getVerySpecificRecords(StateNames state, RecordType type){
         ArrayList<Record> records = getSpecificStateRecords(state);
-        records.removeIf(record -> ! record.getRecordType().equals(type));
+        records.removeIf(record -> ! record.getRecord_type().equals(type));
         return records;
     }
 
     private static ArrayList<Record> getVerySpecificRecords(StateNames state, RecordType type, ArrayList<Record> records){
 
         records.removeIf(record -> ! record.getState().equals(state));
-        records.removeIf(record -> ! record.getRecordType().equals(type));
+        records.removeIf(record -> ! record.getRecord_type().equals(type));
         return records;
     }
 

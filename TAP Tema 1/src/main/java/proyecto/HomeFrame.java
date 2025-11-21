@@ -241,7 +241,7 @@ public class HomeFrame extends javax.swing.JFrame {
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         try {
             User currentUser = session.getUser();
-            switch (currentUser.getUserType()) {
+            switch (currentUser.getUser_type()) {
                 case USER -> tabGroup.remove(adminTab);
                 case GUEST -> {
                     tabGroup.remove(recordTab);

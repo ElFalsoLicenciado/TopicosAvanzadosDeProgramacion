@@ -98,7 +98,7 @@ public class UserServices {
         ArrayList<User> userList = getUsers();
 
         for (User all : userList) {
-            if (all.getUserID().equals(userID)) {
+            if (all.getId_user().equals(userID)) {
                 username = all.getUsername();
                 return username;
             }

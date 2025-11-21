@@ -23,13 +23,13 @@ public class ManageRecordPanel extends javax.swing.JPanel {
         labelTitulo.setText(record.getTitle());
 
         String state = Other.getStateNames()[record.getState().ordinal()];
-        String type = Other.getTypes()[record.getRecordType().ordinal()];
+        String type = Other.getTypes()[record.getRecord_type().ordinal()];
 
         labelEstadoYCategoria.setText(
                 String.format("Estado: %s. Categoría: %s.", state, type)
         );
         String isPublic;
-        if (record.isPublic()) isPublic = "Si";
+        if (record.Is_public()) isPublic = "Si";
 
         else isPublic = "No";
 
@@ -37,7 +37,7 @@ public class ManageRecordPanel extends javax.swing.JPanel {
                 String.format("Público: %s.", isPublic)
         );
 
-        panelImage.setIcon( new javax.swing.ImageIcon(record.getImageUrl()));
+        panelImage.setIcon( new javax.swing.ImageIcon(record.getImage()));
         updateUI();
     }
 
