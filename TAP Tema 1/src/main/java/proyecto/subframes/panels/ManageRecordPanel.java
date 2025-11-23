@@ -1,7 +1,9 @@
 package proyecto.subframes.panels;
 
+import proyecto.enums.RequestStatus;
 import proyecto.models.Record;
 import proyecto.services.RecordServicesSQL;
+import proyecto.services.RequestServicesSQL;
 import proyecto.subframes.RecordManagerSubFrame;
 import proyecto.utils.DialogHelper;
 import proyecto.utils.Other;
@@ -183,7 +185,11 @@ public class ManageRecordPanel extends javax.swing.JPanel {
         if (DialogHelper.warnConfirmDialog("¿Estás seguro?", "Advertencia") == 0) {
             record.setIs_hidden(1);
             try {
-                RecordServicesSQL.deleteRecord(record);
+                if(RecordServicesSQL.deleteRecord(record)) {
+                    DialogHelper.warnMessageDialog("Tu registro ha sido eliminado", "Advertencia.");
+                    RequestServicesSQL.setRequestStatus(record, RequestStatus.CANCELED, "");
+                }
+                else DialogHelper.errorMessageDialog("Error al eliminar el registro.", "Error de eliminado.");
             } catch (Exception e) {
                 e.printStackTrace();
             }

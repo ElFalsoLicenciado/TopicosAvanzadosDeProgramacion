@@ -46,6 +46,7 @@ public class Session {
                 user.setUsername(username);
                 user.setPassword(password);
                 if (UserServicesSQL.addUser(user)) {
+                    user = UserServicesSQL.getUser(username, password);
                     DialogHelper.infoMessageDialog(
                             "Cuenta creada exitosamente.",
                             "Cuenta creada"

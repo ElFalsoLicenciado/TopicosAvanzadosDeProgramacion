@@ -16,7 +16,7 @@ public class RequestServicesSQL {
 
     public static Request getRequest(String id_request) throws Exception {
         Request request = null;
-        String sql = "SELECT * FROM record WHERE id_request = ? ;";
+        String sql = "SELECT * FROM requests WHERE id_request = ? ;";
 
         Connection conn = DBConnection.open();
         PreparedStatement ps = conn.prepareStatement(sql);
@@ -72,11 +72,11 @@ public class RequestServicesSQL {
     }
 
     private static boolean updateRequest(Record r) throws Exception{
-        String sql = "UPDATE requests SET record_number=? WHERE id_record =? AND id_author=? AND status = 'WAITING';";
+        String sql = "UPDATE requests SET record_number=? WHERE id_record =? AND id_author=? AND request_status = 'WAITING';";
 
         Connection con = DBConnection.open();
         PreparedStatement ps = con.prepareStatement(sql);
-        ps.setInt(1, r.getRecord_number());
+        ps.setInt(1, RecordServicesSQL.getRecordNumbers(r.getId_record()));
         ps.setString(2, r.getId_record());
         ps.setString(3, r.getId_author());
 
@@ -95,7 +95,7 @@ public class RequestServicesSQL {
 
     public static ArrayList<Request> getRequests() throws Exception {
         ArrayList<Request> requests = new ArrayList<>();
-        String sql = "SELECT * FROM requests;";
+        String sql = "SELECT * FROM requests ORDER BY request_status ASC;";
 
         Connection con = DBConnection.open();
         PreparedStatement ps = con.prepareStatement(sql);
@@ -116,7 +116,7 @@ public class RequestServicesSQL {
 
     public static ArrayList<Request> getUserRequests(String id_author) throws Exception {
         ArrayList<Request> requests = new ArrayList<>();
-        String sql = "SELECT * FROM requests WHERE id_author = ?;";
+        String sql = "SELECT * FROM requests WHERE id_author = ? ORDER BY request_status ASC; ";
 
         Connection con = DBConnection.open();
         PreparedStatement ps = con.prepareStatement(sql);
@@ -138,7 +138,7 @@ public class RequestServicesSQL {
     }
 
     public static boolean setRequestStatus(Record r, RequestStatus status, String reason) throws Exception{
-        String sql = "UPDATE requests SET status = ?, reason = ? WHERE id_record =? AND id_author =? AND status = 'WAITING';";
+        String sql = "UPDATE requests SET request_status = ?, reason = ? WHERE id_record =? AND id_author =? AND request_status = 'WAITING';";
 
         Connection con = DBConnection.open();
         PreparedStatement ps = con.prepareStatement(sql);
@@ -156,27 +156,36 @@ public class RequestServicesSQL {
             if (status == RequestStatus.APPROVED)
                 if (RecordServicesSQL.setPublic(r)) {
                     DialogHelper.infoMessageDialog("La aprobación ha sido revisada y guardada.", "Guardado exitoso." );
-                    return true;
+                }
+            if (status == RequestStatus.REJECTED) {
+                DialogHelper.infoMessageDialog("La aprobación ha sido revisada y guardada.", "Guardado exitoso." );
             }
+            return true;
         }
         DialogHelper.errorMessageDialog("Error al guardar, intente de nuevo", "Error de guardado");
         return false;
     }
 
     private static boolean checkForRequest(Record r) throws Exception{
-        String sql = "SELECT * FROM requests WHERE id_record = ? AND id_author = ? AND status = 'WAITING';";
+        int numberOfRequests = 0;
+        String sql = "SELECT COUNT(*) FROM requests WHERE id_record = ? AND id_author = ? AND request_status = 'WAITING';";
 
         Connection con = DBConnection.open();
         PreparedStatement ps = con.prepareStatement(sql);
         ps.setString(1, r.getId_record());
         ps.setString(2, r.getId_author());
 
-        int rows = ps.executeUpdate();
+        ResultSet rs = ps.executeQuery();
 
+        if (rs.next()) {
+            numberOfRequests = rs.getInt(1);
+        }
+
+        rs.close();
         ps.close();
         con.close();
 
-        return rows > 0;
+        return numberOfRequests > 0;
     }
 
     private static Request getQueryResult(ResultSet rs) throws SQLException {
@@ -188,7 +197,7 @@ public class RequestServicesSQL {
                         rs.getString("id_record"),
                         rs.getInt("record_number"),
                         rs.getString("id_author"),
-                        Enum.valueOf(RequestStatus.class, rs.getString("status")),
+                        Enum.valueOf(RequestStatus.class, rs.getString("request_status")),
                         rs.getString("reason"),
                         RecordServicesSQL.getRecord(rs.getString("id_record"), rs.getInt("record_number"))
 

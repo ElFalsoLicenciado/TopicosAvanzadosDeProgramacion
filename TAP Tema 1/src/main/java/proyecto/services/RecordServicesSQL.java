@@ -49,9 +49,8 @@ public class RecordServicesSQL {
     }
 
 
-    public static boolean addRecord(Record r) throws Exception {
+    public static Record addRecord(Record r) throws Exception {
         int record_number = getRecordNumbers(r.getId_record())+1;
-
         String id_record = r.getId_record();
         if (id_record.isEmpty()) id_record = UUID.randomUUID().toString().substring(0, 35);
 
@@ -81,10 +80,10 @@ public class RecordServicesSQL {
 
         if (rows > 0) {
             DialogHelper.infoMessageDialog("Registro guardado.", "Guardado exitoso.");
-            return true;
+            return getRecord(id_record, record_number);
         }
         DialogHelper.errorMessageDialog("Error al guardar, intente de nuevo.", "Error de guardado.");
-        return false;
+        return null;
     }
 
     public static boolean deleteRecord(Record r) throws Exception {
@@ -101,12 +100,7 @@ public class RecordServicesSQL {
         ps.close();
         con.close();
 
-        if (rows > 0) {
-            DialogHelper.warnMessageDialog("Tu registro ha sido eliminado", "Advertencia.");
-            return true;
-        }
-        DialogHelper.errorMessageDialog("Error al eliminar el registro.", "Error de eliminado.");
-        return false;
+        return rows > 0;
     }
 
     public static boolean setPublic(Record r) throws Exception {
@@ -367,7 +361,7 @@ public class RecordServicesSQL {
         return r;
     }
 
-    private static int getRecordNumbers(String id_record) throws  Exception{
+    public static int getRecordNumbers(String id_record) throws  Exception{
         ArrayList<Record> records = new ArrayList<>();
         String sql = "SELECT * FROM records WHERE id_record = ?;";
 

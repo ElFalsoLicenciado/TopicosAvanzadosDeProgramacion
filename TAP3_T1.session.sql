@@ -39,6 +39,50 @@ CREATE TABLE records (
     primary key (id_record, record_number)
 );
 
+SELECT id_record, record_number, id_author, state_name, record_type, title, description FROM records;
+
+SELECT s.state_name,
+       COUNT(r.state_name) AS total_records
+FROM (
+    SELECT 'Aguascalientes' AS state_name UNION ALL
+    SELECT 'Baja_California' UNION ALL
+    SELECT 'Baja_California_Sur' UNION ALL
+    SELECT 'Campeche' UNION ALL
+    SELECT 'Chiapas' UNION ALL
+    SELECT 'Chihuahua' UNION ALL
+    SELECT 'Ciudad_de_Mexico' UNION ALL
+    SELECT 'Coahuila' UNION ALL
+    SELECT 'Colima' UNION ALL
+    SELECT 'Durango' UNION ALL
+    SELECT 'Estado_de_Mexico' UNION ALL
+    SELECT 'Guanajuato' UNION ALL
+    SELECT 'Guerrero' UNION ALL
+    SELECT 'Hidalgo' UNION ALL
+    SELECT 'Jalisco' UNION ALL
+    SELECT 'Michoacan' UNION ALL
+    SELECT 'Morelos' UNION ALL
+    SELECT 'Nayarit' UNION ALL
+    SELECT 'Nuevo_Leon' UNION ALL
+    SELECT 'Oaxaca' UNION ALL
+    SELECT 'Puebla' UNION ALL
+    SELECT 'Queretaro' UNION ALL
+    SELECT 'Quintana_Roo' UNION ALL
+    SELECT 'San_Luis_Potosi' UNION ALL
+    SELECT 'Sinaloa' UNION ALL
+    SELECT 'Sonora' UNION ALL
+    SELECT 'Tabasco' UNION ALL
+    SELECT 'Tamaulipas' UNION ALL
+    SELECT 'Tlaxcala' UNION ALL
+    SELECT 'Veracruz' UNION ALL
+    SELECT 'Yucatan' UNION ALL
+    SELECT 'Zacatecas'
+) AS s
+LEFT JOIN records r
+    ON r.state_name = s.state_name
+GROUP BY s.state_name
+ORDER BY s.state_name;
+
+
 CREATE TABLE requests (
     id_request VARCHAR(36) not null primary key,
     id_record VARCHAR(36) not null,
