@@ -25,6 +25,7 @@ public class RecordEditorSubFrame extends javax.swing.JPanel {
 
     private String fotoBase64 = null;
     private String fotoName = null;
+    private boolean edit;
 
 
     public RecordEditorSubFrame() {
@@ -42,6 +43,7 @@ public class RecordEditorSubFrame extends javax.swing.JPanel {
         fotoBase64 = Base64.getEncoder().encodeToString(new File(IMG_PATH + "imgnotfound.png").getAbsolutePath().getBytes());
         fotoName = "imgnotfound.png";
         labelTitle.setText("Crea tu registro.");
+        edit = false;
     }
 
     public RecordEditorSubFrame(HomeFrame homePanel, Session session, Record record) {
@@ -82,6 +84,7 @@ public class RecordEditorSubFrame extends javax.swing.JPanel {
 
         panelImage.updateUI();
         labelTitle.setText("Edita tu registro");
+        edit = true;
     }
 
 
@@ -398,6 +401,7 @@ public class RecordEditorSubFrame extends javax.swing.JPanel {
 
     private void labelTerminarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelTerminarMouseClicked
         String mistakes = "";
+
         if (fieldTitulo.getText().equals("Escribe el título")) mistakes += "No dejes el título en blanco.\n";
 
         if (fieldDescripcion.getText().equals("Escribe la descripción"))
@@ -422,7 +426,7 @@ public class RecordEditorSubFrame extends javax.swing.JPanel {
                 isPublic = 1;
             if (record == null) {
                 record = new Record(
-                        "", 0, userId, state, type, fieldTitulo.getText(),
+                        "", 1, userId, state, type, fieldTitulo.getText(),
                         fieldDescripcion.getText(), fotoBase64, fotoName, 0, isPublic);
             }else{
                 String recordId = record.getId_record();
@@ -433,11 +437,13 @@ public class RecordEditorSubFrame extends javax.swing.JPanel {
             try {
                 if(RecordServicesSQL.addRecord(record)) {
                     if (isPublic == 0 ) RequestServicesSQL.requestQuery(record);
+                    if (edit) RecordServicesSQL.deleteRecord(record);
                     homePanel.endEditing();
                     return;
                 }
             } catch (Exception e) {
                 e.printStackTrace();
+                return;
             }
         }
         DialogHelper.errorMessageDialog(mistakes, "Tienes errores.");

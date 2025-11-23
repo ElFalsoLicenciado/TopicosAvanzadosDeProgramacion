@@ -50,7 +50,7 @@ public class RecordServicesSQL {
 
 
     public static boolean addRecord(Record r) throws Exception {
-        int record_number = r.getRecord_number() + 1;
+        int record_number = getRecordNumbers(r.getId_record())+1;
 
         String id_record = r.getId_record();
         if (id_record.isEmpty()) id_record = UUID.randomUUID().toString().substring(0, 35);
@@ -171,10 +171,6 @@ public class RecordServicesSQL {
 
     public static ArrayList<Record> getStateSpecificRecords(StateNames state) throws Exception {
         ArrayList<Record> records = new ArrayList<>();
-
-        switch (state) {
-
-        }
 
         String sql = "SELECT * FROM records WHERE is_hidden = 0 AND is_public = 1 AND state_name = ? ORDER BY record_type;";
 
@@ -369,6 +365,29 @@ public class RecordServicesSQL {
             e.printStackTrace();
         }
         return r;
+    }
+
+    private static int getRecordNumbers(String id_record) throws  Exception{
+        ArrayList<Record> records = new ArrayList<>();
+        String sql = "SELECT * FROM records WHERE id_record = ?;";
+
+        Connection con = DBConnection.open();
+        PreparedStatement ps = con.prepareStatement(sql);
+
+        ps.setString(1, id_record);
+
+        ResultSet rs = ps.executeQuery();
+
+        while (rs.next()) {
+            Record r = getRecord(rs.getString("id_record"), rs.getInt("record_number"));
+            records.add(r);
+        }
+
+        rs.close();
+        ps.close();
+        con.close();
+
+        return records.size();
     }
 
     private static int[] getNumberOfRecords() {

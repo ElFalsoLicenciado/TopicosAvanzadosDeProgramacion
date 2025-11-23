@@ -18,7 +18,7 @@ CREATE TABLE users (
 );
 
 CREATE TABLE records (
-    id_record VARCHAR(36) not null primary key,                                             
+    id_record VARCHAR(36) not null,                                             
     record_number INT not null,                                                             -- 1
     id_author VARCHAR(36) not null,                                                         -- 2
     state_name ENUM('Aguascalientes', 'Baja_California', 'Baja_California_Sur', 'Campeche',
@@ -35,7 +35,8 @@ CREATE TABLE records (
     image LONGTEXT,                                                                         -- 7
     image_name VARCHAR(120),                                                                -- 8
     is_hidden BOOLEAN NOT NULL,                                                             -- 9
-    is_public BOOLEAN NOT NULL                                                              -- 10
+    is_public BOOLEAN NOT NULL,                                                              -- 10
+    primary key (id_record, record_number)
 );
 
 CREATE TABLE requests (
@@ -49,7 +50,7 @@ CREATE TABLE requests (
 
 ALTER TABLE records ADD FOREIGN KEY (id_author) references users(id_user);
 
-ALTER TABLE requests add foreign key (id_record) references records(id_record);
+ALTER TABLE requests add foreign key (id_record, record_number) references records(id_record, record_number);
 
 ALTER TABLE requests ADD FOREIGN KEY (id_author) references users(id_user);
 
