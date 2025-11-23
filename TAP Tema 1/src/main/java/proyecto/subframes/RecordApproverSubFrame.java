@@ -4,11 +4,13 @@ import proyecto.HomeFrame;
 import proyecto.enums.RequestStatus;
 import proyecto.models.Record;
 import proyecto.models.Request;
-import proyecto.services.RequestServices;
-import proyecto.services.UserServices;
+import proyecto.services.RequestServicesSQL;
+import proyecto.services.UserServicesSQL;
 import proyecto.utils.Other;
 
+import javax.swing.*;
 import java.awt.Color;
+import java.util.Base64;
 
 public class RecordApproverSubFrame extends javax.swing.JPanel {
 
@@ -31,7 +33,7 @@ public class RecordApproverSubFrame extends javax.swing.JPanel {
 
             fieldTitulo.setText(record.getTitle());
 
-            String state = Other.getStateNames()[record.getState().ordinal()];
+            String state = Other.getStateNames()[record.getState_name().ordinal()];
             String type = Other.getTypes()[record.getRecord_type().ordinal()];
 
             fieldEstado.setText(state);
@@ -64,13 +66,24 @@ public class RecordApproverSubFrame extends javax.swing.JPanel {
             }
 
             String author;
-            if (UserServices.searchForUser(record.getId_author()).isEmpty()) author = "Sin autor";
-            else author = "Autor: " + UserServices.searchForUser(record.getId_author());
+            try {
+                if (record.getAuthor().getUsername().isEmpty()) author = "Sin autor";
+                else author = "Autor: " + record.getAuthor().getUsername();
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
 
             labelUsuario.setText(author);
 
-            panelImage.setIcon( new javax.swing.ImageIcon(record.getImage()));
-            updateUI();
+            if(request.getRecord().getImage() != null) {
+                try {
+                    byte[] foto = Base64.getDecoder().decode(request.getRecord().getImage());
+                    panelImage.setIcon(new ImageIcon(foto));
+                    panelImage.updateUI();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
             labelTitle.setText("Inspeccionar aprobación");
 
         }
@@ -295,7 +308,11 @@ public class RecordApproverSubFrame extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnApproveMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnApproveMouseClicked
-        if(RequestServices.setRequestStatus(request, RequestStatus.APPROVED, "")) homePanel.endEditing();
+        try {
+            if(RequestServicesSQL.setRequestStatus(request.getRecord(), RequestStatus.APPROVED, "")) homePanel.endEditing();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }//GEN-LAST:event_btnApproveMouseClicked
 
     private void btnDenyMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDenyMouseClicked
@@ -318,7 +335,11 @@ public class RecordApproverSubFrame extends javax.swing.JPanel {
 
     public void getReasonFromForm(String reason){
         if (! reason.isEmpty()) {
-            if (RequestServices.setRequestStatus(request, RequestStatus.REJECTED, reason)) homePanel.endEditing();
+            try {
+                if (RequestServicesSQL.setRequestStatus(request.getRecord(), RequestStatus.REJECTED, reason)) homePanel.endEditing();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }
 

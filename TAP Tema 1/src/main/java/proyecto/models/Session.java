@@ -1,16 +1,19 @@
 package proyecto.models;
 
 import proyecto.enums.UserType;
+import proyecto.services.RequestServicesSQL;
 import proyecto.services.UserServicesSQL;
+import proyecto.services.RecordServicesSQL;
+
 import proyecto.utils.DialogHelper;
 
 import java.util.ArrayList;
-import java.util.UUID;
 
 public class Session {
     private static User user;
 
     public Session() {
+        user = new User();
     }
 
     public User getUser() {
@@ -38,7 +41,7 @@ public class Session {
     public static boolean signUp(UserType type, String username, String password) {
         boolean result = false;
         try {
-            if (UserServicesSQL.checkUsername(username)) {
+            if (! UserServicesSQL.checkUsername(username)) {
                 user.setUser_type(type);
                 user.setUsername(username);
                 user.setPassword(password);
@@ -77,13 +80,23 @@ public class Session {
         user = null;
     }
 
-//    public ArrayList<Record> getUserRecords() {
-//        return RecordServices.getUserRecords(user.getId_user());
-//    }
+    public ArrayList<Record> getUserRecords() {
+        try {
+            return RecordServicesSQL.getUserRecords(user.getId_user());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 
-//    public ArrayList<Request> getUserRequests() {
-//        return RequestServices.getUserRequests(user.getId_user());
-//    }
+    public ArrayList<Request> getUserRequests() {
+        try {
+            return RequestServicesSQL.getUserRequests(user.getId_user());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 
 
 }

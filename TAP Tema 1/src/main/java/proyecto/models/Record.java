@@ -133,6 +133,10 @@ public class Record implements java.io.Serializable {
         return is_public;
     }
 
+    public boolean Is_public(){
+        return is_public==1;
+    }
+
     public void setIs_public(int is_public) {
         this.is_public = is_public;
     }

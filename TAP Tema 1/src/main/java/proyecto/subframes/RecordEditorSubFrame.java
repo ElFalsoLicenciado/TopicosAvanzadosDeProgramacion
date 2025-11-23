@@ -6,14 +6,16 @@ import proyecto.enums.StateNames;
 import proyecto.enums.UserType;
 import proyecto.models.Record;
 import proyecto.models.Session;
-import proyecto.services.RecordServices;
-import proyecto.services.RequestServices;
+import proyecto.services.RecordServicesSQL;
+import proyecto.services.RequestServicesSQL;
 import proyecto.utils.DialogHelper;
 import proyecto.utils.Other;
 
 import java.io.File;
-import javax.swing.JFileChooser;
+import javax.swing.*;
 import java.awt.Color;
+import java.nio.file.Files;
+import java.util.Base64;
 
 public class RecordEditorSubFrame extends javax.swing.JPanel {
 
@@ -21,8 +23,9 @@ public class RecordEditorSubFrame extends javax.swing.JPanel {
     private Session session;
     private Record record;
 
-    private final String IMG_PATH = "src/main/java/proyecto/resources/";
-    private File imgFile = null;
+    private String fotoBase64 = null;
+    private String fotoName = null;
+
 
     public RecordEditorSubFrame() {
         initComponents();
@@ -35,7 +38,9 @@ public class RecordEditorSubFrame extends javax.swing.JPanel {
         this.homePanel = homePanel;
         this.session = session;
         record = null;
-        imgFile = new File(IMG_PATH+ "imgnotfound.png");
+        String IMG_PATH = "src/main/java/proyecto/resources/";
+        fotoBase64 = Base64.getEncoder().encodeToString(new File(IMG_PATH + "imgnotfound.png").getAbsolutePath().getBytes());
+        fotoName = "imgnotfound.png";
         labelTitle.setText("Crea tu registro.");
     }
 
@@ -60,12 +65,21 @@ public class RecordEditorSubFrame extends javax.swing.JPanel {
             case GASTRONOMIA -> choiceGast.setSelected(true);
         }
 
-        comboStates.setSelectedIndex(record.getState().ordinal()+1);
+        comboStates.setSelectedIndex(record.getState_name().ordinal()+1);
 
-        imgFile = new File(record.getImage());
-        panelImage.setIcon(
-                new javax.swing.ImageIcon(imgFile.getAbsolutePath())
-        );
+        fotoBase64 = record.getImage();
+        fotoName = record.getImage_name();
+
+        if(record.getImage() != null) {
+            try {
+                byte[] foto = Base64.getDecoder().decode(record.getImage());
+                panelImage.setIcon(new ImageIcon(foto));
+                panelImage.updateUI();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+
         panelImage.updateUI();
         labelTitle.setText("Edita tu registro");
     }
@@ -340,49 +354,39 @@ public class RecordEditorSubFrame extends javax.swing.JPanel {
         String fileName = null;
 
         if(jFileChooser1.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
-            File file = jFileChooser1.getSelectedFile();
-            fileName = file.getName();
+            try {
 
-            System.out.println(fileName);
+                if(jFileChooser1.getSelectedFile().length() > 512000) {
+                    throw new Exception("Error, foto muy grande");
+                }
+                File file = jFileChooser1.getSelectedFile();
+                byte[] foto = Files.readAllBytes(
+                        jFileChooser1.getSelectedFile().toPath()
+                );
 
-            if(fileName.endsWith(".png") || fileName.endsWith(".jpg")) {
-                panelImage.setIcon(
-                        new javax.swing.ImageIcon(file.getPath())
-                );
-                imgFile = new File(file.getPath());
-                panelImage.setBackground(Color.white);
-                panelImage.updateUI();
-            } else {
-                DialogHelper.errorMessageDialog(
-                        "Debe seleccionar una imagen png o jpg.",
-                        "Error de selección."
-                );
+                fileName = file.getName();
+
+                System.out.println(fileName);
+
+                if (fileName.endsWith(".png") || fileName.endsWith(".jpg")) {
+                    panelImage.setIcon(
+                            new javax.swing.ImageIcon(file.getPath())
+                    );
+                    fotoBase64 = Base64.getEncoder().encodeToString(foto);
+                    fotoName = fileName;
+                    panelImage.setBackground(Color.white);
+                    panelImage.updateUI();
+                } else {
+                    DialogHelper.errorMessageDialog(
+                            "Debe seleccionar una imagen png o jpg.",
+                            "Error de selección."
+                    );
+                }
+            }catch (Exception e) {
+                e.printStackTrace();
             }
         }
     }//GEN-LAST:event_labelSearchImageMouseClicked
-
-    private String copyImage(File file, String fileName) {
-        String img;
-        String folder = Other.folders[comboStates.getSelectedIndex()-1];
-        if(! Other.copiarArchivo(file.toPath(), IMG_PATH + folder ,fileName)) {
-            panelImage.setIcon(
-                    new javax.swing.ImageIcon(IMG_PATH + "imgnotfound.png")
-            );
-            panelImage.setBackground(Color.white);
-            img = IMG_PATH + "imgnotfound.png";
-        }
-
-        System.out.println("Colocando imagen de: " + IMG_PATH + folder + fileName);
-        panelImage.setIcon(
-                new javax.swing.ImageIcon(IMG_PATH + folder + fileName)
-        );
-        panelImage.setBackground(Color.white);
-        panelImage.updateUI();
-
-        img = IMG_PATH + folder + fileName;
-
-        return img;
-    }
 
     private void labelSearchImageMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelSearchImageMouseEntered
         btnSearchImage.setBackground(new Color(221,211,255));
@@ -407,8 +411,7 @@ public class RecordEditorSubFrame extends javax.swing.JPanel {
             String userId = session.getUser().getId_user();
             StateNames state = StateNames.values()[comboStates.getSelectedIndex()-1];
             RecordType type = null;
-            boolean isPublic = false;
-            String image = copyImage(imgFile, imgFile.getName());
+            int isPublic = 0;
 
             if (choiceGast.isSelected()) type = RecordType.GASTRONOMIA;
             if (choiceTrad.isSelected()) type = RecordType.TRADICION;
@@ -416,35 +419,25 @@ public class RecordEditorSubFrame extends javax.swing.JPanel {
             if (choicePala.isSelected()) type = RecordType.PALABRA;
 
             if (session.getUser().getUser_type() == UserType.ADMIN)
-                isPublic = true;
+                isPublic = 1;
             if (record == null) {
                 record = new Record(
-                        userId,
-                        state,
-                        type,
-                        isPublic,
-                        fieldTitulo.getText(),
-                        fieldDescripcion.getText(),
-                        image
-                );
+                        "", 0, userId, state, type, fieldTitulo.getText(),
+                        fieldDescripcion.getText(), fotoBase64, fotoName, 0, isPublic);
             }else{
                 String recordId = record.getId_record();
                 record = new Record(
-                        recordId,
-                        userId,
-                        state,
-                        type,
-                        isPublic,
-                        fieldTitulo.getText(),
-                        fieldDescripcion.getText(),
-                        image,
-                        false
-                );
+                        recordId, record.getRecord_number(), userId, state, type,fieldTitulo.getText(),
+                        fieldDescripcion.getText(), fotoBase64, fotoName, 0, isPublic);
             }
-            if(RecordServices.saveRecord(record)) {
-                if (! isPublic ) RequestServices.createRequest(record);
-                homePanel.endEditing();
-                return;
+            try {
+                if(RecordServicesSQL.addRecord(record)) {
+                    if (isPublic == 0 ) RequestServicesSQL.requestQuery(record);
+                    homePanel.endEditing();
+                    return;
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
         DialogHelper.errorMessageDialog(mistakes, "Tienes errores.");

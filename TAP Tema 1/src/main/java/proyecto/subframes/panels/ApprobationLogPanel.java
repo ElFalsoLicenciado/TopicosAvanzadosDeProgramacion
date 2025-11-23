@@ -5,6 +5,9 @@ import proyecto.models.Record;
 import proyecto.subframes.UserRequestsSubFrame;
 import proyecto.utils.Other;
 
+import javax.swing.*;
+import java.util.Base64;
+
 
 public class ApprobationLogPanel extends javax.swing.JPanel {
 
@@ -20,7 +23,7 @@ public class ApprobationLogPanel extends javax.swing.JPanel {
         if (record != null) {
             labelTitulo.setText(record.getTitle());
 
-            String state = Other.getStateNames()[record.getState().ordinal()];
+            String state = Other.getStateNames()[record.getState_name().ordinal()];
             String type = Other.getTypes()[record.getRecord_type().ordinal()];
 
             labelEstadoYCategoria.setText(
@@ -34,8 +37,15 @@ public class ApprobationLogPanel extends javax.swing.JPanel {
                 case CANCELED -> labelStatus.setText("Registro eliminado.");
             }
 
-            panelImage.setIcon( new javax.swing.ImageIcon(record.getImage()));
-            updateUI();
+            if(record.getImage() != null) {
+                try {
+                    byte[] foto = Base64.getDecoder().decode(record.getImage());
+                    panelImage.setIcon(new ImageIcon(foto));
+                    panelImage.updateUI();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
         }
     }
 

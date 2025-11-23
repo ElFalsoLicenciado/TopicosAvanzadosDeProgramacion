@@ -542,6 +542,7 @@ public class LogInFrame extends javax.swing.JFrame {
                     new HomeFrame(this, currentSession).setVisible(true);
                     return;
                 }
+                DialogHelper.errorMessageDialog("Contraseña o usuarios incorrectos.", "Error al iniciar sesión.");
                 return;
             }catch (Exception e){
                 e.printStackTrace();

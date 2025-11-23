@@ -1,7 +1,7 @@
 package proyecto.subframes;
 
 import proyecto.enums.StateNames;
-import proyecto.services.RecordServices;
+import proyecto.services.RecordServicesSQL;
 import proyecto.utils.DialogHelper;
 import proyecto.utils.Other;
 
@@ -162,7 +162,7 @@ public class AdminResumeSubFrame extends javax.swing.JPanel {
             DialogHelper.errorMessageDialog("Por favor, selecciona un estado.", "Error.");
             return;
         }
-        RecordServices.getPDF(StateNames.values()[comboStates.getSelectedIndex()-1]);
+        RecordServicesSQL.getPDF(StateNames.values()[comboStates.getSelectedIndex()-1]);
 
     }//GEN-LAST:event_labelPDFMouseClicked
 
@@ -175,7 +175,7 @@ public class AdminResumeSubFrame extends javax.swing.JPanel {
     }//GEN-LAST:event_labelPDFMouseExited
 
     private void labelExcelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelExcelMouseClicked
-        RecordServices.getExcel();
+        RecordServicesSQL.getExcel();
     }//GEN-LAST:event_labelExcelMouseClicked
 
     private void labelExcelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelExcelMouseEntered

@@ -13,7 +13,7 @@ public class DBConnection {
 
     public static Connection open() throws Exception {
         Connection connection = DriverManager.getConnection(
-                "jdbc:mysql://"+host+":"+port+"/" + dbName,
+                "jdbc:mysql://localhost:3306/proyecto_t3",
                 dbUser, dbPass
         );
         return connection;

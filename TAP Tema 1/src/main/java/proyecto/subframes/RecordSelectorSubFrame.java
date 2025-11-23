@@ -4,7 +4,7 @@ import proyecto.HomeFrame;
 import proyecto.enums.RecordType;
 import proyecto.enums.StateNames;
 import proyecto.models.Record;
-import proyecto.services.RecordServices;
+import proyecto.services.RecordServicesSQL;
 import proyecto.subframes.panels.SelectRecordPanel;
 import proyecto.utils.Other;
 
@@ -30,7 +30,11 @@ public class RecordSelectorSubFrame extends javax.swing.JPanel {
         this.homePanel = homePanel;
 
         panelRecordList.setLayout(gridLayout);
-        records = RecordServices.getApprovedRecords();
+        try {
+            records = RecordServicesSQL.getApprovedRecords();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         catIsSelected = false;
         
         if(records.isEmpty()) {
@@ -255,17 +259,32 @@ public class RecordSelectorSubFrame extends javax.swing.JPanel {
         if (choicePala.isSelected()) type = RecordType.PALABRA;
 
         if (comboStates.getSelectedIndex() == 0 && catIsSelected) {
-            records = RecordServices.getSpecificTypeRecords(type);
+            try {
+                assert type != null;
+                records = RecordServicesSQL.getTypeSpecificRecords(type);
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
         }
 
         if (comboStates.getSelectedIndex() != 0) state = StateNames.values()[comboStates.getSelectedIndex() - 1];
 
         if (comboStates.getSelectedIndex() != 0 && catIsSelected) {
-            records = RecordServices.getVerySpecificRecords(state, type);
+            try {
+                assert state != null;
+                assert type != null;
+                records = RecordServicesSQL.getVerySpecificRecords(state, type);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
 
         if (comboStates.getSelectedIndex() != 0 && ! catIsSelected) {
-            records = RecordServices.getSpecificStateRecords(state);
+            try {
+                records = RecordServicesSQL.getStateSpecificRecords(state);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
         showReadableRecords();
     }
@@ -281,7 +300,11 @@ public class RecordSelectorSubFrame extends javax.swing.JPanel {
         choicePala.setSelected(false);
         choiceTrad.setSelected(false);
         catIsSelected = false;
-        records = RecordServices.getApprovedRecords();
+        try {
+            records = RecordServicesSQL.getApprovedRecords();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         showReadableRecords();
     }
 

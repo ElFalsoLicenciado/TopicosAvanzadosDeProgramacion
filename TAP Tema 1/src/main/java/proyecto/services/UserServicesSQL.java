@@ -50,6 +50,7 @@ public class UserServicesSQL {
     }
 
     public static User getUser(String id_user) throws Exception {
+        User user = null;
 
         String sql = "SELECT * FROM users WHERE id_user = '" + id_user + "';";
 
@@ -58,16 +59,20 @@ public class UserServicesSQL {
 
         ResultSet rs = stm.executeQuery(sql);
 
+        user = getQueryResult(rs);
+
         rs.close();
         stm.close();
         con.close();
 
-        return getQueryResult(rs);
+        return user;
     }
 
 
 
     public static User getUser(String username, String password) throws Exception {
+        User user = null;
+
         String sql = "SELECT * FROM users";
         sql += " WHERE username=? AND password=?";
 
@@ -78,12 +83,14 @@ public class UserServicesSQL {
 
         ResultSet rs = ps.executeQuery();
 
+        user = getQueryResult(rs);
+
         rs.close();
         ps.close();
         con.close();
 
 
-        return getQueryResult(rs);
+        return user;
     }
 
     public static boolean checkUsername(String username) throws Exception {

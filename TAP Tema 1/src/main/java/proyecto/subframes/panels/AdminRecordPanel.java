@@ -2,9 +2,11 @@ package proyecto.subframes.panels;
 
 import proyecto.models.Record;
 import proyecto.models.Request;
-import proyecto.services.UserServices;
 import proyecto.subframes.AdminApprovalSubFrame;
 import proyecto.utils.Other;
+
+import javax.swing.*;
+import java.util.Base64;
 
 
 public class AdminRecordPanel extends javax.swing.JPanel {
@@ -22,7 +24,7 @@ public class AdminRecordPanel extends javax.swing.JPanel {
         if (record != null) {
             labelTitulo.setText(record.getTitle());
 
-            String state = Other.getStateNames()[record.getState().ordinal()];
+            String state = Other.getStateNames()[record.getState_name().ordinal()];
             String type = Other.getTypes()[record.getRecord_type().ordinal()];
 
             labelEstadoYCategoria.setText(
@@ -36,13 +38,20 @@ public class AdminRecordPanel extends javax.swing.JPanel {
                 case CANCELED -> labelStatus.setText("Cancelado.");
             }
 
-            String author = UserServices.searchForUser(record.getId_author());
+            String author = request.getRecord().getAuthor().getUsername();
             if (author.isEmpty()) author = "Sin autor";
 
             labelUsuario.setText(author);
 
-            panelImage.setIcon( new javax.swing.ImageIcon(record.getImage()));
-            updateUI();
+            if(record.getImage() != null) {
+                try {
+                    byte[] foto = Base64.getDecoder().decode(record.getImage());
+                    panelImage.setIcon(new ImageIcon(foto));
+                    panelImage.updateUI();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
         }
 
     }

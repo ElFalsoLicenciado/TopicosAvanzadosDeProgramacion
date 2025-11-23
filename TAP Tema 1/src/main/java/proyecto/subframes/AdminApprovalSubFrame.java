@@ -2,7 +2,7 @@ package proyecto.subframes;
 
 import proyecto.HomeFrame;
 import proyecto.models.Request;
-import proyecto.services.RequestServices;
+import proyecto.services.RequestServicesSQL;
 import proyecto.subframes.panels.AdminRecordPanel;
 
 import java.awt.*;
@@ -24,8 +24,12 @@ public class AdminApprovalSubFrame extends javax.swing.JPanel {
         this.homePanel = homePanel;
 
         panelRequestList.setLayout(gridLayout);
-        requests = RequestServices.getRequests();
-        
+        try {
+            requests = RequestServicesSQL.getRequests();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
         if(requests.isEmpty()) {
             labelTitle1.setVisible(true);
             return;

@@ -14,7 +14,7 @@ CREATE TABLE users (
     id_user varchar(36) not null primary key,
     user_type ENUM('USER','ADMIN', 'GUEST') not null,
     username varchar(36) not null,
-    password varchar(36) not null
+    password varchar(64) not null
 );
 
 CREATE TABLE records (
@@ -57,11 +57,15 @@ INSERT INTO users VALUES (
     UUID(),'USER', 'memo', 'a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3'
 );
 
-INSERT INTO records VALUES 
+INSERT INTO records VALUES (UUID(), 1, '5e042d16-c6a9-11f0-a9fd-e88088c48b50', 'Aguascalientes', 'TRADICION', 'Prueba4', 'Wevos',null, null ,'0', '1'),
+    (UUID(), 1, '5e042d16-c6a9-11f0-a9fd-e88088c48b50', 'Aguascalientes', 'GASTRONOMIA', 'Prueba5', 'Wevos',null, null ,'0', '1'),
+    (UUID(), 1, '5e042d16-c6a9-11f0-a9fd-e88088c48b50', 'Aguascalientes', 'LUGAR', 'Prueba6', 'Wevos',null, null ,'0', '1')
     -- (UUID(), 1, '5e042d16-c6a9-11f0-a9fd-e88088c48b50', 'Aguascalientes', 'PALABRA', 'Prueba1', 'Wevos',null, null ,'0', '1'),
     -- (UUID(), 1, '5e042d16-c6a9-11f0-a9fd-e88088c48b50', 'Coahuila', 'GASTRONOMIA', 'Prueba2', 'Wevos',null, null ,'0', '1'),
     -- (UUID(), 1, '5e042d16-c6a9-11f0-a9fd-e88088c48b50', 'Campeche', 'LUGAR', 'Prueba3', 'Wevos',null, null ,'0', '1');
-    ();
+;
+
+    SELECT * FROM records GROUP BY record_type ORDER BY state_name;
 
 
 -- USE tema3_tarea1;

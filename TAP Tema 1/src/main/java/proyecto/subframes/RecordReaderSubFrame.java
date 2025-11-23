@@ -2,10 +2,11 @@ package proyecto.subframes;
 
 import proyecto.HomeFrame;
 import proyecto.models.Record;
-import proyecto.services.UserServices;
 import proyecto.utils.Other;
 
+import javax.swing.*;
 import java.awt.Color;
+import java.util.Base64;
 
 public class RecordReaderSubFrame extends javax.swing.JPanel {
 
@@ -23,13 +24,18 @@ public class RecordReaderSubFrame extends javax.swing.JPanel {
 
         labelTitulo.setText(record.getTitle());
 
-        String author = UserServices.searchForUser(record.getId_author());
+        String author = null;
+        try {
+            author = record.getAuthor().getUsername();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         if (author.isEmpty()) author = "Sin autor";
         else author = "Autor: " + author;
 
         labelAutor.setText(author);
 
-        String state = Other.getStateNames()[record.getState().ordinal()];
+        String state = Other.getStateNames()[record.getState_name().ordinal()];
         String type = Other.getTypes()[record.getRecord_type().ordinal()];
 
         labelEstado.setText(
@@ -42,8 +48,15 @@ public class RecordReaderSubFrame extends javax.swing.JPanel {
 
         fieldDescripcion.setText(record.getDescription());
 
-        panelImage.setIcon( new javax.swing.ImageIcon(record.getImage()));
-        updateUI();
+        if(record.getImage() != null) {
+            try {
+                byte[] foto = Base64.getDecoder().decode(record.getImage());
+                panelImage.setIcon(new ImageIcon(foto));
+                panelImage.updateUI();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
     }
 
 

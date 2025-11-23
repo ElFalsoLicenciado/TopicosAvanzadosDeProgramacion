@@ -1,9 +1,11 @@
 package proyecto.subframes.panels;
 
-import proyecto.services.UserServices;
 import proyecto.subframes.RecordSelectorSubFrame;
 import proyecto.utils.Other;
 import proyecto.models.Record;
+
+import javax.swing.*;
+import java.util.Base64;
 
 public class SelectRecordPanel extends javax.swing.JPanel {
 
@@ -18,21 +20,28 @@ public class SelectRecordPanel extends javax.swing.JPanel {
 
         labelTitulo.setText(record.getTitle());
 
-        String state = Other.getStateNames()[record.getState().ordinal()];
+        String state = Other.getStateNames()[record.getState_name().ordinal()];
         String type = Other.getTypes()[record.getRecord_type().ordinal()];
 
         labelEstadoYCategoria.setText(
                 String.format("Estado: %s. Categoría: %s.", state, type)
         );
-        String author = UserServices.searchForUser(record.getId_author());
+        String author = record.getAuthor().getUsername();
         if (author.isEmpty()) author = "Sin autor";
 
         labelUsuario.setText(
                 String.format("Creador: %s.", author)
         );
 
-        panelImage.setIcon( new javax.swing.ImageIcon(record.getImage()));
-        updateUI();
+        if(record.getImage() != null) {
+            try {
+                byte[] foto = Base64.getDecoder().decode(record.getImage());
+                panelImage.setIcon(new ImageIcon(foto));
+                panelImage.updateUI();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     @SuppressWarnings("unchecked")

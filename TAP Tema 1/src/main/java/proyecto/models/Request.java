@@ -16,7 +16,7 @@ public class Request implements java.io.Serializable {
     public Request() {
     }
 
-    public Request(String id_request, int record_number, String id_author, String id_record, RequestStatus status, String reason) {
+    public Request(String id_request, String id_record, int record_number, String id_author, RequestStatus status, String reason) {
         this.id_request = id_request;
         this.id_record = id_record;
         this.record_number = record_number;
@@ -25,7 +25,7 @@ public class Request implements java.io.Serializable {
         this.reason = reason;
     }
 
-    public Request(String id_request, int record_number, String id_author, String id_record, RequestStatus status, String reason, Record record) {
+    public Request(String id_request, String id_record, int record_number, String id_author, RequestStatus status, String reason, Record record) {
         this.id_request = id_request;
         this.id_record = id_record;
         this.record_number = record_number;

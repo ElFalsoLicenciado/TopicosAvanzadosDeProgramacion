@@ -1,12 +1,14 @@
 package proyecto.subframes.panels;
 
 import proyecto.models.Record;
-import proyecto.services.RecordServices;
+import proyecto.services.RecordServicesSQL;
 import proyecto.subframes.RecordManagerSubFrame;
 import proyecto.utils.DialogHelper;
 import proyecto.utils.Other;
 
+import javax.swing.*;
 import java.awt.Color;
+import java.util.Base64;
 
 public class ManageRecordPanel extends javax.swing.JPanel {
 
@@ -22,14 +24,14 @@ public class ManageRecordPanel extends javax.swing.JPanel {
 
         labelTitulo.setText(record.getTitle());
 
-        String state = Other.getStateNames()[record.getState().ordinal()];
+        String state = Other.getStateNames()[record.getState_name().ordinal()];
         String type = Other.getTypes()[record.getRecord_type().ordinal()];
 
         labelEstadoYCategoria.setText(
                 String.format("Estado: %s. Categoría: %s.", state, type)
         );
         String isPublic;
-        if (record.Is_public()) isPublic = "Si";
+        if (record.is_public()== 1)  isPublic = "Si";
 
         else isPublic = "No";
 
@@ -37,8 +39,15 @@ public class ManageRecordPanel extends javax.swing.JPanel {
                 String.format("Público: %s.", isPublic)
         );
 
-        panelImage.setIcon( new javax.swing.ImageIcon(record.getImage()));
-        updateUI();
+        if(record.getImage() != null) {
+            try {
+                byte[] foto = Base64.getDecoder().decode(record.getImage());
+                panelImage.setIcon(new ImageIcon(foto));
+                panelImage.updateUI();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     @SuppressWarnings("unchecked")
@@ -172,8 +181,12 @@ public class ManageRecordPanel extends javax.swing.JPanel {
 
     private void labelBorrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelBorrarMouseClicked
         if (DialogHelper.warnConfirmDialog("¿Estás seguro?", "Advertencia") == 0) {
-            record.setDeleted();
-            RecordServices.deleteRecord(record);
+            record.setIs_hidden(1);
+            try {
+                RecordServicesSQL.deleteRecord(record);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
             recordManagerPanel.deleteRecord();
         }
     }//GEN-LAST:event_labelBorrarMouseClicked
