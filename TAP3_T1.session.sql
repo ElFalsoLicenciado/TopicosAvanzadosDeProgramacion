@@ -1,5 +1,7 @@
 use tap_p3_agodic25;
 
+ALTER TABLE proveedores ADD is_hidden BOOLEAN NOT NULL DEFAULT 0;
+
 -- desc categorias;
 
 -- desc productos;
