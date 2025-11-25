@@ -1,8 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
-package Practica3.admin_views;
+package Practica3.client_views;
 
 
 import Practica3.model_layer.Detalle;
@@ -10,21 +6,23 @@ import Practica3.model_layer.Venta;
 
 import javax.swing.*;
 
-public class VentaDetallesFrame extends javax.swing.JFrame {
+public class DetallesFrame extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.
-            getLogger(VentaDetallesFrame.class.getName());
+            getLogger(DetallesFrame.class.getName());
 
     private Venta venta;
 
-    public VentaDetallesFrame() {
+    public DetallesFrame() {
         initComponents();
     }
 
-    public VentaDetallesFrame(Venta venta) {
+    public DetallesFrame(Venta venta) {
         this.venta = venta;
 
         initComponents();
+
+        setLocationRelativeTo(null);
     }
 
     @SuppressWarnings("unchecked")
@@ -70,14 +68,14 @@ public class VentaDetallesFrame extends javax.swing.JFrame {
         listado.removeAll();
 
         for (Detalle d : venta.getDetalles()) {
-            listado.add(new VentaDetallePanel(d));
+            listado.add(new DetallePanel(d));
             listado.add(new JSeparator());
         }
         listado.updateUI();
     }
 
     public static void main(String args[]) {
-        java.awt.EventQueue.invokeLater(() -> new VentaDetallesFrame().
+        java.awt.EventQueue.invokeLater(() -> new DetallesFrame().
                 setVisible(true));
     }
 

@@ -69,4 +69,31 @@ public class VentaServices {
         return detalles;
     }
 
+    public ArrayList<Venta> getVentasUsuario(String id_usuario) throws Exception{
+        ArrayList<Venta> ventas = new ArrayList<>();
+
+        String sql = "SELECT * FROM ventas WHERE id_usuario = '" + id_usuario + "'";
+
+        Connection con =db.open();
+        Statement st = con.createStatement();
+
+        ResultSet rs = st.executeQuery(sql);
+        while(rs.next()){
+            Venta v = new Venta(rs.getString("id_venta"),
+                    rs.getString("id_usuario"),
+                    rs.getString("fecha"),
+                    rs.getDouble("total"),
+                    getDetalles(rs.getString("id_venta")),
+                    new UsuarioService().findUser(rs.getString("id_usuario"))
+            );
+            ventas.add(v);
+        }
+
+        rs.close();
+        st.close();
+        con.close();
+
+        return ventas;
+    }
+
 }

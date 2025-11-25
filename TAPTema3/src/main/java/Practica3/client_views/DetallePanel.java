@@ -1,20 +1,21 @@
-package Practica3.admin_views;
+package Practica3.client_views;
 
+import Practica3.admin_views.*;
 import Practica3.model_layer.Detalle;
 import Practica3.model_layer.Producto;
 
 import java.util.Base64;
 import javax.swing.ImageIcon;
 
-public class VentaDetallePanel extends javax.swing.JPanel {
+public class DetallePanel extends javax.swing.JPanel {
 
     private Detalle detalle;
 
-    public VentaDetallePanel() {
+    public DetallePanel() {
         initComponents();
     }
 
-    public VentaDetallePanel(Detalle detalle) {
+    public DetallePanel(Detalle detalle) {
         this.detalle = new Detalle();
 
         initComponents();
@@ -41,8 +42,6 @@ public class VentaDetallePanel extends javax.swing.JPanel {
             }
         }
     }
-    
-    
 
 
     @SuppressWarnings("unchecked")

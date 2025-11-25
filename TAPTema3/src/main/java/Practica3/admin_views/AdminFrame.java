@@ -259,7 +259,9 @@ public class AdminFrame extends javax.swing.JFrame {
 
     public void actualizaListado(String buscar) {
         listado.removeAll();
-        btnNuevo.setEnabled(seleccion != Seccion.VENTAS);
+
+        btnNuevo.setVisible(seleccion != Seccion.VENTAS);
+        btnBuscar.setVisible(seleccion != Seccion.VENTAS);
 
         productos.clear();
         categorias.clear();
@@ -313,7 +315,7 @@ public class AdminFrame extends javax.swing.JFrame {
     }
 
     public void verDetalles(Venta venta) {
-        new VentaDetallesFrame(venta).setVisible(true);
+        new DetallesFrame(venta).setVisible(true);
     }
 
     public static void main(String[] args) {

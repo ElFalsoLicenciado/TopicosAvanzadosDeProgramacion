@@ -117,6 +117,7 @@ public class LoginFrame extends javax.swing.JFrame {
                         return;
                     }
                     new ClientFrame(u).setVisible(true);
+                    return;
                 }else {
                     JOptionPane.showMessageDialog(
                             null, "Usuario incorrecto, revise el usuario y/o contraseña"
