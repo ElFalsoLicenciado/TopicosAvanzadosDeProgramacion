@@ -147,17 +147,13 @@ public class ProveedorFormFrame extends javax.swing.JFrame {
             // 2 0 2 5 - 0 1 - 0 1
             // 1 2 3 4 5 6 7 8 9 10
 
-            System.out.println(date.substring(8,10));
             int day = Integer.parseInt(date.substring(8,10));
 
             comboDay.setSelectedIndex(day-1);
 
-            System.out.println(date.substring(5,7));
             int month = Integer.parseInt(date.substring(5,7));
 
             comboMonth.setSelectedIndex(month-1);
-
-            System.out.printf("%s - %s\n", day, month);
 
             fieldYear.setText(date.substring(0,4));
         }

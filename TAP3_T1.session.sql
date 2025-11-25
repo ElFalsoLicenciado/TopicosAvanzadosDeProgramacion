@@ -2,15 +2,47 @@ use tap_p3_agodic25;
 
 ALTER TABLE proveedores ADD is_hidden BOOLEAN NOT NULL DEFAULT 0;
 
--- desc categorias;
+CREATE TABLE productos (
+    id_producto varchar(36) NOT NULL,
+    numero_producto INT NOT NULL,  
+    id_categoria varchar(36) NOT NULL,
+    id_proveedor varchar(36) DEFAULT NULL,
+    nombre_producto varchar(120) NOT NULL,
+    precio double NOT NULL DEFAULT 0,
+    cantidad int(11) NOT NULL DEFAULT 0,
+    foto_producto longtext DEFAULT NULL,
+    nombre_foto_producto varchar(120) DEFAULT NULL,
+    is_hidden tinyint(1) NOT NULL DEFAULT 0,
+    
+    PRIMARY KEY (id_producto, numero_producto),
 
--- desc productos;
+    FOREIGN KEY (id_categoria) REFERENCES categorias(id_categoria),
+    FOREIGN KEY (id_proveedor) REFERENCES proveedores(id_proveedor)
+);
 
--- desc proveedores;
+CREATE TABLE ventas (
+    id_venta VARCHAR(36) NOT NULL PRIMARY KEY,
+    id_usuario VARCHAR(36) NOT NULL,
+    fecha DATE NOT NULL,
+    total DECIMAL(10,2) NOT NULL,
 
--- desc usuarios;
+    FOREIGN KEY (id_usuario) REFERENCES usuarios(id_usuario)
+);
 
--- CREATE DATABASE proyecto_t3;
+CREATE TABLE detalles_venta (
+    id_detalle VARCHAR(36) NOT NULL PRIMARY KEY,
+    id_venta VARCHAR(36) NOT NULL,
+    id_producto VARCHAR(36) NOT NULL,
+    numero_producto INT NOT NULL,
+    cantidad INT NOT NULL,
+    precio_unitario DECIMAL(10,2) NOT NULL,
+    subtotal DECIMAL(10,2) NOT NULL,
+
+    FOREIGN KEY (id_venta) REFERENCES ventas(id_venta),
+    FOREIGN KEY (id_producto, numero_producto) REFERENCES productos(id_producto, numero_producto)
+);
+
+
 
 CREATE TABLE users (
     id_user varchar(36) not null primary key,
@@ -113,31 +145,3 @@ INSERT INTO records VALUES (UUID(), 1, '5e042d16-c6a9-11f0-a9fd-e88088c48b50', '
 ;
 
     SELECT * FROM records GROUP BY record_type ORDER BY state_name;
-
-
--- USE tema3_tarea1;
-
--- DROP TABLE compositores;
-
--- CREATE TABLE compositores (
---     id_compositor INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
---     foto_compositor longblob,
---     nombre_compositor VARCHAR(255) NOT NULL,
---     epoca ENUM('RENACIMIENTO','BARROCA','CLASICA', 'ROMANTICA', 'CONTEMPORANEA') NOT NULL,
---     num_composiciones INT NOT NULL,
---     vive BOOLEAN DEFAULT(true) NOT NULL
--- );
-
--- DESC compositores;
-
-
--- SELECT nombre_compositor, epoca, num_composiciones, vive FROM compositores;
-
--- UPDATE compositores
--- SET
---     foto_compositor = ?,         -- (new BLOB value)
---     nombre_compositor = 'Nuevo Nombre',
---     epoca = 'ROMANTICA',
---     num_composiciones = 25,
---     vive = false
--- WHERE id_objeto = 1;

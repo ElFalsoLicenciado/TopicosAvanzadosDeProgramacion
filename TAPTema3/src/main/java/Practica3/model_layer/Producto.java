@@ -8,6 +8,7 @@ import java.io.Serializable;
  */
 public class Producto implements Serializable {
     private String id_producto;
+    private int numero_producto;
     private String id_categoria;
     private String id_proveedor;
     private String nombre_producto;
@@ -21,8 +22,9 @@ public class Producto implements Serializable {
     public Producto() {
     }
 
-    public Producto(String id_producto, String id_categoria, String id_proveedor, String nombre_producto, Double precio, int cantidad, String foto_producto, String nombre_foto_producto) {
+    public Producto(String id_producto, int numero_producto, String id_categoria, String id_proveedor, String nombre_producto, Double precio, int cantidad, String foto_producto, String nombre_foto_producto) {
         this.id_producto = id_producto;
+        this.numero_producto = numero_producto;
         this.id_categoria = id_categoria;
         this.id_proveedor = id_proveedor;
         this.nombre_producto = nombre_producto;
@@ -32,8 +34,9 @@ public class Producto implements Serializable {
         this.nombre_foto_producto = nombre_foto_producto;
     }
 
-    public Producto(String id_producto, String id_categoria, String id_proveedor, String nombre_producto, Double precio, int cantidad, String foto_producto, String nombre_foto_producto, Categoria categoria, Proveedor proveedor) {
+    public Producto(String id_producto, int numero_producto, String id_categoria, String id_proveedor, String nombre_producto, Double precio, int cantidad, String foto_producto, String nombre_foto_producto, Categoria categoria, Proveedor proveedor) {
         this.id_producto = id_producto;
+        this.numero_producto = numero_producto;
         this.id_categoria = id_categoria;
         this.id_proveedor = id_proveedor;
         this.nombre_producto = nombre_producto;
@@ -45,20 +48,20 @@ public class Producto implements Serializable {
         this.proveedor = proveedor;
     }
 
-    public Proveedor getProveedor() {
-        return proveedor;
-    }
-
-    public void setProveedor(Proveedor proveedor) {
-        this.proveedor = proveedor;
-    }
-
     public String getId_producto() {
         return id_producto;
     }
 
     public void setId_producto(String id_producto) {
         this.id_producto = id_producto;
+    }
+
+    public int getNumero_producto() {
+        return numero_producto;
+    }
+
+    public void setNumero_producto(int numero_producto) {
+        this.numero_producto = numero_producto;
     }
 
     public String getId_categoria() {
@@ -123,6 +126,14 @@ public class Producto implements Serializable {
 
     public void setCategoria(Categoria categoria) {
         this.categoria = categoria;
+    }
+
+    public Proveedor getProveedor() {
+        return proveedor;
+    }
+
+    public void setProveedor(Proveedor proveedor) {
+        this.proveedor = proveedor;
     }
 
     @Override

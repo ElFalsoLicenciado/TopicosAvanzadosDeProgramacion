@@ -2,10 +2,7 @@ package Practica3.model_layer;
 
 import java.io.Serializable;
 
-/**
- *
- * @author Link
- */
+
 public class Categoria implements Serializable {
     private String id_categoria;
     private String nombre_categoria;

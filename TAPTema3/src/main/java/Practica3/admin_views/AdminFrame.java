@@ -1,12 +1,10 @@
 package Practica3.admin_views;
 
-import Practica3.model_layer.Categoria;
-import Practica3.model_layer.Producto;
-import Practica3.model_layer.Proveedor;
-import Practica3.model_layer.Usuario;
+import Practica3.model_layer.*;
 import Practica3.services.CategoriaService;
 import Practica3.services.ProductoService;
 import Practica3.services.ProveedorService;
+import Practica3.services.VentaServices;
 
 import java.util.ArrayList;
 import javax.swing.BoxLayout;
@@ -22,9 +20,12 @@ public class AdminFrame extends javax.swing.JFrame {
     private final ProductoService productoService = new ProductoService();
     private final CategoriaService categoriaService = new CategoriaService();
     private final ProveedorService proveedorService = new ProveedorService();
+    private final VentaServices ventaService = new VentaServices();
+
     private ArrayList<Producto> productos = new ArrayList<>();
     private ArrayList<Proveedor> proveedores = new ArrayList<>();
     private ArrayList<Categoria> categorias = new ArrayList<>();
+    private ArrayList<Venta> ventas = new ArrayList<>();
     private Seccion seleccion;
 
     public AdminFrame() {
@@ -125,12 +126,12 @@ public class AdminFrame extends javax.swing.JFrame {
         javax.swing.GroupLayout listadoLayout = new javax.swing.GroupLayout(listado);
         listado.setLayout(listadoLayout);
         listadoLayout.setHorizontalGroup(
-                listadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGap(0, 536, Short.MAX_VALUE)
+            listadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 536, Short.MAX_VALUE)
         );
         listadoLayout.setVerticalGroup(
-                listadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGap(0, 366, Short.MAX_VALUE)
+            listadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 366, Short.MAX_VALUE)
         );
 
         jScrollPane1.setViewportView(listado);
@@ -145,37 +146,37 @@ public class AdminFrame extends javax.swing.JFrame {
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jScrollPane1)
-                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addGroup(layout.createSequentialGroup()
-                                                                .addComponent(btnGestion, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                .addGap(0, 0, Short.MAX_VALUE))
-                                                        .addComponent(labelTitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                        .addComponent(btnNuevo, javax.swing.GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE)
-                                                        .addComponent(btnBuscar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                                .addContainerGap())
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btnGestion, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(labelTitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btnNuevo, javax.swing.GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE)
+                            .addComponent(btnBuscar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(btnGestion)
-                                        .addComponent(btnNuevo))
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(labelTitle)
-                                        .addComponent(btnBuscar))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jScrollPane1)
-                                .addContainerGap())
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnGestion)
+                    .addComponent(btnNuevo))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelTitle)
+                    .addComponent(btnBuscar))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1)
+                .addContainerGap())
         );
 
         pack();
@@ -246,7 +247,6 @@ public class AdminFrame extends javax.swing.JFrame {
     private void item4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_item4ActionPerformed
         seleccion = Seccion.VENTAS;
         labelTitle.setText("Listado de ventas");
-        btnNuevo.setText("Nueva venta");
         actualizaListado("");
     }//GEN-LAST:event_item4ActionPerformed
 
@@ -259,6 +259,12 @@ public class AdminFrame extends javax.swing.JFrame {
 
     public void actualizaListado(String buscar) {
         listado.removeAll();
+        btnNuevo.setEnabled(seleccion != Seccion.VENTAS);
+
+        productos.clear();
+        categorias.clear();
+        proveedores.clear();
+        ventas.clear();
 
         try {
             switch (seleccion) {
@@ -274,19 +280,26 @@ public class AdminFrame extends javax.swing.JFrame {
                     categorias = categoriaService.showCategorias(buscar);
                     for (Categoria c : categorias) {
                         listado.add(new CategoriaPanel(this, c));
+                        listado.add(new javax.swing.JSeparator());
+
                     }
-                    listado.add(new javax.swing.JSeparator());
                 }
 
                 case PROVEEDORES -> {
                     proveedores = proveedorService.showProveedores(buscar);
                     for (Proveedor p : proveedores) {
                         listado.add(new ProveedorPanel(this, p));
+                        listado.add(new javax.swing.JSeparator());
+
                     }
-                    listado.add(new javax.swing.JSeparator());
                 }
 
                 case VENTAS -> {
+                    ventas = ventaService.getVentas();
+                    for (Venta v : ventas) {
+                        listado.add(new VentaPanel(this, v));
+                        listado.add(new javax.swing.JSeparator());
+                    }
 //                    listado.add(); uwu
                 }
             }
@@ -299,6 +312,9 @@ public class AdminFrame extends javax.swing.JFrame {
         }
     }
 
+    public void verDetalles(Venta venta) {
+        new VentaDetallesFrame(venta).setVisible(true);
+    }
 
     public static void main(String[] args) {
         /* Create and display the form */
