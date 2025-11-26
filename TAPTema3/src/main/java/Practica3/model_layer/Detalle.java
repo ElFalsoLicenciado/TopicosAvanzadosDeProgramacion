@@ -3,6 +3,7 @@ package Practica3.model_layer;
 public class Detalle {
     private String id_detalle;
     private String id_venta;
+    private int numero;
     private String id_producto;
     private int numero_producto;
     private int cantidad;
@@ -13,9 +14,10 @@ public class Detalle {
     public Detalle() {
     }
 
-    public Detalle(String id_detalle, String id_venta, String id_producto, int numero_producto, int cantidad, double precio_unitario, double subtotal) {
+    public Detalle(String id_detalle, String id_venta, int numero, String id_producto, int numero_producto, int cantidad, double precio_unitario, double subtotal) {
         this.id_detalle = id_detalle;
         this.id_venta = id_venta;
+        this.numero = numero;
         this.id_producto = id_producto;
         this.numero_producto = numero_producto;
         this.cantidad = cantidad;
@@ -23,9 +25,10 @@ public class Detalle {
         this.subtotal = subtotal;
     }
 
-    public Detalle(String id_detalle, String id_venta, String id_producto, int numero_producto, int cantidad, double precio_unitario, double subtotal, Producto producto) {
+    public Detalle(String id_detalle, String id_venta, int numero, String id_producto, int numero_producto, int cantidad, double precio_unitario, double subtotal, Producto producto) {
         this.id_detalle = id_detalle;
         this.id_venta = id_venta;
+        this.numero = numero;
         this.id_producto = id_producto;
         this.numero_producto = numero_producto;
         this.cantidad = cantidad;
@@ -48,6 +51,14 @@ public class Detalle {
 
     public void setId_venta(String id_venta) {
         this.id_venta = id_venta;
+    }
+
+    public int getNumero() {
+        return numero;
+    }
+
+    public void setNumero(int numero) {
+        this.numero = numero;
     }
 
     public String getId_producto() {

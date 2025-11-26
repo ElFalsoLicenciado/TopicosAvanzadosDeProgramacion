@@ -1,65 +1,70 @@
-package Practica3.admin_views;
+package Practica3.client_views;
 
+import Practica3.model_layer.ItemCarrito;
 import Practica3.model_layer.Producto;
-import Practica3.services.ProductoService;
 
-import java.util.Base64;
-import javax.swing.*;
+public class ItemPanel extends javax.swing.JPanel {
+
+    private ClientFrame frame;
+
+    private ItemCarrito item;
 
 
-public class ProductoPanel extends javax.swing.JPanel {
-
-    private final ProductoService service = new ProductoService();
-    private AdminFrame frame;
-
-    private Producto producto;
-
-    public ProductoPanel() {
+    public ItemPanel() {
         initComponents();
     }
 
-    public ProductoPanel(AdminFrame frame, Producto producto) {
-        this.producto = producto;
+    public ItemPanel(ClientFrame frame, ItemCarrito item){
         this.frame = frame;
+        this.item = item;
 
         initComponents();
+
+        Producto producto = item.getProducto();
 
         labelNombre.setText(producto.getNombre_producto());
-        labelPrecio.setText("$" + producto.getPrecio());
-        labelCantidad.setText("" + producto.getCantidad());
 
-        labelCategoria.setText(
-                producto.getCategoria().getNombre_categoria()
-                        + "\n - " + producto.getProveedor().getNombre_proveedor()
-        );
+        labelCategoria.setText(producto.getCategoria().getNombre_categoria());
 
-        if(producto.getFoto_producto() != null) {
-            try {
-                byte[] foto = Base64.getDecoder().decode(producto.getFoto_producto());
-                panelImage1.setIcon(new ImageIcon(foto));
-                panelImage1.updateUI();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
+        labelPrecio.setText("$" + item.getPrecio());
+
+        labelCantidad.setText("" + item.getCantidad());
+
+        updateUI();
     }
+
 
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        panelImage1 = new org.edisoncor.gui.panel.PanelImage();
         labelNombre = new javax.swing.JLabel();
+        labelCategoria = new javax.swing.JLabel();
         labelPrecio = new javax.swing.JLabel();
         labelCantidad = new javax.swing.JLabel();
+        panelImage1 = new org.edisoncor.gui.panel.PanelImage();
         btnEditar = new javax.swing.JButton();
         btnBorrar = new javax.swing.JButton();
-        labelCategoria = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(255, 255, 255));
-        setForeground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        labelNombre.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        labelNombre.setText("Nombre");
+        add(labelNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(124, 6, 180, -1));
+
+        labelCategoria.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
+        labelCategoria.setForeground(new java.awt.Color(102, 102, 102));
+        labelCategoria.setText("Categoria");
+        add(labelCategoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(124, 30, 155, -1));
+
+        labelPrecio.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
+        labelPrecio.setForeground(new java.awt.Color(0, 204, 204));
+        labelPrecio.setText("Precio");
+        add(labelPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(124, 65, 180, -1));
+
+        labelCantidad.setText("Cantidad");
+        add(labelCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(124, 90, 180, -1));
 
         javax.swing.GroupLayout panelImage1Layout = new javax.swing.GroupLayout(panelImage1);
         panelImage1.setLayout(panelImage1Layout);
@@ -74,18 +79,6 @@ public class ProductoPanel extends javax.swing.JPanel {
 
         add(panelImage1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 6, -1, -1));
 
-        labelNombre.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        labelNombre.setText("Nombre");
-        add(labelNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(124, 6, 180, -1));
-
-        labelPrecio.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
-        labelPrecio.setForeground(new java.awt.Color(0, 204, 204));
-        labelPrecio.setText("Precio");
-        add(labelPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(124, 68, 180, -1));
-
-        labelCantidad.setText("Cantidad");
-        add(labelCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(124, 90, 180, -1));
-
         btnEditar.setForeground(new java.awt.Color(0, 102, 255));
         btnEditar.setText("Editar");
         btnEditar.addActionListener(new java.awt.event.ActionListener() {
@@ -93,7 +86,7 @@ public class ProductoPanel extends javax.swing.JPanel {
                 btnEditarActionPerformed(evt);
             }
         });
-        add(btnEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 6, 134, -1));
+        add(btnEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 10, -1, -1));
 
         btnBorrar.setForeground(new java.awt.Color(255, 51, 0));
         btnBorrar.setText("Borrar");
@@ -102,27 +95,15 @@ public class ProductoPanel extends javax.swing.JPanel {
                 btnBorrarActionPerformed(evt);
             }
         });
-        add(btnBorrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 79, 134, -1));
-
-        labelCategoria.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
-        labelCategoria.setForeground(new java.awt.Color(102, 102, 102));
-        labelCategoria.setText("Categoria");
-        add(labelCategoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(124, 28, 155, -1));
+        add(btnBorrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 80, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
-        new ProductoFormFrame(frame, producto).setVisible(true);
+        new SelectorProductosFrame(frame, item, item.getProducto()).setVisible(true);
     }//GEN-LAST:event_btnEditarActionPerformed
 
     private void btnBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBorrarActionPerformed
-        try {
-            if(service.deleteProducto(producto)) {
-                frame.actualizaListado("");
-                JOptionPane.showMessageDialog(null, "Producto eliminado");
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        frame.eliminarItem(item);
     }//GEN-LAST:event_btnBorrarActionPerformed
 
 

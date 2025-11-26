@@ -7,7 +7,9 @@ import Practica3.model_layer.Venta;
 import javax.swing.*;
 
 public class DetallesFrame extends javax.swing.JFrame {
-    
+
+    private BoxLayout boxLayout;
+
     private static final java.util.logging.Logger logger = java.util.logging.Logger.
             getLogger(DetallesFrame.class.getName());
 
@@ -22,6 +24,13 @@ public class DetallesFrame extends javax.swing.JFrame {
 
         initComponents();
 
+        boxLayout = new BoxLayout(
+                listado,
+                BoxLayout.Y_AXIS
+        );
+        listado.setLayout(boxLayout);
+
+
         setLocationRelativeTo(null);
     }
 
@@ -30,9 +39,11 @@ public class DetallesFrame extends javax.swing.JFrame {
     private void initComponents() {
 
         labelTitle = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
         listado = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setSize(new java.awt.Dimension(534, 399));
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 formWindowOpened(evt);
@@ -48,14 +59,16 @@ public class DetallesFrame extends javax.swing.JFrame {
         listado.setLayout(listadoLayout);
         listadoLayout.setHorizontalGroup(
             listadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 536, Short.MAX_VALUE)
+            .addGap(0, 510, Short.MAX_VALUE)
         );
         listadoLayout.setVerticalGroup(
             listadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 380, Short.MAX_VALUE)
+            .addGap(0, 320, Short.MAX_VALUE)
         );
 
-        getContentPane().add(listado, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 66, -1, 380));
+        jScrollPane1.setViewportView(listado);
+
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 500, 310));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -80,6 +93,7 @@ public class DetallesFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel labelTitle;
     private javax.swing.JPanel listado;
     // End of variables declaration//GEN-END:variables

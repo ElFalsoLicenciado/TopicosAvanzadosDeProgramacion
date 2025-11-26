@@ -1,7 +1,6 @@
-package Practica3.admin_views;
+package Practica3.client_views;
 
 import Practica3.model_layer.Producto;
-import Practica3.services.ProductoService;
 
 import java.util.Base64;
 import javax.swing.*;
@@ -9,8 +8,7 @@ import javax.swing.*;
 
 public class ProductoPanel extends javax.swing.JPanel {
 
-    private final ProductoService service = new ProductoService();
-    private AdminFrame frame;
+    private SelectorProductosFrame frame;
 
     private Producto producto;
 
@@ -18,7 +16,7 @@ public class ProductoPanel extends javax.swing.JPanel {
         initComponents();
     }
 
-    public ProductoPanel(AdminFrame frame, Producto producto) {
+    public ProductoPanel(SelectorProductosFrame frame, Producto producto) {
         this.producto = producto;
         this.frame = frame;
 
@@ -42,6 +40,7 @@ public class ProductoPanel extends javax.swing.JPanel {
                 e.printStackTrace();
             }
         }
+        updateUI();
     }
 
 
@@ -53,12 +52,15 @@ public class ProductoPanel extends javax.swing.JPanel {
         labelNombre = new javax.swing.JLabel();
         labelPrecio = new javax.swing.JLabel();
         labelCantidad = new javax.swing.JLabel();
-        btnEditar = new javax.swing.JButton();
-        btnBorrar = new javax.swing.JButton();
         labelCategoria = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(255, 255, 255));
         setForeground(new java.awt.Color(255, 255, 255));
+        setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                formMouseClicked(evt);
+            }
+        });
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         javax.swing.GroupLayout panelImage1Layout = new javax.swing.GroupLayout(panelImage1);
@@ -76,59 +78,28 @@ public class ProductoPanel extends javax.swing.JPanel {
 
         labelNombre.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         labelNombre.setText("Nombre");
-        add(labelNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(124, 6, 180, -1));
+        add(labelNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(125, 5, 180, -1));
 
         labelPrecio.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
         labelPrecio.setForeground(new java.awt.Color(0, 204, 204));
         labelPrecio.setText("Precio");
-        add(labelPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(124, 68, 180, -1));
+        add(labelPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(125, 62, 180, -1));
 
         labelCantidad.setText("Cantidad");
-        add(labelCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(124, 90, 180, -1));
-
-        btnEditar.setForeground(new java.awt.Color(0, 102, 255));
-        btnEditar.setText("Editar");
-        btnEditar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEditarActionPerformed(evt);
-            }
-        });
-        add(btnEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 6, 134, -1));
-
-        btnBorrar.setForeground(new java.awt.Color(255, 51, 0));
-        btnBorrar.setText("Borrar");
-        btnBorrar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBorrarActionPerformed(evt);
-            }
-        });
-        add(btnBorrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 79, 134, -1));
+        add(labelCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(125, 90, 180, -1));
 
         labelCategoria.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
         labelCategoria.setForeground(new java.awt.Color(102, 102, 102));
         labelCategoria.setText("Categoria");
-        add(labelCategoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(124, 28, 155, -1));
+        add(labelCategoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(125, 35, 155, -1));
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
-        new ProductoFormFrame(frame, producto).setVisible(true);
-    }//GEN-LAST:event_btnEditarActionPerformed
-
-    private void btnBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBorrarActionPerformed
-        try {
-            if(service.deleteProducto(producto)) {
-                frame.actualizaListado("");
-                JOptionPane.showMessageDialog(null, "Producto eliminado");
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }//GEN-LAST:event_btnBorrarActionPerformed
+    private void formMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseClicked
+        frame.seleccionarProducto(producto);
+    }//GEN-LAST:event_formMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnBorrar;
-    private javax.swing.JButton btnEditar;
     private javax.swing.JLabel labelCantidad;
     private javax.swing.JLabel labelCategoria;
     private javax.swing.JLabel labelNombre;

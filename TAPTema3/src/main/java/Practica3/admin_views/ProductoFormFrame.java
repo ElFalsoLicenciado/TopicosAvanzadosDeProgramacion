@@ -62,6 +62,7 @@ public class ProductoFormFrame extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Guardar producto");
+        setSize(new java.awt.Dimension(400, 362));
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 formWindowOpened(evt);
@@ -92,7 +93,9 @@ public class ProductoFormFrame extends javax.swing.JFrame {
 
         jLabel3.setText("Cantidad:");
 
-        spinnerPrecio.setModel(new javax.swing.SpinnerNumberModel(0.0d, null, null, 0.1d));
+        spinnerPrecio.setModel(new javax.swing.SpinnerNumberModel(0.0d, 0.0d, 9999.0d, 2.5d));
+
+        spinnerCantidad.setModel(new javax.swing.SpinnerNumberModel(0, 0, 9999, 1));
 
         jLabel4.setText("Categoria:");
 

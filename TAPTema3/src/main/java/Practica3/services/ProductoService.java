@@ -131,6 +131,8 @@ public class ProductoService {
         return editions;
     }
 
+
+
     public Producto getProducto(String id_producto, int numero_producto) throws Exception {
         Producto p = new Producto();
         String sql = "SELECT * FROM productos WHERE id_producto = ? AND numero_producto = ?;";
@@ -174,6 +176,26 @@ public class ProductoService {
         con.close();
 
         return p;
+    }
+
+    public boolean updateStock(String id_producto, int numero_producto, int vendido) throws Exception {
+        int restante = getProducto(id_producto, numero_producto).getCantidad() - vendido;
+
+        String sql = "UPDATE productos SET cantidad = ? WHERE id_producto = ? AND numero_producto = ?; ";
+
+        Connection con = db.open();
+        PreparedStatement ps = con.prepareStatement(sql);
+
+        ps.setInt(1, restante);
+        ps.setString(2, id_producto);
+        ps.setInt(3, numero_producto);
+
+        int rowsAffected = ps.executeUpdate();
+
+        ps.close();
+        con.close();
+
+        return rowsAffected > 0;
     }
 
 }

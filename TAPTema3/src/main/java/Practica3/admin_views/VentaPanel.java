@@ -18,7 +18,6 @@ public class VentaPanel extends javax.swing.JPanel {
 
         initComponents();
 
-        labelUsuario.setText(venta.getUsuario().getUsuario());
         labelFecha.setText(venta.getFecha());
         labelTotal.setText("$"+venta.getTotal());
 

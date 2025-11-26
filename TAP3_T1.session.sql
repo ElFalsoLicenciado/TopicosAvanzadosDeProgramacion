@@ -21,17 +21,23 @@ CREATE TABLE productos (
 );
 
 CREATE TABLE ventas (
-    id_venta VARCHAR(36) NOT NULL PRIMARY KEY,
+    id_venta VARCHAR(36) NOT NULL,
+    numero INT NOT NULL,
     id_usuario VARCHAR(36) NOT NULL,
-    fecha DATE NOT NULL,
+    fecha TIMESTAMP NOT NULL,
     total DECIMAL(10,2) NOT NULL,
+
+    PRIMARY KEY(id_venta),
 
     FOREIGN KEY (id_usuario) REFERENCES usuarios(id_usuario)
 );
 
+UPDATE productos SET cantidad = 60 WHERE id_producto = '4abbe1a2-ca9f-4cae-8eb3-6cb4800127d' AND numero_producto = 1;
+
 CREATE TABLE detalles_venta (
     id_detalle VARCHAR(36) NOT NULL PRIMARY KEY,
     id_venta VARCHAR(36) NOT NULL,
+    numero INT NOT NULL,
     id_producto VARCHAR(36) NOT NULL,
     numero_producto INT NOT NULL,
     cantidad INT NOT NULL,

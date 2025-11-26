@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 public class Venta {
     private String id_venta;
+    private int numero;
     private String id_usuario;
     private String fecha;
     private Double total;
@@ -14,15 +15,17 @@ public class Venta {
 
     }
 
-    public Venta(String id_venta, String id_usuario, String fecha, Double total) {
+    public Venta(String id_venta, int numero, String id_usuario, String fecha, Double total) {
         this.id_venta = id_venta;
+        this.numero = numero;
         this.id_usuario = id_usuario;
         this.fecha = fecha;
         this.total = total;
     }
 
-    public Venta(String id_venta, String id_usuario, String fecha, Double total, ArrayList<Detalle> detalles, Usuario usuario) {
+    public Venta(String id_venta, int numero, String id_usuario, String fecha, Double total, ArrayList<Detalle> detalles, Usuario usuario) {
         this.id_venta = id_venta;
+        this.numero = numero;
         this.id_usuario = id_usuario;
         this.fecha = fecha;
         this.total = total;
@@ -36,6 +39,14 @@ public class Venta {
 
     public void setId_venta(String id_venta) {
         this.id_venta = id_venta;
+    }
+
+    public int getNumero() {
+        return numero;
+    }
+
+    public void setNumero(int numero) {
+        this.numero = numero;
     }
 
     public String getId_usuario() {
