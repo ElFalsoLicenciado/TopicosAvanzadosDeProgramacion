@@ -162,7 +162,6 @@ public class RequestServicesSQL {
             }
             return true;
         }
-        DialogHelper.errorMessageDialog("Error al guardar, intente de nuevo", "Error de guardado");
         return false;
     }
 
