@@ -3,6 +3,9 @@ C:\Users\User\Documents\Programming\JetBrains\IntelliJ Projects\Topicos Avanzado
 C:\Users\User\Documents\Programming\JetBrains\IntelliJ Projects\Topicos Avanzados de Programacion\TAPTema3\src\main\java\Practica3\client_views\ClientFrame.java
 C:\Users\User\Documents\Programming\JetBrains\IntelliJ Projects\Topicos Avanzados de Programacion\TAPTema3\src\main\java\Practica3\model_layer\ItemCarrito.java
 C:\Users\User\Documents\Programming\JetBrains\IntelliJ Projects\Topicos Avanzados de Programacion\TAPTema3\src\main\java\Practica3\admin_views\VentaPanel.java
+C:\Users\User\Documents\Programming\JetBrains\IntelliJ Projects\Topicos Avanzados de Programacion\TAPTema3\src\main\java\Practica5\models\Producto.java
+C:\Users\User\Documents\Programming\JetBrains\IntelliJ Projects\Topicos Avanzados de Programacion\TAPTema3\src\main\java\Practica6\models\Usuario.java
+C:\Users\User\Documents\Programming\JetBrains\IntelliJ Projects\Topicos Avanzados de Programacion\TAPTema3\src\main\java\Practica5\TAP_U3P5.java
 C:\Users\User\Documents\Programming\JetBrains\IntelliJ Projects\Topicos Avanzados de Programacion\TAPTema3\src\main\java\Practica3\admin_views\DetallesFrame.java
 C:\Users\User\Documents\Programming\JetBrains\IntelliJ Projects\Topicos Avanzados de Programacion\TAPTema3\src\main\java\Practica3\admin_views\DetallePanel.java
 C:\Users\User\Documents\Programming\JetBrains\IntelliJ Projects\Topicos Avanzados de Programacion\TAPTema3\src\main\java\Practica2\ProfileFrame.java
@@ -15,6 +18,7 @@ C:\Users\User\Documents\Programming\JetBrains\IntelliJ Projects\Topicos Avanzado
 C:\Users\User\Documents\Programming\JetBrains\IntelliJ Projects\Topicos Avanzados de Programacion\TAPTema3\src\main\java\Practica3\model_layer\Producto.java
 C:\Users\User\Documents\Programming\JetBrains\IntelliJ Projects\Topicos Avanzados de Programacion\TAPTema3\src\main\java\Practica3\admin_views\AdminFrame.java
 C:\Users\User\Documents\Programming\JetBrains\IntelliJ Projects\Topicos Avanzados de Programacion\TAPTema3\src\main\java\Practica2\ContactoPanel.java
+C:\Users\User\Documents\Programming\JetBrains\IntelliJ Projects\Topicos Avanzados de Programacion\TAPTema3\src\main\java\Practica5\ProductosFrame.java
 C:\Users\User\Documents\Programming\JetBrains\IntelliJ Projects\Topicos Avanzados de Programacion\TAPTema3\src\main\java\Practica3\admin_views\ProveedorFormFrame.java
 C:\Users\User\Documents\Programming\JetBrains\IntelliJ Projects\Topicos Avanzados de Programacion\TAPTema3\src\main\java\Practica3\client_views\ProductoPanel.java
 C:\Users\User\Documents\Programming\JetBrains\IntelliJ Projects\Topicos Avanzados de Programacion\TAPTema3\src\main\java\Practica3\client_views\SelectorProductosFrame.java
@@ -34,13 +38,16 @@ C:\Users\User\Documents\Programming\JetBrains\IntelliJ Projects\Topicos Avanzado
 C:\Users\User\Documents\Programming\JetBrains\IntelliJ Projects\Topicos Avanzados de Programacion\TAPTema3\src\main\java\Practica3\services\ProveedorService.java
 C:\Users\User\Documents\Programming\JetBrains\IntelliJ Projects\Topicos Avanzados de Programacion\TAPTema3\src\main\java\Practica2\model_layer\Conexion.java
 C:\Users\User\Documents\Programming\JetBrains\IntelliJ Projects\Topicos Avanzados de Programacion\TAPTema3\src\main\java\Practica3\TAP3U3.java
+C:\Users\User\Documents\Programming\JetBrains\IntelliJ Projects\Topicos Avanzados de Programacion\TAPTema3\src\main\java\Practica6\core_views\LoginFrame.java
 C:\Users\User\Documents\Programming\JetBrains\IntelliJ Projects\Topicos Avanzados de Programacion\TAPTema3\src\main\java\Practica2\model_layer\services\ContactoService.java
 C:\Users\User\Documents\Programming\JetBrains\IntelliJ Projects\Topicos Avanzados de Programacion\TAPTema3\src\main\java\Practica1\model_layer\DBConnection.java
 C:\Users\User\Documents\Programming\JetBrains\IntelliJ Projects\Topicos Avanzados de Programacion\TAPTema3\src\main\java\Tarea1\ItemCompositor.java
 C:\Users\User\Documents\Programming\JetBrains\IntelliJ Projects\Topicos Avanzados de Programacion\TAPTema3\src\main\java\Practica1\TAP_U3P1.java
 C:\Users\User\Documents\Programming\JetBrains\IntelliJ Projects\Topicos Avanzados de Programacion\TAPTema3\src\main\java\Practica3\admin_views\ProductoFormFrame.java
 C:\Users\User\Documents\Programming\JetBrains\IntelliJ Projects\Topicos Avanzados de Programacion\TAPTema3\src\main\java\Practica1\model_layer\Producto.java
+C:\Users\User\Documents\Programming\JetBrains\IntelliJ Projects\Topicos Avanzados de Programacion\TAPTema3\src\main\java\Practica6\TAP_U3P6.java
 C:\Users\User\Documents\Programming\JetBrains\IntelliJ Projects\Topicos Avanzados de Programacion\TAPTema3\src\main\java\Tarea1\Formulario.java
+C:\Users\User\Documents\Programming\JetBrains\IntelliJ Projects\Topicos Avanzados de Programacion\TAPTema3\src\main\java\Practica6\services\UsuarioService.java
 C:\Users\User\Documents\Programming\JetBrains\IntelliJ Projects\Topicos Avanzados de Programacion\TAPTema3\src\main\java\Practica3\model_layer\Detalle.java
 C:\Users\User\Documents\Programming\JetBrains\IntelliJ Projects\Topicos Avanzados de Programacion\TAPTema3\src\main\java\Practica2\RegisterFrame.java
 C:\Users\User\Documents\Programming\JetBrains\IntelliJ Projects\Topicos Avanzados de Programacion\TAPTema3\src\main\java\Practica2\PrincipalFrame.java
@@ -51,6 +58,7 @@ C:\Users\User\Documents\Programming\JetBrains\IntelliJ Projects\Topicos Avanzado
 C:\Users\User\Documents\Programming\JetBrains\IntelliJ Projects\Topicos Avanzados de Programacion\TAPTema3\src\main\java\Tarea1\model_layer\models\DBConnection.java
 C:\Users\User\Documents\Programming\JetBrains\IntelliJ Projects\Topicos Avanzados de Programacion\TAPTema3\src\main\java\Practica3\admin_views\ProductoPanel.java
 C:\Users\User\Documents\Programming\JetBrains\IntelliJ Projects\Topicos Avanzados de Programacion\TAPTema3\src\main\java\Practica3\services\UsuarioService.java
+C:\Users\User\Documents\Programming\JetBrains\IntelliJ Projects\Topicos Avanzados de Programacion\TAPTema3\src\main\java\Practica5\services\ProductoService.java
 C:\Users\User\Documents\Programming\JetBrains\IntelliJ Projects\Topicos Avanzados de Programacion\TAPTema3\src\main\java\Tarea1\EditorDeCompositores.java
 C:\Users\User\Documents\Programming\JetBrains\IntelliJ Projects\Topicos Avanzados de Programacion\TAPTema3\src\main\java\Practica3\model_layer\Usuario.java
 C:\Users\User\Documents\Programming\JetBrains\IntelliJ Projects\Topicos Avanzados de Programacion\TAPTema3\src\main\java\Practica3\services\CategoriaService.java
