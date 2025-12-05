@@ -31,7 +31,7 @@ public class RecordSelectorSubFrame extends javax.swing.JPanel {
 
         panelRecordList.setLayout(gridLayout);
         try {
-            records = RecordServicesSQL.getApprovedRecords();
+            records = RecordServicesSQL.getApprovedRecords2();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -261,7 +261,7 @@ public class RecordSelectorSubFrame extends javax.swing.JPanel {
         if (comboStates.getSelectedIndex() == 0 && catIsSelected) {
             try {
                 assert type != null;
-                records = RecordServicesSQL.getTypeSpecificRecords(type);
+                records = RecordServicesSQL.getTypeSpecificRecords2(type);
             } catch (Exception e) {
                 throw new RuntimeException(e);
             }
@@ -273,7 +273,7 @@ public class RecordSelectorSubFrame extends javax.swing.JPanel {
             try {
                 assert state != null;
                 assert type != null;
-                records = RecordServicesSQL.getVerySpecificRecords(state, type);
+                records = RecordServicesSQL.getVerySpecificRecords2(state, type);
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -281,7 +281,7 @@ public class RecordSelectorSubFrame extends javax.swing.JPanel {
 
         if (comboStates.getSelectedIndex() != 0 && ! catIsSelected) {
             try {
-                records = RecordServicesSQL.getStateSpecificRecords(state);
+                records = RecordServicesSQL.getStateSpecificRecords2(state);
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -301,7 +301,7 @@ public class RecordSelectorSubFrame extends javax.swing.JPanel {
         choiceTrad.setSelected(false);
         catIsSelected = false;
         try {
-            records = RecordServicesSQL.getApprovedRecords();
+            records = RecordServicesSQL.getApprovedRecords2();
         } catch (Exception e) {
             e.printStackTrace();
         }

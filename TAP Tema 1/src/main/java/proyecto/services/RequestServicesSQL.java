@@ -76,7 +76,7 @@ public class RequestServicesSQL {
 
         Connection con = DBConnection.open();
         PreparedStatement ps = con.prepareStatement(sql);
-        ps.setInt(1, RecordServicesSQL.getRecordNumbers(r.getId_record()));
+        ps.setInt(1, RecordServicesSQL.getRecordNumbers2(r.getId_record()));
         ps.setString(2, r.getId_record());
         ps.setString(3, r.getId_author());
 
@@ -154,7 +154,7 @@ public class RequestServicesSQL {
 
         if (rows > 0) {
             if (status == RequestStatus.APPROVED)
-                if (RecordServicesSQL.setPublic(r)) {
+                if (RecordServicesSQL.setPublic2(r)) {
                     DialogHelper.infoMessageDialog("La aprobación ha sido revisada y guardada.", "Guardado exitoso." );
                 }
             if (status == RequestStatus.REJECTED) {
@@ -198,7 +198,7 @@ public class RequestServicesSQL {
                         rs.getString("id_author"),
                         Enum.valueOf(RequestStatus.class, rs.getString("request_status")),
                         rs.getString("reason"),
-                        RecordServicesSQL.getRecord(rs.getString("id_record"), rs.getInt("record_number"))
+                        RecordServicesSQL.getRecord2(rs.getString("id_record"), rs.getInt("record_number"))
 
                 );
             }

@@ -45,7 +45,6 @@ public class UserServicesSQL {
                 url + "end_point_users.php"
         ).bodyForm(form.build()).execute().returnContent().asString();
 
-        System.out.println(result);
 
         return ! result.contains("\"error\"");
     }
@@ -61,7 +60,6 @@ public class UserServicesSQL {
         ResultSet rs = stm.executeQuery(sql);
         while (rs.next()) {
             User u = getUser(rs.getString("id_user"));
-            System.out.println(u.getUsername());
             users.add(u);
         }
 
@@ -73,7 +71,7 @@ public class UserServicesSQL {
     }
 
     public static ArrayList<User> getUsers2() throws Exception {
-        ArrayList<User> users = new ArrayList<>();
+        ArrayList<User> users;
 
         String results = Request.get(
                 url + "end_point_users.php?operation=getAll"
@@ -86,7 +84,7 @@ public class UserServicesSQL {
     }
 
     public static User getUser(String id_user) throws Exception {
-        User user = null;
+        User user;
 
         String sql = "SELECT * FROM users WHERE id_user = '" + id_user + "';";
 
@@ -111,20 +109,11 @@ public class UserServicesSQL {
         form.add("operation", "getById");
         form.add("id_user", id_user);
 
-        String results = Request.post(
-                url + "end_point_users.php"
-        ).bodyForm(form.build()).execute().returnContent().asString();
-
-        System.out.println(results);
-
-        Type listType = new TypeToken<ArrayList<User>>(){}.getType();
-        users = new Gson().fromJson(results, listType);
-
-        return users.getFirst();
+        return getUser(form);
     }
 
     public static User getUser(String username, String password) throws Exception {
-        User user = null;
+        User user;
 
         String sql = "SELECT * FROM users";
         sql += " WHERE username=? AND password=?";
@@ -147,24 +136,15 @@ public class UserServicesSQL {
     }
 
     public static User getUser2(String username, String password) throws Exception {
-        ArrayList<User> users = new ArrayList<>();
-
         Form form = Form.form();
         form.add("operation", "getByCredentials");
         form.add("username", username );
         form.add("password", password);
 
-        String results = Request.post(
-                url + "end_point_users.php"
-        ).bodyForm(form.build()).execute().returnContent().asString();
-
-        System.out.println(results);
-
-        Type listType = new TypeToken<ArrayList<User>>(){}.getType();
-        users = new Gson().fromJson(results, listType);
-
-        return users.getFirst();
+        return getUser(form);
     }
+
+
 
     public static boolean checkUsername(String username) throws Exception {
         boolean result = false;
@@ -195,7 +175,6 @@ public class UserServicesSQL {
                 url + "end_point_users.php"
         ).bodyForm(form.build()).execute().returnContent().asString();
 
-        System.out.println(result);
 
         return ! result.contains("\"error\"");
     }
@@ -217,19 +196,16 @@ public class UserServicesSQL {
         stm.close();
         con.close();
 
-        System.out.println(numberOfUsers);
-
         return numberOfUsers;
     }
 
     public static int numberOfUsers2() throws Exception {
-        int numberOfUsers = 0;
+        int numberOfUsers;
 
         String results = Request.get(
                 url + "end_point_users.php?operation=number"
         ).execute().returnContent().asString();
 
-        System.out.println(results);
 
         numberOfUsers = Integer.parseInt(results);
 
@@ -247,5 +223,19 @@ public class UserServicesSQL {
             );
         }
         return u;
+    }
+
+    private static User getUser(Form form) throws Exception {
+        ArrayList<User> users;
+
+        String results = Request.post(
+                url + "end_point_users.php"
+        ).bodyForm(form.build()).execute().returnContent().asString();
+
+
+        Type listType = new TypeToken<ArrayList<User>>(){}.getType();
+        users = new Gson().fromJson(results, listType);
+
+        return users.getFirst();
     }
 }

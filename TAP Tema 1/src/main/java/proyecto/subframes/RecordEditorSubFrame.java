@@ -435,10 +435,10 @@ public class RecordEditorSubFrame extends javax.swing.JPanel {
                         fieldDescripcion.getText(), fotoBase64, fotoName, 0, isPublic);
             }
             try {
-                Record aux = RecordServicesSQL.addRecord(record);
+                Record aux = RecordServicesSQL.addRecord2(record);
                 if(record != null) {
                     if (isPublic == 0 ) RequestServicesSQL.requestQuery(aux);
-                    if (edit) RecordServicesSQL.deleteRecord(record);
+                    if (edit) RecordServicesSQL.deleteRecord2(record);
                     homePanel.endEditing();
                     return;
                 }

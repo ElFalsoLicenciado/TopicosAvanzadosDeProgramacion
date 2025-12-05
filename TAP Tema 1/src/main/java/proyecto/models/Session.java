@@ -83,7 +83,7 @@ public class Session {
 
     public ArrayList<Record> getUserRecords() {
         try {
-            return RecordServicesSQL.getUserRecords(user.getId_user());
+            return RecordServicesSQL.getUserRecords2(user.getId_user());
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -185,7 +185,7 @@ public class ManageRecordPanel extends javax.swing.JPanel {
         if (DialogHelper.warnConfirmDialog("¿Estás seguro?", "Advertencia") == 0) {
             record.setIs_hidden(1);
             try {
-                if(RecordServicesSQL.deleteRecord(record)) {
+                if(RecordServicesSQL.deleteRecord2(record)) {
                     DialogHelper.warnMessageDialog("Tu registro ha sido eliminado", "Advertencia.");
                     RequestServicesSQL.setRequestStatus(record, RequestStatus.CANCELED, "");
                 }

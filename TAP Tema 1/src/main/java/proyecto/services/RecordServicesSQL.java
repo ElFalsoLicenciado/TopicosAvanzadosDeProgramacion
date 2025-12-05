@@ -1,5 +1,9 @@
 package proyecto.services;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+import org.apache.hc.client5.http.fluent.Form;
+import org.apache.hc.client5.http.fluent.Request;
 import proyecto.enums.RecordType;
 import proyecto.enums.StateNames;
 import proyecto.models.Record;
@@ -8,7 +12,9 @@ import proyecto.utils.DialogHelper;
 import proyecto.utils.Other;
 
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.OutputStream;
+import java.lang.reflect.Type;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -27,223 +33,342 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 public class RecordServicesSQL {
 
-    public static Record getRecord(String id_record, int record_number) throws Exception {
-        Record record = null;
-        String sql = "SELECT * FROM records WHERE id_record = ? AND record_number = ?;";
+    private static final String url =  "http://localhost/TAP_2025/Proyecto/";
 
-        Connection con = DBConnection.open();
-        PreparedStatement ps = con.prepareStatement(sql);
+//    public static Record getRecord(String id_record, int record_number) throws Exception {
+//        Record record;
+//        String sql = "SELECT * FROM records WHERE id_record = ? AND record_number = ?;";
+//
+//        Connection con = DBConnection.open();
+//        PreparedStatement ps = con.prepareStatement(sql);
+//
+//        ps.setString(1, id_record);
+//        ps.setInt(2, record_number);
+//
+//        ResultSet rs = ps.executeQuery();
+//
+//        record = getQueryResult(rs);
+//
+//        rs.close();
+//        ps.close();
+//        con.close();
+//
+//        return record;
+//    }
 
-        ps.setString(1, id_record);
-        ps.setInt(2, record_number);
 
-        ResultSet rs = ps.executeQuery();
+    public static Record getRecord2(String id_record, int record_number) throws Exception {
+        Form form = Form.form();
+        form.add("operation", "getRecord");
+        form.add("id_record", id_record);
+        form.add("record_number", String.valueOf(record_number));
 
-        record = getQueryResult(rs);
-
-        rs.close();
-        ps.close();
-        con.close();
-
-        return record;
+        return getRecords(form).getFirst();
     }
 
 
-    public static Record addRecord(Record r) throws Exception {
-        int record_number = getRecordNumbers(r.getId_record())+1;
+//    public static Record addRecord(Record r) throws Exception {
+//        int record_number = getRecordNumbers2(r.getId_record())+1;
+//        String id_record = r.getId_record();
+//        if (id_record.isEmpty()) id_record = UUID.randomUUID().toString().substring(0, 35);
+//
+//        String sql = "INSERT INTO records VALUES ";
+//        sql += "(?,?,?,?,?,?,?,?,?,?,?);";
+//        //(id_record, record_number, id_author, state_name, record_type, title, description, image, image_name, is_hidden, is_public)
+//
+//        Connection con = DBConnection.open();
+//        PreparedStatement ps = con.prepareStatement(sql);
+//
+//        ps.setString(1, id_record);
+//        ps.setInt(2, record_number);
+//        ps.setString(3, r.getId_author());
+//        ps.setString(4, r.getState_name().toString());
+//        ps.setString(5, r.getRecord_type().toString());
+//        ps.setString(6, r.getTitle());
+//        ps.setString(7, r.getDescription());
+//        ps.setString(8, r.getImage());
+//        ps.setString(9, r.getImage_name());
+//        ps.setInt(10, r.is_hidden());
+//        ps.setInt(11, r.is_public());
+//
+//        int rows = ps.executeUpdate();
+//
+//        ps.close();
+//        con.close();
+//
+//        if (rows > 0) {
+//            DialogHelper.infoMessageDialog("Registro guardado.", "Guardado exitoso.");
+//            return getRecord(id_record, record_number);
+//        }
+//        DialogHelper.errorMessageDialog("Error al guardar, intente de nuevo.", "Error de guardado.");
+//        return null;
+//    }
+
+
+    public static Record addRecord2(Record r) throws Exception {
+        int record_number = getRecordNumbers2(r.getId_record())+1;
         String id_record = r.getId_record();
         if (id_record.isEmpty()) id_record = UUID.randomUUID().toString().substring(0, 35);
 
-        String sql = "INSERT INTO records VALUES ";
-        sql += "(?,?,?,?,?,?,?,?,?,?,?);";
-        //(id_record, record_number, id_author, state_name, record_type, title, description, image, image_name, is_hidden, is_public)
+        Form form = Form.form();
+        form.add("operation", "addRecord");
+        form.add("id_record", id_record);
+        form.add("record_number", String.valueOf(record_number));
+        form.add("author", r.getId_author());
+        form.add("state_name", r.getState_name().toString());
+        form.add("record_type", r.getRecord_type().toString());
+        form.add("title", r.getTitle());
+        form.add("description", r.getDescription());
+        form.add("image", r.getImage());
+        form.add("image_name", r.getImage_name());
+        form.add("is_hidden", String.valueOf(r.is_hidden()));
+        form.add("is_public", String.valueOf(r.is_public()));
 
-        Connection con = DBConnection.open();
-        PreparedStatement ps = con.prepareStatement(sql);
+        String result = Request.post(
+                url + "end_point_records.php"
+        ).bodyForm(form.build()).execute().returnContent().asString();
 
-        ps.setString(1, id_record);
-        ps.setInt(2, record_number);
-        ps.setString(3, r.getId_author());
-        ps.setString(4, r.getState_name().toString());
-        ps.setString(5, r.getRecord_type().toString());
-        ps.setString(6, r.getTitle());
-        ps.setString(7, r.getDescription());
-        ps.setString(8, r.getImage());
-        ps.setString(9, r.getImage_name());
-        ps.setInt(10, r.is_hidden());
-        ps.setInt(11, r.is_public());
 
-        int rows = ps.executeUpdate();
-
-        ps.close();
-        con.close();
-
-        if (rows > 0) {
+        if (! result.contains("error")) {
             DialogHelper.infoMessageDialog("Registro guardado.", "Guardado exitoso.");
-            return getRecord(id_record, record_number);
+            return getRecord2(id_record, record_number);
         }
+
         DialogHelper.errorMessageDialog("Error al guardar, intente de nuevo.", "Error de guardado.");
         return null;
     }
 
-    public static boolean deleteRecord(Record r) throws Exception {
-        String sql = "UPDATE records SET is_hidden = 1 WHERE id_record =? AND record_number=?;";
 
-        Connection con = DBConnection.open();
-        PreparedStatement ps = con.prepareStatement(sql);
+//    public static boolean deleteRecord(Record r) throws Exception {
+//        String sql = "UPDATE records SET is_hidden = 1 WHERE id_record =? AND record_number=?;";
+//
+//        Connection con = DBConnection.open();
+//        PreparedStatement ps = con.prepareStatement(sql);
+//
+//        ps.setString(1, r.getId_record());
+//        ps.setInt(2, r.getRecord_number());
+//
+//        int rows = ps.executeUpdate();
+//
+//        ps.close();
+//        con.close();
+//
+//        return rows > 0;
+//    }
 
-        ps.setString(1, r.getId_record());
-        ps.setInt(2, r.getRecord_number());
 
-        int rows = ps.executeUpdate();
+    public static boolean deleteRecord2(Record r) throws Exception {
+        Form form = Form.form();
+        form.add("operation", "deleteRecord");
+        form.add("id_record", r.getId_record());
+        form.add("record_number", String.valueOf(r.getRecord_number()));
 
-        ps.close();
-        con.close();
-
-        return rows > 0;
+        return extracted(form);
     }
 
-    public static boolean setPublic(Record r) throws Exception {
-        String sql = "UPDATE records SET is_public = 1 WHERE id_record =? AND record_number=?;";
 
-        Connection con = DBConnection.open();
-        PreparedStatement ps = con.prepareStatement(sql);
+//    public static boolean setPublic(Record r) throws Exception {
+//        String sql = "UPDATE records SET is_public = 1 WHERE id_record =? AND record_number=?;";
+//
+//        Connection con = DBConnection.open();
+//        PreparedStatement ps = con.prepareStatement(sql);
+//
+//        ps.setString(1, r.getId_record());
+//        ps.setInt(2, r.getRecord_number());
+//
+//        int rows = ps.executeUpdate();
+//
+//        ps.close();
+//        con.close();
+//
+//        return rows > 0;
+//    }
 
-        ps.setString(1, r.getId_record());
-        ps.setInt(2, r.getRecord_number());
 
-        int rows = ps.executeUpdate();
+    public static boolean setPublic2(Record r) throws Exception {
+        Form form = Form.form();
+        form.add("operation", "setPublic");
+        form.add("id_record", r.getId_record());
+        form.add("record_number", String.valueOf(r.getRecord_number()));
 
-        ps.close();
-        con.close();
-
-        return rows > 0;
+        return extracted(form);
     }
 
-    public static ArrayList<Record> getUserRecords(String id_user) throws Exception {
-        ArrayList<Record> records = new ArrayList<>();
 
-        String sql = "SELECT * FROM records WHERE id_author = ? AND is_hidden = 0 ORDER BY state_name, record_type ASC;";
+//    public static ArrayList<Record> getUserRecords(String id_user) throws Exception {
+//        ArrayList<Record> records = new ArrayList<>();
+//
+//        String sql = "SELECT * FROM records WHERE id_author = ? AND is_hidden = 0 ORDER BY state_name, record_type ASC;";
+//
+//        Connection con = DBConnection.open();
+//        PreparedStatement ps = con.prepareStatement(sql);
+//
+//        ps.setString(1, id_user);
+//
+//        ResultSet rs = ps.executeQuery();
+//        while (rs.next()) {
+//            Record r = getRecord(rs.getString("id_record"), rs.getInt("record_number"));
+//            records.add(r);
+//        }
+//
+//        rs.close();
+//        ps.close();
+//        con.close();
+//
+//        return records;
+//    }
 
-        Connection con = DBConnection.open();
-        PreparedStatement ps = con.prepareStatement(sql);
 
-        ps.setString(1, id_user);
+    public static ArrayList<Record> getUserRecords2(String id_user) throws Exception {
+        Form form = Form.form();
+        form.add("operation", "userRecords");
+        form.add("id_user", id_user);
 
-        ResultSet rs = ps.executeQuery();
-        while (rs.next()) {
-            Record r = getRecord(rs.getString("id_record"), rs.getInt("record_number"));
-            records.add(r);
-        }
-
-        rs.close();
-        ps.close();
-        con.close();
-
-        return records;
+        return getRecords(form);
     }
 
-    public static ArrayList<Record> getApprovedRecords() throws Exception {
-        ArrayList<Record> records = new ArrayList<>();
 
-        String sql = "SELECT * FROM records WHERE is_public = 1 AND is_hidden = 0 ORDER BY state_name, record_type ASC;";
+//    public static ArrayList<Record> getApprovedRecords() throws Exception {
+//        ArrayList<Record> records = new ArrayList<>();
+//
+//        String sql = "SELECT * FROM records WHERE is_public = 1 AND is_hidden = 0 ORDER BY state_name, record_type ASC;";
+//
+//        Connection con = DBConnection.open();
+//
+//        ResultSet rs = con.prepareStatement(sql).executeQuery();
+//
+//        while (rs.next()) {
+//            Record r = getRecord(rs.getString("id_record"), rs.getInt("record_number"));
+//            records.add(r);
+//        }
+//
+//        rs.close();
+//        con.close();
+//
+//        return records;
+//    }
 
-        Connection con = DBConnection.open();
 
-        ResultSet rs = con.prepareStatement(sql).executeQuery();
+    public static ArrayList<Record> getApprovedRecords2() throws Exception {
+        Form form = Form.form();
+        form.add("operation", "approvedRecords");
 
-        while (rs.next()) {
-            Record r = getRecord(rs.getString("id_record"), rs.getInt("record_number"));
-            records.add(r);
-        }
-
-        rs.close();
-        con.close();
-
-        return records;
+        return getRecords(form);
     }
 
-    public static ArrayList<Record> getStateSpecificRecords(StateNames state) throws Exception {
-        ArrayList<Record> records = new ArrayList<>();
 
-        String sql = "SELECT * FROM records WHERE is_hidden = 0 AND is_public = 1 AND state_name = ? ORDER BY record_type;";
+//    public static ArrayList<Record> getStateSpecificRecords(StateNames state) throws Exception {
+//        ArrayList<Record> records = new ArrayList<>();
+//
+//        String sql = "SELECT * FROM records WHERE is_hidden = 0 AND is_public = 1 AND state_name = ? ORDER BY record_type;";
+//
+//        Connection con = DBConnection.open();
+//
+//        PreparedStatement ps = con.prepareStatement(sql);
+//        ps.setString(1, state.toString());
+//
+//        ResultSet rs = ps.executeQuery();
+//
+//        while (rs.next()) {
+//            Record r = getRecord(rs.getString("id_record"), rs.getInt("record_number"));
+//            records.add(r);
+//        }
+//
+//        rs.close();
+//        ps.close();
+//        con.close();
+//
+//        return records;
+//    }
 
-        Connection con = DBConnection.open();
 
-        PreparedStatement ps = con.prepareStatement(sql);
-        ps.setString(1, state.toString());
+    public static ArrayList<Record> getStateSpecificRecords2(StateNames state) throws Exception {
+        Form form = Form.form();
+        form.add("operation", "stateRecords");
+        form.add("state_name", state.toString());
 
-        ResultSet rs = ps.executeQuery();
-
-        while (rs.next()) {
-            Record r = getRecord(rs.getString("id_record"), rs.getInt("record_number"));
-            records.add(r);
-        }
-
-        rs.close();
-        ps.close();
-        con.close();
-
-        return records;
+        return getRecords(form);
     }
 
-    public static ArrayList<Record> getTypeSpecificRecords(RecordType type) throws Exception {
-        ArrayList<Record> records = new ArrayList<>();
 
-        String sql = "SELECT * FROM records WHERE is_hidden = 0 AND is_public = 1 AND record_type = ? ORDER BY state_name;";
+//    public static ArrayList<Record> getTypeSpecificRecords(RecordType type) throws Exception {
+//        ArrayList<Record> records = new ArrayList<>();
+//
+//        String sql = "SELECT * FROM records WHERE is_hidden = 0 AND is_public = 1 AND record_type = ? ORDER BY state_name;";
+//
+//        Connection con = DBConnection.open();
+//
+//        PreparedStatement ps = con.prepareStatement(sql);
+//        ps.setString(1, type.toString());
+//
+//        ResultSet rs = ps.executeQuery();
+//
+//        while (rs.next()) {
+//            Record r = getRecord(rs.getString("id_record"), rs.getInt("record_number"));
+//            records.add(r);
+//        }
+//
+//        rs.close();
+//        ps.close();
+//        con.close();
+//
+//        return records;
+//    }
 
-        Connection con = DBConnection.open();
 
-        PreparedStatement ps = con.prepareStatement(sql);
-        ps.setString(1, type.toString());
+    public static ArrayList<Record> getTypeSpecificRecords2(RecordType type) throws Exception {
+        Form form = Form.form();
+        form.add("operation", "typeRecords");
+        form.add("type_name", type.toString());
 
-        ResultSet rs = ps.executeQuery();
-
-        while (rs.next()) {
-            Record r = getRecord(rs.getString("id_record"), rs.getInt("record_number"));
-            records.add(r);
-        }
-
-        rs.close();
-        ps.close();
-        con.close();
-
-        return records;
+        return getRecords(form);
     }
 
-    public static ArrayList<Record> getVerySpecificRecords(StateNames state ,RecordType type) throws Exception {
-        ArrayList<Record> records = new ArrayList<>();
 
-        String sql = "SELECT * FROM records WHERE is_hidden = 0 AND is_public = 1 AND state_name = ? AND record_type = ? ;";
+//    public static ArrayList<Record> getVerySpecificRecords(StateNames state ,RecordType type) throws Exception {
+//        ArrayList<Record> records = new ArrayList<>();
+//
+//        String sql = "SELECT * FROM records WHERE is_hidden = 0 AND is_public = 1 AND state_name = ? AND record_type = ? ;";
+//
+//        Connection con = DBConnection.open();
+//
+//        PreparedStatement ps = con.prepareStatement(sql);
+//        ps.setString(1, state.toString());
+//        ps.setString(2, type.toString());
+//
+//        ResultSet rs = ps.executeQuery();
+//
+//        while (rs.next()) {
+//            Record r = getRecord(rs.getString("id_record"), rs.getInt("record_number"));
+//            records.add(r);
+//        }
+//
+//        rs.close();
+//        ps.close();
+//        con.close();
+//
+//        return records;
+//    }
 
-        Connection con = DBConnection.open();
 
-        PreparedStatement ps = con.prepareStatement(sql);
-        ps.setString(1, state.toString());
-        ps.setString(2, type.toString());
+    public static ArrayList<Record> getVerySpecificRecords2(StateNames state ,RecordType type) throws Exception{
+        Form form = Form.form();
+        form.add("operation", "specificRecords");
+        form.add("state_name", state.toString());
+        form.add("type_name", type.toString());
 
-        ResultSet rs = ps.executeQuery();
-
-        while (rs.next()) {
-            Record r = getRecord(rs.getString("id_record"), rs.getInt("record_number"));
-            records.add(r);
-        }
-
-        rs.close();
-        ps.close();
-        con.close();
-
-        return records;
+        return getRecords(form);
     }
+
 
     public static void getPDF(StateNames state) {
         ArrayList<Record> records = new ArrayList<>();
         try{
-            records = getStateSpecificRecords(state);
-        if (records.isEmpty()) {
-            DialogHelper.errorMessageDialog("No se encontró ningún registro de: " + state.toString(), "Error de guardado.");
-            return;
-        }
+            records = getStateSpecificRecords2(state);
+            if (records.isEmpty()) {
+                DialogHelper.errorMessageDialog("No se encontró ningún registro de: " + state.toString(), "Error de guardado.");
+                return;
+            }
 
 
             Document document = new Document(PageSize.A4, 50, 50, 40, 40);
@@ -294,7 +419,7 @@ public class RecordServicesSQL {
                 Image image;
 
                 if (record.getImage() != null){
-                image = Image.getInstance(Base64.getDecoder().decode(record.getImage()));
+                    image = Image.getInstance(Base64.getDecoder().decode(record.getImage()));
                 } else image = Image.getInstance("src/main/java/proyecto/resources/imgnotfound.png");
 
                 image.scaleAbsolute(150, 150);
@@ -336,64 +461,114 @@ public class RecordServicesSQL {
         }
     }
 
-    private static Record getQueryResult(ResultSet rs) throws Exception {
-        Record r = null;
-        try {
-            if (rs.next()) {
-                r = new Record(
-                        rs.getString("id_record"),
-                        rs.getInt("record_number"),
-                        rs.getString("id_author"),
-                        Enum.valueOf(StateNames.class, rs.getString("state_name")),
-                        Enum.valueOf(RecordType.class, rs.getString("record_type")),
-                        rs.getString("title"),
-                        rs.getString("description"),
-                        rs.getString("image"),
-                        rs.getString("image_name"),
-                        rs.getInt("is_hidden"),
-                        rs.getInt("is_public"),
-                        UserServicesSQL.getUser2(rs.getString("id_author"))
-                );
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return r;
+
+//    private static Record getQueryResult(ResultSet rs) throws Exception {
+//        Record r = null;
+//        try {
+//            if (rs.next()) {
+//                r = new Record(
+//                        rs.getString("id_record"),
+//                        rs.getInt("record_number"),
+//                        rs.getString("id_author"),
+//                        Enum.valueOf(StateNames.class, rs.getString("state_name")),
+//                        Enum.valueOf(RecordType.class, rs.getString("record_type")),
+//                        rs.getString("title"),
+//                        rs.getString("description"),
+//                        rs.getString("image"),
+//                        rs.getString("image_name"),
+//                        rs.getInt("is_hidden"),
+//                        rs.getInt("is_public"),
+//                        UserServicesSQL.getUser2(rs.getString("id_author"))
+//                );
+//            }
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//        return r;
+//    }
+
+
+//    public static int getRecordNumbers(String id_record) throws  Exception{
+//        ArrayList<Record> records = new ArrayList<>();
+//        String sql = "SELECT * FROM records WHERE id_record = ?;";
+//
+//        Connection con = DBConnection.open();
+//        PreparedStatement ps = con.prepareStatement(sql);
+//
+//        ps.setString(1, id_record);
+//
+//        ResultSet rs = ps.executeQuery();
+//
+//        while (rs.next()) {
+//            Record r = getRecord(rs.getString("id_record"), rs.getInt("record_number"));
+//            records.add(r);
+//        }
+//
+//        rs.close();
+//        ps.close();
+//        con.close();
+//
+//        return records.size();
+//    }
+
+
+    public static int getRecordNumbers2(String id_record) throws  Exception{
+        int numberOfRecords;
+
+        Form form = Form.form();
+        form.add("operation", "amount");
+        form.add("id_record", id_record);
+
+        String result = Request.post(
+                url + "end_point_records.php"
+        ).bodyForm(form.build()).execute().returnContent().asString();
+
+
+        numberOfRecords = Integer.parseInt(result);
+
+        return numberOfRecords;
     }
 
-    public static int getRecordNumbers(String id_record) throws  Exception{
-        ArrayList<Record> records = new ArrayList<>();
-        String sql = "SELECT * FROM records WHERE id_record = ?;";
-
-        Connection con = DBConnection.open();
-        PreparedStatement ps = con.prepareStatement(sql);
-
-        ps.setString(1, id_record);
-
-        ResultSet rs = ps.executeQuery();
-
-        while (rs.next()) {
-            Record r = getRecord(rs.getString("id_record"), rs.getInt("record_number"));
-            records.add(r);
-        }
-
-        rs.close();
-        ps.close();
-        con.close();
-
-        return records.size();
-    }
 
     private static int[] getNumberOfRecords() {
         int [] number = new int[32];
         for(StateNames names : StateNames.values()){
             try {
-                number[names.ordinal()] = getStateSpecificRecords(names).size();
+                number[names.ordinal()] = getStateSpecificRecords2(names).size();
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
 
         return number;
+    }
+
+
+    private static ArrayList<Record> getRecords(Form form) throws Exception {
+        ArrayList<Record> records = new ArrayList<>();
+
+        String results = Request.post(
+                url + "end_point_records.php"
+        ).bodyForm(form.build()).execute().returnContent().asString();
+
+
+        Type listType = new TypeToken<ArrayList<Record>>(){}.getType();
+        records = new Gson().fromJson(results, listType);
+
+        for(Record r : records){
+            r.setAuthor(UserServicesSQL.getUser2(r.getId_author()));
+        }
+
+        return records;
+    }
+
+
+    private static boolean extracted(Form form) throws IOException {
+        String result = Request.post(
+                url + "end_point_records.php"
+        ).bodyForm(form.build()).execute().returnContent().asString();
+
+
+        return !result.contains("\"error\"");
     }
 }
