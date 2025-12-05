@@ -352,7 +352,7 @@ public class RecordServicesSQL {
                         rs.getString("image_name"),
                         rs.getInt("is_hidden"),
                         rs.getInt("is_public"),
-                        UserServicesSQL.getUser(rs.getString("id_author"))
+                        UserServicesSQL.getUser2(rs.getString("id_author"))
                 );
             }
         } catch (Exception e) {

@@ -23,7 +23,7 @@ public class Session {
     public static boolean logIn(String username, String password) {
         boolean result = false;
         try {
-            User search = UserServicesSQL.getUser(username, password);
+            User search = UserServicesSQL.getUser2(username, password);
             if (search != null) {
                 DialogHelper.infoMessageDialog(
                         "Bienvenido: " + username,
@@ -41,12 +41,12 @@ public class Session {
     public static boolean signUp(UserType type, String username, String password) {
         boolean result = false;
         try {
-            if (! UserServicesSQL.checkUsername(username)) {
+            if (! UserServicesSQL.checkUsername2(username)) {
                 user.setUser_type(type);
                 user.setUsername(username);
                 user.setPassword(password);
-                if (UserServicesSQL.addUser(user)) {
-                    user = UserServicesSQL.getUser(username, password);
+                if (UserServicesSQL.addUser2(user)) {
+                    user = UserServicesSQL.getUser2(username, password);
                     DialogHelper.infoMessageDialog(
                             "Cuenta creada exitosamente.",
                             "Cuenta creada"

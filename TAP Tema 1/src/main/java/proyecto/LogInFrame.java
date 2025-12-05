@@ -523,7 +523,7 @@ public class LogInFrame extends javax.swing.JFrame {
 
         if (logIn) {
             try {
-                if (UserServicesSQL.numberOfUsers() == 0) {
+                if (UserServicesSQL.numberOfUsers2() == 0) {
                     DialogHelper.errorMessageDialog(
                             "No hay ningún usuario registrado aún",
                             "Sin usuarios registrados."
