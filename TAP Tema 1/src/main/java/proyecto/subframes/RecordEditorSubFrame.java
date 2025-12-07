@@ -437,7 +437,8 @@ public class RecordEditorSubFrame extends javax.swing.JPanel {
             try {
                 Record aux = RecordServicesSQL.addRecord2(record);
                 if(record != null) {
-                    if (isPublic == 0 ) RequestServicesSQL.requestQuery(aux);
+                    if (isPublic == 0 )
+                        if(RequestServicesSQL.requestQuery2(aux)) DialogHelper.infoMessageDialog("Espera a que un administrador acepte tu registro." , "Espera verificación.");
                     if (edit) RecordServicesSQL.deleteRecord2(record);
                     homePanel.endEditing();
                     return;

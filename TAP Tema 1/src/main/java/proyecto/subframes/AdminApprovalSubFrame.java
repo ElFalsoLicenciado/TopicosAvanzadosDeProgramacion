@@ -25,7 +25,7 @@ public class AdminApprovalSubFrame extends javax.swing.JPanel {
 
         panelRequestList.setLayout(gridLayout);
         try {
-            requests = RequestServicesSQL.getRequests();
+            requests = RequestServicesSQL.getRequests2();
         } catch (Exception e) {
             e.printStackTrace();
         }

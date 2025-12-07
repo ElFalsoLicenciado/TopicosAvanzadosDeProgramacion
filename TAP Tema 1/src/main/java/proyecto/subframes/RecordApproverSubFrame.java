@@ -4,8 +4,9 @@ import proyecto.HomeFrame;
 import proyecto.enums.RequestStatus;
 import proyecto.models.Record;
 import proyecto.models.Request;
+import proyecto.services.RecordServicesSQL;
 import proyecto.services.RequestServicesSQL;
-import proyecto.services.UserServicesSQL;
+import proyecto.utils.DialogHelper;
 import proyecto.utils.Other;
 
 import javax.swing.*;
@@ -40,7 +41,7 @@ public class RecordApproverSubFrame extends javax.swing.JPanel {
             fieldCategoria.setText(type);
             fieldDescripcion.setText(record.getDescription());
 
-            switch (request.getStatus()){
+            switch (request.getRequest_status()){
                 case APPROVED -> {
                     labelReason.setText("Aprobado.");
                     labelAprove.setVisible(false);
@@ -309,7 +310,10 @@ public class RecordApproverSubFrame extends javax.swing.JPanel {
 
     private void btnApproveMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnApproveMouseClicked
         try {
-            if(RequestServicesSQL.setRequestStatus(request.getRecord(), RequestStatus.APPROVED, "")) homePanel.endEditing();
+            if(RequestServicesSQL.setRequestStatus2(request.getRecord(), RequestStatus.APPROVED, "")) {
+                if(RecordServicesSQL.setPublic2(request.getRecord())) DialogHelper.infoMessageDialog("La aprobación ha sido aprobada correctamente.", "Registro aprobado.");
+                homePanel.endEditing();
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -336,7 +340,11 @@ public class RecordApproverSubFrame extends javax.swing.JPanel {
     public void getReasonFromForm(String reason){
         if (! reason.isEmpty()) {
             try {
-                if (RequestServicesSQL.setRequestStatus(request.getRecord(), RequestStatus.REJECTED, reason)) homePanel.endEditing();
+                if (RequestServicesSQL.setRequestStatus2(request.getRecord(), RequestStatus.REJECTED, reason))
+                {
+                    DialogHelper.infoMessageDialog("Aprobación denegada, razón: " + reason, "Registro denegado.");
+                    homePanel.endEditing();
+                }
             } catch (Exception e) {
                 e.printStackTrace();
             }

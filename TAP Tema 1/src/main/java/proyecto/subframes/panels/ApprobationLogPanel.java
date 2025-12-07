@@ -30,7 +30,7 @@ public class ApprobationLogPanel extends javax.swing.JPanel {
                     String.format("Estado: %s. Categoría: %s.", state, type)
             );
 
-            switch (request.getStatus()){
+            switch (request.getRequest_status()){
                 case WAITING -> labelStatus.setText("Esperando aprobación.");
                 case APPROVED -> labelStatus.setText("Aprobado.");
                 case REJECTED -> labelStatus.setText("Denegado, razón: " + request.getReason());

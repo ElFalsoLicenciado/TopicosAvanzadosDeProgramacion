@@ -7,7 +7,6 @@ import org.apache.hc.client5.http.fluent.Request;
 import proyecto.enums.RecordType;
 import proyecto.enums.StateNames;
 import proyecto.models.Record;
-import proyecto.utils.DBConnection;
 import proyecto.utils.DialogHelper;
 import proyecto.utils.Other;
 
@@ -15,9 +14,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.lang.reflect.Type;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.Base64;
 import java.util.UUID;
@@ -362,11 +358,11 @@ public class RecordServicesSQL {
 
 
     public static void getPDF(StateNames state) {
-        ArrayList<Record> records = new ArrayList<>();
+        ArrayList<Record> records;
         try{
             records = getStateSpecificRecords2(state);
             if (records.isEmpty()) {
-                DialogHelper.errorMessageDialog("No se encontró ningún registro de: " + state.toString(), "Error de guardado.");
+                DialogHelper.errorMessageDialog("No se encontró ningún registro de: " + state, "Error de guardado.");
                 return;
             }
 
@@ -545,7 +541,7 @@ public class RecordServicesSQL {
 
 
     private static ArrayList<Record> getRecords(Form form) throws Exception {
-        ArrayList<Record> records = new ArrayList<>();
+        ArrayList<Record> records;
 
         String results = Request.post(
                 url + "end_point_records.php"

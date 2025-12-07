@@ -92,7 +92,7 @@ public class Session {
 
     public ArrayList<Request> getUserRequests() {
         try {
-            return RequestServicesSQL.getUserRequests(user.getId_user());
+            return RequestServicesSQL.getUserRequests2(user.getId_user());
         } catch (Exception e) {
             e.printStackTrace();
         }

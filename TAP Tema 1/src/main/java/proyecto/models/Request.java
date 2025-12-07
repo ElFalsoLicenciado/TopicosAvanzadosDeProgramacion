@@ -8,7 +8,7 @@ public class Request implements java.io.Serializable {
     private String id_record;
     private int record_number;
     private String id_author;
-    private RequestStatus status;
+    private RequestStatus request_status;
     private String reason = "";
     private Record record;
 
@@ -16,21 +16,21 @@ public class Request implements java.io.Serializable {
     public Request() {
     }
 
-    public Request(String id_request, String id_record, int record_number, String id_author, RequestStatus status, String reason) {
+    public Request(String id_request, String id_record, int record_number, String id_author, RequestStatus request_status, String reason) {
         this.id_request = id_request;
         this.id_record = id_record;
         this.record_number = record_number;
         this.id_author = id_author;
-        this.status = status;
+        this.request_status = request_status;
         this.reason = reason;
     }
 
-    public Request(String id_request, String id_record, int record_number, String id_author, RequestStatus status, String reason, Record record) {
+    public Request(String id_request, String id_record, int record_number, String id_author, RequestStatus request_status, String reason, Record record) {
         this.id_request = id_request;
         this.id_record = id_record;
         this.record_number = record_number;
         this.id_author = id_author;
-        this.status = status;
+        this.request_status = request_status;
         this.reason = reason;
         this.record = record;
     }
@@ -67,12 +67,12 @@ public class Request implements java.io.Serializable {
         this.id_author = id_author;
     }
 
-    public RequestStatus getStatus() {
-        return status;
+    public RequestStatus getRequest_status() {
+        return request_status;
     }
 
-    public void setStatus(RequestStatus status) {
-        this.status = status;
+    public void setRequest_status(RequestStatus request_status) {
+        this.request_status = request_status;
     }
 
     public String getReason() {
