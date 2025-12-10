@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="TAP4.practica2.SecondProductActivity">
+
+
+    <ImageView
+        android:id="@+id/imageProd2"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:src="@mipmap/imagen"
+        android:layout_marginTop="30dp" />
+
+    <TextView
+        android:id="@+id/textNombreProd2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Bolsa de piel"
+        android:layout_marginTop="30dp" />
+
+    <TextView
+        android:id="@+id/textPrecioProd2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="900.5"
+        android:textColor="#9C27B0"
+        android:layout_marginTop="30dp" />
+
+    <Spinner
+        android:id="@+id/spinnerCantidadProd2"
+        android:layout_marginTop="30dp"
+        android:entries="@array/Cantidades"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp" />
+
+
+    <Button
+        android:id="@+id/btnComprarProd2"
+        android:text="Comprar"
+        android:layout_marginTop="30dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/btnOmitirProd2"
+        android:text="Omitir"
+        android:backgroundTint="#aaaaaa"
+        android:layout_marginTop="30dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+
+</LinearLayout>

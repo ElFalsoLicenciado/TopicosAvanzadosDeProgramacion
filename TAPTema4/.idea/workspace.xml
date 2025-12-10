@@ -1,0 +1,396 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AndroidLayouts">
+    <shared>
+      <config />
+    </shared>
+    <layouts>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/drawable/bg_toast.xml">
+        <config>
+          <theme>@style/Theme.BautismodeFuego</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/drawable/ic_message.xml">
+        <config>
+          <theme>@style/Theme.BautismodeFuego</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
+        <config>
+          <theme>@style/Theme.BautismodeFuego</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/custom_toast.xml">
+        <config>
+          <theme>@style/Theme.BautismodeFuego</theme>
+        </config>
+      </layout>
+    </layouts>
+  </component>
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="NONE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="fc9d50ab-a0bc-44e4-9c03-3e354d5e94b2" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/asignaturas.temarios" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/lib/edisoncorSX.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/lib/jaudiotagger-3.0.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/lib/jlayer-1.0.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/lib/lib/AbsoluteLayout.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/lib/lib/TimingFramework.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/lib/lib/beansbinding-1.2.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/lib/lib/swing-layout-1.0.4.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/lib/mp3agic-0.9.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/lib/mp3agic-0.9.1-javadoc.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/lib/mp3agic-0.9.1-sources.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/lib/mp3agic-0.9.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/lib/unknown/binary/edisoncorSX/SNAPSHOT/edisoncorSX-SNAPSHOT.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/productos.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/records.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/requests.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/results/Aguascalientes.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/results/resumen.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/src/main/java/Practica1/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/src/main/java/Practica1/MiJFrame.form" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/src/main/java/Practica1/MiJFrame.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/src/main/java/Practica2/TAP_U1P2.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/src/main/java/Practica2/money.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/src/main/java/Practica2/vineboom.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/src/main/java/Practica3/Asignatura.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/src/main/java/Practica3/AsignaturaFrame.form" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/src/main/java/Practica3/AsignaturaFrame.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/src/main/java/Practica3/CapturadorTemariosFrame.form" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/src/main/java/Practica3/CapturadorTemariosFrame.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/src/main/java/Practica3/ClaseMain.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/src/main/java/Practica3/Subtema.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/src/main/java/Practica3/SubtemaPanel.form" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/src/main/java/Practica3/SubtemaPanel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/src/main/java/Practica3/SubtemasFrame.form" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/src/main/java/Practica3/SubtemasFrame.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/src/main/java/Practica3/Tema.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/src/main/java/Practica3/TemaPanel.form" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/src/main/java/Practica3/TemaPanel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/src/main/java/Practica3/TemasFrame.form" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/src/main/java/Practica3/TemasFrame.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/src/main/java/Practica4/HistorialFrame.form" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/src/main/java/Practica4/HistorialFrame.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/src/main/java/Practica4/HistorialPanel.form" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/src/main/java/Practica4/HistorialPanel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/src/main/java/Practica4/InventarioFrame.form" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/src/main/java/Practica4/InventarioFrame.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/src/main/java/Practica4/Practica_4.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/src/main/java/Practica4/TiendaFrame.form" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/src/main/java/Practica4/TiendaFrame.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/src/main/java/Practica4/extras/money.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/src/main/java/Practica4/images/20250227_130404.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/src/main/java/Practica4/images/460517427_1926744817802502_6764676756989845370_n.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/src/main/java/Practica4/images/475175624_626340616627750_3022220756056919489_n.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/src/main/java/Practica4/images/486331870_678218531553572_4878522119836844277_n.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/src/main/java/Practica4/images/486726030_1171635204417883_8439937827468504004_n.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/src/main/java/Practica4/images/492233290_122225157626212943_1183233877779084757_n.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/src/main/java/Practica4/images/495216423_122150439110575611_4078059062518389497_n.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/src/main/java/Practica4/images/495258888_3041362999353131_8578290369843193841_n.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/src/main/java/Practica4/images/495684303_1002462662082562_1645142396655679949_n.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/src/main/java/Practica4/images/499212089_122157058298487393_1483120223012483807_n.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/src/main/java/Practica4/images/499733367_122155580780579483_7935806375645198670_n.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/src/main/java/Practica4/images/499990697_122154638744527973_6744042680777454058_n.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/src/main/java/Practica4/images/503167800_1271615607723424_2587100191182939133_n.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/src/main/java/Practica4/images/516049452_1105868424931402_5613411448062930492_n.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/src/main/java/Practica4/images/518040685_733944635999741_5794669437234126470_n.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/src/main/java/Practica4/images/518372190_732577066136498_6105573672634284232_n.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/src/main/java/Practica4/images/527121844_122249014856021999_425374645654621906_n.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/src/main/java/Practica4/images/535987822_1292465762532094_1065698516781577302_n.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/src/main/java/Practica4/images/540490947_122299185944208430_6508329330180039894_n.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/src/main/java/Practica4/images/555472471_776962455177966_3128049131977084705_n.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/src/main/java/Practica4/images/cande.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/src/main/java/Practica4/images/derecha.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/src/main/java/Practica4/images/izquierda.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/src/main/java/Practica4/images/no_image_2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/src/main/java/Practica4/images/photo_2025-05-14_18-27-49.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/src/main/java/Practica4/images/photo_2025-05-14_18-30-45.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/src/main/java/Practica4/images/photo_2025-05-22_19-20-58.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/src/main/java/Practica4/images/photo_2025-07-08_09-43-58.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/src/main/java/Practica4/images/playstalker.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/src/main/java/Practica4/images/remiq.net_14077.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/src/main/java/Practica4/images/tqBxcQsJvc.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/src/main/java/Practica4/images/unknown.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/src/main/java/Practica4/images/yes.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/src/main/java/Practica4/images/занято нахуй.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/src/main/java/Practica4/models/Producto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/src/main/java/Practica4/models/Venta.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/src/main/java/Practica4/services/ProductoService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/src/main/java/Practica4/services/VentaService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/src/main/java/proyecto/HomeFrame.form" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/src/main/java/proyecto/HomeFrame.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/src/main/java/proyecto/LogInFrame.form" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/src/main/java/proyecto/LogInFrame.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/src/main/java/proyecto/Proyectos.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/src/main/java/proyecto/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/src/main/java/proyecto/Starter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/src/main/java/proyecto/Test.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/src/main/java/proyecto/enums/RecordType.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/src/main/java/proyecto/enums/RequestStatus.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/src/main/java/proyecto/enums/StateNames.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/src/main/java/proyecto/enums/UserType.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/src/main/java/proyecto/models/Record.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/src/main/java/proyecto/models/Request.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/src/main/java/proyecto/models/Session.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/src/main/java/proyecto/models/User.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/src/main/java/proyecto/resources/agus/489496123_1872564096894029_4907360869533054311_n.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/src/main/java/proyecto/resources/agus/aguascalientes.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/src/main/java/proyecto/resources/aprove.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/src/main/java/proyecto/resources/baca/20241206_133952.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/src/main/java/proyecto/resources/baca/492522295_1240113004212486_7120062313825821510_n.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/src/main/java/proyecto/resources/baca/6fba50e9-f3c3-4cf1-b7a8-fbc8a22fb574.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/src/main/java/proyecto/resources/baca/baja california.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/src/main/java/proyecto/resources/baca/download.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/src/main/java/proyecto/resources/baca/imgnotfound.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/src/main/java/proyecto/resources/bacs/474921981_927529119567042_1843877378970278987_n.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/src/main/java/proyecto/resources/bacs/494179630_727768506873714_5274207424998901918_n.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/src/main/java/proyecto/resources/bacs/498991695_24050475264550121_9118097741879075023_n.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/src/main/java/proyecto/resources/bacs/568935508_1289842496274166_5848272087945292821_n.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/src/main/java/proyecto/resources/bacs/baja california sur.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/src/main/java/proyecto/resources/bacs/imgnotfound.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/src/main/java/proyecto/resources/camp/460517427_1926744817802502_6764676756989845370_n.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/src/main/java/proyecto/resources/camp/483065467_10237970398099334_6612370661461858019_n.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/src/main/java/proyecto/resources/camp/555472471_776962455177966_3128049131977084705_n.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/src/main/java/proyecto/resources/camp/campeche.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/src/main/java/proyecto/resources/cancel.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/src/main/java/proyecto/resources/cdmx/486331870_678218531553572_4878522119836844277_n.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/src/main/java/proyecto/resources/cdmx/494179630_727768506873714_5274207424998901918_n.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/src/main/java/proyecto/resources/cdmx/494309530_678236131570592_189810071100124060_n.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/src/main/java/proyecto/resources/cdmx/495210901_122127526118410996_4349407357195817398_n.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/src/main/java/proyecto/resources/cdmx/chiapas.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/src/main/java/proyecto/resources/cdmx/imgnotfound.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/src/main/java/proyecto/resources/coah/imgnotfound.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/src/main/java/proyecto/resources/excel.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/src/main/java/proyecto/resources/imgnotfound.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/src/main/java/proyecto/resources/login.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/src/main/java/proyecto/resources/mich/ngOP.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/src/main/java/proyecto/resources/mich/playstalker.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/src/main/java/proyecto/resources/more/480198944_1359073495511405_637121423221276118_n.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/src/main/java/proyecto/resources/more/photo_2025-05-14_18-30-45.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/src/main/java/proyecto/resources/oaxa/baja california.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/src/main/java/proyecto/resources/pdf.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/src/main/java/proyecto/resources/pueb/474921981_927529119567042_1843877378970278987_n.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/src/main/java/proyecto/resources/snlp/Dosh.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/src/main/java/proyecto/resources/tlax/Dosh.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/src/main/java/proyecto/services/RecordServicesSQL.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/src/main/java/proyecto/services/RequestServicesSQL.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/src/main/java/proyecto/services/UserServicesSQL.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/src/main/java/proyecto/subframes/AdminApprovalSubFrame.form" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/src/main/java/proyecto/subframes/AdminApprovalSubFrame.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/src/main/java/proyecto/subframes/AdminResumeSubFrame.form" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/src/main/java/proyecto/subframes/AdminResumeSubFrame.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/src/main/java/proyecto/subframes/RecordApproverSubFrame.form" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/src/main/java/proyecto/subframes/RecordApproverSubFrame.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/src/main/java/proyecto/subframes/RecordEditorSubFrame.form" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/src/main/java/proyecto/subframes/RecordEditorSubFrame.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/src/main/java/proyecto/subframes/RecordManagerSubFrame.form" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/src/main/java/proyecto/subframes/RecordManagerSubFrame.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/src/main/java/proyecto/subframes/RecordReaderSubFrame.form" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/src/main/java/proyecto/subframes/RecordReaderSubFrame.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/src/main/java/proyecto/subframes/RecordSelectorSubFrame.form" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/src/main/java/proyecto/subframes/RecordSelectorSubFrame.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/src/main/java/proyecto/subframes/UserRequestsSubFrame.form" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/src/main/java/proyecto/subframes/UserRequestsSubFrame.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/src/main/java/proyecto/subframes/WriteReasonSubFrame.form" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/src/main/java/proyecto/subframes/WriteReasonSubFrame.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/src/main/java/proyecto/subframes/panels/AdminRecordPanel.form" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/src/main/java/proyecto/subframes/panels/AdminRecordPanel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/src/main/java/proyecto/subframes/panels/ApprobationLogPanel.form" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/src/main/java/proyecto/subframes/panels/ApprobationLogPanel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/src/main/java/proyecto/subframes/panels/ManageRecordPanel.form" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/src/main/java/proyecto/subframes/panels/ManageRecordPanel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/src/main/java/proyecto/subframes/panels/SelectRecordPanel.form" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/src/main/java/proyecto/subframes/panels/SelectRecordPanel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/src/main/java/proyecto/utils/DBConnection.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/src/main/java/proyecto/utils/DialogHelper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/src/main/java/proyecto/utils/Other.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/src/main/java/proyecto/utils/SecurityTools.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/src/main/resources/imgnotfound.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/users.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TAP Tema 1/ventas.json" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[DeviceId(pluginId=PhysicalDevice, isTemplate=false, identifier=serial=R58RA1LW47R)]" />
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="BautismodeFuego" type="f1a62948:ProjectNode" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Kotlin Class" />
+        <option value="layoutResourceFile" />
+        <option value="resourceFile" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="GradleScriptDefinitionsStorage" workingDir="$PROJECT_DIR$" gradleHome="C:\Users\User\.gradle\wrapper\dists\gradle-8.13-bin\5xuhj0ry160q40clulazy9h7d\gradle-8.13" javaHome="C:\Program Files\Android\Android Studio\jbr" gradleVersion="8.13" />
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6
+}</component>
+  <component name="ProjectId" id="36ZYm56PY2SIxKnfpZCAFaEr1F7" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Android App.app.executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.readMode.enableVisualFormatting": "true",
+    "cf.first.check.clang-format": "false",
+    "cidr.known.project.marker": "true",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.17",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "configurable.group.editor"
+  }
+}]]></component>
+  <component name="RunManager">
+    <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App" activateToolWindowBeforeRun="false">
+      <module name="BautismodeFuego.app" />
+      <option name="ANDROID_RUN_CONFIGURATION_SCHEMA_VERSION" value="1" />
+      <option name="DEPLOY" value="true" />
+      <option name="DEPLOY_APK_FROM_BUNDLE" value="false" />
+      <option name="DEPLOY_AS_INSTANT" value="false" />
+      <option name="ARTIFACT_NAME" value="" />
+      <option name="PM_INSTALL_OPTIONS" value="" />
+      <option name="ALL_USERS" value="false" />
+      <option name="ALWAYS_INSTALL_WITH_PM" value="false" />
+      <option name="ALLOW_ASSUME_VERIFIED" value="false" />
+      <option name="CLEAR_APP_STORAGE" value="false" />
+      <option name="DYNAMIC_FEATURES_DISABLED_LIST" value="" />
+      <option name="ACTIVITY_EXTRA_FLAGS" value="" />
+      <option name="MODE" value="default_activity" />
+      <option name="RESTORE_ENABLED" value="false" />
+      <option name="RESTORE_FILE" value="" />
+      <option name="RESTORE_FRESH_INSTALL_ONLY" value="false" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
+      <option name="TARGET_SELECTION_MODE" value="DEVICE_AND_SNAPSHOT_COMBO_BOX" />
+      <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="-1" />
+      <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
+      <option name="DEBUGGER_TYPE" value="Auto" />
+      <Auto>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+        <option name="ATTACH_ON_WAIT_FOR_DEBUGGER" value="false" />
+        <option name="DEBUG_SANDBOX_SDK" value="false" />
+      </Auto>
+      <Hybrid>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+        <option name="ATTACH_ON_WAIT_FOR_DEBUGGER" value="false" />
+        <option name="DEBUG_SANDBOX_SDK" value="false" />
+      </Hybrid>
+      <Java>
+        <option name="ATTACH_ON_WAIT_FOR_DEBUGGER" value="false" />
+        <option name="DEBUG_SANDBOX_SDK" value="false" />
+      </Java>
+      <Native>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+        <option name="ATTACH_ON_WAIT_FOR_DEBUGGER" value="false" />
+        <option name="DEBUG_SANDBOX_SDK" value="false" />
+      </Native>
+      <Profilers>
+        <option name="ADVANCED_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_CONFIGURATION_NAME" value="Java/Kotlin Method Sample (legacy)" />
+        <option name="STARTUP_NATIVE_MEMORY_PROFILING_ENABLED" value="false" />
+        <option name="NATIVE_MEMORY_SAMPLE_RATE_BYTES" value="2048" />
+      </Profilers>
+      <option name="DEEP_LINK" value="" />
+      <option name="ACTIVITY" value="" />
+      <option name="ACTIVITY_CLASS" value="" />
+      <option name="SEARCH_ACTIVITY_IN_GLOBAL_SCOPE" value="false" />
+      <option name="SKIP_ACTIVITY_VALIDATION" value="false" />
+      <method v="2">
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="fc9d50ab-a0bc-44e4-9c03-3e354d5e94b2" name="Changes" comment="" />
+      <created>1765215718398</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1765215718398</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="play_dynamic_filters_status">
+    <option name="appIdToCheckInfo">
+      <map>
+        <entry key="TAP4.practica1">
+          <value>
+            <CheckInfo lastCheckTimestamp="1765216659674" />
+          </value>
+        </entry>
+        <entry key="TAP4.practica1.test">
+          <value>
+            <CheckInfo lastCheckTimestamp="1765216659675" />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
