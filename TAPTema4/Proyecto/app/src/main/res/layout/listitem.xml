@@ -10,40 +10,39 @@
 
     <ImageView
         android:id="@+id/panelImage"
-        android:layout_width="160dp"
-        android:layout_height="140dp"
+        android:layout_width="137dp"
+        android:layout_height="171dp"
         android:backgroundTint="#000000"
         android:padding="3dp"
         android:scaleType="centerCrop"
         android:src="@mipmap/imgnotfound"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.063"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.081" />
+        app:layout_constraintVertical_bias="0.027" />
 
     <TextView
         android:id="@+id/labelTitulo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center"
+        android:layout_width="208dp"
+        android:layout_height="64dp"
+        android:gravity="center|left"
         android:text="Título"
-        android:textAlignment="center"
         android:textColor="#000000"
-        android:textSize="20sp"
+        android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.159"
+        app:layout_constraintHorizontal_bias="0.827"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/panelImage" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.149" />
 
     <TextView
         android:id="@+id/labelEstadoYCategoria"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
         android:gravity="center"
         android:text="Estado y categoría"
         android:textAlignment="center"
@@ -51,25 +50,26 @@
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/labelUsuario" />
+        app:layout_constraintHorizontal_bias="0.112"
+        app:layout_constraintStart_toEndOf="@+id/panelImage"
+        app:layout_constraintTop_toBottomOf="@+id/labelUsuario"
+        app:layout_constraintVertical_bias="0.304" />
 
     <TextView
         android:id="@+id/labelUsuario"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="4dp"
-        android:gravity="center"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="120dp"
         android:text="Usuario"
-        android:textAlignment="center"
         android:textColor="#000000"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.893"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/panelImage" />
+        app:layout_constraintHorizontal_bias="0.168"
+        app:layout_constraintStart_toEndOf="@+id/panelImage"
+        app:layout_constraintTop_toBottomOf="@+id/labelTitulo"
+        app:layout_constraintVertical_bias="0.062" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

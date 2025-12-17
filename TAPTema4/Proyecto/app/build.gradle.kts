@@ -47,6 +47,7 @@ dependencies {
     implementation("com.android.volley:volley:1.2.1")
     implementation(libs.androidx.fragment)
     implementation(libs.androidx.gridlayout)
+    implementation("com.google.code.gson:gson:2.10.1")
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
